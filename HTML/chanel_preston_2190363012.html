@@ -50,7 +50,7 @@
     <h1>Chanel Preston</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="111"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="117"></span></p>
     </div>
     <div class="info"><p>Scenes: 336</p><p>Last Scene: 33 days</p></div>
     <div class="info">
@@ -90,7 +90,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 116}];
+            const historyData = [{"date": "2025-04-09", "rank": 116}, {"date": "2025-04-09", "rank": 111}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
