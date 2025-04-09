@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Kiss</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
+        h1 { color: #003366; }
+        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .hashtags { list-style-type: none; padding: 0; }
+        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .rank-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; gap: 20px; flex-wrap: wrap; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
+        .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
+        .chart-container { max-width: 400px; width: 100%; }
+        canvas { width: 100% !important; height: auto !important; }
+        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; }
+        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
+        .titles-table th:hover { background-color: #b3d9ff; }
+        a { color: #003366; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { position: relative; width: 1920px; height: 800px; margin: auto; }
+        .mySlides { display: none; width: 100%; height: 100%; }
+        img { vertical-align: middle; width: 100%; height: 100%; object-fit: cover; }
+        .cursor { cursor: pointer; }
+        .prev, .next { cursor: pointer; position: absolute; top: 40%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext { color: #f2f2f2; font-size: 12px; padding: 8px 12px; position: absolute; top: 0; }
+        .caption-container { text-align: center; background-color: #222; padding: 2px 16px; color: white; }
+        .row:after { content: ""; display: table; clear: both; }
+        .column { float: left; width: 100.0%; }
+        .demo { opacity: 0.6; }
+        .active, .demo:hover { opacity: 1; }
+        @media only screen and (max-width: 1920px) { .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%; height:100%;"></div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="caption-container"><p id="caption"></p></div>
+            <div class="row">
+        <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="Cherry Kiss Photo 1"></div></div></div>
+    <h1>Cherry Kiss</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="32"></span></p>
+    </div>
+    <div class="info"><p>Scenes: 2889</p><p>Last Scene: 27 days</p></div>
+    <div class="info">
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 6</li>
+<li class="hashtag-item">#FOUR: 13</li>
+<li class="hashtag-item">#THREE: 7</li>
+</ul>
+        <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#FF: 2</li>
+<li class="hashtag-item">#FFM: 2</li>
+<li class="hashtag-item">#FFMM: 3</li>
+<li class="hashtag-item">#FM: 19</li>
+</ul>
+        <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#Bang: 1</li>
+<li class="hashtag-item">#Blacked: 1</li>
+<li class="hashtag-item">#CheatingMommy: 1</li>
+<li class="hashtag-item">#CherryKiss: 2</li>
+<li class="hashtag-item">#ChristianClay: 1</li>
+<li class="hashtag-item">#DatingMyStepson: 1</li>
+<li class="hashtag-item">#Girlfreindsfilms: 1</li>
+<li class="hashtag-item">#Karups: 1</li>
+<li class="hashtag-item">#MomLover: 1</li>
+<li class="hashtag-item">#MomsLover: 1</li>
+<li class="hashtag-item">#MomsTeachSex: 1</li>
+<li class="hashtag-item">#NoFilm: 1</li>
+<li class="hashtag-item">#NoPhotos: 1</li>
+<li class="hashtag-item">#OF: 1</li>
+<li class="hashtag-item">#Private: 1</li>
+<li class="hashtag-item">#SiennaRae: 1</li>
+<li class="hashtag-item">#adult: 1</li>
+<li class="hashtag-item">#backstage: 1</li>
+<li class="hashtag-item">#bts: 1</li>
+<li class="hashtag-item">#director: 1</li>
+<li class="hashtag-item">#erotica: 1</li>
+<li class="hashtag-item">#multitasking: 1</li>
+<li class="hashtag-item">#performer: 1</li>
+<li class="hashtag-item">#private: 1</li>
+</ul>
+    </div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 29</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><a href='https://t.me/c/1952866404/3' target='_blank'>BABES More Than A Bodyguard Cherry Kiss, Christian Clay</a></td><td>2023-08-18</td></tr><tr><td><a href='https://t.me/c/1952866404/2707' target='_blank'>Bang secretaries in high heels and glasses 2</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1952866404/1063' target='_blank'>BellesaFilms - Cherry Kiss & Cory Chase - The Plan</a></td><td>2024-05-10</td></tr><tr><td><a href='https://t.me/c/1952866404/3124' target='_blank'>Blacked Cherry Kiss - Hotwife Cherry Gets Dominated And Squirts - 79x - 3000px - (27 Feb, 2025)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1952866404/2571' target='_blank'>CheatingMommy 2024-12-12 Cherry Kiss & Ethan Seeks - Mrs Claus cures her loneliness - x130</a></td><td>2024-12-16</td></tr><tr><td><a href='https://t.me/c/1952866404/2272' target='_blank'>Cherry Kiss Ophelia Kaan Something Holed Something New</a></td><td>2024-09-24</td></tr><tr><td><a href='https://t.me/c/1952866404/1355' target='_blank'>Cherrypimps THIS IS NOT A DREAM</a></td><td>2024-05-22</td></tr><tr><td><a href='https://t.me/c/1952866404/996' target='_blank'>DEEPER Fix It</a></td><td>2024-04-19</td></tr><tr><td><a href='https://t.me/c/1952866404/2056' target='_blank'>DORCEL CLUB Venera Maxima & Cherry Kiss - After months of temptation</a></td><td>2024-06-14</td></tr><tr><td><a href='https://t.me/c/1952866404/2979' target='_blank'>Dad's Lesbian Lover - Scene 2 Cherry KissSky Pierce</a></td><td>2025-02-12</td></tr><tr><td><a href='https://t.me/c/1952866404/2848' target='_blank'>DatingMyStepson 2025-01-08 Cherry Kiss Parker Ambrose - Her Mom Took Me For A Test Drive - x125</a></td><td>2025-01-08</td></tr><tr><td><a href='https://t.me/c/1952866404/311' target='_blank'>DevilsFilm Cherry Kiss - Cucked By My Own Doc</a></td><td>2024-04-02</td></tr><tr><td><a href='https://t.me/c/1952866404/2311' target='_blank'>Ella Reese Debuts in an Anal Swingers Orgy</a></td><td>2024-10-17</td></tr><tr><td><a href='https://t.me/c/1952866404/13' target='_blank'>FamilySwap Swap Sons Bad Day Gets Better - S8:E5 Season 8, Episode 5 Cherry Kiss, Danny Steele</a></td><td>2023-12-07</td></tr><tr><td><a href='https://t.me/c/1952866404/17' target='_blank'>Fucking my Idol by BBCParadise</a></td><td>2024-02-28</td></tr><tr><td><a href='https://t.me/c/1952866404/2417' target='_blank'>KarupsPC Cherry Kiss - Cherry On Top x148 3000px (Dec 4th, 2024)</a></td><td>2024-12-05</td></tr><tr><td><a href='https://t.me/c/1952866404/771' target='_blank'>Makes Her Favorite Stepmom Mistake</a></td><td>2024-04-19</td></tr><tr><td><a href='https://t.me/c/1952866404/404' target='_blank'>MomSwap Cherry Kiss , Sienna Rae - I Want to be an Exotic Dancer</a></td><td>2024-04-02</td></tr><tr><td><a href='https://t.me/c/1952866404/2989' target='_blank'>MomsTeachSex 2025-03-05 Cherry Kiss Parker Ambrose - Filling Stepmoms Pot Of Gold - x130</a></td><td>2025-03-11</td></tr><tr><td><a href='https://t.me/c/1952866404/2137' target='_blank'>MomsTeachSex Cherry Kiss, Jade Maris - Stepmom Helps My Sex Starved Girlfriend</a></td><td>2024-08-09</td></tr><tr><td><a href='https://t.me/c/1952866404/2304' target='_blank'>ONLYFANS</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1952866404/1743' target='_blank'>Penthouse Cherry Kiss Wants an XXXtra Massage</a></td><td>2024-06-05</td></tr><tr><td><a href='https://t.me/c/1952866404/7' target='_blank'>Porn World Cheating Housewife Cherry Kiss Gets DPd By BBC Masseuse And Hubby</a></td><td>2023-08-21</td></tr><tr><td><a href='https://t.me/c/1952866404/160' target='_blank'>Porn World Cock Hungry Blonde Cherry Kiss Tempts Hot Masseuse Into Anal</a></td><td>2024-03-07</td></tr><tr><td><a href='https://t.me/c/1952866404/748' target='_blank'>Sharing My Wife 2 - Scene 2 - Cannot Tame Her</a></td><td>2024-04-14</td></tr><tr><td><a href='https://t.me/c/1952866404/246' target='_blank'>Squirt Suck Rim Fuck / Cumming To LA</a></td><td>2024-04-02</td></tr><tr><td><a href='https://t.me/c/1952866404/1796' target='_blank'>SweetSinner Cherry Kiss - Playtime!</a></td><td>2024-06-14</td></tr><tr><td><a href='https://t.me/c/1952866404/2065' target='_blank'>Tushy Cherry Kiss - Blonde Bombshell Gets Her Ass Gaped Wide Open</a></td><td>2024-06-24</td></tr><tr><td><a href='https://t.me/c/1952866404/1730' target='_blank'>realityjunkies cherry kiss working girls scene 1 career focused</a></td><td>2024-06-02</td></tr></tbody></table></div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { clearInterval(autoSlide); showSlides(slideIndex += n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function currentSlide(n) { clearInterval(autoSlide); showSlides(slideIndex = n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        let autoSlide = setInterval(() => plusSlides(1), 3000);
+
+        // Chart.js for rank history
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('rankChart').getContext('2d');
+            const historyData = [{"date": "2025-04-09", "rank": 35}];
+            const dates = historyData.map(entry => entry.date);
+            const ranks = historyData.map(entry => entry.rank);
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [{ label: 'Rank Over Time', data: ranks, borderColor: '#003366', backgroundColor: 'rgba(0, 51, 102, 0.2)', fill: true, tension: 0.4 }] },
+                options: { scales: { y: { beginAtZero: true, reverse: true, title: { display: true, text: 'Rank' }, ticks: { stepSize: 1 } }, x: { title: { display: true, text: 'Date' } } }, plugins: { legend: { display: true } } }
+            });
+        });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections[(columnIndex + 1) % 2] = 0; // Reset other column
+        }
+    </script>
+</body>
+</html>

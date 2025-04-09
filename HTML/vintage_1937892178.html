@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
+        h1 { color: #003366; }
+        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .hashtags { list-style-type: none; padding: 0; }
+        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .rank-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; gap: 20px; flex-wrap: wrap; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
+        .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
+        .chart-container { max-width: 400px; width: 100%; }
+        canvas { width: 100% !important; height: auto !important; }
+        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; }
+        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
+        .titles-table th:hover { background-color: #b3d9ff; }
+        a { color: #003366; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { position: relative; width: 1920px; height: 800px; margin: auto; }
+        .mySlides { display: none; width: 100%; height: 100%; }
+        img { vertical-align: middle; width: 100%; height: 100%; object-fit: cover; }
+        .cursor { cursor: pointer; }
+        .prev, .next { cursor: pointer; position: absolute; top: 40%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext { color: #f2f2f2; font-size: 12px; padding: 8px 12px; position: absolute; top: 0; }
+        .caption-container { text-align: center; background-color: #222; padding: 2px 16px; color: white; }
+        .row:after { content: ""; display: table; clear: both; }
+        .column { float: left; width: 100.0%; }
+        .demo { opacity: 0.6; }
+        .active, .demo:hover { opacity: 1; }
+        @media only screen and (max-width: 1920px) { .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%; height:100%;"></div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="caption-container"><p id="caption"></p></div>
+            <div class="row">
+        <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="Vintage Photo 1"></div></div></div>
+    <h1>Vintage</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="15"></span></p>
+    </div>
+    <div class="info"><p>Scenes: 880</p><p>Last Scene: 15 days</p></div>
+    <div class="info">
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 14</li>
+<li class="hashtag-item">#FOUR: 17</li>
+<li class="hashtag-item">#THREE: 7</li>
+</ul>
+        <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li>No scene type hashtags found</li></ul>
+        <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#Abigail_Clayton: 2</li>
+<li class="hashtag-item">#Adriano_Veronesi: 1</li>
+<li class="hashtag-item">#Alan_Adrian: 3</li>
+<li class="hashtag-item">#Alban_Ceray: 1</li>
+<li class="hashtag-item">#Alf_Conners: 1</li>
+<li class="hashtag-item">#Alpha_France: 1</li>
+<li class="hashtag-item">#André_Chazel: 1</li>
+<li class="hashtag-item">#Angelika_Hefner: 1</li>
+<li class="hashtag-item">#Anna_Ventura: 1</li>
+<li class="hashtag-item">#Anne_Perry_Rhine: 1</li>
+<li class="hashtag-item">#Annette_Haven: 3</li>
+<li class="hashtag-item">#Anthony_Riverton: 1</li>
+<li class="hashtag-item">#Armand_Weston: 1</li>
+<li class="hashtag-item">#Art_Ben: 1</li>
+<li class="hashtag-item">#Ashlyn_Gere: 7</li>
+<li class="hashtag-item">#Barbara_Moose: 3</li>
+<li class="hashtag-item">#Becky_Savage: 1</li>
+<li class="hashtag-item">#Bethanna: 3</li>
+<li class="hashtag-item">#Biggi_Stenzhorn: 1</li>
+<li class="hashtag-item">#Bobby_Astyr: 7</li>
+<li class="hashtag-item">#Bobby_Brigante: 1</li>
+<li class="hashtag-item">#Bobby_Spector: 1</li>
+<li class="hashtag-item">#Brigette_Lynne: 1</li>
+<li class="hashtag-item">#Brigitte_Lahaie: 7</li>
+<li class="hashtag-item">#Brooke_West: 1</li>
+<li class="hashtag-item">#Caballero_Home_Video: 1</li>
+<li class="hashtag-item">#Caballero_Video: 1</li>
+<li class="hashtag-item">#Candida_Royalle: 1</li>
+<li class="hashtag-item">#Carl_Heinz_Kühn: 1</li>
+<li class="hashtag-item">#Carla_Turner: 2</li>
+<li class="hashtag-item">#Carol_Cross: 3</li>
+<li class="hashtag-item">#Chloë_des_Lysses: 16</li>
+<li class="hashtag-item">#Christine_Berg: 3</li>
+<li class="hashtag-item">#Christine_Szenetra: 2</li>
+<li class="hashtag-item">#Chuck_Vincent: 1</li>
+<li class="hashtag-item">#Clair_Dia: 1</li>
+<li class="hashtag-item">#Claus_Sasse: 1</li>
+<li class="hashtag-item">#Clea_Carson: 1</li>
+<li class="hashtag-item">#Colleen_Brennan: 3</li>
+<li class="hashtag-item">#Crystal_Dawn: 1</li>
+<li class="hashtag-item">#Curtis_Hollingwood: 1</li>
+<li class="hashtag-item">#Dagmar: 8</li>
+<li class="hashtag-item">#Dan_T_Mann: 1</li>
+<li class="hashtag-item">#Danielle: 5</li>
+<li class="hashtag-item">#Danièle_Troeger: 1</li>
+<li class="hashtag-item">#David_Christopher: 3</li>
+<li class="hashtag-item">#David_Morris: 1</li>
+<li class="hashtag-item">#David_Pinney: 1</li>
+<li class="hashtag-item">#David_Williams: 1</li>
+<li class="hashtag-item">#Debbie_Revenge: 1</li>
+<li class="hashtag-item">#Dennis_Jones: 1</li>
+<li class="hashtag-item">#Desiree_Cousteau: 1</li>
+<li class="hashtag-item">#Desiree_Lane: 1</li>
+<li class="hashtag-item">#Diotta_Fatou: 1</li>
+<li class="hashtag-item">#Drea: 1</li>
+<li class="hashtag-item">#Edward_B_Davis: 1</li>
+<li class="hashtag-item">#Elaine_Wells: 1</li>
+<li class="hashtag-item">#Elite_Film: 2</li>
+<li class="hashtag-item">#Elke_Kraus: 1</li>
+<li class="hashtag-item">#Elsa_Maroussia: 1</li>
+<li class="hashtag-item">#Elysabeth_Blin: 1</li>
+<li class="hashtag-item">#Emmanuelle_Parèze: 1</li>
+<li class="hashtag-item">#Eric_Edwards: 1</li>
+<li class="hashtag-item">#Eric_Falk: 1</li>
+<li class="hashtag-item">#Eric_Monti: 1</li>
+<li class="hashtag-item">#Erica_Havens: 1</li>
+<li class="hashtag-item">#Erica_Richardson: 1</li>
+<li class="hashtag-item">#Erwin_C_Dietrich: 2</li>
+<li class="hashtag-item">#Esther_Moser: 1</li>
+<li class="hashtag-item">#Eva_Henderson: 2</li>
+<li class="hashtag-item">#Evart_Enterprises: 1</li>
+<li class="hashtag-item">#FILM: 1</li>
+<li class="hashtag-item">#Flore_Sollier: 1</li>
+<li class="hashtag-item">#Flower: 1</li>
+<li class="hashtag-item">#France_Lomay: 1</li>
+<li class="hashtag-item">#Francois_Papillon: 1</li>
+<li class="hashtag-item">#Frank_Serrone: 1</li>
+<li class="hashtag-item">#G_D_Productions: 1</li>
+<li class="hashtag-item">#Gabriel_Pontello: 2</li>
+<li class="hashtag-item">#George_Payne: 2</li>
+<li class="hashtag-item">#Georges_Fleury: 1</li>
+<li class="hashtag-item">#Georgina_Spelvin: 2</li>
+<li class="hashtag-item">#Gloria_Leonard: 1</li>
+<li class="hashtag-item">#Gloria_Todd: 2</li>
+<li class="hashtag-item">#Guy_Royer: 1</li>
+<li class="hashtag-item">#Hans_Billian: 1</li>
+<li class="hashtag-item">#Hans_Peter_Kremser: 2</li>
+<li class="hashtag-item">#Hans_Ruedi_Isler: 1</li>
+<li class="hashtag-item">#Helen_Madigan: 1</li>
+<li class="hashtag-item">#Henri_Pachard: 1</li>
+<li class="hashtag-item">#Herschel_Savage: 4</li>
+<li class="hashtag-item">#Jack_Remy: 1</li>
+<li class="hashtag-item">#Jackie_O_Neill: 2</li>
+<li class="hashtag-item">#Jamie_Gillis: 5</li>
+<li class="hashtag-item">#Jane_Baker: 1</li>
+<li class="hashtag-item">#Jay_Serling: 1</li>
+<li class="hashtag-item">#Jean_Desvilles: 1</li>
+<li class="hashtag-item">#Jerome_Carter: 1</li>
+<li class="hashtag-item">#Jerry_Butler: 1</li>
+<li class="hashtag-item">#Jesus_Franco: 1</li>
+<li class="hashtag-item">#Jimmy_Ray: 1</li>
+<li class="hashtag-item">#Jimmy_Starr: 1</li>
+<li class="hashtag-item">#Joanna_Storm: 1</li>
+<li class="hashtag-item">#Joe_Santini: 3</li>
+<li class="hashtag-item">#Joe_Sarno: 1</li>
+<li class="hashtag-item">#Joey_Silvera: 6</li>
+<li class="hashtag-item">#John_Holmes: 1</li>
+<li class="hashtag-item">#John_Leslie: 5</li>
+<li class="hashtag-item">#John_Seeman: 1</li>
+<li class="hashtag-item">#John_Stagliano: 1</li>
+<li class="hashtag-item">#Jonny_Soster: 1</li>
+<li class="hashtag-item">#Joseph_Stryker: 1</li>
+<li class="hashtag-item">#Juliet_Anderson: 4</li>
+<li class="hashtag-item">#K_Keene: 1</li>
+<li class="hashtag-item">#Kali_Hansa: 1</li>
+<li class="hashtag-item">#Kandi_Barbour: 1</li>
+<li class="hashtag-item">#Karin_Lorson: 2</li>
+<li class="hashtag-item">#Katja_Eck: 1</li>
+<li class="hashtag-item">#Kay_Parker: 11</li>
+<li class="hashtag-item">#Kelly_Nichols: 1</li>
+<li class="hashtag-item">#Kemal_Horulu: 1</li>
+<li class="hashtag-item">#Klaus_Multia: 3</li>
+<li class="hashtag-item">#Kristine_Heller: 1</li>
+<li class="hashtag-item">#Leo_Lovemore: 1</li>
+<li class="hashtag-item">#Leon_Gucci: 2</li>
+<li class="hashtag-item">#Leonard_Kirtman: 1</li>
+<li class="hashtag-item">#Lesllie_Bovee: 15</li>
+<li class="hashtag-item">#Liliane_Lemieuvre: 1</li>
+<li class="hashtag-item">#Linda_Dull: 1</li>
+<li class="hashtag-item">#Little_Oral_Annie: 5</li>
+<li class="hashtag-item">#Liza_Dwyer: 1</li>
+<li class="hashtag-item">#Lori_Blue: 1</li>
+<li class="hashtag-item">#Marcia_Minor: 1</li>
+<li class="hashtag-item">#Marie_Christine_Chireix: 1</li>
+<li class="hashtag-item">#Marie_Line_Chanaud: 1</li>
+<li class="hashtag-item">#Marilyn_Chambers: 1</li>
+<li class="hashtag-item">#Mark_Le_Beau: 1</li>
+<li class="hashtag-item">#Marlies_Haas: 1</li>
+<li class="hashtag-item">#Martine_Grimaud: 1</li>
+<li class="hashtag-item">#Maude_Carolle: 1</li>
+<li class="hashtag-item">#Merle_Michaels: 5</li>
+<li class="hashtag-item">#Metro: 1</li>
+<li class="hashtag-item">#Michael_Knight: 1</li>
+<li class="hashtag-item">#Michael_Morrison: 1</li>
+<li class="hashtag-item">#Mike_Montana: 1</li>
+<li class="hashtag-item">#Moriah: 1</li>
+<li class="hashtag-item">#Nadine_Pascal: 1</li>
+<li class="hashtag-item">#Nancy_Dare: 1</li>
+<li class="hashtag-item">#Nancy_Hoffman: 1</li>
+<li class="hashtag-item">#Nena_Das_Geile_Biest_Von_Nebenan: 1</li>
+<li class="hashtag-item">#Nick_Niter: 1</li>
+<li class="hashtag-item">#Nicole_Black: 1</li>
+<li class="hashtag-item">#Nicole_Blanc: 1</li>
+<li class="hashtag-item">#Nikki_Dial: 1</li>
+<li class="hashtag-item">#Norbert_Schreier: 1</li>
+<li class="hashtag-item">#Offertes_A_Tout: 1</li>
+<li class="hashtag-item">#PamelaLords: 6</li>
+<li class="hashtag-item">#Patricia_Rhomberg: 1</li>
+<li class="hashtag-item">#Patty_Boyd: 1</li>
+<li class="hashtag-item">#Paul_Nussbaumer: 1</li>
+<li class="hashtag-item">#Paul_Thomas: 1</li>
+<li class="hashtag-item">#Paula_Meadows: 1</li>
+<li class="hashtag-item">#Paula_Wain: 2</li>
+<li class="hashtag-item">#Peter_Holzmüller: 1</li>
+<li class="hashtag-item">#Phaery_I_Bire: 1</li>
+<li class="hashtag-item">#Philippe_Soine: 1</li>
+<li class="hashtag-item">#Pilar_Coll: 1</li>
+<li class="hashtag-item">#Possessed: 6</li>
+<li class="hashtag-item">#R_Bolla: 2</li>
+<li class="hashtag-item">#Randy_West: 1</li>
+<li class="hashtag-item">#Ras_Kean: 1</li>
+<li class="hashtag-item">#Raven: 1</li>
+<li class="hashtag-item">#Ray_Wells: 1</li>
+<li class="hashtag-item">#Richard_Allan: 1</li>
+<li class="hashtag-item">#Richard_Logan: 1</li>
+<li class="hashtag-item">#Robert_Girard: 1</li>
+<li class="hashtag-item">#Robin_Byrd: 1</li>
+<li class="hashtag-item">#Roman_Huber: 2</li>
+<li class="hashtag-item">#Ron_Dorfman: 1</li>
+<li class="hashtag-item">#Ron_Hudd: 1</li>
+<li class="hashtag-item">#Ron_Jeremy: 2</li>
+<li class="hashtag-item">#Sacha_Borisenko: 1</li>
+<li class="hashtag-item">#Samantha_Fox: 3</li>
+<li class="hashtag-item">#Sandra_Nova: 2</li>
+<li class="hashtag-item">#Sandy_King: 1</li>
+<li class="hashtag-item">#Sascha_Atzenbeck: 2</li>
+<li class="hashtag-item">#Seka: 1</li>
+<li class="hashtag-item">#Sepp_Gneissl: 1</li>
+<li class="hashtag-item">#Serena: 1</li>
+<li class="hashtag-item">#Sharon_Mitchell: 6</li>
+<li class="hashtag-item">#Shone_Taylor: 1</li>
+<li class="hashtag-item">#Siegried_Cellier: 1</li>
+<li class="hashtag-item">#Siggi_Buchner: 1</li>
+<li class="hashtag-item">#Silver_Starr: 1</li>
+<li class="hashtag-item">#Starbuck: 1</li>
+<li class="hashtag-item">#Steve_Powers: 1</li>
+<li class="hashtag-item">#Susan_Hemingway: 1</li>
+<li class="hashtag-item">#Susan_Le_Beau: 1</li>
+<li class="hashtag-item">#Susaye_London: 3</li>
+<li class="hashtag-item">#Suzanne_French: 3</li>
+<li class="hashtag-item">#Sylvia_Sex_und_Schönheit: 1</li>
+<li class="hashtag-item">#TVX: 1</li>
+<li class="hashtag-item">#Taboo: 1</li>
+<li class="hashtag-item">#Taboo_1: 1</li>
+<li class="hashtag-item">#Taboo_2: 2</li>
+<li class="hashtag-item">#Taija_Rae: 5</li>
+<li class="hashtag-item">#Tara: 1</li>
+<li class="hashtag-item">#Taurus_Productions: 1</li>
+<li class="hashtag-item">#Terri_Hall: 2</li>
+<li class="hashtag-item">#Tiffany_Clark: 1</li>
+<li class="hashtag-item">#Tigr: 1</li>
+<li class="hashtag-item">#Tom_Byron: 1</li>
+<li class="hashtag-item">#Tommy_LaRock: 1</li>
+<li class="hashtag-item">#Tracey_Adams: 1</li>
+<li class="hashtag-item">#Tracy: 1</li>
+<li class="hashtag-item">#Tracy_O_Neil: 1</li>
+<li class="hashtag-item">#Ursula_Austin: 3</li>
+<li class="hashtag-item">#Uschi_Stiegelmaier: 1</li>
+<li class="hashtag-item">#VCA: 2</li>
+<li class="hashtag-item">#VINTAGE: 67</li>
+<li class="hashtag-item">#Vanessa_del_Rio: 2</li>
+<li class="hashtag-item">#Veri_Knotty: 1</li>
+<li class="hashtag-item">#Veronica_Hart: 1</li>
+<li class="hashtag-item">#Video_X_Pix: 3</li>
+<li class="hashtag-item">#Vinegar_Syndrome: 1</li>
+<li class="hashtag-item">#Wade_Nichols: 7</li>
+<li class="hashtag-item">#Will_Stoer: 1</li>
+<li class="hashtag-item">#William_Paulson: 1</li>
+<li class="hashtag-item">#Yvonne_Eduser: 1</li>
+<li class="hashtag-item">#clip: 7</li>
+<li class="hashtag-item">#film: 16</li>
+<li class="hashtag-item">#groupsex: 1</li>
+<li class="hashtag-item">#hairy: 1</li>
+<li class="hashtag-item">#pic: 3</li>
+<li class="hashtag-item">#retro: 1</li>
+<li class="hashtag-item">#rus: 2</li>
+<li class="hashtag-item">#senemene: 1</li>
+<li class="hashtag-item">#short: 30</li>
+<li class="hashtag-item">#vintage: 1</li>
+<li class="hashtag-item">#Élodie_Delage: 1</li>
+</ul>
+    </div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 105</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><a href='https://t.me/c/1937892178/980' target='_blank'>1979 - Les Delice De Ladultier</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/94' target='_blank'>A Thousand and One Erotic Nights (1982)</a></td><td>2024-06-02</td></tr><tr><td><a href='https://t.me/c/1937892178/923' target='_blank'>Aberraciones sexuales de una rubia caliente Die Teuflischen Schwestern (aka Sexy Sisters) (1976)</a></td><td>2025-02-04</td></tr><tr><td><a href='https://t.me/c/1937892178/38' target='_blank'>All The Ladies Do It (1992) (Tinto Brass)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/179' target='_blank'>Anna Ventura</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/185' target='_blank'>Annette Haven</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/765' target='_blank'>Arrogance: No Limits (1999)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/129' target='_blank'>Ashlyn Gere</a></td><td>2024-09-25</td></tr><tr><td><a href='https://t.me/c/1937892178/588' target='_blank'>Auf Anmachtour in Brünn 1999</a></td><td>2024-11-14</td></tr><tr><td><a href='https://t.me/c/1937892178/76' target='_blank'>Bad Girls (1981)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/762' target='_blank'>Barbara Moose</a></td><td>2024-12-29</td></tr><tr><td><a href='https://t.me/c/1937892178/894' target='_blank'>Bedside Brat (1988)</a></td><td>2025-01-31</td></tr><tr><td><a href='https://t.me/c/1937892178/402' target='_blank'>Bienenstich Im</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/225' target='_blank'>Blondes Have More Fun [1979] Essex Video</a></td><td>2024-10-11</td></tr><tr><td><a href='https://t.me/c/1937892178/137' target='_blank'>Brigitte Lahaie</a></td><td>2024-09-25</td></tr><tr><td><a href='https://t.me/c/1937892178/34' target='_blank'>Caligula (1979) (Tinto Brass)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/67' target='_blank'>Campeuses Sans Culotte</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/31' target='_blank'>Cheeky By Tinto Brass</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/646' target='_blank'>Chloë des Lysses</a></td><td>2024-12-16</td></tr><tr><td><a href='https://t.me/c/1937892178/838' target='_blank'>Couples Complices (1977)</a></td><td>2025-01-01</td></tr><tr><td><a href='https://t.me/c/1937892178/392' target='_blank'>DBM - Sextra 20 - SE3220 - Fast Food</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/285' target='_blank'>Dagmar</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/410' target='_blank'>Das Lustschloss der Josefine Mutzenbacher (Tabu Love)</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/51' target='_blank'>Decameron: Tales of Desire (1995)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/168' target='_blank'>Deep Throat - 1972</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/994' target='_blank'>Default The Backdoor Club (1985)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/197' target='_blank'>Desiree Cousteau</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/460' target='_blank'>Die Hasen von San Francisco</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/414' target='_blank'>Die hilfreiche Nachtschwester</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/242' target='_blank'>Drei Mösen auf Männerjagd 1995</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/236' target='_blank'>Eine verdammt heisse Braut 1,2 - [1989]</a></td><td>2024-10-11</td></tr><tr><td><a href='https://t.me/c/1937892178/61' target='_blank'>Emmanuelle (1974)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/56' target='_blank'>Emmanuelle: L’antivierge (1975)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/265' target='_blank'>Familie Immerscharf 1</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/256' target='_blank'>Familie Immerscharf 2</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/322' target='_blank'>Familie Immerscharf 3</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/328' target='_blank'>Familie Immerscharf 4</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/346' target='_blank'>Familie Immerscharf 5</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/332' target='_blank'>Familie Immerscharf 6</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/334' target='_blank'>Familie Immerscharf 7</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/336' target='_blank'>Familie Immerscharf 8</a></td><td>2024-10-21</td></tr><tr><td><a href='https://t.me/c/1937892178/707' target='_blank'>Fantastic Orgy (1977)</a></td><td>2024-12-17</td></tr><tr><td><a href='https://t.me/c/1937892178/781' target='_blank'>Flying Acquaintances (1973)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/1006' target='_blank'>Gang Way (1979)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/217' target='_blank'>Golden Classics - 3 Klassiker Auf Einer DVD [1977]</a></td><td>2024-10-07</td></tr><tr><td><a href='https://t.me/c/1937892178/1016' target='_blank'>Good Girls Bad Girls (1984)</a></td><td>2025-03-16</td></tr><tr><td><a href='https://t.me/c/1937892178/276' target='_blank'>Haus der Unzucht (1995)</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/989' target='_blank'>Health Spa (1978)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/466' target='_blank'>Heisse Locher geile Stecher</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/933' target='_blank'>Her Last Fling (1976)</a></td><td>2025-02-04</td></tr><tr><td><a href='https://t.me/c/1937892178/511' target='_blank'>Hoffmann & Söhne</a></td><td>2024-10-29</td></tr><tr><td><a href='https://t.me/c/1937892178/940' target='_blank'>Hot & Saucy Pizza Girls (1978)</a></td><td>2025-02-10</td></tr><tr><td><a href='https://t.me/c/1937892178/81' target='_blank'>Hot Rackets (1979)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/823' target='_blank'>If My Mother... Only Knew (1986)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/470' target='_blank'>Im Haus Der Unzucht</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/418' target='_blank'>Josefine Mutzenbacher Die Hure von Wien (Trimax)</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/809' target='_blank'>Joy / Sex Crazy 1977</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/115' target='_blank'>Juliet Anderson</a></td><td>2024-09-25</td></tr><tr><td><a href='https://t.me/c/1937892178/91' target='_blank'>Juliette Anderson</a></td><td>2024-04-17</td></tr><tr><td><a href='https://t.me/c/1937892178/119' target='_blank'>Kay Parker</a></td><td>2024-09-25</td></tr><tr><td><a href='https://t.me/c/1937892178/984' target='_blank'>L'amour C'est Mon Metier (1978)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/71' target='_blank'>La Rabatteuse (1978)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/87' target='_blank'>Le sexe qui parle (1975)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/143' target='_blank'>Lesllie Bovee</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/636' target='_blank'>Little Oral Annie Takes Manhattan (1985)</a></td><td>2024-12-03</td></tr><tr><td><a href='https://t.me/c/1937892178/201' target='_blank'>Liza Dwyer</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/112' target='_blank'>MIS SHORTS</a></td><td>2024-09-24</td></tr><tr><td><a href='https://t.me/c/1937892178/175' target='_blank'>Marilyn Chambers</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1937892178/480' target='_blank'>Mdchen-im-Nachtverkehr</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/604' target='_blank'>Merle Michaels</a></td><td>2024-11-21</td></tr><tr><td><a href='https://t.me/c/1937892178/41' target='_blank'>Monamour (Tinto Brass)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/26' target='_blank'>Monella (Frivolous Lola) (1998)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/306' target='_blank'>Pamela Lords</a></td><td>2024-10-18</td></tr><tr><td><a href='https://t.me/c/1937892178/46' target='_blank'>Paprika (1991) (Tinto Brass)</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/221' target='_blank'>Paris… Telefon 666 [1979]</a></td><td>2024-10-07</td></tr><tr><td><a href='https://t.me/c/1937892178/98' target='_blank'>ROMA 1</a></td><td>2024-07-01</td></tr><tr><td><a href='https://t.me/c/1937892178/424' target='_blank'>Rosemarie's Schleckerland [1978]</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/595' target='_blank'>Schulmädchen Porno II</a></td><td>2024-11-14</td></tr><tr><td><a href='https://t.me/c/1937892178/903' target='_blank'>Sea_Sex_And_Fun_–_Scandalo_Al_Sole_(1995)</a></td><td>2025-02-04</td></tr><tr><td><a href='https://t.me/c/1937892178/22' target='_blank'>Secrétaire sans culotte</a></td><td>2024-01-09</td></tr><tr><td><a href='https://t.me/c/1937892178/800' target='_blank'>Sex World / Sexworld / Sex Park / Ex World / El Mundo Del Sexo 1977</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/790' target='_blank'>Snow White & 7 Dwarfs (1995)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/16' target='_blank'>Taboo</a></td><td>2023-12-15</td></tr><tr><td><a href='https://t.me/c/1937892178/11' target='_blank'>Taboo 2</a></td><td>2023-12-15</td></tr><tr><td><a href='https://t.me/c/1937892178/14' target='_blank'>Taboo 3</a></td><td>2023-12-15</td></tr><tr><td><a href='https://t.me/c/1937892178/890' target='_blank'>Taboo 4</a></td><td>2025-01-15</td></tr><tr><td><a href='https://t.me/c/1937892178/816' target='_blank'>Taboo American Style 1: The Ruthless Beginning / Nena - Das geile Biest von nebenan 1 (1985)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/962' target='_blank'>Take Off / Снимать (1978)</a></td><td>2025-02-18</td></tr><tr><td><a href='https://t.me/c/1937892178/912' target='_blank'>Tarzan-X: Shame of Jane (1994)</a></td><td>2025-02-04</td></tr><tr><td><a href='https://t.me/c/1937892178/776' target='_blank'>Teen-age Fantasies</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/608' target='_blank'>That Lucky Stiff (1980)</a></td><td>2024-11-21</td></tr><tr><td><a href='https://t.me/c/1937892178/521' target='_blank'>The Amorous Sisters / Julchen und Jettchen, die verliebten Apothekerstöchter (1982)</a></td><td>2024-11-07</td></tr><tr><td><a href='https://t.me/c/1937892178/724' target='_blank'>The Filthy Rich 1980</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1937892178/970' target='_blank'>The Other Side of Julie (1978)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/629' target='_blank'>The Seduction Of Tessa (Le Fruit Defendu) (1983)</a></td><td>2024-11-21</td></tr><tr><td><a href='https://t.me/c/1937892178/617' target='_blank'>The Seduction of Cindy (1980)</a></td><td>2024-11-21</td></tr><tr><td><a href='https://t.me/c/1937892178/830' target='_blank'>The untamed</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1937892178/379' target='_blank'>Twilight 20: Sperma Fighter</a></td><td>2024-10-23</td></tr><tr><td><a href='https://t.me/c/1937892178/1011' target='_blank'>Undercovers (1982)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/1001' target='_blank'>Up Desiree Lane / Сверху Дезри Лейн (1984)</a></td><td>2025-03-12</td></tr><tr><td><a href='https://t.me/c/1937892178/739' target='_blank'>Wanda Whips Wall Street</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1937892178/750' target='_blank'>bragas calientes 1983</a></td><td>2024-12-29</td></tr><tr><td><a href='https://t.me/c/1937892178/572' target='_blank'>dd</a></td><td>2024-11-14</td></tr><tr><td><a href='https://t.me/c/1937892178/107' target='_blank'>e Suis Une Belle Salope</a></td><td>2024-08-19</td></tr><tr><td><a href='https://t.me/c/1937892178/151' target='_blank'>sensual encounters of every kind</a></td><td>2024-09-27</td></tr></tbody></table></div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { clearInterval(autoSlide); showSlides(slideIndex += n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function currentSlide(n) { clearInterval(autoSlide); showSlides(slideIndex = n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        let autoSlide = setInterval(() => plusSlides(1), 3000);
+
+        // Chart.js for rank history
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('rankChart').getContext('2d');
+            const historyData = [{"date": "2025-04-09", "rank": 15}];
+            const dates = historyData.map(entry => entry.date);
+            const ranks = historyData.map(entry => entry.rank);
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [{ label: 'Rank Over Time', data: ranks, borderColor: '#003366', backgroundColor: 'rgba(0, 51, 102, 0.2)', fill: true, tension: 0.4 }] },
+                options: { scales: { y: { beginAtZero: true, reverse: true, title: { display: true, text: 'Rank' }, ticks: { stepSize: 1 } }, x: { title: { display: true, text: 'Date' } } }, plugins: { legend: { display: true } } }
+            });
+        });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections[(columnIndex + 1) % 2] = 0; // Reset other column
+        }
+    </script>
+</body>
+</html>

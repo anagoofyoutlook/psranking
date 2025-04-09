@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavia Red</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
+        h1 { color: #003366; }
+        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .hashtags { list-style-type: none; padding: 0; }
+        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .rank-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; gap: 20px; flex-wrap: wrap; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
+        .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
+        .chart-container { max-width: 400px; width: 100%; }
+        canvas { width: 100% !important; height: auto !important; }
+        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; }
+        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
+        .titles-table th:hover { background-color: #b3d9ff; }
+        a { color: #003366; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { position: relative; width: 1920px; height: 800px; margin: auto; }
+        .mySlides { display: none; width: 100%; height: 100%; }
+        img { vertical-align: middle; width: 100%; height: 100%; object-fit: cover; }
+        .cursor { cursor: pointer; }
+        .prev, .next { cursor: pointer; position: absolute; top: 40%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext { color: #f2f2f2; font-size: 12px; padding: 8px 12px; position: absolute; top: 0; }
+        .caption-container { text-align: center; background-color: #222; padding: 2px 16px; color: white; }
+        .row:after { content: ""; display: table; clear: both; }
+        .column { float: left; width: 100.0%; }
+        .demo { opacity: 0.6; }
+        .active, .demo:hover { opacity: 1; }
+        @media only screen and (max-width: 1920px) { .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%; height:100%;"></div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="caption-container"><p id="caption"></p></div>
+            <div class="row">
+        <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="Octavia Red Photo 1"></div></div></div>
+    <h1>Octavia Red</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="16"></span></p>
+    </div>
+    <div class="info"><p>Scenes: 3092</p><p>Last Scene: 28 days</p></div>
+    <div class="info">
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 13</li>
+<li class="hashtag-item">#FOUR: 17</li>
+<li class="hashtag-item">#THREE: 5</li>
+</ul>
+        <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#FF: 9</li>
+<li class="hashtag-item">#FFFM: 1</li>
+<li class="hashtag-item">#FFM: 1</li>
+<li class="hashtag-item">#FM: 23</li>
+<li class="hashtag-item">#ORGY: 1</li>
+</ul>
+        <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#BigTits: 1</li>
+<li class="hashtag-item">#BlackedRaw: 1</li>
+<li class="hashtag-item">#Deeper: 1</li>
+<li class="hashtag-item">#DoghouseDigital: 1</li>
+<li class="hashtag-item">#FreyaParker: 1</li>
+<li class="hashtag-item">#GirlsOnlyPorn: 1</li>
+<li class="hashtag-item">#Hustler: 1</li>
+<li class="hashtag-item">#LANEYGREY: 2</li>
+<li class="hashtag-item">#LaneyGrey: 2</li>
+<li class="hashtag-item">#NaturalTits: 1</li>
+<li class="hashtag-item">#NfBusty: 1</li>
+<li class="hashtag-item">#OCTAVIARED: 2</li>
+<li class="hashtag-item">#OctaviaRed: 8</li>
+<li class="hashtag-item">#SEXART: 1</li>
+<li class="hashtag-item">#Slayed: 1</li>
+<li class="hashtag-item">#VIXEN: 2</li>
+</ul>
+    </div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 36</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><a href='https://t.me/c/1880756693/722' target='_blank'>All Her Luv Bea Carlowe A Star Named Octavia pt. 2</a></td><td>2024-03-28</td></tr><tr><td><a href='https://t.me/c/1880756693/719' target='_blank'>All Her Luv Khloe Kingsley A Star Named Octavia pt. 1</a></td><td>2024-03-28</td></tr><tr><td><a href='https://t.me/c/1880756693/631' target='_blank'>BBCPie Octavia Red - Co-Worker Creampies</a></td><td>2024-02-28</td></tr><tr><td><a href='https://t.me/c/1880756693/180' target='_blank'>BFFS Rory Knox, Jasmine Wilde, Octavia Red - Spring Breakers Part 2: Girl Heist</a></td><td>2024-02-07</td></tr><tr><td><a href='https://t.me/c/1880756693/2943' target='_blank'>BlackedRaw Octavia Red - Busty Babe Octavia Gets Pounded - 67x - 2000px - (20 Feb, 2025)</a></td><td>2025-02-21</td></tr><tr><td><a href='https://t.me/c/1880756693/1947' target='_blank'>CaughtMyCoach Coming On To Coach</a></td><td>2024-07-31</td></tr><tr><td><a href='https://t.me/c/1880756693/2048' target='_blank'>DFXtra Octavia Red - Red Carpet Treatment</a></td><td>2024-08-14</td></tr><tr><td><a href='https://t.me/c/1880756693/2626' target='_blank'>Deeper Octavia Red - A Kiss Of Red - 63x - 3000px - (26 Dec, 2024)</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1880756693/2842' target='_blank'>DoghouseDigital Octavia Red - Amazing Tits 15 - Scene 3 - Octavia Red's Titties! - 95x - (February 05, 2025)</a></td><td>2025-02-05</td></tr><tr><td><a href='https://t.me/c/1880756693/1536' target='_blank'>ElegantAngel - Octavia Red Part 1 The Bikini</a></td><td>2024-04-25</td></tr><tr><td><a href='https://t.me/c/1880756693/12' target='_blank'>Freeuse Fantasy Freeuse Independence Day</a></td><td>2023-10-04</td></tr><tr><td><a href='https://t.me/c/1880756693/742' target='_blank'>Girlfriends Films Lesbian Daughter In-Laws - Scene 2 Octavia Red, Bianca Burke</a></td><td>2024-04-05</td></tr><tr><td><a href='https://t.me/c/1880756693/3025' target='_blank'>GirlsOnlyPorn 2025-03-03 Della Cate & Octavia Red - Breakfast In Bed - x120</a></td><td>2025-03-11</td></tr><tr><td><a href='https://t.me/c/1880756693/2358' target='_blank'>Handle My Hotwife Scene1</a></td><td>2024-10-15</td></tr><tr><td><a href='https://t.me/c/1880756693/168' target='_blank'>Laney Grey All Girl Massage - Once A Masseuse, Always A Masseuse</a></td><td>2024-02-06</td></tr><tr><td><a href='https://t.me/c/1880756693/689' target='_blank'>Laney Grey, Octavia Red - Addicted to Pussy pt. 2</a></td><td>2024-03-01</td></tr><tr><td><a href='https://t.me/c/1880756693/2205' target='_blank'>Missa X - Octavia Red - You Deserve Me</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1880756693/2207' target='_blank'>Missax Octavia Red Phantom</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1880756693/2695' target='_blank'>NFBusty 2024-12-31 Danny Steele & Octavia Red - New Years With My Ex - x130</a></td><td>2025-01-01</td></tr><tr><td><a href='https://t.me/c/1880756693/1544' target='_blank'>NFBusty Home For Dessert</a></td><td>2024-06-05</td></tr><tr><td><a href='https://t.me/c/1880756693/2227' target='_blank'>NFBusty Octavia Red - Its So Good When Shes Bad!</a></td><td>2024-10-11</td></tr><tr><td><a href='https://t.me/c/1880756693/1810' target='_blank'>NFBusty Playful Passion - S20:E6</a></td><td>2024-07-30</td></tr><tr><td><a href='https://t.me/c/1880756693/332' target='_blank'>NaughtyAmerica Octavia Red - I Have a Wife - Busty blonde Octavia Red is wet and ready to fuck a married cock</a></td><td>2024-02-15</td></tr><tr><td><a href='https://t.me/c/1880756693/2526' target='_blank'>Neighbors</a></td><td>2024-11-07</td></tr><tr><td><a href='https://t.me/c/1880756693/8' target='_blank'>NewSensation 🎥video HD 1080p INSATIABLE OCTAVIA RED IS THE PERFECT BLACK BULL SLUT</a></td><td>2023-10-04</td></tr><tr><td><a href='https://t.me/c/1880756693/1659' target='_blank'>NubileFilms Octavia Red - What Are Neighbors For</a></td><td>2024-06-06</td></tr><tr><td><a href='https://t.me/c/1880756693/706' target='_blank'>Octavia Red Scarlett Sage Addicted To Pussy Pt1</a></td><td>2024-03-01</td></tr><tr><td><a href='https://t.me/c/1880756693/2' target='_blank'>Passion-HD Morning Love</a></td><td>2023-10-04</td></tr><tr><td><a href='https://t.me/c/1880756693/577' target='_blank'>Penthouse Octavia Red Cleans House and Dick</a></td><td>2024-02-28</td></tr><tr><td><a href='https://t.me/c/1880756693/2001' target='_blank'>Penthouse Octavia Red, The Naughty Nudist Nympho</a></td><td>2024-07-31</td></tr><tr><td><a href='https://t.me/c/1880756693/1457' target='_blank'>Red Riding Wood</a></td><td>2024-04-19</td></tr><tr><td><a href='https://t.me/c/1880756693/16' target='_blank'>SLAYED LaneyGrey Octavia and Laney Put On Naughty Fashion Show For You</a></td><td>2024-01-03</td></tr><tr><td><a href='https://t.me/c/1880756693/1736' target='_blank'>SexArt 2024-07-05 Octavia Red & Laney Grey - A Helping Hand</a></td><td>2024-07-30</td></tr><tr><td><a href='https://t.me/c/1880756693/45' target='_blank'>VIXEN Double Edged Sword</a></td><td>2024-01-19</td></tr><tr><td><a href='https://t.me/c/1880756693/2830' target='_blank'>Violet Myers Octavia Red Jennifer White Chanel Camryn Nicole Kitt Victor Ray Ryan Driller House Party 24 12 2024</a></td><td>2025-01-01</td></tr><tr><td><a href='https://t.me/c/1880756693/2128' target='_blank'>Vixen Octavia Red, Freya Parker - Knockouts Octavia And Freya Have Intense Threesome - 69x - 3000px - (30 Aug, 2024)</a></td><td>2024-09-19</td></tr></tbody></table></div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { clearInterval(autoSlide); showSlides(slideIndex += n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function currentSlide(n) { clearInterval(autoSlide); showSlides(slideIndex = n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        let autoSlide = setInterval(() => plusSlides(1), 3000);
+
+        // Chart.js for rank history
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('rankChart').getContext('2d');
+            const historyData = [{"date": "2025-04-09", "rank": 17}];
+            const dates = historyData.map(entry => entry.date);
+            const ranks = historyData.map(entry => entry.rank);
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [{ label: 'Rank Over Time', data: ranks, borderColor: '#003366', backgroundColor: 'rgba(0, 51, 102, 0.2)', fill: true, tension: 0.4 }] },
+                options: { scales: { y: { beginAtZero: true, reverse: true, title: { display: true, text: 'Rank' }, ticks: { stepSize: 1 } }, x: { title: { display: true, text: 'Date' } } }, plugins: { legend: { display: true } } }
+            });
+        });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections[(columnIndex + 1) % 2] = 0; // Reset other column
+        }
+    </script>
+</body>
+</html>

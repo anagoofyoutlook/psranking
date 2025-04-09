@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PE</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
+        h1 { color: #003366; }
+        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .hashtags { list-style-type: none; padding: 0; }
+        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .rank-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; gap: 20px; flex-wrap: wrap; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
+        .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
+        .chart-container { max-width: 400px; width: 100%; }
+        canvas { width: 100% !important; height: auto !important; }
+        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; }
+        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
+        .titles-table th:hover { background-color: #b3d9ff; }
+        a { color: #003366; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { position: relative; width: 1920px; height: 800px; margin: auto; }
+        .mySlides { display: none; width: 100%; height: 100%; }
+        img { vertical-align: middle; width: 100%; height: 100%; object-fit: cover; }
+        .cursor { cursor: pointer; }
+        .prev, .next { cursor: pointer; position: absolute; top: 40%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext { color: #f2f2f2; font-size: 12px; padding: 8px 12px; position: absolute; top: 0; }
+        .caption-container { text-align: center; background-color: #222; padding: 2px 16px; color: white; }
+        .row:after { content: ""; display: table; clear: both; }
+        .column { float: left; width: 100.0%; }
+        .demo { opacity: 0.6; }
+        .active, .demo:hover { opacity: 1; }
+        @media only screen and (max-width: 1920px) { .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%; height:100%;"></div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="caption-container"><p id="caption"></p></div>
+            <div class="row">
+        <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="PE Photo 1"></div></div></div>
+    <h1>PE</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="262"></span></p>
+    </div>
+    <div class="info"><p>Scenes: 27</p><p>Last Scene: 25 days</p></div>
+    <div class="info">
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li>No rating hashtags (#FIVE, #FOUR, #Three) found</li></ul>
+        <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li>No scene type hashtags found</li></ul>
+        <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#cunnilingus: 2</li>
+<li class="hashtag-item">#facesitting: 1</li>
+<li class="hashtag-item">#pussyeating: 1</li>
+<li class="hashtag-item">#pussylicking: 1</li>
+</ul>
+    </div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 0</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><p>No titles found (Total: 0)</p></div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { clearInterval(autoSlide); showSlides(slideIndex += n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function currentSlide(n) { clearInterval(autoSlide); showSlides(slideIndex = n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        let autoSlide = setInterval(() => plusSlides(1), 3000);
+
+        // Chart.js for rank history
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('rankChart').getContext('2d');
+            const historyData = [{"date": "2025-04-09", "rank": 267}];
+            const dates = historyData.map(entry => entry.date);
+            const ranks = historyData.map(entry => entry.rank);
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [{ label: 'Rank Over Time', data: ranks, borderColor: '#003366', backgroundColor: 'rgba(0, 51, 102, 0.2)', fill: true, tension: 0.4 }] },
+                options: { scales: { y: { beginAtZero: true, reverse: true, title: { display: true, text: 'Rank' }, ticks: { stepSize: 1 } }, x: { title: { display: true, text: 'Date' } } }, plugins: { legend: { display: true } } }
+            });
+        });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections[(columnIndex + 1) % 2] = 0; // Reset other column
+        }
+    </script>
+</body>
+</html>

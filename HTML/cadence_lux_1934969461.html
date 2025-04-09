@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadence Lux</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
+        h1 { color: #003366; }
+        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .hashtags { list-style-type: none; padding: 0; }
+        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .rank-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; gap: 20px; flex-wrap: wrap; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
+        .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
+        .chart-container { max-width: 400px; width: 100%; }
+        canvas { width: 100% !important; height: auto !important; }
+        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; }
+        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
+        .titles-table th:hover { background-color: #b3d9ff; }
+        a { color: #003366; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { position: relative; width: 1920px; height: 800px; margin: auto; }
+        .mySlides { display: none; width: 100%; height: 100%; }
+        img { vertical-align: middle; width: 100%; height: 100%; object-fit: cover; }
+        .cursor { cursor: pointer; }
+        .prev, .next { cursor: pointer; position: absolute; top: 40%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext { color: #f2f2f2; font-size: 12px; padding: 8px 12px; position: absolute; top: 0; }
+        .caption-container { text-align: center; background-color: #222; padding: 2px 16px; color: white; }
+        .row:after { content: ""; display: table; clear: both; }
+        .column { float: left; width: 25.0%; }
+        .demo { opacity: 0.6; }
+        .active, .demo:hover { opacity: 1; }
+        @media only screen and (max-width: 1920px) { .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="mySlides"><div class="numbertext">1 / 4</div><img src="../Photos/Cadence Lux/ezgif.com-webp-to-jpg.jpg" style="width:100%; height:100%;"></div><div class="mySlides"><div class="numbertext">2 / 4</div><img src="../Photos/Cadence Lux/advd.jpg" style="width:100%; height:100%;"></div><div class="mySlides"><div class="numbertext">3 / 4</div><img src="../Photos/Cadence Lux/blacked.jpg" style="width:100%; height:100%;"></div><div class="mySlides"><div class="numbertext">4 / 4</div><img src="../Photos/Cadence Lux/blackedraw.jpg" style="width:100%; height:100%;"></div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="caption-container"><p id="caption"></p></div>
+            <div class="row">
+        <div class="column"><img class="demo cursor" src="../Photos/Cadence Lux/ezgif.com-webp-to-jpg.jpg" style="width:100%" onclick="currentSlide(1)" alt="Cadence Lux Photo 1"></div><div class="column"><img class="demo cursor" src="../Photos/Cadence Lux/advd.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cadence Lux Photo 2"></div><div class="column"><img class="demo cursor" src="../Photos/Cadence Lux/blacked.jpg" style="width:100%" onclick="currentSlide(3)" alt="Cadence Lux Photo 3"></div><div class="column"><img class="demo cursor" src="../Photos/Cadence Lux/blackedraw.jpg" style="width:100%" onclick="currentSlide(4)" alt="Cadence Lux Photo 4"></div></div></div>
+    <h1>Cadence Lux</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="18"></span></p>
+    </div>
+    <div class="info"><p>Scenes: 2321</p><p>Last Scene: 15 days</p></div>
+    <div class="info">
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 17</li>
+<li class="hashtag-item">#FOUR: 9</li>
+<li class="hashtag-item">#THREE: 1</li>
+</ul>
+        <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#FF: 9</li>
+<li class="hashtag-item">#FFM: 1</li>
+<li class="hashtag-item">#FFMM: 1</li>
+<li class="hashtag-item">#FM: 14</li>
+<li class="hashtag-item">#FMM: 1</li>
+</ul>
+        <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#AdultTime: 2</li>
+<li class="hashtag-item">#Adult_Time: 1</li>
+<li class="hashtag-item">#AllHerLuv: 1</li>
+<li class="hashtag-item">#Blacked: 2</li>
+<li class="hashtag-item">#Cadence_Lux: 1</li>
+<li class="hashtag-item">#Couples: 1</li>
+<li class="hashtag-item">#DarkX: 3</li>
+<li class="hashtag-item">#DigitalPlayGround: 1</li>
+<li class="hashtag-item">#DirtyWivesClub: 1</li>
+<li class="hashtag-item">#FFF: 1</li>
+<li class="hashtag-item">#Feature: 1</li>
+<li class="hashtag-item">#GirlsWay: 3</li>
+<li class="hashtag-item">#Hairy: 1</li>
+<li class="hashtag-item">#Hardcore: 1</li>
+<li class="hashtag-item">#Jewelz_Blu: 1</li>
+<li class="hashtag-item">#LoveHerFeet: 1</li>
+<li class="hashtag-item">#LoveHerFilms: 1</li>
+<li class="hashtag-item">#NaturalTits: 1</li>
+<li class="hashtag-item">#NaughtyAmerica: 2</li>
+<li class="hashtag-item">#NoPhotos: 2</li>
+<li class="hashtag-item">#Nuru: 1</li>
+<li class="hashtag-item">#OF: 1</li>
+<li class="hashtag-item">#Ooopsie: 1</li>
+<li class="hashtag-item">#Oopsie: 1</li>
+<li class="hashtag-item">#POV: 1</li>
+<li class="hashtag-item">#PrettyDirty: 1</li>
+<li class="hashtag-item">#RealityKings: 1</li>
+<li class="hashtag-item">#TeensLoveHugeCocks: 1</li>
+<li class="hashtag-item">#TouchMyWife: 1</li>
+<li class="hashtag-item">#enf: 1</li>
+</ul>
+    </div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 28</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><a href='https://t.me/c/1934969461/2381' target='_blank'>Adult Time KissMeFuckMe 23 02 14 Cadence Lux Alexis Tae Paper Hearts XXX</a></td><td>2025-03-24</td></tr><tr><td><a href='https://t.me/c/1934969461/2343' target='_blank'>All Her Luv 2024 Cadence Lux And Sadie Summers Falling For A Married Woman</a></td><td>2025-01-21</td></tr><tr><td><a href='https://t.me/c/1934969461/599' target='_blank'>Blacked Adriana Chechick, Cadence Lux - My Friend and I Did Two Black Guys (x96)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/703' target='_blank'>Blacked Blackedcom 19 12 26 101440 Cadence Lux, Jax Slayher, Isiah Maxwell (Im Staying)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/1757' target='_blank'>Cadence Lux Ricky Johnson My Best Friends Girlfriend</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/214' target='_blank'>Cadence Lux, Octavia Red - Controlling Her Crush</a></td><td>2024-08-03</td></tr><tr><td><a href='https://t.me/c/1934969461/1814' target='_blank'>DarkX Cadence Lux - Sorry to Say - 1920px - 109X (08-08-2019)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/787' target='_blank'>DigitalPlayground.com - Cadence Lux Promo Pounding (Mar 14, 2016)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/880' target='_blank'>Dirty Wives Club Bubble butt blonde Cadence Lux takes dick from husband's friend in her bed</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/58' target='_blank'>GirlsWay AJ Applegate, Cadence Lux - The Squirting Contest</a></td><td>2024-07-01</td></tr><tr><td><a href='https://t.me/c/1934969461/435' target='_blank'>GirlsWay Abigail Mac, Cadence Lux -Squirting Stories: Part Three [2016] (x52)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/2261' target='_blank'>GirlsWay Adriana Chechik, Cadence Lux, Alexis Fawx - Fantasy Factory 2: Squirting Therapist - 72x - 1920px - 2017-03-23</a></td><td>2024-12-30</td></tr><tr><td><a href='https://t.me/c/1934969461/1402' target='_blank'>GirlsWay Cadence Lux, Lena Paul - Squirting Surprise 43x 1920 × 1280 04-01-2018</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/9' target='_blank'>Hazel Moore - Soaking</a></td><td>2024-02-15</td></tr><tr><td><a href='https://t.me/c/1934969461/16' target='_blank'>Help Wanted Pt 1 - Cadence Lux Coco Lovelock</a></td><td>2024-03-07</td></tr><tr><td><a href='https://t.me/c/1934969461/24' target='_blank'>Help Wanted Pt 2 - Cadence Lux and Jessica Ryan</a></td><td>2024-03-07</td></tr><tr><td><a href='https://t.me/c/1934969461/316' target='_blank'>Loveherfeet 19 05 31 Cadence Lux His Crush On My Sexy Feet</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/193' target='_blank'>Make Me Squirt - Ashley Adams, Cadence Lux</a></td><td>2024-08-03</td></tr><tr><td><a href='https://t.me/c/1934969461/38' target='_blank'>Missax 22 03 12 Cadence Lux What's Best For You</a></td><td>2024-06-02</td></tr><tr><td><a href='https://t.me/c/1934969461/1400' target='_blank'>NaughtyAmerica Cadence Lux - La Sluts (23.01.2019) - 294x</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/1811' target='_blank'>Nuru While The Wifes Napping</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/245' target='_blank'>ONLYFANS</a></td><td>2024-09-27</td></tr><tr><td><a href='https://t.me/c/1934969461/882' target='_blank'>Ooopsie Cadence Lux, Jewelz Blu - The Nerd Crew</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/493' target='_blank'>PrettyDirty] Cadence Lux, Ryan Mclane - Against My Religion (21 08 2016)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/2' target='_blank'>So Wrong That It’s Right by Teamskeet X Model Media US Featuring</a></td><td>2023-10-04</td></tr><tr><td><a href='https://t.me/c/1934969461/251' target='_blank'>Sympathy Sex & Squirting with Hubby's Friend</a></td><td>2024-10-29</td></tr><tr><td><a href='https://t.me/c/1934969461/1809' target='_blank'>TeensLoveHugeCocks Cadence Lux Neighborhood Watch (Jan 28, 2017)</a></td><td>2024-12-23</td></tr><tr><td><a href='https://t.me/c/1934969461/785' target='_blank'>[DarkX][2016-11-02] Cadence Lux (Cadence Lux, Prince Yahshua) - #82749</a></td><td>2024-12-23</td></tr></tbody></table></div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { clearInterval(autoSlide); showSlides(slideIndex += n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function currentSlide(n) { clearInterval(autoSlide); showSlides(slideIndex = n); autoSlide = setInterval(() => plusSlides(1), 3000); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        let autoSlide = setInterval(() => plusSlides(1), 3000);
+
+        // Chart.js for rank history
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('rankChart').getContext('2d');
+            const historyData = [{"date": "2025-04-09", "rank": 19}];
+            const dates = historyData.map(entry => entry.date);
+            const ranks = historyData.map(entry => entry.rank);
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [{ label: 'Rank Over Time', data: ranks, borderColor: '#003366', backgroundColor: 'rgba(0, 51, 102, 0.2)', fill: true, tension: 0.4 }] },
+                options: { scales: { y: { beginAtZero: true, reverse: true, title: { display: true, text: 'Rank' }, ticks: { stepSize: 1 } }, x: { title: { display: true, text: 'Date' } } }, plugins: { legend: { display: true } } }
+            });
+        });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections[(columnIndex + 1) % 2] = 0; // Reset other column
+        }
+    </script>
+</body>
+</html>
