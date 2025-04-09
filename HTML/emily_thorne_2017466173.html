@@ -41,12 +41,12 @@
 </head>
 <body>
     <div class="container">
-<div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%; height:100%;"></div>
+<div class="mySlides"><div class="numbertext">1 / 1</div><img src="../Photos/EMILY THORNE/advd.jpg" style="width:100%; height:100%;"></div>
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
-        <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="EMILY THORNE Photo 1"></div></div></div>
+        <div class="column"><img class="demo cursor" src="../Photos/EMILY THORNE/advd.jpg" style="width:100%" onclick="currentSlide(1)" alt="EMILY THORNE Photo 1"></div></div></div>
     <h1>EMILY THORNE</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
@@ -92,7 +92,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 38}, {"date": "2025-04-09", "rank": 37}, {"date": "2025-04-09", "rank": 39}, {"date": "2025-04-09", "rank": 39}, {"date": "2025-04-09", "rank": 39}];
+            const historyData = [{"date": "2025-04-09", "rank": 38}, {"date": "2025-04-09", "rank": 37}, {"date": "2025-04-09", "rank": 39}, {"date": "2025-04-09", "rank": 39}, {"date": "2025-04-09", "rank": 39}, {"date": "2025-04-09", "rank": 39}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
