@@ -50,9 +50,9 @@
     <h1>Lady Lyne</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="16"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="17"></span></p>
     </div>
-    <div class="info"><p>Scenes: 1980</p><p>Last Scene: 0 days</p></div>
+    <div class="info"><p>Scenes: 2168</p><p>Last Scene: 0 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 16</li>
 <li class="hashtag-item">#FOUR: 14</li>
@@ -69,7 +69,7 @@
 <li class="hashtag-item">#LadyLyne: 11</li>
 <li class="hashtag-item">#MomLover: 1</li>
 <li class="hashtag-item">#NoFilm: 1</li>
-<li class="hashtag-item">#NoPhotos: 7</li>
+<li class="hashtag-item">#NoPhotos: 6</li>
 <li class="hashtag-item">#OF: 1</li>
 <li class="hashtag-item">#SOLO: 1</li>
 <li class="hashtag-item">#SheerAndLace: 1</li>
@@ -103,7 +103,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 19}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}];
+            const historyData = [{"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 19}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -115,7 +115,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank' }, 
                             ticks: { stepSize: 1 }, 
-                            suggestedMax: 335 // Adjust max to number of groups + 1
+                            suggestedMax: 331 // Adjust max to number of groups + 1
                         }, 
                         x: { title: { display: true, text: 'Date' } } 
                     }, 

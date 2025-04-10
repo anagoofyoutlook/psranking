@@ -50,9 +50,9 @@
     <h1>Blue Wave</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="253"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="256"></span></p>
     </div>
-    <div class="info"><p>Scenes: 13</p><p>Last Scene: 238 days</p></div>
+    <div class="info"><p>Scenes: 13</p><p>Last Scene: 239 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FOUR: 1</li>
 </ul>
@@ -84,7 +84,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 251}, {"date": "2025-04-09", "rank": 245}, {"date": "2025-04-09", "rank": 252}, {"date": "2025-04-09", "rank": 252}, {"date": "2025-04-09", "rank": 253}, {"date": "2025-04-09", "rank": 253}];
+            const historyData = [{"date": "2025-04-09", "rank": 251}, {"date": "2025-04-09", "rank": 245}, {"date": "2025-04-09", "rank": 252}, {"date": "2025-04-09", "rank": 252}, {"date": "2025-04-09", "rank": 253}, {"date": "2025-04-09", "rank": 253}, {"date": "2025-04-09", "rank": 253}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -96,7 +96,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank' }, 
                             ticks: { stepSize: 1 }, 
-                            suggestedMax: 335 // Adjust max to number of groups + 1
+                            suggestedMax: 331 // Adjust max to number of groups + 1
                         }, 
                         x: { title: { display: true, text: 'Date' } } 
                     }, 
