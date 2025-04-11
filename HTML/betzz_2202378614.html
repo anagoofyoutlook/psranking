@@ -100,7 +100,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 37}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}];
+            const historyData = [{"date": "2025-04-09", "rank": 37}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-10", "rank": 27}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
