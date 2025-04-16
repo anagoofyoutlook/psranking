@@ -50,7 +50,7 @@
     <h1>Agatha Vega</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="85"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="86"></span></p>
     </div>
     <div class="info"><p>Scenes: 431</p><p>Last Scene: 33 days</p></div>
     <div class="info">
@@ -91,7 +91,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 82}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-10", "rank": 83}, {"date": "2025-04-11", "rank": 83}, {"date": "2025-04-11", "rank": 84}, {"date": "2025-04-14", "rank": 84}];
+            const historyData = [{"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 82}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-09", "rank": 83}, {"date": "2025-04-10", "rank": 83}, {"date": "2025-04-11", "rank": 83}, {"date": "2025-04-11", "rank": 84}, {"date": "2025-04-14", "rank": 84}, {"date": "2025-04-15", "rank": 85}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
