@@ -17,10 +17,38 @@
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
         .chart-container { max-width: 400px; width: 100%; }
         canvas { width: 100% !important; height: auto !important; }
-        .titles-table { width: 90%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
-        .titles-table th, .titles-table td { padding: 15px; border: 1px solid #99ccff; text-align: left; vertical-align: middle; }
-        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
-        .titles-table th:hover { background-color: #b3d9ff; }
+        .titles-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin: 20px auto; 
+            max-width: 1200px; 
+        }
+        .grid-item { 
+            background-color: #cce6ff; 
+            padding: 10px; 
+            border-radius: 5px; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .grid-item video, .grid-item img { 
+            width: 300px; 
+            height: 600px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+        }
+        .grid-item .title { 
+            margin: 10px 0 5px; 
+            font-size: 16px; 
+            font-weight: bold; 
+        }
+        .grid-item .date { 
+            margin: 0; 
+            font-size: 14px; 
+            color: #666; 
+        }
         a { color: #003366; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .container { position: relative; width: 1920px; height: 800px; margin: auto; }
@@ -70,7 +98,55 @@
 <li class="hashtag-item">#VIXEN: 1</li>
 </ul>
     </div>
-    <div class="info"><h2>Titles</h2><p>Total Titles: 8</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Thumbnail</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for BLACKED BBC Goddess Angel Youngs Drops Nice Guy For Real MVP' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/692' target='_blank'>BLACKED BBC Goddess Angel Youngs Drops Nice Guy For Real MVP</a></td><td>2024-10-11</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for BlacksOnBlondes Angel Youngs - Angel Appreciating Big Cocks' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/373' target='_blank'>BlacksOnBlondes Angel Youngs - Angel Appreciating Big Cocks</a></td><td>2024-06-23</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Brazzers Angel Youngs, The Dan Dangler - Get Under To Get Over - 75x - 12.15.2024' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/741' target='_blank'>Brazzers Angel Youngs, The Dan Dangler - Get Under To Get Over - 75x - 12.15.2024</a></td><td>2024-12-16</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Naughtyamerica t friends Angel Youngs & Jazmin Luv are in the mood to share their friend's dad's big DILF dick to star' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/2' target='_blank'>Naughtyamerica t friends Angel Youngs & Jazmin Luv are in the mood to share their friend's dad's big DILF dick to star</a></td><td>2024-06-04</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for ONLYFANS' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/370' target='_blank'>ONLYFANS</a></td><td>2024-06-14</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for RealityKings Hime Marie, Angel Youngs - Scott The Driver' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/611' target='_blank'>RealityKings Hime Marie, Angel Youngs - Scott The Driver</a></td><td>2024-06-23</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for TushyRaw Angel Youngs - Stacked hottie gets her curvy ass filled up (71x) [3000X2000] 20/09/2023' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/918' target='_blank'>TushyRaw Angel Youngs - Stacked hottie gets her curvy ass filled up (71x) [3000X2000] 20/09/2023</a></td><td>2025-03-24</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Vixen Angel Youngs - Curvy Beauty Angel Youngs Gets Stretched Out - 85x - 3000px - (14 Feb, 2025)' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2186952148/824' target='_blank'>Vixen Angel Youngs - Curvy Beauty Angel Youngs Gets Stretched Out - 85x - 3000px - (14 Feb, 2025)</a></td><td>2025-02-24</td></tr></tbody></table></div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 8</p><div class='titles-grid' id='titlesGrid'>
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for BLACKED BBC Goddess Angel Youngs Drops Nice Guy For Real MVP' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/692' target='_blank'>BLACKED BBC Goddess Angel Youngs Drops Nice Guy For Real MVP</a></p>
+                    <p class='date'>2024-10-11</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for BlacksOnBlondes Angel Youngs - Angel Appreciating Big Cocks' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/373' target='_blank'>BlacksOnBlondes Angel Youngs - Angel Appreciating Big Cocks</a></p>
+                    <p class='date'>2024-06-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Brazzers Angel Youngs, The Dan Dangler - Get Under To Get Over - 75x - 12.15.2024' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/741' target='_blank'>Brazzers Angel Youngs, The Dan Dangler - Get Under To Get Over - 75x - 12.15.2024</a></p>
+                    <p class='date'>2024-12-16</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Naughtyamerica t friends Angel Youngs & Jazmin Luv are in the mood to share their friend's dad's big DILF dick to star' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/2' target='_blank'>Naughtyamerica t friends Angel Youngs & Jazmin Luv are in the mood to share their friend's dad's big DILF dick to star</a></p>
+                    <p class='date'>2024-06-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for ONLYFANS' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/370' target='_blank'>ONLYFANS</a></p>
+                    <p class='date'>2024-06-14</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for RealityKings Hime Marie, Angel Youngs - Scott The Driver' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/611' target='_blank'>RealityKings Hime Marie, Angel Youngs - Scott The Driver</a></p>
+                    <p class='date'>2024-06-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for TushyRaw Angel Youngs - Stacked hottie gets her curvy ass filled up (71x) [3000X2000] 20/09/2023' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/918' target='_blank'>TushyRaw Angel Youngs - Stacked hottie gets her curvy ass filled up (71x) [3000X2000] 20/09/2023</a></p>
+                    <p class='date'>2025-03-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Vixen Angel Youngs - Curvy Beauty Angel Youngs Gets Stretched Out - 85x - 3000px - (14 Feb, 2025)' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2186952148/824' target='_blank'>Vixen Angel Youngs - Curvy Beauty Angel Youngs Gets Stretched Out - 85x - 3000px - (14 Feb, 2025)</a></p>
+                    <p class='date'>2025-02-24</p>
+                </div>
+            </div></div>
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -94,7 +170,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 71}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-10", "rank": 73}, {"date": "2025-04-11", "rank": 73}, {"date": "2025-04-11", "rank": 74}, {"date": "2025-04-14", "rank": 74}, {"date": "2025-04-15", "rank": 75}, {"date": "2025-04-16", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}];
+            const historyData = [{"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 71}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-09", "rank": 73}, {"date": "2025-04-10", "rank": 73}, {"date": "2025-04-11", "rank": 73}, {"date": "2025-04-11", "rank": 74}, {"date": "2025-04-14", "rank": 74}, {"date": "2025-04-15", "rank": 75}, {"date": "2025-04-16", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}, {"date": "2025-04-17", "rank": 76}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -114,30 +190,6 @@
                 }
             });
         });
-
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
-        function sortTitlesTable(columnIndex) {
-            const tbody = document.getElementById('titlesTableBody');
-            const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
-            rows.sort((a, b) => {
-                let aValue = columnIndex === 0 ? '' : a.cells[columnIndex].innerText;
-                let bValue = columnIndex === 0 ? '' : b.cells[columnIndex].innerText;
-                if (columnIndex === 2) { // Date column
-                    aValue = new Date(aValue);
-                    bValue = new Date(bValue);
-                    return direction * (aValue - bValue);
-                } else if (columnIndex === 1) { // Items column
-                    return direction * aValue.localeCompare(bValue);
-                }
-                return 0; // No sorting for thumbnail column
-            });
-            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
-            rows.forEach(row => tbody.appendChild(row));
-            titlesSortDirections[columnIndex] = direction;
-            titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
-        }
     </script>
 </body>
 </html>

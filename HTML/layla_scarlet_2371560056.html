@@ -17,10 +17,38 @@
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
         .chart-container { max-width: 400px; width: 100%; }
         canvas { width: 100% !important; height: auto !important; }
-        .titles-table { width: 90%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
-        .titles-table th, .titles-table td { padding: 15px; border: 1px solid #99ccff; text-align: left; vertical-align: middle; }
-        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
-        .titles-table th:hover { background-color: #b3d9ff; }
+        .titles-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin: 20px auto; 
+            max-width: 1200px; 
+        }
+        .grid-item { 
+            background-color: #cce6ff; 
+            padding: 10px; 
+            border-radius: 5px; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .grid-item video, .grid-item img { 
+            width: 300px; 
+            height: 600px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+        }
+        .grid-item .title { 
+            margin: 10px 0 5px; 
+            font-size: 16px; 
+            font-weight: bold; 
+        }
+        .grid-item .date { 
+            margin: 0; 
+            font-size: 14px; 
+            color: #666; 
+        }
         a { color: #003366; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .container { position: relative; width: 1920px; height: 800px; margin: auto; }
@@ -65,7 +93,55 @@
 <li class="hashtag-item">#RoccoSiffredi: 8</li>
 </ul>
     </div>
-    <div class="info"><h2>Titles</h2><p>Total Titles: 8</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Thumbnail</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Candy Giada - Candee Licious - Rocco's Sex Clinic Treatment #12 - Scene 4' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/2' target='_blank'>Candy Giada - Candee Licious - Rocco's Sex Clinic Treatment #12 - Scene 4</a></td><td>2024-11-09</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Candy Giada Layla F Priscilla Sara Roccos Sex Clinic Treatment 7 Scene 3' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/471' target='_blank'>Candy Giada Layla F Priscilla Sara Roccos Sex Clinic Treatment 7 Scene 3</a></td><td>2024-11-12</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/649' target='_blank'>Rocco's Sex Lessons - Italian Rookies</a></td><td>2024-11-12</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies Capitolo 1 Le Basi' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/172' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 1 Le Basi</a></td><td>2024-11-10</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies Capitolo 2 Transformazionne da Agnellini in Tori' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/277' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 2 Transformazionne da Agnellini in Tori</a></td><td>2024-11-10</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies Capitolo 3 Un po di Creativita' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/289' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 3 Un po di Creativita</a></td><td>2024-11-10</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies Capitolo 4 certe notti Bologna' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/775' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 4 certe notti Bologna</a></td><td>2024-11-12</td></tr><tr><td><img src='https://via.placeholder.com/300' alt='Thumbnail for Rocco's Sex Lessons - Italian Rookies Capitolo 5 sesso a tre' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2371560056/638' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 5 sesso a tre</a></td><td>2024-11-12</td></tr></tbody></table></div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 8</p><div class='titles-grid' id='titlesGrid'>
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Candy Giada - Candee Licious - Rocco's Sex Clinic Treatment #12 - Scene 4' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/2' target='_blank'>Candy Giada - Candee Licious - Rocco's Sex Clinic Treatment #12 - Scene 4</a></p>
+                    <p class='date'>2024-11-09</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Candy Giada Layla F Priscilla Sara Roccos Sex Clinic Treatment 7 Scene 3' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/471' target='_blank'>Candy Giada Layla F Priscilla Sara Roccos Sex Clinic Treatment 7 Scene 3</a></p>
+                    <p class='date'>2024-11-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/649' target='_blank'>Rocco's Sex Lessons - Italian Rookies</a></p>
+                    <p class='date'>2024-11-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies Capitolo 1 Le Basi' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/172' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 1 Le Basi</a></p>
+                    <p class='date'>2024-11-10</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies Capitolo 2 Transformazionne da Agnellini in Tori' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/277' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 2 Transformazionne da Agnellini in Tori</a></p>
+                    <p class='date'>2024-11-10</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies Capitolo 3 Un po di Creativita' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/289' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 3 Un po di Creativita</a></p>
+                    <p class='date'>2024-11-10</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies Capitolo 4 certe notti Bologna' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/775' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 4 certe notti Bologna</a></p>
+                    <p class='date'>2024-11-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/300x600' alt='Media for Rocco's Sex Lessons - Italian Rookies Capitolo 5 sesso a tre' style='width:300px;height:600px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2371560056/638' target='_blank'>Rocco's Sex Lessons - Italian Rookies Capitolo 5 sesso a tre</a></p>
+                    <p class='date'>2024-11-12</p>
+                </div>
+            </div></div>
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -89,7 +165,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-10", "rank": 61}, {"date": "2025-04-11", "rank": 61}, {"date": "2025-04-11", "rank": 61}, {"date": "2025-04-14", "rank": 62}, {"date": "2025-04-15", "rank": 62}, {"date": "2025-04-16", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}];
+            const historyData = [{"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-09", "rank": 61}, {"date": "2025-04-10", "rank": 61}, {"date": "2025-04-11", "rank": 61}, {"date": "2025-04-11", "rank": 61}, {"date": "2025-04-14", "rank": 62}, {"date": "2025-04-15", "rank": 62}, {"date": "2025-04-16", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}, {"date": "2025-04-17", "rank": 62}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -109,30 +185,6 @@
                 }
             });
         });
-
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
-        function sortTitlesTable(columnIndex) {
-            const tbody = document.getElementById('titlesTableBody');
-            const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
-            rows.sort((a, b) => {
-                let aValue = columnIndex === 0 ? '' : a.cells[columnIndex].innerText;
-                let bValue = columnIndex === 0 ? '' : b.cells[columnIndex].innerText;
-                if (columnIndex === 2) { // Date column
-                    aValue = new Date(aValue);
-                    bValue = new Date(bValue);
-                    return direction * (aValue - bValue);
-                } else if (columnIndex === 1) { // Items column
-                    return direction * aValue.localeCompare(bValue);
-                }
-                return 0; // No sorting for thumbnail column
-            });
-            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
-            rows.forEach(row => tbody.appendChild(row));
-            titlesSortDirections[columnIndex] = direction;
-            titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
-        }
     </script>
 </body>
 </html>

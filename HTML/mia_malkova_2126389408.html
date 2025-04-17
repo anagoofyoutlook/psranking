@@ -17,10 +17,38 @@
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
         .chart-container { max-width: 400px; width: 100%; }
         canvas { width: 100% !important; height: auto !important; }
-        .titles-table { width: 90%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
-        .titles-table th, .titles-table td { padding: 15px; border: 1px solid #99ccff; text-align: left; vertical-align: middle; }
-        .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
-        .titles-table th:hover { background-color: #b3d9ff; }
+        .titles-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin: 20px auto; 
+            max-width: 1200px; 
+        }
+        .grid-item { 
+            background-color: #cce6ff; 
+            padding: 10px; 
+            border-radius: 5px; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .grid-item video, .grid-item img { 
+            width: 300px; 
+            height: 600px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+        }
+        .grid-item .title { 
+            margin: 10px 0 5px; 
+            font-size: 16px; 
+            font-weight: bold; 
+        }
+        .grid-item .date { 
+            margin: 0; 
+            font-size: 14px; 
+            color: #666; 
+        }
         a { color: #003366; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .container { position: relative; width: 1920px; height: 800px; margin: auto; }
@@ -74,7 +102,73 @@
 <li class="hashtag-item">#sounds: 1</li>
 </ul>
     </div>
-    <div class="info"><h2>Titles</h2><p>Total Titles: 11</p><table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Thumbnail</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><img src='../Photos/Mia Malkova/advd.jpg' alt='Thumbnail for Aidra Fox & Mia Malkova - Only The Best' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/911' target='_blank'>Aidra Fox & Mia Malkova - Only The Best</a></td><td>2024-11-07</td></tr><tr><td><img src='../Photos/Mia Malkova/BR.jpg' alt='Thumbnail for Blacked Mia Malkova - BBC For A Favour' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/614' target='_blank'>Blacked Mia Malkova - BBC For A Favour</a></td><td>2024-04-25</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for Brazzers Die Hardcore: Part 3' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/6' target='_blank'>Brazzers Die Hardcore: Part 3</a></td><td>2023-11-17</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for KISSME GIRL - MIA & CAMERON' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/708' target='_blank'>KISSME GIRL - MIA & CAMERON</a></td><td>2024-06-17</td></tr><tr><td><img src='../Photos/Mia Malkova/BR.jpg' alt='Thumbnail for MIA MALKOVA FUCKING IN THE DESK WITH HER INNIE PUSSY' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/23' target='_blank'>MIA MALKOVA FUCKING IN THE DESK WITH HER INNIE PUSSY</a></td><td>2024-01-22</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for Mia_Malkova_Adult_Photo_Album_Yoga_Bodies_Lg' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/809' target='_blank'>Mia_Malkova_Adult_Photo_Album_Yoga_Bodies_Lg</a></td><td>2024-10-15</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for Naughtyamerica Mia Malkova fucking in the office with her bubble butt' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/17' target='_blank'>Naughtyamerica Mia Malkova fucking in the office with her bubble butt</a></td><td>2023-12-30</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for NubileFilms 2013 09 16 - Mia Malkova Whitney Westgate - One Is Not Enough' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/716' target='_blank'>NubileFilms 2013 09 16 - Mia Malkova Whitney Westgate - One Is Not Enough</a></td><td>2024-10-15</td></tr><tr><td><img src='../Photos/Mia Malkova/T.jpg' alt='Thumbnail for Official Fun Under The Tropical Sun HD Porn - Twistys Bubble Butt' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/2' target='_blank'>Official Fun Under The Tropical Sun HD Porn - Twistys Bubble Butt</a></td><td>2023-10-23</td></tr><tr><td><img src='../Photos/Mia Malkova/B.jpeg' alt='Thumbnail for Only fans' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/14' target='_blank'>Only fans</a></td><td>2023-12-30</td></tr><tr><td><img src='../Photos/Mia Malkova/advd.jpg' alt='Thumbnail for PMV' style='width:300px;height:300px;object-fit:cover;'></td><td><a href='https://t.me/c/2126389408/610' target='_blank'>PMV</a></td><td>2024-03-25</td></tr></tbody></table></div>
+    <div class="info"><h2>Titles</h2><p>Total Titles: 11</p><div class='titles-grid' id='titlesGrid'>
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/B.jpeg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/911' target='_blank'>Aidra Fox & Mia Malkova - Only The Best</a></p>
+                    <p class='date'>2024-11-07</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/V.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/614' target='_blank'>Blacked Mia Malkova - BBC For A Favour</a></p>
+                    <p class='date'>2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/advd.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/6' target='_blank'>Brazzers Die Hardcore: Part 3</a></p>
+                    <p class='date'>2023-11-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/advd.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/708' target='_blank'>KISSME GIRL - MIA & CAMERON</a></p>
+                    <p class='date'>2024-06-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/B.jpeg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/23' target='_blank'>MIA MALKOVA FUCKING IN THE DESK WITH HER INNIE PUSSY</a></p>
+                    <p class='date'>2024-01-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/T.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/809' target='_blank'>Mia_Malkova_Adult_Photo_Album_Yoga_Bodies_Lg</a></p>
+                    <p class='date'>2024-10-15</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/B.jpeg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/17' target='_blank'>Naughtyamerica Mia Malkova fucking in the office with her bubble butt</a></p>
+                    <p class='date'>2023-12-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/B.jpeg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/716' target='_blank'>NubileFilms 2013 09 16 - Mia Malkova Whitney Westgate - One Is Not Enough</a></p>
+                    <p class='date'>2024-10-15</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/B.jpeg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/2' target='_blank'>Official Fun Under The Tropical Sun HD Porn - Twistys Bubble Butt</a></p>
+                    <p class='date'>2023-10-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/BR.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/14' target='_blank'>Only fans</a></p>
+                    <p class='date'>2023-12-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Mia Malkova/advd.jpg' style='width:300px;height:600px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2126389408/610' target='_blank'>PMV</a></p>
+                    <p class='date'>2024-03-25</p>
+                </div>
+            </div></div>
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -98,7 +192,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 57}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-10", "rank": 59}, {"date": "2025-04-11", "rank": 59}, {"date": "2025-04-11", "rank": 59}, {"date": "2025-04-14", "rank": 60}, {"date": "2025-04-15", "rank": 60}, {"date": "2025-04-16", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}];
+            const historyData = [{"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 57}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-09", "rank": 59}, {"date": "2025-04-10", "rank": 59}, {"date": "2025-04-11", "rank": 59}, {"date": "2025-04-11", "rank": 59}, {"date": "2025-04-14", "rank": 60}, {"date": "2025-04-15", "rank": 60}, {"date": "2025-04-16", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}, {"date": "2025-04-17", "rank": 60}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -118,30 +212,6 @@
                 }
             });
         });
-
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
-        function sortTitlesTable(columnIndex) {
-            const tbody = document.getElementById('titlesTableBody');
-            const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
-            rows.sort((a, b) => {
-                let aValue = columnIndex === 0 ? '' : a.cells[columnIndex].innerText;
-                let bValue = columnIndex === 0 ? '' : b.cells[columnIndex].innerText;
-                if (columnIndex === 2) { // Date column
-                    aValue = new Date(aValue);
-                    bValue = new Date(bValue);
-                    return direction * (aValue - bValue);
-                } else if (columnIndex === 1) { // Items column
-                    return direction * aValue.localeCompare(bValue);
-                }
-                return 0; // No sorting for thumbnail column
-            });
-            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
-            rows.forEach(row => tbody.appendChild(row));
-            titlesSortDirections[columnIndex] = direction;
-            titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
-        }
     </script>
 </body>
 </html>
