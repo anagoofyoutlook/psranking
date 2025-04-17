@@ -17,8 +17,8 @@
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
         .chart-container { max-width: 400px; width: 100%; }
         canvas { width: 100% !important; height: auto !important; }
-        .titles-table { width: 80%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
-        .titles-table th, .titles-table td { padding: 10px; border: 1px solid #99ccff; text-align: left; vertical-align: middle; }
+        .titles-table { width: 90%; margin: 20px auto; border-collapse: collapse; background-color: #cce6ff; }
+        .titles-table th, .titles-table td { padding: 15px; border: 1px solid #99ccff; text-align: left; vertical-align: middle; }
         .titles-table th { background-color: #99ccff; color: #003366; cursor: pointer; }
         .titles-table th:hover { background-color: #b3d9ff; }
         a { color: #003366; text-decoration: none; }
@@ -82,7 +82,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 300}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-10", "rank": 304}, {"date": "2025-04-11", "rank": 304}, {"date": "2025-04-11", "rank": 305}, {"date": "2025-04-14", "rank": 307}, {"date": "2025-04-15", "rank": 307}, {"date": "2025-04-16", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}];
+            const historyData = [{"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 300}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-10", "rank": 304}, {"date": "2025-04-11", "rank": 304}, {"date": "2025-04-11", "rank": 305}, {"date": "2025-04-14", "rank": 307}, {"date": "2025-04-15", "rank": 307}, {"date": "2025-04-16", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
