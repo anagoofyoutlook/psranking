@@ -185,7 +185,7 @@
                 <div class='grid-item'>
                     <video src='../Photos/Jade Valentine/ezgif.com-webp-to-jpg-converter.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/2675869202/2' target='_blank'>Blacked Jade Valentine - Petite Beauty Has Wild BBC Fantasy - 74x - 3000px - (24 Mar, 2025)</a></p>
-                    <p class='date'>2025-03-27</p>
+                    <p class='date'>S.No: 1 | 2025-03-27</p>
                 </div>
             </div>
         <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2675869202/2' target='_blank'>Blacked Jade Valentine - Petite Beauty Has Wild BBC Fantasy - 74x - 3000px - (24 Mar, 2025)</a></td><td>2025-03-27</td></tr></tbody></table>
@@ -225,7 +225,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 197}, {"date": "2025-04-09", "rank": 198}, {"date": "2025-04-09", "rank": 199}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-10", "rank": 203}, {"date": "2025-04-11", "rank": 200}, {"date": "2025-04-11", "rank": 202}, {"date": "2025-04-14", "rank": 206}, {"date": "2025-04-15", "rank": 205}, {"date": "2025-04-16", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}];
+            const historyData = [{"date": "2025-04-09", "rank": 197}, {"date": "2025-04-09", "rank": 198}, {"date": "2025-04-09", "rank": 199}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-10", "rank": 203}, {"date": "2025-04-11", "rank": 200}, {"date": "2025-04-11", "rank": 202}, {"date": "2025-04-14", "rank": 206}, {"date": "2025-04-15", "rank": 205}, {"date": "2025-04-16", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -278,10 +278,6 @@
                     return direction * aValue.localeCompare(bValue);
                 }
                 return 0;
-            });
-            // Reassign serial numbers after sorting
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
             });
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 

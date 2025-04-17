@@ -183,16 +183,16 @@
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for Full Movies' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/1875347302/5' target='_blank'>Full Movies</a></p>
-                    <p class='date'>2023-11-14</p>
+                    <p class='date'>S.No: 2 | 2023-11-14</p>
                 </div>
             
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for Jia Lissa' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/1875347302/2' target='_blank'>Jia Lissa</a></p>
-                    <p class='date'>2023-10-17</p>
+                    <p class='date'>S.No: 1 | 2023-10-17</p>
                 </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/1875347302/5' target='_blank'>Full Movies</a></td><td>2023-11-14</td></tr><tr><td>2</td><td><a href='https://t.me/c/1875347302/2' target='_blank'>Jia Lissa</a></td><td>2023-10-17</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>2</td><td><a href='https://t.me/c/1875347302/5' target='_blank'>Full Movies</a></td><td>2023-11-14</td></tr><tr><td>1</td><td><a href='https://t.me/c/1875347302/2' target='_blank'>Jia Lissa</a></td><td>2023-10-17</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -229,7 +229,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 276}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-10", "rank": 282}, {"date": "2025-04-11", "rank": 282}, {"date": "2025-04-11", "rank": 283}, {"date": "2025-04-14", "rank": 285}, {"date": "2025-04-15", "rank": 285}, {"date": "2025-04-16", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 286}, {"date": "2025-04-17", "rank": 286}];
+            const historyData = [{"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 276}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-09", "rank": 281}, {"date": "2025-04-10", "rank": 282}, {"date": "2025-04-11", "rank": 282}, {"date": "2025-04-11", "rank": 283}, {"date": "2025-04-14", "rank": 285}, {"date": "2025-04-15", "rank": 285}, {"date": "2025-04-16", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 285}, {"date": "2025-04-17", "rank": 286}, {"date": "2025-04-17", "rank": 286}, {"date": "2025-04-17", "rank": 286}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -282,10 +282,6 @@
                     return direction * aValue.localeCompare(bValue);
                 }
                 return 0;
-            });
-            // Reassign serial numbers after sorting
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
             });
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 

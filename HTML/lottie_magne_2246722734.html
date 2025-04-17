@@ -186,13 +186,13 @@
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for VivThomas 2023-01-02 Lottie Magne, Carolina Savage, Ophelia Dust - Join Us' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2246722734/2' target='_blank'>VivThomas 2023-01-02 Lottie Magne, Carolina Savage, Ophelia Dust - Join Us</a></p>
-                    <p class='date'>2024-08-19</p>
+                    <p class='date'>S.No: 1 | 2024-08-19</p>
                 </div>
             
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for WowGirls ‣ Naughty Lesbians Lottie Magne and Sia Siberia' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2246722734/153' target='_blank'>WowGirls ‣ Naughty Lesbians Lottie Magne and Sia Siberia</a></p>
-                    <p class='date'>2024-08-19</p>
+                    <p class='date'>S.No: 2 | 2024-08-19</p>
                 </div>
             </div>
         <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2246722734/2' target='_blank'>VivThomas 2023-01-02 Lottie Magne, Carolina Savage, Ophelia Dust - Join Us</a></td><td>2024-08-19</td></tr><tr><td>2</td><td><a href='https://t.me/c/2246722734/153' target='_blank'>WowGirls ‣ Naughty Lesbians Lottie Magne and Sia Siberia</a></td><td>2024-08-19</td></tr></tbody></table>
@@ -232,7 +232,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 137}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-10", "rank": 143}, {"date": "2025-04-11", "rank": 143}, {"date": "2025-04-11", "rank": 145}, {"date": "2025-04-14", "rank": 145}, {"date": "2025-04-15", "rank": 145}, {"date": "2025-04-16", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 146}, {"date": "2025-04-17", "rank": 146}];
+            const historyData = [{"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 137}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-09", "rank": 142}, {"date": "2025-04-10", "rank": 143}, {"date": "2025-04-11", "rank": 143}, {"date": "2025-04-11", "rank": 145}, {"date": "2025-04-14", "rank": 145}, {"date": "2025-04-15", "rank": 145}, {"date": "2025-04-16", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 145}, {"date": "2025-04-17", "rank": 146}, {"date": "2025-04-17", "rank": 146}, {"date": "2025-04-17", "rank": 146}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -285,10 +285,6 @@
                     return direction * aValue.localeCompare(bValue);
                 }
                 return 0;
-            });
-            // Reassign serial numbers after sorting
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
             });
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 

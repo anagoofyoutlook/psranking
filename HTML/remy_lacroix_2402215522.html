@@ -185,7 +185,7 @@
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for NaughtyAmerica Remy LaCroix - Thundercock - If Remy LaCroix can handle a big black cock, her friend won't be bothered' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2402215522/2' target='_blank'>NaughtyAmerica Remy LaCroix - Thundercock - If Remy LaCroix can handle a big black cock, her friend won't be bothered</a></p>
-                    <p class='date'>2024-09-24</p>
+                    <p class='date'>S.No: 1 | 2024-09-24</p>
                 </div>
             </div>
         <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2402215522/2' target='_blank'>NaughtyAmerica Remy LaCroix - Thundercock - If Remy LaCroix can handle a big black cock, her friend won't be bothered</a></td><td>2024-09-24</td></tr></tbody></table>
@@ -225,7 +225,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 228}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-10", "rank": 237}, {"date": "2025-04-11", "rank": 237}, {"date": "2025-04-11", "rank": 238}, {"date": "2025-04-14", "rank": 240}, {"date": "2025-04-15", "rank": 240}, {"date": "2025-04-16", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 241}, {"date": "2025-04-17", "rank": 241}];
+            const historyData = [{"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 228}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 234}, {"date": "2025-04-09", "rank": 235}, {"date": "2025-04-10", "rank": 237}, {"date": "2025-04-11", "rank": 237}, {"date": "2025-04-11", "rank": 238}, {"date": "2025-04-14", "rank": 240}, {"date": "2025-04-15", "rank": 240}, {"date": "2025-04-16", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 240}, {"date": "2025-04-17", "rank": 241}, {"date": "2025-04-17", "rank": 241}, {"date": "2025-04-17", "rank": 241}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -278,10 +278,6 @@
                     return direction * aValue.localeCompare(bValue);
                 }
                 return 0;
-            });
-            // Reassign serial numbers after sorting
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
             });
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 

@@ -187,13 +187,13 @@
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for NaughtyAmerica Whitney OC - My Dad's Hot Girlfriend - Sexy Stepmom Whitney OC got caught in a dating app by her stepson' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2433624766/2' target='_blank'>NaughtyAmerica Whitney OC - My Dad's Hot Girlfriend - Sexy Stepmom Whitney OC got caught in a dating app by her stepson</a></p>
-                    <p class='date'>2024-10-02</p>
+                    <p class='date'>S.No: 1 | 2024-10-02</p>
                 </div>
             
                 <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for OopsFamily Whitney OC - Calm My Pussy Down, Stepson - x106 3000px (03-01-2025)' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2433624766/284' target='_blank'>OopsFamily Whitney OC - Calm My Pussy Down, Stepson - x106 3000px (03-01-2025)</a></p>
-                    <p class='date'>2025-01-03</p>
+                    <p class='date'>S.No: 2 | 2025-01-03</p>
                 </div>
             </div>
         <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2433624766/2' target='_blank'>NaughtyAmerica Whitney OC - My Dad's Hot Girlfriend - Sexy Stepmom Whitney OC got caught in a dating app by her stepson</a></td><td>2024-10-02</td></tr><tr><td>2</td><td><a href='https://t.me/c/2433624766/284' target='_blank'>OopsFamily Whitney OC - Calm My Pussy Down, Stepson - x106 3000px (03-01-2025)</a></td><td>2025-01-03</td></tr></tbody></table>
@@ -233,7 +233,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 131}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-10", "rank": 133}, {"date": "2025-04-11", "rank": 132}, {"date": "2025-04-11", "rank": 134}, {"date": "2025-04-14", "rank": 135}, {"date": "2025-04-15", "rank": 135}, {"date": "2025-04-16", "rank": 135}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}];
+            const historyData = [{"date": "2025-04-09", "rank": 131}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-09", "rank": 132}, {"date": "2025-04-10", "rank": 133}, {"date": "2025-04-11", "rank": 132}, {"date": "2025-04-11", "rank": 134}, {"date": "2025-04-14", "rank": 135}, {"date": "2025-04-15", "rank": 135}, {"date": "2025-04-16", "rank": 135}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 135}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}, {"date": "2025-04-17", "rank": 136}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -286,10 +286,6 @@
                     return direction * aValue.localeCompare(bValue);
                 }
                 return 0;
-            });
-            // Reassign serial numbers after sorting
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
             });
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 
