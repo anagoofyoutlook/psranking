@@ -19,10 +19,10 @@
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
             gap: 20px; 
             margin: 20px auto; 
-            max-width: 1200px; 
+            max-width: 1800px; 
         }
         .grid-item { 
             background-color: #cce6ff; 
@@ -48,6 +48,26 @@
             margin: 0; 
             font-size: 14px; 
             color: #666; 
+        }
+        .titles-table { 
+            width: 80%; 
+            margin: 20px auto; 
+            border-collapse: collapse; 
+            background-color: #cce6ff; 
+        }
+        .titles-table th, .titles-table td { 
+            padding: 10px; 
+            border: 1px solid #99ccff; 
+            text-align: left; 
+            vertical-align: middle; 
+        }
+        .titles-table th { 
+            background-color: #99ccff; 
+            color: #003366; 
+            cursor: pointer; 
+        }
+        .titles-table th:hover { 
+            background-color: #b3d9ff; 
         }
         a { color: #003366; text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -89,19 +109,23 @@
         <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#OnlyTarts: 1</li>
 </ul>
     </div>
-    <div class="info"><h2>Titles</h2><p>Total Titles: 2</p><div class='titles-grid' id='titlesGrid'>
+    <div class="info">
+        <h2>Titles</h2>
+        <p>Total Titles: 2</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/300x600' alt='Media for Daddy 4k Peep's Leap into the Deep HipVixi Rafi' style='width:300px;height:600px;object-fit:cover;'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Daddy 4k Peep's Leap into the Deep HipVixi Rafi' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2476397694/2' target='_blank'>Daddy 4k Peep's Leap into the Deep HipVixi Rafi</a></p>
                     <p class='date'>2024-09-18</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/300x600' alt='Media for OnlyTarts Vixi Rafi - I Hope This Stays Between Us - x130 - March 17 2025' style='width:300px;height:600px;object-fit:cover;'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for OnlyTarts Vixi Rafi - I Hope This Stays Between Us - x130 - March 17 2025' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2476397694/440' target='_blank'>OnlyTarts Vixi Rafi - I Hope This Stays Between Us - x130 - March 17 2025</a></p>
                     <p class='date'>2025-03-18</p>
                 </div>
-            </div></div>
+            </div>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>Items</th><th onclick='sortTitlesTable(1)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td><a href='https://t.me/c/2476397694/2' target='_blank'>Daddy 4k Peep's Leap into the Deep HipVixi Rafi</a></td><td>2024-09-18</td></tr><tr><td><a href='https://t.me/c/2476397694/440' target='_blank'>OnlyTarts Vixi Rafi - I Hope This Stays Between Us - x130 - March 17 2025</a></td><td>2025-03-18</td></tr></tbody></table>
+    </div>
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -125,7 +149,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 141}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-10", "rank": 150}, {"date": "2025-04-11", "rank": 150}, {"date": "2025-04-11", "rank": 152}, {"date": "2025-04-14", "rank": 152}, {"date": "2025-04-15", "rank": 152}, {"date": "2025-04-16", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}];
+            const historyData = [{"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 141}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-09", "rank": 148}, {"date": "2025-04-10", "rank": 150}, {"date": "2025-04-11", "rank": 150}, {"date": "2025-04-11", "rank": 152}, {"date": "2025-04-14", "rank": 152}, {"date": "2025-04-15", "rank": 152}, {"date": "2025-04-16", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}, {"date": "2025-04-17", "rank": 152}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -145,6 +169,30 @@
                 }
             });
         });
+
+        // Titles table sorting
+        let titlesSortDirections = [0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        function sortTitlesTable(columnIndex) {
+            const tbody = document.getElementById('titlesTableBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].innerText;
+                let bValue = b.cells[columnIndex].innerText;
+                if (columnIndex === 1) { // Date column
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 0) { // Items column
+                    return direction * aValue.localeCompare(bValue);
+                }
+                return 0;
+            });
+            while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
+            rows.forEach(row => tbody.appendChild(row));
+            titlesSortDirections[columnIndex] = direction;
+            titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+        }
     </script>
 </body>
 </html>
