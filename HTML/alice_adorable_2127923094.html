@@ -82,7 +82,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 300}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-10", "rank": 304}, {"date": "2025-04-11", "rank": 304}, {"date": "2025-04-11", "rank": 305}, {"date": "2025-04-14", "rank": 307}, {"date": "2025-04-15", "rank": 307}, {"date": "2025-04-16", "rank": 307}, {"date": "2025-04-17", "rank": 307}];
+            const historyData = [{"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 300}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-09", "rank": 304}, {"date": "2025-04-10", "rank": 304}, {"date": "2025-04-11", "rank": 304}, {"date": "2025-04-11", "rank": 305}, {"date": "2025-04-14", "rank": 307}, {"date": "2025-04-15", "rank": 307}, {"date": "2025-04-16", "rank": 307}, {"date": "2025-04-17", "rank": 307}, {"date": "2025-04-17", "rank": 307}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
