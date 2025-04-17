@@ -34,8 +34,8 @@
             align-items: center; 
         }
         .grid-item video, .grid-item img { 
-            width: 300px; 
-            height: 600px; 
+            width: 600px; 
+            height: 300px; 
             object-fit: cover; 
             border-radius: 5px; 
         }
@@ -117,7 +117,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 269}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-10", "rank": 275}, {"date": "2025-04-11", "rank": 275}, {"date": "2025-04-11", "rank": 276}, {"date": "2025-04-14", "rank": 278}, {"date": "2025-04-15", "rank": 278}, {"date": "2025-04-16", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}];
+            const historyData = [{"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 269}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-09", "rank": 274}, {"date": "2025-04-10", "rank": 275}, {"date": "2025-04-11", "rank": 275}, {"date": "2025-04-11", "rank": 276}, {"date": "2025-04-14", "rank": 278}, {"date": "2025-04-15", "rank": 278}, {"date": "2025-04-16", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}, {"date": "2025-04-17", "rank": 278}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
