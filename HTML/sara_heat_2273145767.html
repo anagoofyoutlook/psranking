@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { color: #003366; }
+        h1 { color: #003366; margin-top: 20px; }
         .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
         .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
@@ -76,7 +76,7 @@
         .container { 
             position: relative; 
             width: 80%; 
-            margin: auto; 
+            margin: 20px auto; 
             height: 800px; 
         }
         .mySlides { 
@@ -154,6 +154,13 @@
                 width: 80%; 
                 height: auto; 
             } 
+            .rank-container { 
+                flex-direction: column; 
+                gap: 10px; 
+            } 
+            .chart-container { 
+                max-width: 100%; 
+            } 
         }
     </style>
 </head>
@@ -168,7 +175,7 @@
     <h1>Sara Heat</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="231"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="230"></span></p>
     </div>
     <div class="info"><p>Scenes: 195</p><p>Last Scene: 160 days</p></div>
     <div class="info">
@@ -225,7 +232,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 216}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-10", "rank": 225}, {"date": "2025-04-11", "rank": 226}, {"date": "2025-04-11", "rank": 227}, {"date": "2025-04-14", "rank": 228}, {"date": "2025-04-15", "rank": 229}, {"date": "2025-04-16", "rank": 229}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-22", "rank": 229}];
+            const historyData = [{"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 216}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-09", "rank": 223}, {"date": "2025-04-10", "rank": 225}, {"date": "2025-04-11", "rank": 226}, {"date": "2025-04-11", "rank": 227}, {"date": "2025-04-14", "rank": 228}, {"date": "2025-04-15", "rank": 229}, {"date": "2025-04-16", "rank": 229}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 228}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-17", "rank": 230}, {"date": "2025-04-22", "rank": 229}, {"date": "2025-04-28", "rank": 231}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
