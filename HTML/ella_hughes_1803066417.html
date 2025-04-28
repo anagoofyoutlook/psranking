@@ -91,34 +91,39 @@
             position: relative; 
             width: 80%; 
             margin: 20px auto; 
-            height: 800px; 
+            height: auto; 
+            max-height: 600px; 
             display: block; 
+            overflow: hidden; 
         }
         .mySlides { 
             display: none; 
             width: 100%; 
-            height: 100%; 
+            height: auto; 
+            aspect-ratio: 16/9; 
         }
         .mySlides img { 
             width: 100%; 
             height: auto; 
-            object-fit: cover; 
+            object-fit: contain; 
         }
         .cursor { cursor: pointer; }
         .prev, .next { 
             cursor: pointer; 
             position: absolute; 
-            top: 40%; 
+            top: 50%; 
+            transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            margin-top: -50px; 
             color: white; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
             user-select: none; 
             -webkit-user-select: none; 
+            z-index: 10; 
         }
+        .prev { left: 0; }
         .next { 
             right: 0; 
             border-radius: 3px 0 0 3px; 
@@ -132,6 +137,7 @@
             padding: 8px 12px; 
             position: absolute; 
             top: 0; 
+            z-index: 10; 
         }
         .caption-container { 
             text-align: center; 
@@ -139,17 +145,22 @@
             padding: 2px 16px; 
             color: white; 
         }
-        .row:after { 
-            content: ""; 
-            display: table; 
-            clear: both; 
+        .row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 10px; 
         }
         .column { 
-            float: left; 
-            width: 16.666666666666668%; 
+            flex: 0 0 16.666666666666668%; 
+            max-width: 100px; 
+            padding: 5px; 
         }
         .demo { 
             opacity: 0.6; 
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
         }
         .active, .demo:hover { 
             opacity: 1; 
@@ -167,7 +178,7 @@
         @media only screen and (max-width: 768px) { 
             .container { 
                 width: 80%; 
-                height: auto; 
+                max-height: 400px; 
             } 
             h1 { 
                 width: 80%; 
@@ -181,6 +192,13 @@
             } 
             .chart-container { 
                 max-width: 100%; 
+            } 
+            .column { 
+                flex: 0 0 80px; 
+                max-width: 80px; 
+            } 
+            .mySlides img { 
+                object-fit: contain; 
             } 
         }
     </style>
@@ -233,25 +251,25 @@
         <h2>Titles</h2>
         <p>Total Titles: 27</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/106' target='_blank'>BLacked Insatiable Appetite</a></p>
                     <p class='date'>S.No: 2 | 2024-02-28</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/720' target='_blank'>BRAZZERS In Her Mail Slot</a></p>
                     <p class='date'>S.No: 8 | 2025-01-03</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/3385' target='_blank'>Babes Ella Hughes - Pale in Comparison 17x 2495x1663 11-02-2018</a></p>
                     <p class='date'>S.No: 21 | 2025-01-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/5774' target='_blank'>Babes Ella Hughes Stress Relief (May 15, 2016)</a></p>
                     <p class='date'>S.No: 26 | 2025-01-27</p>
                 </div>
@@ -269,19 +287,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/569' target='_blank'>Bang Killergram Rina Ellis, Ella Hughes - Always On My Mind, Scene #3 146 pics 1152x2048 July 1, 2017</a></p>
                     <p class='date'>S.No: 7 | 2024-12-23</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/880' target='_blank'>Blacked 18 04 30 100705 Ella Hughes, Dredd (Teachers Pet)</a></p>
                     <p class='date'>S.No: 10 | 2025-01-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/802' target='_blank'>Blacked 19 07 04 101169 Ella Hughes, Freddy Gong (By Whatever Means Necessary)</a></p>
                     <p class='date'>S.No: 9 | 2025-01-24</p>
                 </div>
@@ -293,31 +311,31 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/1227' target='_blank'>Brazzers Ella Hughes - Car Tips (And Tricks) 200x 2495x1663 09-09-2018</a></p>
                     <p class='date'>S.No: 13 | 2025-01-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2802' target='_blank'>Brazzers Ella Hughes - Oktoberfucked 579x 2495x1663 09-24-2018</a></p>
                     <p class='date'>S.No: 20 | 2025-01-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/4969' target='_blank'>Brazzers Ella Hughes - Shy Redheads Want Anal - x794 - 2495px - November 28, 2015</a></p>
                     <p class='date'>S.No: 25 | 2025-01-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/1432' target='_blank'>Brazzers Ella Hughes Good Boy - 2495px - 563x</a></p>
                     <p class='date'>S.No: 14 | 2025-01-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2703' target='_blank'>Cherrie Pimps Ella Hughes No Time For Panties (x92) 3744x5616 Nude Adult Album Hot Sexy Album</a></p>
                     <p class='date'>S.No: 19 | 2025-01-27</p>
                 </div>
@@ -329,31 +347,31 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/281' target='_blank'>ONLYFANS</a></p>
                     <p class='date'>S.No: 4 | 2024-11-15</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2000' target='_blank'>Private Clea Gaultier, Ella Hughes & Verona Sky - Interracial Orgy - 1600px - 177X (22-04-2017)</a></p>
                     <p class='date'>S.No: 15 | 2025-01-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/284' target='_blank'>Private Ella Hughes - Ella Hughes, Fucked In The Park - 1600px - 107X (05-07-2019)</a></p>
                     <p class='date'>S.No: 5 | 2024-12-06</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/997' target='_blank'>Private Ella Hughes - Ella Hughes, Horny Redhead Fucks The Painter - 1600px - 97X (31-05-2019)</a></p>
                     <p class='date'>S.No: 11 | 2025-01-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/Tushyraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2377' target='_blank'>Private Ella Hughes - Ella Hugues Prefers Interracial Action To Skiing - 1600px - 215X (30-03-2017)</a></p>
                     <p class='date'>S.No: 17 | 2025-01-24</p>
                 </div>
@@ -365,19 +383,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2597' target='_blank'>Private Ella Hughes, unfaithful wife 105x 1600x1067 09-27-2018</a></p>
                     <p class='date'>S.No: 18 | 2025-01-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blacked-ella-hughes_1920x800.jpeg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/5949' target='_blank'>Tushy 2018-04-21 - Ella Hughes - Out Of Town Anal (128) 3000x2000</a></p>
                     <p class='date'>S.No: 27 | 2025-01-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/ezgif.com-gif-maker.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/186' target='_blank'>Tushy Ella Hughes, Alecia Fox - Escape</a></p>
                     <p class='date'>S.No: 3 | 2024-02-28</p>
                 </div>
@@ -389,7 +407,7 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Ella Hughes/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Ella Hughes/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1803066417/2' target='_blank'>Vixen Honour May and Ella Hughes</a></p>
                     <p class='date'>S.No: 1 | 2023-09-07</p>
                 </div>
@@ -431,7 +449,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-10", "rank": 24}, {"date": "2025-04-11", "rank": 24}, {"date": "2025-04-11", "rank": 24}, {"date": "2025-04-14", "rank": 24}, {"date": "2025-04-15", "rank": 25}, {"date": "2025-04-16", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-22", "rank": 26}, {"date": "2025-04-28", "rank": 26}, {"date": "2025-04-28", "rank": 26}, {"date": "2025-04-28", "rank": 26}];
+            const historyData = [{"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-09", "rank": 23}, {"date": "2025-04-10", "rank": 24}, {"date": "2025-04-11", "rank": 24}, {"date": "2025-04-11", "rank": 24}, {"date": "2025-04-14", "rank": 24}, {"date": "2025-04-15", "rank": 25}, {"date": "2025-04-16", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 25}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-22", "rank": 26}, {"date": "2025-04-28", "rank": 26}, {"date": "2025-04-28", "rank": 26}, {"date": "2025-04-28", "rank": 26}, {"date": "2025-04-28", "rank": 27}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {

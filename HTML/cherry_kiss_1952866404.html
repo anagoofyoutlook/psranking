@@ -91,34 +91,39 @@
             position: relative; 
             width: 80%; 
             margin: 20px auto; 
-            height: 800px; 
+            height: auto; 
+            max-height: 600px; 
             display: block; 
+            overflow: hidden; 
         }
         .mySlides { 
             display: none; 
             width: 100%; 
-            height: 100%; 
+            height: auto; 
+            aspect-ratio: 16/9; 
         }
         .mySlides img { 
             width: 100%; 
             height: auto; 
-            object-fit: cover; 
+            object-fit: contain; 
         }
         .cursor { cursor: pointer; }
         .prev, .next { 
             cursor: pointer; 
             position: absolute; 
-            top: 40%; 
+            top: 50%; 
+            transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            margin-top: -50px; 
             color: white; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
             user-select: none; 
             -webkit-user-select: none; 
+            z-index: 10; 
         }
+        .prev { left: 0; }
         .next { 
             right: 0; 
             border-radius: 3px 0 0 3px; 
@@ -132,6 +137,7 @@
             padding: 8px 12px; 
             position: absolute; 
             top: 0; 
+            z-index: 10; 
         }
         .caption-container { 
             text-align: center; 
@@ -139,17 +145,22 @@
             padding: 2px 16px; 
             color: white; 
         }
-        .row:after { 
-            content: ""; 
-            display: table; 
-            clear: both; 
+        .row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 10px; 
         }
         .column { 
-            float: left; 
-            width: 16.666666666666668%; 
+            flex: 0 0 16.666666666666668%; 
+            max-width: 100px; 
+            padding: 5px; 
         }
         .demo { 
             opacity: 0.6; 
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
         }
         .active, .demo:hover { 
             opacity: 1; 
@@ -167,7 +178,7 @@
         @media only screen and (max-width: 768px) { 
             .container { 
                 width: 80%; 
-                height: auto; 
+                max-height: 400px; 
             } 
             h1 { 
                 width: 80%; 
@@ -181,6 +192,13 @@
             } 
             .chart-container { 
                 max-width: 100%; 
+            } 
+            .column { 
+                flex: 0 0 80px; 
+                max-width: 80px; 
+            } 
+            .mySlides img { 
+                object-fit: contain; 
             } 
         }
     </style>
@@ -239,7 +257,7 @@
         <h2>Titles</h2>
         <p>Total Titles: 29</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/3' target='_blank'>BABES More Than A Bodyguard Cherry Kiss, Christian Clay</a></p>
                     <p class='date'>S.No: 1 | 2023-08-18</p>
                 </div>
@@ -251,25 +269,25 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/1063' target='_blank'>BellesaFilms - Cherry Kiss & Cory Chase - The Plan</a></p>
                     <p class='date'>S.No: 12 | 2024-05-10</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/vixen.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/3124' target='_blank'>Blacked Cherry Kiss - Hotwife Cherry Gets Dominated And Squirts - 79x - 3000px - (27 Feb, 2025)</a></p>
                     <p class='date'>S.No: 29 | 2025-03-12</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2571' target='_blank'>CheatingMommy 2024-12-12 Cherry Kiss & Ethan Seeks - Mrs Claus cures her loneliness - x130</a></p>
                     <p class='date'>S.No: 24 | 2024-12-16</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2272' target='_blank'>Cherry Kiss Ophelia Kaan Something Holed Something New</a></p>
                     <p class='date'>S.No: 20 | 2024-09-24</p>
                 </div>
@@ -281,13 +299,13 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/996' target='_blank'>DEEPER Fix It</a></p>
                     <p class='date'>S.No: 11 | 2024-04-19</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2056' target='_blank'>DORCEL CLUB Venera Maxima & Cherry Kiss - After months of temptation</a></p>
                     <p class='date'>S.No: 17 | 2024-06-14</p>
                 </div>
@@ -305,19 +323,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/311' target='_blank'>DevilsFilm Cherry Kiss - Cucked By My Own Doc</a></p>
                     <p class='date'>S.No: 7 | 2024-04-02</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2311' target='_blank'>Ella Reese Debuts in an Anal Swingers Orgy</a></p>
                     <p class='date'>S.No: 22 | 2024-10-17</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/vixen.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/13' target='_blank'>FamilySwap Swap Sons Bad Day Gets Better - S8:E5 Season 8, Episode 5 Cherry Kiss, Danny Steele</a></p>
                     <p class='date'>S.No: 3 | 2023-12-07</p>
                 </div>
@@ -329,19 +347,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/vixen.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2417' target='_blank'>KarupsPC Cherry Kiss - Cherry On Top x148 3000px (Dec 4th, 2024)</a></p>
                     <p class='date'>S.No: 23 | 2024-12-05</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/771' target='_blank'>Makes Her Favorite Stepmom Mistake</a></p>
                     <p class='date'>S.No: 10 | 2024-04-19</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/404' target='_blank'>MomSwap Cherry Kiss , Sienna Rae - I Want to be an Exotic Dancer</a></p>
                     <p class='date'>S.No: 8 | 2024-04-02</p>
                 </div>
@@ -353,25 +371,25 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/vixen.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2137' target='_blank'>MomsTeachSex Cherry Kiss, Jade Maris - Stepmom Helps My Sex Starved Girlfriend</a></p>
                     <p class='date'>S.No: 19 | 2024-08-09</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2304' target='_blank'>ONLYFANS</a></p>
                     <p class='date'>S.No: 21 | 2024-09-27</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/1743' target='_blank'>Penthouse Cherry Kiss Wants an XXXtra Massage</a></p>
                     <p class='date'>S.No: 15 | 2024-06-05</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/7' target='_blank'>Porn World Cheating Housewife Cherry Kiss Gets DPd By BBC Masseuse And Hubby</a></p>
                     <p class='date'>S.No: 2 | 2023-08-21</p>
                 </div>
@@ -383,7 +401,7 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/blackedraw.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/vixen.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/748' target='_blank'>Sharing My Wife 2 - Scene 2 - Cannot Tame Her</a></p>
                     <p class='date'>S.No: 9 | 2024-04-14</p>
                 </div>
@@ -395,19 +413,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/1796' target='_blank'>SweetSinner Cherry Kiss - Playtime!</a></p>
                     <p class='date'>S.No: 16 | 2024-06-14</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/tushy.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/2065' target='_blank'>Tushy Cherry Kiss - Blonde Bombshell Gets Her Ass Gaped Wide Open</a></p>
                     <p class='date'>S.No: 18 | 2024-06-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Cherry Kiss/dorcel.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Cherry Kiss/blacked.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1952866404/1730' target='_blank'>realityjunkies cherry kiss working girls scene 1 career focused</a></p>
                     <p class='date'>S.No: 14 | 2024-06-02</p>
                 </div>
@@ -449,7 +467,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 35}, {"date": "2025-04-09", "rank": 32}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-10", "rank": 36}, {"date": "2025-04-11", "rank": 36}, {"date": "2025-04-11", "rank": 36}, {"date": "2025-04-14", "rank": 37}, {"date": "2025-04-15", "rank": 38}, {"date": "2025-04-16", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-22", "rank": 38}, {"date": "2025-04-28", "rank": 39}, {"date": "2025-04-28", "rank": 39}, {"date": "2025-04-28", "rank": 39}];
+            const historyData = [{"date": "2025-04-09", "rank": 35}, {"date": "2025-04-09", "rank": 32}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-09", "rank": 36}, {"date": "2025-04-10", "rank": 36}, {"date": "2025-04-11", "rank": 36}, {"date": "2025-04-11", "rank": 36}, {"date": "2025-04-14", "rank": 37}, {"date": "2025-04-15", "rank": 38}, {"date": "2025-04-16", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-17", "rank": 38}, {"date": "2025-04-22", "rank": 38}, {"date": "2025-04-28", "rank": 39}, {"date": "2025-04-28", "rank": 39}, {"date": "2025-04-28", "rank": 39}, {"date": "2025-04-28", "rank": 39}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {

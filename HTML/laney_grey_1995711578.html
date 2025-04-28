@@ -91,34 +91,39 @@
             position: relative; 
             width: 80%; 
             margin: 20px auto; 
-            height: 800px; 
+            height: auto; 
+            max-height: 600px; 
             display: block; 
+            overflow: hidden; 
         }
         .mySlides { 
             display: none; 
             width: 100%; 
-            height: 100%; 
+            height: auto; 
+            aspect-ratio: 16/9; 
         }
         .mySlides img { 
             width: 100%; 
             height: auto; 
-            object-fit: cover; 
+            object-fit: contain; 
         }
         .cursor { cursor: pointer; }
         .prev, .next { 
             cursor: pointer; 
             position: absolute; 
-            top: 40%; 
+            top: 50%; 
+            transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            margin-top: -50px; 
             color: white; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
             user-select: none; 
             -webkit-user-select: none; 
+            z-index: 10; 
         }
+        .prev { left: 0; }
         .next { 
             right: 0; 
             border-radius: 3px 0 0 3px; 
@@ -132,6 +137,7 @@
             padding: 8px 12px; 
             position: absolute; 
             top: 0; 
+            z-index: 10; 
         }
         .caption-container { 
             text-align: center; 
@@ -139,17 +145,22 @@
             padding: 2px 16px; 
             color: white; 
         }
-        .row:after { 
-            content: ""; 
-            display: table; 
-            clear: both; 
+        .row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 10px; 
         }
         .column { 
-            float: left; 
-            width: 20.0%; 
+            flex: 0 0 20.0%; 
+            max-width: 100px; 
+            padding: 5px; 
         }
         .demo { 
             opacity: 0.6; 
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
         }
         .active, .demo:hover { 
             opacity: 1; 
@@ -167,7 +178,7 @@
         @media only screen and (max-width: 768px) { 
             .container { 
                 width: 80%; 
-                height: auto; 
+                max-height: 400px; 
             } 
             h1 { 
                 width: 80%; 
@@ -181,6 +192,13 @@
             } 
             .chart-container { 
                 max-width: 100%; 
+            } 
+            .column { 
+                flex: 0 0 80px; 
+                max-width: 80px; 
+            } 
+            .mySlides img { 
+                object-fit: contain; 
             } 
         }
     </style>
@@ -227,25 +245,25 @@
         <h2>Titles</h2>
         <p>Total Titles: 25</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/1399' target='_blank'>Abbie Maley Laney Grey Tru Kait And Friends Have An Orgy</a></p>
                     <p class='date'>S.No: 22 | 2025-03-12</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/5' target='_blank'>Angel Youngs Laney Grey - Threesome</a></p>
                     <p class='date'>S.No: 2 | 2024-03-25</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/365' target='_blank'>Blacked Laney Grey - Happy Wife</a></p>
                     <p class='date'>S.No: 8 | 2024-03-28</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/B.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/1543' target='_blank'>Blacked Lilly Bell & Laney Grey - For Business Purposes - 95x - 3000px - (05 Jun, 2021)</a></p>
                     <p class='date'>S.No: 24 | 2025-04-07</p>
                 </div>
@@ -263,19 +281,19 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/BR.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/746' target='_blank'>Date Night Hall Pass</a></p>
                     <p class='date'>S.No: 17 | 2024-08-14</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/BR.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/51' target='_blank'>DaughterSwap Laney Grey, Chanel Camryn - Now or Never</a></p>
                     <p class='date'>S.No: 4 | 2024-03-25</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/1171' target='_blank'>Gal Ritchie - American Dick</a></p>
                     <p class='date'>S.No: 20 | 2024-11-04</p>
                 </div>
@@ -287,13 +305,13 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/716' target='_blank'>Laney Grey - Healthy Relationships</a></p>
                     <p class='date'>S.No: 15 | 2024-07-30</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/B.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/26' target='_blank'>Laney Grey Sinn Sage First Hookup</a></p>
                     <p class='date'>S.No: 3 | 2024-03-25</p>
                 </div>
@@ -305,43 +323,43 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/1517' target='_blank'>MommysGirl 25.03.15 Laney Grey And Lexi Luna Keep Your eyes On The Road</a></p>
                     <p class='date'>S.No: 23 | 2025-03-15</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/BR.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/2' target='_blank'>Onlyfans</a></p>
                     <p class='date'>S.No: 1 | 2024-03-25</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/B.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/155' target='_blank'>PervTherapy Laney Grey - Bikini Treatment</a></p>
                     <p class='date'>S.No: 5 | 2024-03-25</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/661' target='_blank'>PureTaboo 22 06 07 Laney Grey And Penny Barber Some Ground Rules</a></p>
                     <p class='date'>S.No: 13 | 2024-05-10</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/1376' target='_blank'>PureTaboo Laney Grey, Leana Lovings - Roommate's Mixed Messages</a></p>
                     <p class='date'>S.No: 21 | 2025-01-03</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/BR.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/729' target='_blank'>S3XUS E22 Laney Grey And Angel Youngs Eucharist</a></p>
                     <p class='date'>S.No: 16 | 2024-07-31</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/BR.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/D.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/651' target='_blank'>S3xus 24 04 19 Laney Grey And Gia Derza ET TU</a></p>
                     <p class='date'>S.No: 12 | 2024-04-25</p>
                 </div>
@@ -353,13 +371,13 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/advd.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/450' target='_blank'>ShoplyfterCase No. 7906290 - The Virgin Thief</a></p>
                     <p class='date'>S.No: 9 | 2024-04-01</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Laney Grey/S.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
+                    <video src='../Photos/Laney Grey/B.jpg' style='width:600px;height:300px;object-fit:cover;' autoplay loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1995711578/574' target='_blank'>Slayed Anya Olsen, Laney Grey - Exhibitionists Anya And Laney Make Evidence Of Their Experiment</a></p>
                     <p class='date'>S.No: 11 | 2024-04-05</p>
                 </div>
@@ -413,7 +431,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-10", "rank": 25}, {"date": "2025-04-11", "rank": 25}, {"date": "2025-04-11", "rank": 25}, {"date": "2025-04-14", "rank": 25}, {"date": "2025-04-15", "rank": 26}, {"date": "2025-04-16", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-22", "rank": 27}, {"date": "2025-04-28", "rank": 27}, {"date": "2025-04-28", "rank": 27}, {"date": "2025-04-28", "rank": 27}];
+            const historyData = [{"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 26}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-09", "rank": 24}, {"date": "2025-04-10", "rank": 25}, {"date": "2025-04-11", "rank": 25}, {"date": "2025-04-11", "rank": 25}, {"date": "2025-04-14", "rank": 25}, {"date": "2025-04-15", "rank": 26}, {"date": "2025-04-16", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 26}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-17", "rank": 27}, {"date": "2025-04-22", "rank": 27}, {"date": "2025-04-28", "rank": 27}, {"date": "2025-04-28", "rank": 27}, {"date": "2025-04-28", "rank": 27}, {"date": "2025-04-28", "rank": 28}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
