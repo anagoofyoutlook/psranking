@@ -170,7 +170,7 @@
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
         <p>Rank: <span class="rank-number" data-rank="207"></span></p>
     </div>
-    <div class="info"><p>Scenes: 78</p><p>Last Scene: 26 days</p></div>
+    <div class="info"><p>Scenes: 78</p><p>Last Scene: 31 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FOUR: 1</li>
 </ul>
@@ -225,7 +225,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 197}, {"date": "2025-04-09", "rank": 198}, {"date": "2025-04-09", "rank": 199}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-10", "rank": 203}, {"date": "2025-04-11", "rank": 200}, {"date": "2025-04-11", "rank": 202}, {"date": "2025-04-14", "rank": 206}, {"date": "2025-04-15", "rank": 205}, {"date": "2025-04-16", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}];
+            const historyData = [{"date": "2025-04-09", "rank": 197}, {"date": "2025-04-09", "rank": 198}, {"date": "2025-04-09", "rank": 199}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-09", "rank": 200}, {"date": "2025-04-10", "rank": 203}, {"date": "2025-04-11", "rank": 200}, {"date": "2025-04-11", "rank": 202}, {"date": "2025-04-14", "rank": 206}, {"date": "2025-04-15", "rank": 205}, {"date": "2025-04-16", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 205}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-17", "rank": 206}, {"date": "2025-04-22", "rank": 207}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -247,7 +247,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank' }, 
                             ticks: { stepSize: 1 }, 
-                            suggestedMax: 335 
+                            suggestedMax: 336 
                         }, 
                         x: { 
                             title: { display: true, text: 'Date' } 
