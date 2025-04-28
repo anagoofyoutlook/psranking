@@ -12,6 +12,7 @@
             width: 80%; 
             margin: 20px auto; 
             text-align: center; 
+            font-size: 36px; 
         }
         .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
@@ -171,6 +172,7 @@
             h1 { 
                 width: 80%; 
                 margin: 10px auto; 
+                font-size: 30px; 
             }
             .rank-container { 
                 width: 80%; 
@@ -184,6 +186,11 @@
     </style>
 </head>
 <body>
+    <h1>Vintage</h1>
+    <div class="rank-container">
+        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
+        <p>Rank: <span class="rank-number" data-rank="18"></span></p>
+    </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%;height:auto;"></div>
             <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -191,12 +198,7 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="Vintage Photo 1"></div></div></div>
-    <h1>Vintage</h1>
-    <div class="rank-container">
-        <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="18"></span></p>
-    </div>
-    <div class="info"><p>Scenes: 895</p><p>Last Scene: 6 days</p></div>
+    <div class="info"><p>Scenes: 897</p><p>Last Scene: 0 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 14</li>
 <li class="hashtag-item">#FOUR: 19</li>
@@ -223,6 +225,7 @@
 <li class="hashtag-item">#Becky_Savage: 1</li>
 <li class="hashtag-item">#Bethanna: 3</li>
 <li class="hashtag-item">#Biggi_Stenzhorn: 1</li>
+<li class="hashtag-item">#Black_and_White: 1</li>
 <li class="hashtag-item">#Bobby_Astyr: 7</li>
 <li class="hashtag-item">#Bobby_Brigante: 1</li>
 <li class="hashtag-item">#Bobby_Spector: 1</li>
@@ -237,7 +240,7 @@
 <li class="hashtag-item">#Carl_Heinz_Kühn: 1</li>
 <li class="hashtag-item">#Carla_Turner: 2</li>
 <li class="hashtag-item">#Carol_Cross: 3</li>
-<li class="hashtag-item">#Chloë_des_Lysses: 16</li>
+<li class="hashtag-item">#Chloë_des_Lysses: 17</li>
 <li class="hashtag-item">#Christine_Berg: 3</li>
 <li class="hashtag-item">#Christine_Szenetra: 2</li>
 <li class="hashtag-item">#Chuck_Vincent: 1</li>
@@ -344,6 +347,7 @@
 <li class="hashtag-item">#Little_Oral_Annie: 5</li>
 <li class="hashtag-item">#Liza_Dwyer: 1</li>
 <li class="hashtag-item">#Lori_Blue: 1</li>
+<li class="hashtag-item">#Magma_Spezial: 1</li>
 <li class="hashtag-item">#Marcia_Minor: 1</li>
 <li class="hashtag-item">#Marie_Christine_Chireix: 1</li>
 <li class="hashtag-item">#Marie_Line_Chanaud: 1</li>
@@ -447,7 +451,7 @@
 <li class="hashtag-item">#Will_Stoer: 1</li>
 <li class="hashtag-item">#William_Paulson: 1</li>
 <li class="hashtag-item">#Yvonne_Eduser: 1</li>
-<li class="hashtag-item">#clip: 7</li>
+<li class="hashtag-item">#clip: 8</li>
 <li class="hashtag-item">#film: 17</li>
 <li class="hashtag-item">#groupsex: 1</li>
 <li class="hashtag-item">#hairy: 1</li>
@@ -1142,7 +1146,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-10", "rank": 16}, {"date": "2025-04-11", "rank": 16}, {"date": "2025-04-11", "rank": 16}, {"date": "2025-04-14", "rank": 16}, {"date": "2025-04-15", "rank": 16}, {"date": "2025-04-16", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-22", "rank": 18}, {"date": "2025-04-28", "rank": 18}, {"date": "2025-04-28", "rank": 18}];
+            const historyData = [{"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-09", "rank": 15}, {"date": "2025-04-10", "rank": 16}, {"date": "2025-04-11", "rank": 16}, {"date": "2025-04-11", "rank": 16}, {"date": "2025-04-14", "rank": 16}, {"date": "2025-04-15", "rank": 16}, {"date": "2025-04-16", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-22", "rank": 18}, {"date": "2025-04-28", "rank": 18}, {"date": "2025-04-28", "rank": 18}, {"date": "2025-04-28", "rank": 18}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -1164,7 +1168,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank' }, 
                             ticks: { stepSize: 1 }, 
-                            suggestedMax: 336 
+                            suggestedMax: 337 
                         }, 
                         x: { 
                             title: { display: true, text: 'Date' } 
