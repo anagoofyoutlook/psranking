@@ -216,7 +216,7 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="https://via.placeholder.com/1920x800" style="width:100%" onclick="currentSlide(1)" alt="Cassie Del Isla Photo 1"></div></div></div>
-    <div class="info"><p>Scenes: 286</p><p>Last Scene: 301 days</p></div>
+    <div class="info"><p>Scenes: 286</p><p>Last Scene: 302 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FOUR: 3</li>
 </ul>
@@ -283,7 +283,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 140}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-10", "rank": 145}, {"date": "2025-04-11", "rank": 145}, {"date": "2025-04-11", "rank": 147}, {"date": "2025-04-14", "rank": 147}, {"date": "2025-04-15", "rank": 147}, {"date": "2025-04-16", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-22", "rank": 148}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 150}];
+            const historyData = [{"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 140}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-09", "rank": 144}, {"date": "2025-04-10", "rank": 145}, {"date": "2025-04-11", "rank": 145}, {"date": "2025-04-11", "rank": 147}, {"date": "2025-04-14", "rank": 147}, {"date": "2025-04-15", "rank": 147}, {"date": "2025-04-16", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 147}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-17", "rank": 148}, {"date": "2025-04-22", "rank": 148}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 149}, {"date": "2025-04-28", "rank": 150}, {"date": "2025-04-28", "rank": 150}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
