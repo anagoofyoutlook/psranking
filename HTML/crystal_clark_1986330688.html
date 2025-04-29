@@ -207,7 +207,7 @@
     <h1>Crystal Clark</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="33"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="31"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 1</div><img src="../Photos/Crystal Clark/advd.jpg" style="width:100%;height:auto;"></div>
@@ -216,15 +216,15 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="../Photos/Crystal Clark/advd.jpg" style="width:100%" onclick="currentSlide(1)" alt="Crystal Clark Photo 1"></div></div></div>
-    <div class="info"><p>Scenes: 3666</p><p>Last Scene: 38 days</p></div>
+    <div class="info"><p>Scenes: 3668</p><p>Last Scene: 0 days</p></div>
     <div class="info">
-        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 11</li>
+        <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 12</li>
 <li class="hashtag-item">#FOUR: 8</li>
 <li class="hashtag-item">#THREE: 6</li>
 </ul>
         <h2>Scene Type Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#FFM: 4</li>
 <li class="hashtag-item">#FFMM: 7</li>
-<li class="hashtag-item">#FM: 12</li>
+<li class="hashtag-item">#FM: 13</li>
 <li class="hashtag-item">#FMM: 1</li>
 </ul>
         <h2>Other Hashtag Counts</h2><ul class="hashtags"><li class="hashtag-item">#AlainaTaylor: 1</li>
@@ -244,7 +244,7 @@
 <li class="hashtag-item">#Momswap: 1</li>
 <li class="hashtag-item">#Mylf: 2</li>
 <li class="hashtag-item">#Natalie_Brooks: 1</li>
-<li class="hashtag-item">#OF: 2</li>
+<li class="hashtag-item">#OF: 3</li>
 <li class="hashtag-item">#Pristine_Edge: 1</li>
 <li class="hashtag-item">#Twistys: 1</li>
 </ul>
@@ -445,7 +445,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 27}, {"date": "2025-04-09", "rank": 25}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-10", "rank": 29}, {"date": "2025-04-11", "rank": 29}, {"date": "2025-04-11", "rank": 29}, {"date": "2025-04-14", "rank": 29}, {"date": "2025-04-15", "rank": 31}, {"date": "2025-04-16", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-22", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 33}, {"date": "2025-04-28", "rank": 33}];
+            const historyData = [{"date": "2025-04-09", "rank": 27}, {"date": "2025-04-09", "rank": 25}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-09", "rank": 28}, {"date": "2025-04-10", "rank": 29}, {"date": "2025-04-11", "rank": 29}, {"date": "2025-04-11", "rank": 29}, {"date": "2025-04-14", "rank": 29}, {"date": "2025-04-15", "rank": 31}, {"date": "2025-04-16", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 31}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-17", "rank": 32}, {"date": "2025-04-22", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 32}, {"date": "2025-04-28", "rank": 33}, {"date": "2025-04-28", "rank": 33}, {"date": "2025-04-29", "rank": 33}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
