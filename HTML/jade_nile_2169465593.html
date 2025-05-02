@@ -78,11 +78,9 @@
         .titles-table th { 
             background-color: #99ccff; 
             color: #003366; 
-        }
-        .titles-table th:not(:first-child) { 
             cursor: pointer; 
         }
-        .titles-table th:not(:first-child):hover { 
+        .titles-table th:hover { 
             background-color: #b3d9ff; 
         }
         a { color: #003366; text-decoration: none; }
@@ -233,7 +231,7 @@
                     <p class='date'>S.No: 1 | 2024-08-19</p>
                 </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2169465593/2' target='_blank'>Tushy 2018-02-25 - Lana Rhoades, Jade Nile - Sharing Her Ass With My Husband</a></td><td>2024-08-19</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>1</td><td><a href='https://t.me/c/2169465593/2' target='_blank'>Tushy 2018-02-25 - Lana Rhoades, Jade Nile - Sharing Her Ass With My Husband</a></td><td>2024-08-19</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -270,7 +268,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 175}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-10", "rank": 183}, {"date": "2025-04-11", "rank": 183}, {"date": "2025-04-11", "rank": 184}, {"date": "2025-04-14", "rank": 184}, {"date": "2025-04-15", "rank": 184}, {"date": "2025-04-16", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-22", "rank": 184}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-29", "rank": 185}, {"date": "2025-04-29", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}];
+            const historyData = [{"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 175}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-09", "rank": 181}, {"date": "2025-04-10", "rank": 183}, {"date": "2025-04-11", "rank": 183}, {"date": "2025-04-11", "rank": 184}, {"date": "2025-04-14", "rank": 184}, {"date": "2025-04-15", "rank": 184}, {"date": "2025-04-16", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-17", "rank": 184}, {"date": "2025-04-22", "rank": 184}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-28", "rank": 185}, {"date": "2025-04-29", "rank": 185}, {"date": "2025-04-29", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}, {"date": "2025-05-02", "rank": 185}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -321,14 +319,17 @@
         // Titles table sorting
         let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
         function sortTitlesTable(columnIndex) {
-            if (columnIndex === 0) return; // Skip sorting for S.No column
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
             const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
-                if (columnIndex === 2) { // Date column
+                if (columnIndex === 0) { // S.No column
+                    aValue = parseInt(aValue);
+                    bValue = parseInt(bValue);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 2) { // Date column
                     aValue = new Date(aValue);
                     bValue = new Date(bValue);
                     return direction * (aValue - bValue);
