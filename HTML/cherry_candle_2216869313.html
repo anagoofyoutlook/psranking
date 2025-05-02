@@ -278,7 +278,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 218}, {"date": "2025-04-09", "rank": 213}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-10", "rank": 221}, {"date": "2025-04-11", "rank": 221}, {"date": "2025-04-11", "rank": 222}, {"date": "2025-04-14", "rank": 224}, {"date": "2025-04-15", "rank": 224}, {"date": "2025-04-16", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-22", "rank": 225}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-29", "rank": 226}, {"date": "2025-04-29", "rank": 226}, {"date": "2025-05-02", "rank": 226}, {"date": "2025-05-02", "rank": 226}, {"date": "2025-05-02", "rank": 226}];
+            const historyData = [{"date": "2025-04-09", "rank": 218}, {"date": "2025-04-09", "rank": 213}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-09", "rank": 219}, {"date": "2025-04-10", "rank": 221}, {"date": "2025-04-11", "rank": 221}, {"date": "2025-04-11", "rank": 222}, {"date": "2025-04-14", "rank": 224}, {"date": "2025-04-15", "rank": 224}, {"date": "2025-04-16", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 224}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-17", "rank": 225}, {"date": "2025-04-22", "rank": 225}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-28", "rank": 226}, {"date": "2025-04-29", "rank": 226}, {"date": "2025-04-29", "rank": 226}, {"date": "2025-05-02", "rank": 226}, {"date": "2025-05-02", "rank": 226}, {"date": "2025-05-02", "rank": 226}, {"date": "2025-05-02", "rank": 226}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -310,6 +310,19 @@
                         legend: { display: true } 
                     } 
                 }
+            });
+
+            // Add hover-to-play for videos in titles grid
+            const videos = document.querySelectorAll('.grid-item video');
+            videos.forEach(video => {
+                video.addEventListener('mouseover', () => {
+                    video.play().catch(error => {
+                        console.error('Error playing video:', error);
+                    });
+                });
+                video.addEventListener('mouseout', () => {
+                    video.pause();
+                });
             });
         });
 
