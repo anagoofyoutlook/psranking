@@ -211,7 +211,7 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="../Photos/CHARLIE FORDE/TR.jpg" style="width:100%" onclick="currentSlide(1)" alt="CHARLIE FORDE Photo 1"></div><div class="column"><img class="demo cursor" src="../Photos/CHARLIE FORDE/BR.jpg" style="width:100%" onclick="currentSlide(2)" alt="CHARLIE FORDE Photo 2"></div><div class="column"><img class="demo cursor" src="../Photos/CHARLIE FORDE/M.jpg" style="width:100%" onclick="currentSlide(3)" alt="CHARLIE FORDE Photo 3"></div><div class="column"><img class="demo cursor" src="../Photos/CHARLIE FORDE/T.jpg" style="width:100%" onclick="currentSlide(4)" alt="CHARLIE FORDE Photo 4"></div></div></div>
-    <div class="info"><p>Scenes: 1389</p><p>Last Scene: -1 days</p></div>
+    <div class="info"><p>Scenes: 1389</p><p>Last Scene: 0 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 9</li>
 <li class="hashtag-item">#FOUR: 6</li>
@@ -372,7 +372,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 52}, {"date": "2025-04-09", "rank": 72}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-10", "rank": 49}, {"date": "2025-04-11", "rank": 49}, {"date": "2025-04-11", "rank": 49}, {"date": "2025-04-14", "rank": 50}, {"date": "2025-04-15", "rank": 50}, {"date": "2025-04-16", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-22", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 50}, {"date": "2025-04-28", "rank": 50}, {"date": "2025-04-29", "rank": 50}, {"date": "2025-04-29", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-05", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-15", "rank": 47}, {"date": "2025-05-20", "rank": 47}, {"date": "2025-05-22", "rank": 47}, {"date": "2025-05-22", "rank": 47}, {"date": "2025-05-23", "rank": 45}];
+            const historyData = [{"date": "2025-04-09", "rank": 52}, {"date": "2025-04-09", "rank": 72}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-09", "rank": 49}, {"date": "2025-04-10", "rank": 49}, {"date": "2025-04-11", "rank": 49}, {"date": "2025-04-11", "rank": 49}, {"date": "2025-04-14", "rank": 50}, {"date": "2025-04-15", "rank": 50}, {"date": "2025-04-16", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-17", "rank": 50}, {"date": "2025-04-22", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 51}, {"date": "2025-04-28", "rank": 50}, {"date": "2025-04-28", "rank": 50}, {"date": "2025-04-29", "rank": 50}, {"date": "2025-04-29", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-02", "rank": 50}, {"date": "2025-05-05", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-14", "rank": 48}, {"date": "2025-05-15", "rank": 47}, {"date": "2025-05-20", "rank": 47}, {"date": "2025-05-22", "rank": 47}, {"date": "2025-05-22", "rank": 47}, {"date": "2025-05-23", "rank": 45}, {"date": "2025-05-23", "rank": 45}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -422,16 +422,16 @@
                 });
             });
 
-            // Initialize titles table sorted by date descending
-            sortTitlesTable(2); // Sort by Date column, newest first
+            // Initialize titles table sorted by date descending (newest at top)
+            sortTitlesTable(2, -1); // Sort by Date column, newest first
         });
 
         // Titles table and grid sorting
         let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
-        function sortTitlesTable(columnIndex) {
+        function sortTitlesTable(columnIndex, forceDirection) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
+            const direction = forceDirection !== undefined ? forceDirection : (columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1));
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -442,7 +442,7 @@
                 } else if (columnIndex === 2) { // Date column
                     aValue = new Date(aValue);
                     bValue = new Date(bValue);
-                    return direction * (aValue - bValue);
+                    return direction * (bValue - aValue); // Reversed for newest first when direction = -1
                 } else if (columnIndex === 1) { // Items column
                     return direction * aValue.localeCompare(bValue);
                 }
@@ -451,7 +451,7 @@
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 
             }
-            rows.forEach(row => tbody.appendChild(row));
+            rows.forEach(row => tbody.insertBefore(row, tbody.firstChild)); // Prepend to show newest at top
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
             // Sync grid with table
@@ -474,14 +474,14 @@
                 } else if (columnIndex === 2) { // Date
                     aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
                     bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
-                    return direction * (aValue - bValue);
+                    return direction * (bValue - aValue); // Reversed for newest first when direction = -1
                 }
                 return 0;
             });
             while (grid.firstChild) { 
                 grid.removeChild(grid.firstChild); 
             }
-            items.forEach(item => grid.appendChild(item));
+            items.forEach(item => grid.insertBefore(item, grid.firstChild)); // Prepend to show newest at top
         }
     </script>
 </body>

@@ -279,7 +279,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 172}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-10", "rank": 128}, {"date": "2025-04-11", "rank": 128}, {"date": "2025-04-11", "rank": 129}, {"date": "2025-04-14", "rank": 130}, {"date": "2025-04-15", "rank": 130}, {"date": "2025-04-16", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-22", "rank": 131}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 135}, {"date": "2025-04-28", "rank": 135}, {"date": "2025-04-29", "rank": 135}, {"date": "2025-04-29", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-05", "rank": 136}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-15", "rank": 138}, {"date": "2025-05-20", "rank": 138}, {"date": "2025-05-22", "rank": 138}, {"date": "2025-05-22", "rank": 138}, {"date": "2025-05-23", "rank": 139}];
+            const historyData = [{"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 172}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-09", "rank": 127}, {"date": "2025-04-10", "rank": 128}, {"date": "2025-04-11", "rank": 128}, {"date": "2025-04-11", "rank": 129}, {"date": "2025-04-14", "rank": 130}, {"date": "2025-04-15", "rank": 130}, {"date": "2025-04-16", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 130}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-17", "rank": 131}, {"date": "2025-04-22", "rank": 131}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 134}, {"date": "2025-04-28", "rank": 135}, {"date": "2025-04-28", "rank": 135}, {"date": "2025-04-29", "rank": 135}, {"date": "2025-04-29", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-02", "rank": 135}, {"date": "2025-05-05", "rank": 136}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-14", "rank": 137}, {"date": "2025-05-15", "rank": 138}, {"date": "2025-05-20", "rank": 138}, {"date": "2025-05-22", "rank": 138}, {"date": "2025-05-22", "rank": 138}, {"date": "2025-05-23", "rank": 139}, {"date": "2025-05-23", "rank": 139}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -329,16 +329,16 @@
                 });
             });
 
-            // Initialize titles table sorted by date descending
-            sortTitlesTable(2); // Sort by Date column, newest first
+            // Initialize titles table sorted by date descending (newest at top)
+            sortTitlesTable(2, -1); // Sort by Date column, newest first
         });
 
         // Titles table and grid sorting
         let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
-        function sortTitlesTable(columnIndex) {
+        function sortTitlesTable(columnIndex, forceDirection) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
+            const direction = forceDirection !== undefined ? forceDirection : (columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1));
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -349,7 +349,7 @@
                 } else if (columnIndex === 2) { // Date column
                     aValue = new Date(aValue);
                     bValue = new Date(bValue);
-                    return direction * (aValue - bValue);
+                    return direction * (bValue - aValue); // Reversed for newest first when direction = -1
                 } else if (columnIndex === 1) { // Items column
                     return direction * aValue.localeCompare(bValue);
                 }
@@ -358,7 +358,7 @@
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 
             }
-            rows.forEach(row => tbody.appendChild(row));
+            rows.forEach(row => tbody.insertBefore(row, tbody.firstChild)); // Prepend to show newest at top
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
             // Sync grid with table
@@ -381,14 +381,14 @@
                 } else if (columnIndex === 2) { // Date
                     aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
                     bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
-                    return direction * (aValue - bValue);
+                    return direction * (bValue - aValue); // Reversed for newest first when direction = -1
                 }
                 return 0;
             });
             while (grid.firstChild) { 
                 grid.removeChild(grid.firstChild); 
             }
-            items.forEach(item => grid.appendChild(item));
+            items.forEach(item => grid.insertBefore(item, grid.firstChild)); // Prepend to show newest at top
         }
     </script>
 </body>
