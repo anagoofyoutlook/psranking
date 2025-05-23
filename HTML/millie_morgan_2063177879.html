@@ -6,17 +6,11 @@
     <title>Millie Morgan</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -267,69 +264,15 @@
         <h2>Titles</h2>
         <p>Total Titles: 50</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Bellesa Films he Audition' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3923' target='_blank'>Bellesa Films he Audition</a></p>
-                    <p class='date'>S.No: 46 | 2025-04-07</p>
+                    <video src='../Photos/Millie Morgan/thumbs/50.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2063177879/4253' target='_blank'>MYLF Millie Morgan - Concept: XXX Files - 80x - (November 09, 2024)</a></p>
+                    <p class='date'>S.No: 50 | 2025-05-22</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Bellesahouse Millie Morgan , Jane Wilde Episode 167' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/63' target='_blank'>Bellesahouse Millie Morgan , Jane Wilde Episode 167</a></p>
-                    <p class='date'>S.No: 9 | 2024-02-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2376' target='_blank'>Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC</a></p>
-                    <p class='date'>S.No: 24 | 2024-06-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3174' target='_blank'>Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors</a></p>
-                    <p class='date'>S.No: 34 | 2024-10-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Cherie Deville - The Donor' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3197' target='_blank'>Cherie Deville - The Donor</a></p>
-                    <p class='date'>S.No: 35 | 2024-10-24</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3489' target='_blank'>DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25</a></p>
-                    <p class='date'>S.No: 41 | 2025-01-30</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Family Fun 2 - Scene 2 - Family Fetish' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2457' target='_blank'>Family Fun 2 - Scene 2 - Family Fetish</a></p>
-                    <p class='date'>S.No: 25 | 2024-06-19</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2137' target='_blank'>FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father</a></p>
-                    <p class='date'>S.No: 23 | 2024-06-12</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1872' target='_blank'>FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan</a></p>
-                    <p class='date'>S.No: 21 | 2024-06-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for First Sex Tape with Millie Morgan - Sexy Hippies' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2614' target='_blank'>First Sex Tape with Millie Morgan - Sexy Hippies</a></p>
-                    <p class='date'>S.No: 28 | 2024-07-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3705' target='_blank'>FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)</a></p>
-                    <p class='date'>S.No: 44 | 2025-03-12</p>
+                    <video src='../Photos/Millie Morgan/thumbs/49.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/2063177879/4200' target='_blank'>Penthouse Millie Morgan - HR Handles Millie Morgan's Needs - 05/17/25</a></p>
+                    <p class='date'>S.No: 49 | 2025-05-20</p>
                 </div>
             
                 <div class='grid-item'>
@@ -345,9 +288,105 @@
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Infidelity 4' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/174' target='_blank'>Infidelity 4</a></p>
-                    <p class='date'>S.No: 12 | 2024-04-02</p>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Bellesa Films he Audition' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3923' target='_blank'>Bellesa Films he Audition</a></p>
+                    <p class='date'>S.No: 46 | 2025-04-07</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3705' target='_blank'>FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)</a></p>
+                    <p class='date'>S.No: 44 | 2025-03-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3802' target='_blank'>MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113</a></p>
+                    <p class='date'>S.No: 45 | 2025-03-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MissaX Do You Want To Stop II' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3698' target='_blank'>MissaX Do You Want To Stop II</a></p>
+                    <p class='date'>S.No: 43 | 2025-02-26</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3602' target='_blank'>NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91</a></p>
+                    <p class='date'>S.No: 42 | 2025-02-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3489' target='_blank'>DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25</a></p>
+                    <p class='date'>S.No: 41 | 2025-01-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Penthouse Millie Morgan Gets Naked on the Job - 01/22/25' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3407' target='_blank'>Penthouse Millie Morgan Gets Naked on the Job - 01/22/25</a></p>
+                    <p class='date'>S.No: 40 | 2025-01-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Pure Taboo digging up the past' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3393' target='_blank'>Pure Taboo digging up the past</a></p>
+                    <p class='date'>S.No: 39 | 2025-01-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3356' target='_blank'>POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery</a></p>
+                    <p class='date'>S.No: 38 | 2024-11-29</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3299' target='_blank'>ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker</a></p>
+                    <p class='date'>S.No: 37 | 2024-11-27</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Kenzie Taylor, Millie Morgan - The Good Assistant' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3281' target='_blank'>Kenzie Taylor, Millie Morgan - The Good Assistant</a></p>
+                    <p class='date'>S.No: 36 | 2024-11-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Cherie Deville - The Donor' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3197' target='_blank'>Cherie Deville - The Donor</a></p>
+                    <p class='date'>S.No: 35 | 2024-10-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3174' target='_blank'>Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors</a></p>
+                    <p class='date'>S.No: 34 | 2024-10-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Lindsey Lakes - SEXY Physical Therapy' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/3116' target='_blank'>Lindsey Lakes - SEXY Physical Therapy</a></p>
+                    <p class='date'>S.No: 33 | 2024-10-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for [Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2763' target='_blank'>[Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception</a></p>
+                    <p class='date'>S.No: 32 | 2024-09-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MomsTeachSex Stepmoms Recipe For Creampie' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2759' target='_blank'>MomsTeachSex Stepmoms Recipe For Creampie</a></p>
+                    <p class='date'>S.No: 31 | 2024-09-19</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2747' target='_blank'>Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58</a></p>
+                    <p class='date'>S.No: 30 | 2024-08-03</p>
                 </div>
             
                 <div class='grid-item'>
@@ -357,9 +396,135 @@
                 </div>
             
                 <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2485' target='_blank'>MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout</a></p>
+                    <p class='date'>S.No: 27 | 2024-07-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for First Sex Tape with Millie Morgan - Sexy Hippies' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2614' target='_blank'>First Sex Tape with Millie Morgan - Sexy Hippies</a></p>
+                    <p class='date'>S.No: 28 | 2024-07-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for SweetheartVideo - Freya Parker And Millie Morgan Ass Play' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2470' target='_blank'>SweetheartVideo - Freya Parker And Millie Morgan Ass Play</a></p>
+                    <p class='date'>S.No: 26 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Family Fun 2 - Scene 2 - Family Fetish' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2457' target='_blank'>Family Fun 2 - Scene 2 - Family Fetish</a></p>
+                    <p class='date'>S.No: 25 | 2024-06-19</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2376' target='_blank'>Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC</a></p>
+                    <p class='date'>S.No: 24 | 2024-06-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2137' target='_blank'>FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father</a></p>
+                    <p class='date'>S.No: 23 | 2024-06-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1999' target='_blank'>MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand</a></p>
+                    <p class='date'>S.No: 22 | 2024-06-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1872' target='_blank'>FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan</a></p>
+                    <p class='date'>S.No: 21 | 2024-06-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1447' target='_blank'>Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration</a></p>
+                    <p class='date'>S.No: 18 | 2024-06-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1618' target='_blank'>Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad</a></p>
+                    <p class='date'>S.No: 19 | 2024-06-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MYLF Millie Morgan - Sticky Business' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1635' target='_blank'>MYLF Millie Morgan - Sticky Business</a></p>
+                    <p class='date'>S.No: 20 | 2024-06-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Penthouse Millie Morgan Screams for More Cock' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1391' target='_blank'>Penthouse Millie Morgan Screams for More Cock</a></p>
+                    <p class='date'>S.No: 17 | 2024-05-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1229' target='_blank'>Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE</a></p>
+                    <p class='date'>S.No: 15 | 2024-05-13</p>
+                </div>
+            
+                <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for JOI FOOT TEASE WITH SAVVY SUXX AND MILLIE MORGAN' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2063177879/1347' target='_blank'>JOI FOOT TEASE WITH SAVVY SUXX AND MILLIE MORGAN</a></p>
                     <p class='date'>S.No: 16 | 2024-05-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1204' target='_blank'>SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body</a></p>
+                    <p class='date'>S.No: 14 | 2024-04-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for ONLYFANS' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/1196' target='_blank'>ONLYFANS</a></p>
+                    <p class='date'>S.No: 13 | 2024-04-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Infidelity 4' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/174' target='_blank'>Infidelity 4</a></p>
+                    <p class='date'>S.No: 12 | 2024-04-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/161' target='_blank'>MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School</a></p>
+                    <p class='date'>S.No: 11 | 2024-04-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MYLF Millie Morgan, Vanna Bardot - The New Assistant' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/79' target='_blank'>MYLF Millie Morgan, Vanna Bardot - The New Assistant</a></p>
+                    <p class='date'>S.No: 10 | 2024-02-28</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Bellesahouse Millie Morgan , Jane Wilde Episode 167' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/63' target='_blank'>Bellesahouse Millie Morgan , Jane Wilde Episode 167</a></p>
+                    <p class='date'>S.No: 9 | 2024-02-27</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for The Voyeur 6 Scene 3 Keep Watching' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/60' target='_blank'>The Voyeur 6 Scene 3 Keep Watching</a></p>
+                    <p class='date'>S.No: 8 | 2023-12-31</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Nicole Kitt Thanksgiving Dessert' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/46' target='_blank'>Nicole Kitt Thanksgiving Dessert</a></p>
+                    <p class='date'>S.No: 6 | 2023-12-14</p>
                 </div>
             
                 <div class='grid-item'>
@@ -375,183 +540,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Kenzie Taylor, Millie Morgan - The Good Assistant' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3281' target='_blank'>Kenzie Taylor, Millie Morgan - The Good Assistant</a></p>
-                    <p class='date'>S.No: 36 | 2024-11-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Lindsey Lakes - SEXY Physical Therapy' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3116' target='_blank'>Lindsey Lakes - SEXY Physical Therapy</a></p>
-                    <p class='date'>S.No: 33 | 2024-10-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1447' target='_blank'>Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration</a></p>
-                    <p class='date'>S.No: 18 | 2024-06-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/161' target='_blank'>MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School</a></p>
-                    <p class='date'>S.No: 11 | 2024-04-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Millie Morgan/thumbs/50.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/2063177879/4253' target='_blank'>MYLF Millie Morgan - Concept: XXX Files - 80x - (November 09, 2024)</a></p>
-                    <p class='date'>S.No: 50 | 2025-05-22</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MYLF Millie Morgan - Sticky Business' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1635' target='_blank'>MYLF Millie Morgan - Sticky Business</a></p>
-                    <p class='date'>S.No: 20 | 2024-06-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MYLF Millie Morgan, Vanna Bardot - The New Assistant' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/79' target='_blank'>MYLF Millie Morgan, Vanna Bardot - The New Assistant</a></p>
-                    <p class='date'>S.No: 10 | 2024-02-28</p>
-                </div>
-            
-                <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for Mandy Waters & Millie Morgan - Tending To Our Stepmoms Garden' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/2063177879/32' target='_blank'>Mandy Waters & Millie Morgan - Tending To Our Stepmoms Garden</a></p>
                     <p class='date'>S.No: 4 | 2023-12-07</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2747' target='_blank'>Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58</a></p>
-                    <p class='date'>S.No: 30 | 2024-08-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1229' target='_blank'>Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE</a></p>
-                    <p class='date'>S.No: 15 | 2024-05-13</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MissaX Do You Want To Stop II' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3698' target='_blank'>MissaX Do You Want To Stop II</a></p>
-                    <p class='date'>S.No: 43 | 2025-02-26</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1999' target='_blank'>MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand</a></p>
-                    <p class='date'>S.No: 22 | 2024-06-05</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3802' target='_blank'>MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113</a></p>
-                    <p class='date'>S.No: 45 | 2025-03-12</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MomsTeachSex Stepmoms Recipe For Creampie' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2759' target='_blank'>MomsTeachSex Stepmoms Recipe For Creampie</a></p>
-                    <p class='date'>S.No: 31 | 2024-09-19</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2485' target='_blank'>MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout</a></p>
-                    <p class='date'>S.No: 27 | 2024-07-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2' target='_blank'>NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad</a></p>
-                    <p class='date'>S.No: 1 | 2023-11-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Nicole Kitt Thanksgiving Dessert' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/46' target='_blank'>Nicole Kitt Thanksgiving Dessert</a></p>
-                    <p class='date'>S.No: 6 | 2023-12-14</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3602' target='_blank'>NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91</a></p>
-                    <p class='date'>S.No: 42 | 2025-02-13</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for ONLYFANS' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1196' target='_blank'>ONLYFANS</a></p>
-                    <p class='date'>S.No: 13 | 2024-04-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1618' target='_blank'>Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad</a></p>
-                    <p class='date'>S.No: 19 | 2024-06-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3356' target='_blank'>POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery</a></p>
-                    <p class='date'>S.No: 38 | 2024-11-29</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Millie Morgan/thumbs/49.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/2063177879/4200' target='_blank'>Penthouse Millie Morgan - HR Handles Millie Morgan's Needs - 05/17/25</a></p>
-                    <p class='date'>S.No: 49 | 2025-05-20</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Penthouse Millie Morgan Gets Naked on the Job - 01/22/25' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3407' target='_blank'>Penthouse Millie Morgan Gets Naked on the Job - 01/22/25</a></p>
-                    <p class='date'>S.No: 40 | 2025-01-22</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Penthouse Millie Morgan Screams for More Cock' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1391' target='_blank'>Penthouse Millie Morgan Screams for More Cock</a></p>
-                    <p class='date'>S.No: 17 | 2024-05-22</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Pristine Edge Millie Morgan PervMom No Reservations' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/10' target='_blank'>Pristine Edge Millie Morgan PervMom No Reservations</a></p>
-                    <p class='date'>S.No: 2 | 2023-11-23</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Pure Taboo digging up the past' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3393' target='_blank'>Pure Taboo digging up the past</a></p>
-                    <p class='date'>S.No: 39 | 2025-01-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/3299' target='_blank'>ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker</a></p>
-                    <p class='date'>S.No: 37 | 2024-11-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for SweetheartVideo - Freya Parker And Millie Morgan Ass Play' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2470' target='_blank'>SweetheartVideo - Freya Parker And Millie Morgan Ass Play</a></p>
-                    <p class='date'>S.No: 26 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/1204' target='_blank'>SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body</a></p>
-                    <p class='date'>S.No: 14 | 2024-04-22</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for The Voyeur 6 Scene 3 Keep Watching' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/60' target='_blank'>The Voyeur 6 Scene 3 Keep Watching</a></p>
-                    <p class='date'>S.No: 8 | 2023-12-31</p>
                 </div>
             
                 <div class='grid-item'>
@@ -561,12 +552,18 @@
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for [Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/2063177879/2763' target='_blank'>[Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception</a></p>
-                    <p class='date'>S.No: 32 | 2024-09-24</p>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Pristine Edge Millie Morgan PervMom No Reservations' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/10' target='_blank'>Pristine Edge Millie Morgan PervMom No Reservations</a></p>
+                    <p class='date'>S.No: 2 | 2023-11-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/2063177879/2' target='_blank'>NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad</a></p>
+                    <p class='date'>S.No: 1 | 2023-11-17</p>
                 </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>46</td><td><a href='https://t.me/c/2063177879/3923' target='_blank'>Bellesa Films he Audition</a></td><td>2025-04-07</td></tr><tr><td>9</td><td><a href='https://t.me/c/2063177879/63' target='_blank'>Bellesahouse Millie Morgan , Jane Wilde Episode 167</a></td><td>2024-02-27</td></tr><tr><td>24</td><td><a href='https://t.me/c/2063177879/2376' target='_blank'>Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC</a></td><td>2024-06-17</td></tr><tr><td>34</td><td><a href='https://t.me/c/2063177879/3174' target='_blank'>Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors</a></td><td>2024-10-21</td></tr><tr><td>35</td><td><a href='https://t.me/c/2063177879/3197' target='_blank'>Cherie Deville - The Donor</a></td><td>2024-10-24</td></tr><tr><td>41</td><td><a href='https://t.me/c/2063177879/3489' target='_blank'>DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25</a></td><td>2025-01-30</td></tr><tr><td>25</td><td><a href='https://t.me/c/2063177879/2457' target='_blank'>Family Fun 2 - Scene 2 - Family Fetish</a></td><td>2024-06-19</td></tr><tr><td>23</td><td><a href='https://t.me/c/2063177879/2137' target='_blank'>FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father</a></td><td>2024-06-12</td></tr><tr><td>21</td><td><a href='https://t.me/c/2063177879/1872' target='_blank'>FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan</a></td><td>2024-06-04</td></tr><tr><td>28</td><td><a href='https://t.me/c/2063177879/2614' target='_blank'>First Sex Tape with Millie Morgan - Sexy Hippies</a></td><td>2024-07-04</td></tr><tr><td>44</td><td><a href='https://t.me/c/2063177879/3705' target='_blank'>FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)</a></td><td>2025-03-12</td></tr><tr><td>48</td><td><a href='https://t.me/c/2063177879/4092' target='_blank'>GirlfriendsFilms - Millie Morgan And Nina Nova Lesbian Sex Toy 2 (2160p) - (20/04/24)</a></td><td>2025-05-12</td></tr><tr><td>47</td><td><a href='https://t.me/c/2063177879/3929' target='_blank'>Hustler Millie Morgan - Wayward Wives - Scene 1 - 04/21/25</a></td><td>2025-04-24</td></tr><tr><td>12</td><td><a href='https://t.me/c/2063177879/174' target='_blank'>Infidelity 4</a></td><td>2024-04-02</td></tr><tr><td>29</td><td><a href='https://t.me/c/2063177879/2616' target='_blank'>InterracialPass Millie Morgan - Pretty Blonde Millie Morgan Impaled By BBC</a></td><td>2024-07-30</td></tr><tr><td>16</td><td><a href='https://t.me/c/2063177879/1347' target='_blank'>JOI FOOT TEASE WITH SAVVY SUXX AND MILLIE MORGAN</a></td><td>2024-05-13</td></tr><tr><td>7</td><td><a href='https://t.me/c/2063177879/50' target='_blank'>Jill Taylor Family Strokes Get a Job!</a></td><td>2023-12-14</td></tr><tr><td>3</td><td><a href='https://t.me/c/2063177879/20' target='_blank'>Katrina Colt Taste it With the Tip Mom Swap</a></td><td>2023-12-07</td></tr><tr><td>36</td><td><a href='https://t.me/c/2063177879/3281' target='_blank'>Kenzie Taylor, Millie Morgan - The Good Assistant</a></td><td>2024-11-04</td></tr><tr><td>33</td><td><a href='https://t.me/c/2063177879/3116' target='_blank'>Lindsey Lakes - SEXY Physical Therapy</a></td><td>2024-10-17</td></tr><tr><td>18</td><td><a href='https://t.me/c/2063177879/1447' target='_blank'>Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration</a></td><td>2024-06-02</td></tr><tr><td>11</td><td><a href='https://t.me/c/2063177879/161' target='_blank'>MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School</a></td><td>2024-04-01</td></tr><tr><td>50</td><td><a href='https://t.me/c/2063177879/4253' target='_blank'>MYLF Millie Morgan - Concept: XXX Files - 80x - (November 09, 2024)</a></td><td>2025-05-22</td></tr><tr><td>20</td><td><a href='https://t.me/c/2063177879/1635' target='_blank'>MYLF Millie Morgan - Sticky Business</a></td><td>2024-06-02</td></tr><tr><td>10</td><td><a href='https://t.me/c/2063177879/79' target='_blank'>MYLF Millie Morgan, Vanna Bardot - The New Assistant</a></td><td>2024-02-28</td></tr><tr><td>4</td><td><a href='https://t.me/c/2063177879/32' target='_blank'>Mandy Waters & Millie Morgan - Tending To Our Stepmoms Garden</a></td><td>2023-12-07</td></tr><tr><td>30</td><td><a href='https://t.me/c/2063177879/2747' target='_blank'>Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58</a></td><td>2024-08-03</td></tr><tr><td>15</td><td><a href='https://t.me/c/2063177879/1229' target='_blank'>Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE</a></td><td>2024-05-13</td></tr><tr><td>43</td><td><a href='https://t.me/c/2063177879/3698' target='_blank'>MissaX Do You Want To Stop II</a></td><td>2025-02-26</td></tr><tr><td>22</td><td><a href='https://t.me/c/2063177879/1999' target='_blank'>MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand</a></td><td>2024-06-05</td></tr><tr><td>45</td><td><a href='https://t.me/c/2063177879/3802' target='_blank'>MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113</a></td><td>2025-03-12</td></tr><tr><td>31</td><td><a href='https://t.me/c/2063177879/2759' target='_blank'>MomsTeachSex Stepmoms Recipe For Creampie</a></td><td>2024-09-19</td></tr><tr><td>27</td><td><a href='https://t.me/c/2063177879/2485' target='_blank'>MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout</a></td><td>2024-07-04</td></tr><tr><td>1</td><td><a href='https://t.me/c/2063177879/2' target='_blank'>NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad</a></td><td>2023-11-17</td></tr><tr><td>6</td><td><a href='https://t.me/c/2063177879/46' target='_blank'>Nicole Kitt Thanksgiving Dessert</a></td><td>2023-12-14</td></tr><tr><td>42</td><td><a href='https://t.me/c/2063177879/3602' target='_blank'>NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91</a></td><td>2025-02-13</td></tr><tr><td>13</td><td><a href='https://t.me/c/2063177879/1196' target='_blank'>ONLYFANS</a></td><td>2024-04-17</td></tr><tr><td>19</td><td><a href='https://t.me/c/2063177879/1618' target='_blank'>Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad</a></td><td>2024-06-02</td></tr><tr><td>38</td><td><a href='https://t.me/c/2063177879/3356' target='_blank'>POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery</a></td><td>2024-11-29</td></tr><tr><td>49</td><td><a href='https://t.me/c/2063177879/4200' target='_blank'>Penthouse Millie Morgan - HR Handles Millie Morgan's Needs - 05/17/25</a></td><td>2025-05-20</td></tr><tr><td>40</td><td><a href='https://t.me/c/2063177879/3407' target='_blank'>Penthouse Millie Morgan Gets Naked on the Job - 01/22/25</a></td><td>2025-01-22</td></tr><tr><td>17</td><td><a href='https://t.me/c/2063177879/1391' target='_blank'>Penthouse Millie Morgan Screams for More Cock</a></td><td>2024-05-22</td></tr><tr><td>2</td><td><a href='https://t.me/c/2063177879/10' target='_blank'>Pristine Edge Millie Morgan PervMom No Reservations</a></td><td>2023-11-23</td></tr><tr><td>39</td><td><a href='https://t.me/c/2063177879/3393' target='_blank'>Pure Taboo digging up the past</a></td><td>2025-01-02</td></tr><tr><td>37</td><td><a href='https://t.me/c/2063177879/3299' target='_blank'>ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker</a></td><td>2024-11-27</td></tr><tr><td>26</td><td><a href='https://t.me/c/2063177879/2470' target='_blank'>SweetheartVideo - Freya Parker And Millie Morgan Ass Play</a></td><td>2024-07-01</td></tr><tr><td>14</td><td><a href='https://t.me/c/2063177879/1204' target='_blank'>SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body</a></td><td>2024-04-22</td></tr><tr><td>8</td><td><a href='https://t.me/c/2063177879/60' target='_blank'>The Voyeur 6 Scene 3 Keep Watching</a></td><td>2023-12-31</td></tr><tr><td>5</td><td><a href='https://t.me/c/2063177879/39' target='_blank'>Watch Slutty Nurses - Scene 4 - Naughty Nurse featuring Tyler Cruise, Millie Morgan on Mile High Media</a></td><td>2023-12-07</td></tr><tr><td>32</td><td><a href='https://t.me/c/2063177879/2763' target='_blank'>[Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception</a></td><td>2024-09-24</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>50</td><td><a href='https://t.me/c/2063177879/4253' target='_blank'>MYLF Millie Morgan - Concept: XXX Files - 80x - (November 09, 2024)</a></td><td>2025-05-22</td></tr><tr><td>49</td><td><a href='https://t.me/c/2063177879/4200' target='_blank'>Penthouse Millie Morgan - HR Handles Millie Morgan's Needs - 05/17/25</a></td><td>2025-05-20</td></tr><tr><td>48</td><td><a href='https://t.me/c/2063177879/4092' target='_blank'>GirlfriendsFilms - Millie Morgan And Nina Nova Lesbian Sex Toy 2 (2160p) - (20/04/24)</a></td><td>2025-05-12</td></tr><tr><td>47</td><td><a href='https://t.me/c/2063177879/3929' target='_blank'>Hustler Millie Morgan - Wayward Wives - Scene 1 - 04/21/25</a></td><td>2025-04-24</td></tr><tr><td>46</td><td><a href='https://t.me/c/2063177879/3923' target='_blank'>Bellesa Films he Audition</a></td><td>2025-04-07</td></tr><tr><td>44</td><td><a href='https://t.me/c/2063177879/3705' target='_blank'>FreeUseMilf Millie Morgan - A Handful of Creamy Work to Do - 92x - (March 11, 2025)</a></td><td>2025-03-12</td></tr><tr><td>45</td><td><a href='https://t.me/c/2063177879/3802' target='_blank'>MomWantsToBreed 2025-02-28 Millie Morgan Ricky Spanish - Stepmoms Lingerie Show - x113</a></td><td>2025-03-12</td></tr><tr><td>43</td><td><a href='https://t.me/c/2063177879/3698' target='_blank'>MissaX Do You Want To Stop II</a></td><td>2025-02-26</td></tr><tr><td>42</td><td><a href='https://t.me/c/2063177879/3602' target='_blank'>NubileFilms 2025-02-13 Liz Jordan, Millie Morgan, Parker Ambrose & Sam Shock - How To Please Her - x91</a></td><td>2025-02-13</td></tr><tr><td>41</td><td><a href='https://t.me/c/2063177879/3489' target='_blank'>DatingMyStepson Millie Morgan - Her Moms Traditional Technique! 01/29/25</a></td><td>2025-01-30</td></tr><tr><td>40</td><td><a href='https://t.me/c/2063177879/3407' target='_blank'>Penthouse Millie Morgan Gets Naked on the Job - 01/22/25</a></td><td>2025-01-22</td></tr><tr><td>39</td><td><a href='https://t.me/c/2063177879/3393' target='_blank'>Pure Taboo digging up the past</a></td><td>2025-01-02</td></tr><tr><td>38</td><td><a href='https://t.me/c/2063177879/3356' target='_blank'>POVR Gypsy Rose & Millie Morgan - 2 For 1 Delivery</a></td><td>2024-11-29</td></tr><tr><td>37</td><td><a href='https://t.me/c/2063177879/3299' target='_blank'>ShopLyfterMYLF Millie Morgan - Case No. 8003235 - The Hot Troublemaker</a></td><td>2024-11-27</td></tr><tr><td>36</td><td><a href='https://t.me/c/2063177879/3281' target='_blank'>Kenzie Taylor, Millie Morgan - The Good Assistant</a></td><td>2024-11-04</td></tr><tr><td>35</td><td><a href='https://t.me/c/2063177879/3197' target='_blank'>Cherie Deville - The Donor</a></td><td>2024-10-24</td></tr><tr><td>34</td><td><a href='https://t.me/c/2063177879/3174' target='_blank'>Charlotte Sins Claire Roos - Meeting (And Fisting) The Neighbors</a></td><td>2024-10-21</td></tr><tr><td>33</td><td><a href='https://t.me/c/2063177879/3116' target='_blank'>Lindsey Lakes - SEXY Physical Therapy</a></td><td>2024-10-17</td></tr><tr><td>32</td><td><a href='https://t.me/c/2063177879/2763' target='_blank'>[Swappz] Evie Christian, Millie Morgan, Krystal Sparks, Lana Smalls (Swapception</a></td><td>2024-09-24</td></tr><tr><td>31</td><td><a href='https://t.me/c/2063177879/2759' target='_blank'>MomsTeachSex Stepmoms Recipe For Creampie</a></td><td>2024-09-19</td></tr><tr><td>30</td><td><a href='https://t.me/c/2063177879/2747' target='_blank'>Millie Morgan, Chad Alva - Bellesa Blind Date - Episode 58</a></td><td>2024-08-03</td></tr><tr><td>29</td><td><a href='https://t.me/c/2063177879/2616' target='_blank'>InterracialPass Millie Morgan - Pretty Blonde Millie Morgan Impaled By BBC</a></td><td>2024-07-30</td></tr><tr><td>27</td><td><a href='https://t.me/c/2063177879/2485' target='_blank'>MomsTight Jade Maris, Millie Morgan - Stepmoms Young Dick Workout</a></td><td>2024-07-04</td></tr><tr><td>28</td><td><a href='https://t.me/c/2063177879/2614' target='_blank'>First Sex Tape with Millie Morgan - Sexy Hippies</a></td><td>2024-07-04</td></tr><tr><td>26</td><td><a href='https://t.me/c/2063177879/2470' target='_blank'>SweetheartVideo - Freya Parker And Millie Morgan Ass Play</a></td><td>2024-07-01</td></tr><tr><td>25</td><td><a href='https://t.me/c/2063177879/2457' target='_blank'>Family Fun 2 - Scene 2 - Family Fetish</a></td><td>2024-06-19</td></tr><tr><td>24</td><td><a href='https://t.me/c/2063177879/2376' target='_blank'>Blacked Millie Morgan Influencer Millie Drops Jealous BF For Thick BBC</a></td><td>2024-06-17</td></tr><tr><td>23</td><td><a href='https://t.me/c/2063177879/2137' target='_blank'>FamilySwap Jodie Johnson, Millie Morgan - Swap Son Learns How To Be A Father</a></td><td>2024-06-12</td></tr><tr><td>22</td><td><a href='https://t.me/c/2063177879/1999' target='_blank'>MomSwapped Jennifer White, Millie Morgan - Our Stepmoms Lend Us A Hand</a></td><td>2024-06-05</td></tr><tr><td>21</td><td><a href='https://t.me/c/2063177879/1872' target='_blank'>FamilySwap Make My Pussy Scream Chloe Temple Millie Morgan</a></td><td>2024-06-04</td></tr><tr><td>18</td><td><a href='https://t.me/c/2063177879/1447' target='_blank'>Love Her Feet LoveHerFeet Millie Morgan Savvy Suxx - Perfect Celebration</a></td><td>2024-06-02</td></tr><tr><td>19</td><td><a href='https://t.me/c/2063177879/1618' target='_blank'>Olivia Jayy, Chanel Camryn, Millie Morgan - Lesbian Threesomes 2 - Scene 1 - Girl Squad</a></td><td>2024-06-02</td></tr><tr><td>20</td><td><a href='https://t.me/c/2063177879/1635' target='_blank'>MYLF Millie Morgan - Sticky Business</a></td><td>2024-06-02</td></tr><tr><td>17</td><td><a href='https://t.me/c/2063177879/1391' target='_blank'>Penthouse Millie Morgan Screams for More Cock</a></td><td>2024-05-22</td></tr><tr><td>15</td><td><a href='https://t.me/c/2063177879/1229' target='_blank'>Millie Morgan, Savvy Suxx - Love Her Feet NEW FEETURES OF THE HOUSE</a></td><td>2024-05-13</td></tr><tr><td>16</td><td><a href='https://t.me/c/2063177879/1347' target='_blank'>JOI FOOT TEASE WITH SAVVY SUXX AND MILLIE MORGAN</a></td><td>2024-05-13</td></tr><tr><td>14</td><td><a href='https://t.me/c/2063177879/1204' target='_blank'>SweetheartVideo - Haley Reed And Millie Morgan Seducing Her Body</a></td><td>2024-04-22</td></tr><tr><td>13</td><td><a href='https://t.me/c/2063177879/1196' target='_blank'>ONLYFANS</a></td><td>2024-04-17</td></tr><tr><td>12</td><td><a href='https://t.me/c/2063177879/174' target='_blank'>Infidelity 4</a></td><td>2024-04-02</td></tr><tr><td>11</td><td><a href='https://t.me/c/2063177879/161' target='_blank'>MILFY Fit Blonde Teacher Millie Keeps Bad Boy After School</a></td><td>2024-04-01</td></tr><tr><td>10</td><td><a href='https://t.me/c/2063177879/79' target='_blank'>MYLF Millie Morgan, Vanna Bardot - The New Assistant</a></td><td>2024-02-28</td></tr><tr><td>9</td><td><a href='https://t.me/c/2063177879/63' target='_blank'>Bellesahouse Millie Morgan , Jane Wilde Episode 167</a></td><td>2024-02-27</td></tr><tr><td>8</td><td><a href='https://t.me/c/2063177879/60' target='_blank'>The Voyeur 6 Scene 3 Keep Watching</a></td><td>2023-12-31</td></tr><tr><td>6</td><td><a href='https://t.me/c/2063177879/46' target='_blank'>Nicole Kitt Thanksgiving Dessert</a></td><td>2023-12-14</td></tr><tr><td>7</td><td><a href='https://t.me/c/2063177879/50' target='_blank'>Jill Taylor Family Strokes Get a Job!</a></td><td>2023-12-14</td></tr><tr><td>3</td><td><a href='https://t.me/c/2063177879/20' target='_blank'>Katrina Colt Taste it With the Tip Mom Swap</a></td><td>2023-12-07</td></tr><tr><td>4</td><td><a href='https://t.me/c/2063177879/32' target='_blank'>Mandy Waters & Millie Morgan - Tending To Our Stepmoms Garden</a></td><td>2023-12-07</td></tr><tr><td>5</td><td><a href='https://t.me/c/2063177879/39' target='_blank'>Watch Slutty Nurses - Scene 4 - Naughty Nurse featuring Tyler Cruise, Millie Morgan on Mile High Media</a></td><td>2023-12-07</td></tr><tr><td>2</td><td><a href='https://t.me/c/2063177879/10' target='_blank'>Pristine Edge Millie Morgan PervMom No Reservations</a></td><td>2023-11-23</td></tr><tr><td>1</td><td><a href='https://t.me/c/2063177879/2' target='_blank'>NaughtyAmerica Hot blonde Millie Morgan is horny and wet for her friend's dad</a></td><td>2023-11-17</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -603,7 +600,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 8}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-10", "rank": 7}, {"date": "2025-04-11", "rank": 7}, {"date": "2025-04-11", "rank": 7}, {"date": "2025-04-14", "rank": 7}, {"date": "2025-04-15", "rank": 7}, {"date": "2025-04-16", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-22", "rank": 7}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 7}, {"date": "2025-04-28", "rank": 7}, {"date": "2025-04-29", "rank": 7}, {"date": "2025-04-29", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-05", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-15", "rank": 7}, {"date": "2025-05-20", "rank": 6}, {"date": "2025-05-22", "rank": 6}, {"date": "2025-05-22", "rank": 6}];
+            const historyData = [{"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 8}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-09", "rank": 7}, {"date": "2025-04-10", "rank": 7}, {"date": "2025-04-11", "rank": 7}, {"date": "2025-04-11", "rank": 7}, {"date": "2025-04-14", "rank": 7}, {"date": "2025-04-15", "rank": 7}, {"date": "2025-04-16", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-17", "rank": 7}, {"date": "2025-04-22", "rank": 7}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 6}, {"date": "2025-04-28", "rank": 7}, {"date": "2025-04-28", "rank": 7}, {"date": "2025-04-29", "rank": 7}, {"date": "2025-04-29", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-02", "rank": 7}, {"date": "2025-05-05", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-14", "rank": 7}, {"date": "2025-05-15", "rank": 7}, {"date": "2025-05-20", "rank": 6}, {"date": "2025-05-22", "rank": 6}, {"date": "2025-05-22", "rank": 6}, {"date": "2025-05-23", "rank": 6}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -613,8 +610,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -623,16 +620,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -649,14 +649,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -679,6 +682,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

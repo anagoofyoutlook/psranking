@@ -6,17 +6,11 @@
     <title>Kristina Grace</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -269,7 +266,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 206}, {"date": "2025-04-09", "rank": 201}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-10", "rank": 210}, {"date": "2025-04-11", "rank": 210}, {"date": "2025-04-11", "rank": 210}, {"date": "2025-04-14", "rank": 213}, {"date": "2025-04-15", "rank": 213}, {"date": "2025-04-16", "rank": 212}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-22", "rank": 214}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-29", "rank": 214}, {"date": "2025-04-29", "rank": 214}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-05", "rank": 215}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-15", "rank": 224}, {"date": "2025-05-20", "rank": 224}, {"date": "2025-05-22", "rank": 225}, {"date": "2025-05-22", "rank": 225}];
+            const historyData = [{"date": "2025-04-09", "rank": 206}, {"date": "2025-04-09", "rank": 201}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-09", "rank": 208}, {"date": "2025-04-10", "rank": 210}, {"date": "2025-04-11", "rank": 210}, {"date": "2025-04-11", "rank": 210}, {"date": "2025-04-14", "rank": 213}, {"date": "2025-04-15", "rank": 213}, {"date": "2025-04-16", "rank": 212}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 213}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-17", "rank": 214}, {"date": "2025-04-22", "rank": 214}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-28", "rank": 215}, {"date": "2025-04-29", "rank": 214}, {"date": "2025-04-29", "rank": 214}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-02", "rank": 215}, {"date": "2025-05-05", "rank": 215}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-14", "rank": 219}, {"date": "2025-05-15", "rank": 224}, {"date": "2025-05-20", "rank": 224}, {"date": "2025-05-22", "rank": 225}, {"date": "2025-05-22", "rank": 225}, {"date": "2025-05-23", "rank": 226}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -279,8 +276,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -289,16 +286,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -315,14 +315,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -345,6 +348,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

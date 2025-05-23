@@ -6,17 +6,11 @@
     <title>Sybil A</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -150,7 +147,7 @@
             margin-top: 10px; 
         }
         .column { 
-            flex: 0 0 16.666666666666668%; 
+            flex: 0 0 14.285714285714286%; 
             max-width: 100px; 
             padding: 5px; 
         }
@@ -208,12 +205,12 @@
         <p>Rank: <span class="rank-number" data-rank="20"></span></p>
     </div>
     <div class="container">
-<div class="mySlides"><div class="numbertext">1 / 6</div><img src="../Photos/Sybil A/BR.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 6</div><img src="../Photos/Sybil A/B.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">3 / 6</div><img src="../Photos/Sybil A/V.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">4 / 6</div><img src="../Photos/Sybil A/T.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">5 / 6</div><img src="../Photos/Sybil A/67749-set.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">6 / 6</div><img src="../Photos/Sybil A/advd.jpg" style="width:100%;height:auto;"></div>
+<div class="mySlides"><div class="numbertext">1 / 7</div><img src="../Photos/Sybil A/1268034.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 7</div><img src="../Photos/Sybil A/BR.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">3 / 7</div><img src="../Photos/Sybil A/B.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">4 / 7</div><img src="../Photos/Sybil A/V.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">5 / 7</div><img src="../Photos/Sybil A/T.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">6 / 7</div><img src="../Photos/Sybil A/67749-set.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">7 / 7</div><img src="../Photos/Sybil A/advd.jpg" style="width:100%;height:auto;"></div>
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
-        <div class="column"><img class="demo cursor" src="../Photos/Sybil A/BR.jpg" style="width:100%" onclick="currentSlide(1)" alt="Sybil A Photo 1"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/B.jpg" style="width:100%" onclick="currentSlide(2)" alt="Sybil A Photo 2"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/V.jpg" style="width:100%" onclick="currentSlide(3)" alt="Sybil A Photo 3"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/T.jpg" style="width:100%" onclick="currentSlide(4)" alt="Sybil A Photo 4"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/67749-set.jpg" style="width:100%" onclick="currentSlide(5)" alt="Sybil A Photo 5"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/advd.jpg" style="width:100%" onclick="currentSlide(6)" alt="Sybil A Photo 6"></div></div></div>
+        <div class="column"><img class="demo cursor" src="../Photos/Sybil A/1268034.jpg" style="width:100%" onclick="currentSlide(1)" alt="Sybil A Photo 1"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/BR.jpg" style="width:100%" onclick="currentSlide(2)" alt="Sybil A Photo 2"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/B.jpg" style="width:100%" onclick="currentSlide(3)" alt="Sybil A Photo 3"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/V.jpg" style="width:100%" onclick="currentSlide(4)" alt="Sybil A Photo 4"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/T.jpg" style="width:100%" onclick="currentSlide(5)" alt="Sybil A Photo 5"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/67749-set.jpg" style="width:100%" onclick="currentSlide(6)" alt="Sybil A Photo 6"></div><div class="column"><img class="demo cursor" src="../Photos/Sybil A/advd.jpg" style="width:100%" onclick="currentSlide(7)" alt="Sybil A Photo 7"></div></div></div>
     <div class="info"><p>Scenes: 3952</p><p>Last Scene: 11 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 20</li>
@@ -245,9 +242,153 @@
         <h2>Titles</h2>
         <p>Total Titles: 36</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/4061' target='_blank'>Roccos Intimate Castings 22 s03</a></p>
+                    <p class='date'>S.No: 36 | 2024-11-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/4033' target='_blank'>Cherry Kiss Sybil & Cherry</a></p>
+                    <p class='date'>S.No: 35 | 2024-11-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/4013' target='_blank'>Sia Siberia Their First Date</a></p>
+                    <p class='date'>S.No: 34 | 2024-10-29</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3814' target='_blank'>Pool Nudel</a></p>
+                    <p class='date'>S.No: 33 | 2024-10-15</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3705' target='_blank'>Karups Wet Workout featuring: Melody Mae and Sybil A</a></p>
+                    <p class='date'>S.No: 32 | 2024-10-11</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3575' target='_blank'>Bound Stressed Dinner Guest</a></p>
+                    <p class='date'>S.No: 31 | 2024-10-08</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3562' target='_blank'>LezKiss Lexi Dona and Sybil</a></p>
+                    <p class='date'>S.No: 30 | 2024-08-19</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3465' target='_blank'>Angels.Love Sia Siberia & Sybil - Happy College Times</a></p>
+                    <p class='date'>S.No: 29 | 2024-08-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3318' target='_blank'>LoveHerFeet Sybil & Charlie Dean - Seductive Soles Require A Footjob</a></p>
+                    <p class='date'>S.No: 28 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3284' target='_blank'>LifeSelector Sybil - Master of Polygamy</a></p>
+                    <p class='date'>S.No: 27 | 2024-06-06</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/3020' target='_blank'>JOYMII Before You Go</a></p>
+                    <p class='date'>S.No: 26 | 2024-04-10</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/237' target='_blank'>Stacy Cruz - Skills That Make You Desirable</a></p>
+                    <p class='date'>S.No: 25 | 2024-02-06</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/232' target='_blank'>Clea Gaultier and Sybil, Meeting the Parents</a></p>
+                    <p class='date'>S.No: 24 | 2023-12-31</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/227' target='_blank'>Prime Lesbian Lesbian sensual desires Performers: Sybil Kailena , Aislin Angel</a></p>
+                    <p class='date'>S.No: 23 | 2023-12-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/220' target='_blank'>NubileFilms Caught In The Moment</a></p>
+                    <p class='date'>S.No: 22 | 2023-12-14</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/211' target='_blank'>BLACKED Hospitality</a></p>
+                    <p class='date'>S.No: 21 | 2023-11-14</p>
+                </div>
+            
+                <div class='grid-item'>
                     <video src='../Photos/Sybil A/V.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/207' target='_blank'>Milking table treatment on big cock</a></p>
+                    <p class='date'>S.No: 20 | 2023-10-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/V.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/153' target='_blank'>EvilAngel The Spanish Stallion: Sybil's Power Of Seduction, Scene #05</a></p>
+                    <p class='date'>S.No: 19 | 2023-10-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/123' target='_blank'>Wow girls tennis</a></p>
+                    <p class='date'>S.No: 17 | 2023-09-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/126' target='_blank'>Tushy Last Goodbye</a></p>
+                    <p class='date'>S.No: 18 | 2023-09-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/68' target='_blank'>EvilAngel The Spanish Stallion: Field Of Sluts - Episode 4 Sybil</a></p>
+                    <p class='date'>S.No: 16 | 2023-09-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/2' target='_blank'>Letsdoit Interracial Lovers A Girl Knows Sybil,Clea Gaultier, Zaawaadi</a></p>
+                    <p class='date'>S.No: 1 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1917850787/3' target='_blank'>A Girl Knows A Day To Ourselves Sabrisse, Sybil</a></p>
                     <p class='date'>S.No: 2 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/4' target='_blank'>TheWhiteBoxxx Teach Me! Part 2</a></p>
+                    <p class='date'>S.No: 3 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/5' target='_blank'>TheWhiteBoxxx Sensual Domination</a></p>
+                    <p class='date'>S.No: 4 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
@@ -258,152 +399,14 @@
             
                 <div class='grid-item'>
                     <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3465' target='_blank'>Angels.Love Sia Siberia & Sybil - Happy College Times</a></p>
-                    <p class='date'>S.No: 29 | 2024-08-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/V.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/211' target='_blank'>BLACKED Hospitality</a></p>
-                    <p class='date'>S.No: 21 | 2023-11-14</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3575' target='_blank'>Bound Stressed Dinner Guest</a></p>
-                    <p class='date'>S.No: 31 | 2024-10-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/4033' target='_blank'>Cherry Kiss Sybil & Cherry</a></p>
-                    <p class='date'>S.No: 35 | 2024-11-05</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/232' target='_blank'>Clea Gaultier and Sybil, Meeting the Parents</a></p>
-                    <p class='date'>S.No: 24 | 2023-12-31</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/68' target='_blank'>EvilAngel The Spanish Stallion: Field Of Sluts - Episode 4 Sybil</a></p>
-                    <p class='date'>S.No: 16 | 2023-09-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/153' target='_blank'>EvilAngel The Spanish Stallion: Sybil's Power Of Seduction, Scene #05</a></p>
-                    <p class='date'>S.No: 19 | 2023-10-22</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3020' target='_blank'>JOYMII Before You Go</a></p>
-                    <p class='date'>S.No: 26 | 2024-04-10</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3705' target='_blank'>Karups Wet Workout featuring: Melody Mae and Sybil A</a></p>
-                    <p class='date'>S.No: 32 | 2024-10-11</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/V.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/2' target='_blank'>Letsdoit Interracial Lovers A Girl Knows Sybil,Clea Gaultier, Zaawaadi</a></p>
-                    <p class='date'>S.No: 1 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3562' target='_blank'>LezKiss Lexi Dona and Sybil</a></p>
-                    <p class='date'>S.No: 30 | 2024-08-19</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3284' target='_blank'>LifeSelector Sybil - Master of Polygamy</a></p>
-                    <p class='date'>S.No: 27 | 2024-06-06</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3318' target='_blank'>LoveHerFeet Sybil & Charlie Dean - Seductive Soles Require A Footjob</a></p>
-                    <p class='date'>S.No: 28 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/207' target='_blank'>Milking table treatment on big cock</a></p>
-                    <p class='date'>S.No: 20 | 2023-10-23</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/220' target='_blank'>NubileFilms Caught In The Moment</a></p>
-                    <p class='date'>S.No: 22 | 2023-12-14</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/13' target='_blank'>OnlyFans</a></p>
-                    <p class='date'>S.No: 12 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/3814' target='_blank'>Pool Nudel</a></p>
-                    <p class='date'>S.No: 33 | 2024-10-15</p>
+                    <p class='title'><a href='https://t.me/c/1917850787/7' target='_blank'>xChimera Fantasy Fuck For Gorgeous Babe Sybil</a></p>
+                    <p class='date'>S.No: 6 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/15' target='_blank'>Porn World College girl provides reverse cowgirl</a></p>
-                    <p class='date'>S.No: 14 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/V.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/14' target='_blank'>Porn World Sizzling hot secretary wants his massive veiny cock</a></p>
-                    <p class='date'>S.No: 13 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/16' target='_blank'>Porn World sizzles in leg fetish scene</a></p>
-                    <p class='date'>S.No: 15 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/227' target='_blank'>Prime Lesbian Lesbian sensual desires Performers: Sybil Kailena , Aislin Angel</a></p>
-                    <p class='date'>S.No: 23 | 2023-12-30</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/12' target='_blank'>Private Sybil and Stacy Bloom, Threesome after Lesbian Fun</a></p>
-                    <p class='date'>S.No: 11 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/4061' target='_blank'>Roccos Intimate Castings 22 s03</a></p>
-                    <p class='date'>S.No: 36 | 2024-11-25</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/4013' target='_blank'>Sia Siberia Their First Date</a></p>
-                    <p class='date'>S.No: 34 | 2024-10-29</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/237' target='_blank'>Stacy Cruz - Skills That Make You Desirable</a></p>
-                    <p class='date'>S.No: 25 | 2024-02-06</p>
+                    <p class='title'><a href='https://t.me/c/1917850787/8' target='_blank'>The White Boxxx Lesbian Fantasies Fulfilled Passionately Caprice</a></p>
+                    <p class='date'>S.No: 7 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
@@ -413,54 +416,48 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/8' target='_blank'>The White Boxxx Lesbian Fantasies Fulfilled Passionately Caprice</a></p>
-                    <p class='date'>S.No: 7 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/T.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/11' target='_blank'>TheWhiteBoxxx Is Sybil Too Cute To Be This Dirty?</a></p>
-                    <p class='date'>S.No: 10 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
                     <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1917850787/10' target='_blank'>TheWhiteBoxxx Punish Me, I've Been Naughty</a></p>
                     <p class='date'>S.No: 9 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/5' target='_blank'>TheWhiteBoxxx Sensual Domination</a></p>
-                    <p class='date'>S.No: 4 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/4' target='_blank'>TheWhiteBoxxx Teach Me! Part 2</a></p>
-                    <p class='date'>S.No: 3 | 2023-08-21</p>
+                    <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/11' target='_blank'>TheWhiteBoxxx Is Sybil Too Cute To Be This Dirty?</a></p>
+                    <p class='date'>S.No: 10 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Sybil A/BR.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/126' target='_blank'>Tushy Last Goodbye</a></p>
-                    <p class='date'>S.No: 18 | 2023-09-13</p>
+                    <p class='title'><a href='https://t.me/c/1917850787/12' target='_blank'>Private Sybil and Stacy Bloom, Threesome after Lesbian Fun</a></p>
+                    <p class='date'>S.No: 11 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/advd.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/13' target='_blank'>OnlyFans</a></p>
+                    <p class='date'>S.No: 12 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Sybil A/67749-set.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/123' target='_blank'>Wow girls tennis</a></p>
-                    <p class='date'>S.No: 17 | 2023-09-13</p>
+                    <p class='title'><a href='https://t.me/c/1917850787/14' target='_blank'>Porn World Sizzling hot secretary wants his massive veiny cock</a></p>
+                    <p class='date'>S.No: 13 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Sybil A/B.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1917850787/7' target='_blank'>xChimera Fantasy Fuck For Gorgeous Babe Sybil</a></p>
-                    <p class='date'>S.No: 6 | 2023-08-21</p>
+                    <p class='title'><a href='https://t.me/c/1917850787/15' target='_blank'>Porn World College girl provides reverse cowgirl</a></p>
+                    <p class='date'>S.No: 14 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Sybil A/1268034.jpg' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1917850787/16' target='_blank'>Porn World sizzles in leg fetish scene</a></p>
+                    <p class='date'>S.No: 15 | 2023-08-21</p>
                 </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>2</td><td><a href='https://t.me/c/1917850787/3' target='_blank'>A Girl Knows A Day To Ourselves Sabrisse, Sybil</a></td><td>2023-08-21</td></tr><tr><td>5</td><td><a href='https://t.me/c/1917850787/6' target='_blank'>A Girl Knows Sensual Lesbian Forest Sex Angel Piaff</a></td><td>2023-08-21</td></tr><tr><td>29</td><td><a href='https://t.me/c/1917850787/3465' target='_blank'>Angels.Love Sia Siberia & Sybil - Happy College Times</a></td><td>2024-08-03</td></tr><tr><td>21</td><td><a href='https://t.me/c/1917850787/211' target='_blank'>BLACKED Hospitality</a></td><td>2023-11-14</td></tr><tr><td>31</td><td><a href='https://t.me/c/1917850787/3575' target='_blank'>Bound Stressed Dinner Guest</a></td><td>2024-10-08</td></tr><tr><td>35</td><td><a href='https://t.me/c/1917850787/4033' target='_blank'>Cherry Kiss Sybil & Cherry</a></td><td>2024-11-05</td></tr><tr><td>24</td><td><a href='https://t.me/c/1917850787/232' target='_blank'>Clea Gaultier and Sybil, Meeting the Parents</a></td><td>2023-12-31</td></tr><tr><td>16</td><td><a href='https://t.me/c/1917850787/68' target='_blank'>EvilAngel The Spanish Stallion: Field Of Sluts - Episode 4 Sybil</a></td><td>2023-09-04</td></tr><tr><td>19</td><td><a href='https://t.me/c/1917850787/153' target='_blank'>EvilAngel The Spanish Stallion: Sybil's Power Of Seduction, Scene #05</a></td><td>2023-10-22</td></tr><tr><td>26</td><td><a href='https://t.me/c/1917850787/3020' target='_blank'>JOYMII Before You Go</a></td><td>2024-04-10</td></tr><tr><td>32</td><td><a href='https://t.me/c/1917850787/3705' target='_blank'>Karups Wet Workout featuring: Melody Mae and Sybil A</a></td><td>2024-10-11</td></tr><tr><td>1</td><td><a href='https://t.me/c/1917850787/2' target='_blank'>Letsdoit Interracial Lovers A Girl Knows Sybil,Clea Gaultier, Zaawaadi</a></td><td>2023-08-21</td></tr><tr><td>30</td><td><a href='https://t.me/c/1917850787/3562' target='_blank'>LezKiss Lexi Dona and Sybil</a></td><td>2024-08-19</td></tr><tr><td>27</td><td><a href='https://t.me/c/1917850787/3284' target='_blank'>LifeSelector Sybil - Master of Polygamy</a></td><td>2024-06-06</td></tr><tr><td>28</td><td><a href='https://t.me/c/1917850787/3318' target='_blank'>LoveHerFeet Sybil & Charlie Dean - Seductive Soles Require A Footjob</a></td><td>2024-07-01</td></tr><tr><td>20</td><td><a href='https://t.me/c/1917850787/207' target='_blank'>Milking table treatment on big cock</a></td><td>2023-10-23</td></tr><tr><td>22</td><td><a href='https://t.me/c/1917850787/220' target='_blank'>NubileFilms Caught In The Moment</a></td><td>2023-12-14</td></tr><tr><td>12</td><td><a href='https://t.me/c/1917850787/13' target='_blank'>OnlyFans</a></td><td>2023-08-21</td></tr><tr><td>33</td><td><a href='https://t.me/c/1917850787/3814' target='_blank'>Pool Nudel</a></td><td>2024-10-15</td></tr><tr><td>14</td><td><a href='https://t.me/c/1917850787/15' target='_blank'>Porn World College girl provides reverse cowgirl</a></td><td>2023-08-21</td></tr><tr><td>13</td><td><a href='https://t.me/c/1917850787/14' target='_blank'>Porn World Sizzling hot secretary wants his massive veiny cock</a></td><td>2023-08-21</td></tr><tr><td>15</td><td><a href='https://t.me/c/1917850787/16' target='_blank'>Porn World sizzles in leg fetish scene</a></td><td>2023-08-21</td></tr><tr><td>23</td><td><a href='https://t.me/c/1917850787/227' target='_blank'>Prime Lesbian Lesbian sensual desires Performers: Sybil Kailena , Aislin Angel</a></td><td>2023-12-30</td></tr><tr><td>11</td><td><a href='https://t.me/c/1917850787/12' target='_blank'>Private Sybil and Stacy Bloom, Threesome after Lesbian Fun</a></td><td>2023-08-21</td></tr><tr><td>36</td><td><a href='https://t.me/c/1917850787/4061' target='_blank'>Roccos Intimate Castings 22 s03</a></td><td>2024-11-25</td></tr><tr><td>34</td><td><a href='https://t.me/c/1917850787/4013' target='_blank'>Sia Siberia Their First Date</a></td><td>2024-10-29</td></tr><tr><td>25</td><td><a href='https://t.me/c/1917850787/237' target='_blank'>Stacy Cruz - Skills That Make You Desirable</a></td><td>2024-02-06</td></tr><tr><td>8</td><td><a href='https://t.me/c/1917850787/9' target='_blank'>The White Boxxx Handcuffed Thrill</a></td><td>2023-08-21</td></tr><tr><td>7</td><td><a href='https://t.me/c/1917850787/8' target='_blank'>The White Boxxx Lesbian Fantasies Fulfilled Passionately Caprice</a></td><td>2023-08-21</td></tr><tr><td>10</td><td><a href='https://t.me/c/1917850787/11' target='_blank'>TheWhiteBoxxx Is Sybil Too Cute To Be This Dirty?</a></td><td>2023-08-21</td></tr><tr><td>9</td><td><a href='https://t.me/c/1917850787/10' target='_blank'>TheWhiteBoxxx Punish Me, I've Been Naughty</a></td><td>2023-08-21</td></tr><tr><td>4</td><td><a href='https://t.me/c/1917850787/5' target='_blank'>TheWhiteBoxxx Sensual Domination</a></td><td>2023-08-21</td></tr><tr><td>3</td><td><a href='https://t.me/c/1917850787/4' target='_blank'>TheWhiteBoxxx Teach Me! Part 2</a></td><td>2023-08-21</td></tr><tr><td>18</td><td><a href='https://t.me/c/1917850787/126' target='_blank'>Tushy Last Goodbye</a></td><td>2023-09-13</td></tr><tr><td>17</td><td><a href='https://t.me/c/1917850787/123' target='_blank'>Wow girls tennis</a></td><td>2023-09-13</td></tr><tr><td>6</td><td><a href='https://t.me/c/1917850787/7' target='_blank'>xChimera Fantasy Fuck For Gorgeous Babe Sybil</a></td><td>2023-08-21</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>36</td><td><a href='https://t.me/c/1917850787/4061' target='_blank'>Roccos Intimate Castings 22 s03</a></td><td>2024-11-25</td></tr><tr><td>35</td><td><a href='https://t.me/c/1917850787/4033' target='_blank'>Cherry Kiss Sybil & Cherry</a></td><td>2024-11-05</td></tr><tr><td>34</td><td><a href='https://t.me/c/1917850787/4013' target='_blank'>Sia Siberia Their First Date</a></td><td>2024-10-29</td></tr><tr><td>33</td><td><a href='https://t.me/c/1917850787/3814' target='_blank'>Pool Nudel</a></td><td>2024-10-15</td></tr><tr><td>32</td><td><a href='https://t.me/c/1917850787/3705' target='_blank'>Karups Wet Workout featuring: Melody Mae and Sybil A</a></td><td>2024-10-11</td></tr><tr><td>31</td><td><a href='https://t.me/c/1917850787/3575' target='_blank'>Bound Stressed Dinner Guest</a></td><td>2024-10-08</td></tr><tr><td>30</td><td><a href='https://t.me/c/1917850787/3562' target='_blank'>LezKiss Lexi Dona and Sybil</a></td><td>2024-08-19</td></tr><tr><td>29</td><td><a href='https://t.me/c/1917850787/3465' target='_blank'>Angels.Love Sia Siberia & Sybil - Happy College Times</a></td><td>2024-08-03</td></tr><tr><td>28</td><td><a href='https://t.me/c/1917850787/3318' target='_blank'>LoveHerFeet Sybil & Charlie Dean - Seductive Soles Require A Footjob</a></td><td>2024-07-01</td></tr><tr><td>27</td><td><a href='https://t.me/c/1917850787/3284' target='_blank'>LifeSelector Sybil - Master of Polygamy</a></td><td>2024-06-06</td></tr><tr><td>26</td><td><a href='https://t.me/c/1917850787/3020' target='_blank'>JOYMII Before You Go</a></td><td>2024-04-10</td></tr><tr><td>25</td><td><a href='https://t.me/c/1917850787/237' target='_blank'>Stacy Cruz - Skills That Make You Desirable</a></td><td>2024-02-06</td></tr><tr><td>24</td><td><a href='https://t.me/c/1917850787/232' target='_blank'>Clea Gaultier and Sybil, Meeting the Parents</a></td><td>2023-12-31</td></tr><tr><td>23</td><td><a href='https://t.me/c/1917850787/227' target='_blank'>Prime Lesbian Lesbian sensual desires Performers: Sybil Kailena , Aislin Angel</a></td><td>2023-12-30</td></tr><tr><td>22</td><td><a href='https://t.me/c/1917850787/220' target='_blank'>NubileFilms Caught In The Moment</a></td><td>2023-12-14</td></tr><tr><td>21</td><td><a href='https://t.me/c/1917850787/211' target='_blank'>BLACKED Hospitality</a></td><td>2023-11-14</td></tr><tr><td>20</td><td><a href='https://t.me/c/1917850787/207' target='_blank'>Milking table treatment on big cock</a></td><td>2023-10-23</td></tr><tr><td>19</td><td><a href='https://t.me/c/1917850787/153' target='_blank'>EvilAngel The Spanish Stallion: Sybil's Power Of Seduction, Scene #05</a></td><td>2023-10-22</td></tr><tr><td>17</td><td><a href='https://t.me/c/1917850787/123' target='_blank'>Wow girls tennis</a></td><td>2023-09-13</td></tr><tr><td>18</td><td><a href='https://t.me/c/1917850787/126' target='_blank'>Tushy Last Goodbye</a></td><td>2023-09-13</td></tr><tr><td>16</td><td><a href='https://t.me/c/1917850787/68' target='_blank'>EvilAngel The Spanish Stallion: Field Of Sluts - Episode 4 Sybil</a></td><td>2023-09-04</td></tr><tr><td>1</td><td><a href='https://t.me/c/1917850787/2' target='_blank'>Letsdoit Interracial Lovers A Girl Knows Sybil,Clea Gaultier, Zaawaadi</a></td><td>2023-08-21</td></tr><tr><td>2</td><td><a href='https://t.me/c/1917850787/3' target='_blank'>A Girl Knows A Day To Ourselves Sabrisse, Sybil</a></td><td>2023-08-21</td></tr><tr><td>3</td><td><a href='https://t.me/c/1917850787/4' target='_blank'>TheWhiteBoxxx Teach Me! Part 2</a></td><td>2023-08-21</td></tr><tr><td>4</td><td><a href='https://t.me/c/1917850787/5' target='_blank'>TheWhiteBoxxx Sensual Domination</a></td><td>2023-08-21</td></tr><tr><td>5</td><td><a href='https://t.me/c/1917850787/6' target='_blank'>A Girl Knows Sensual Lesbian Forest Sex Angel Piaff</a></td><td>2023-08-21</td></tr><tr><td>6</td><td><a href='https://t.me/c/1917850787/7' target='_blank'>xChimera Fantasy Fuck For Gorgeous Babe Sybil</a></td><td>2023-08-21</td></tr><tr><td>7</td><td><a href='https://t.me/c/1917850787/8' target='_blank'>The White Boxxx Lesbian Fantasies Fulfilled Passionately Caprice</a></td><td>2023-08-21</td></tr><tr><td>8</td><td><a href='https://t.me/c/1917850787/9' target='_blank'>The White Boxxx Handcuffed Thrill</a></td><td>2023-08-21</td></tr><tr><td>9</td><td><a href='https://t.me/c/1917850787/10' target='_blank'>TheWhiteBoxxx Punish Me, I've Been Naughty</a></td><td>2023-08-21</td></tr><tr><td>10</td><td><a href='https://t.me/c/1917850787/11' target='_blank'>TheWhiteBoxxx Is Sybil Too Cute To Be This Dirty?</a></td><td>2023-08-21</td></tr><tr><td>11</td><td><a href='https://t.me/c/1917850787/12' target='_blank'>Private Sybil and Stacy Bloom, Threesome after Lesbian Fun</a></td><td>2023-08-21</td></tr><tr><td>12</td><td><a href='https://t.me/c/1917850787/13' target='_blank'>OnlyFans</a></td><td>2023-08-21</td></tr><tr><td>13</td><td><a href='https://t.me/c/1917850787/14' target='_blank'>Porn World Sizzling hot secretary wants his massive veiny cock</a></td><td>2023-08-21</td></tr><tr><td>14</td><td><a href='https://t.me/c/1917850787/15' target='_blank'>Porn World College girl provides reverse cowgirl</a></td><td>2023-08-21</td></tr><tr><td>15</td><td><a href='https://t.me/c/1917850787/16' target='_blank'>Porn World sizzles in leg fetish scene</a></td><td>2023-08-21</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -497,7 +494,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-10", "rank": 14}, {"date": "2025-04-11", "rank": 14}, {"date": "2025-04-11", "rank": 15}, {"date": "2025-04-14", "rank": 15}, {"date": "2025-04-15", "rank": 15}, {"date": "2025-04-16", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-22", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-29", "rank": 17}, {"date": "2025-04-29", "rank": 18}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-05", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-15", "rank": 19}, {"date": "2025-05-20", "rank": 20}, {"date": "2025-05-22", "rank": 20}, {"date": "2025-05-22", "rank": 20}];
+            const historyData = [{"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-09", "rank": 14}, {"date": "2025-04-10", "rank": 14}, {"date": "2025-04-11", "rank": 14}, {"date": "2025-04-11", "rank": 15}, {"date": "2025-04-14", "rank": 15}, {"date": "2025-04-15", "rank": 15}, {"date": "2025-04-16", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 16}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-17", "rank": 17}, {"date": "2025-04-22", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-28", "rank": 17}, {"date": "2025-04-29", "rank": 17}, {"date": "2025-04-29", "rank": 18}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-02", "rank": 19}, {"date": "2025-05-05", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-14", "rank": 19}, {"date": "2025-05-15", "rank": 19}, {"date": "2025-05-20", "rank": 20}, {"date": "2025-05-22", "rank": 20}, {"date": "2025-05-22", "rank": 20}, {"date": "2025-05-23", "rank": 20}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -507,8 +504,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -517,16 +514,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -543,14 +543,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -573,6 +576,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

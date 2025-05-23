@@ -6,17 +6,11 @@
     <title>Alex Coal</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -214,7 +211,7 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="../Photos/Alex Coal/10180-set-1x.jpg" style="width:100%" onclick="currentSlide(1)" alt="Alex Coal Photo 1"></div><div class="column"><img class="demo cursor" src="../Photos/Alex Coal/BR.jpg" style="width:100%" onclick="currentSlide(2)" alt="Alex Coal Photo 2"></div><div class="column"><img class="demo cursor" src="../Photos/Alex Coal/advd.jpg" style="width:100%" onclick="currentSlide(3)" alt="Alex Coal Photo 3"></div></div></div>
-    <div class="info"><p>Scenes: 9573</p><p>Last Scene: 0 days</p></div>
+    <div class="info"><p>Scenes: 9573</p><p>Last Scene: 1 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 40</li>
 <li class="hashtag-item">#FOUR: 20</li>
@@ -258,9 +255,15 @@
         <h2>Titles</h2>
         <p>Total Titles: 68</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/56.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7264' target='_blank'>1111Customs 24 09 05 Alex Coal TAKE ME Daddy XXX</a></p>
-                    <p class='date'>S.No: 56 | 2024-12-02</p>
+                    <video src='../Photos/Alex Coal/thumbs/68.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/9935' target='_blank'>TeamSkeet Alex Coal - A Professorial Creampie - 1600px - 245X (28-04-2019)</a></p>
+                    <p class='date'>S.No: 68 | 2025-05-22</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/67.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/9821' target='_blank'>RealitySis Alex Coal, Aria Valencia - Help Alex I Want To Fuck My Stepsis! 05/20/25</a></p>
+                    <p class='date'>S.No: 67 | 2025-05-20</p>
                 </div>
             
                 <div class='grid-item'>
@@ -270,69 +273,15 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/3.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/10' target='_blank'>About Last Night - S5:E7 Liz Jordan</a></p>
-                    <p class='date'>S.No: 3 | 2023-09-13</p>
+                    <video src='../Photos/Alex Coal/thumbs/65.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/9474' target='_blank'>GirlsWay - Alison Rey & Alex Coal - Common Ground 2025</a></p>
+                    <p class='date'>S.No: 65 | 2025-03-24</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/46.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6268' target='_blank'>AdultTime - Alex Coal & Sophia Burns - Tutor's Study Break</a></p>
-                    <p class='date'>S.No: 46 | 2024-07-30</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/42.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5964' target='_blank'>AdultTime Alex Coal Takes All The Jizz In Her Mouth</a></p>
-                    <p class='date'>S.No: 42 | 2024-06-24</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/2477' target='_blank'>Alex Coal Anissa Kate - Alex Shares Her Boyfriend With Anissa Kate</a></p>
-                    <p class='date'>S.No: 18 | 2024-04-05</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/19.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/3085' target='_blank'>Alex Coal fucks her boyfriend with her Slutty stepmom Reagan Foxx</a></p>
-                    <p class='date'>S.No: 19 | 2024-04-15</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/39.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5617' target='_blank'>Alex Coal, Cory Chase - Lesbian Hotwives 2 - Scene 2 - Girl Things</a></p>
-                    <p class='date'>S.No: 39 | 2024-06-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/22.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/3827' target='_blank'>Andi Rose A Private Lesson</a></p>
-                    <p class='date'>S.No: 22 | 2024-04-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/3937' target='_blank'>Anna Claire Clouds Molly Little Ghosts Of Girlfriends Past</a></p>
-                    <p class='date'>S.No: 23 | 2024-04-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/58.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7357' target='_blank'>Bellesa Following Directions</a></p>
-                    <p class='date'>S.No: 58 | 2024-12-06</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/33.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5224' target='_blank'>BlackForWife 19 05 30 Alex Coal My Husbands Best Friend</a></p>
-                    <p class='date'>S.No: 33 | 2024-04-25</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/8.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/36' target='_blank'>CumSwappingSis Our Fantasy Date - S5:E8 Season 5, Episode 8 Alex Coal, Max Fills, Penelope Kay</a></p>
-                    <p class='date'>S.No: 8 | 2024-01-27</p>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1665662646/9228' target='_blank'>TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb</a></p>
+                    <p class='date'>S.No: 64 | 2025-03-13</p>
                 </div>
             
                 <div class='grid-item'>
@@ -342,45 +291,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/31.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5080' target='_blank'>DeepLush Alex Coal, Katie Kush - Party Of Three</a></p>
-                    <p class='date'>S.No: 31 | 2024-04-25</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/43.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5966' target='_blank'>FreeuseFantasy Alex Coal - The Draft: Full Focus Fantasy</a></p>
-                    <p class='date'>S.No: 43 | 2024-06-24</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/21.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/3748' target='_blank'>Gets Everything And More</a></p>
-                    <p class='date'>S.No: 21 | 2024-04-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/59.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7362' target='_blank'>Girlfriends Films Lesbian Tutors #09 - Scene 4 Alex Coal, Lilly Bell</a></p>
-                    <p class='date'>S.No: 59 | 2024-12-10</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/1927' target='_blank'>Girlfriends Films Women Seeking Women #189 - Scene 1 Alex Coal, Kenzie Love</a></p>
-                    <p class='date'>S.No: 16 | 2024-03-30</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/51.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6714' target='_blank'>Girlfriends FilmsSecret Lesbian Diaries #12 - Scene 3Alex Coal, Vivian Fox</a></p>
-                    <p class='date'>S.No: 51 | 2024-09-19</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/65.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/9474' target='_blank'>GirlsWay - Alison Rey & Alex Coal - Common Ground 2025</a></p>
-                    <p class='date'>S.No: 65 | 2025-03-24</p>
+                    <video src='../Photos/Alex Coal/thumbs/61.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/8059' target='_blank'>SheSeducedMe Alex Coal , Leah Gotti , Lilly Bell & Nova Flame - The Straight Girl Trap - x1092 - March 25 2024</a></p>
+                    <p class='date'>S.No: 61 | 2025-02-07</p>
                 </div>
             
                 <div class='grid-item'>
@@ -390,51 +303,33 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/30.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5040' target='_blank'>Jayden Cole Horny Housekeeping</a></p>
-                    <p class='date'>S.No: 30 | 2024-04-25</p>
+                    <video src='../Photos/Alex Coal/thumbs/60.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7957' target='_blank'>RealitySis Alex Coal, Rissa May - Stepsisters Crush! 12/21/24</a></p>
+                    <p class='date'>S.No: 60 | 2024-12-23</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/37.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5525' target='_blank'>Lesbian Crime Stories 7 - 4</a></p>
-                    <p class='date'>S.No: 37 | 2024-06-05</p>
+                    <video src='../Photos/Alex Coal/thumbs/59.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7362' target='_blank'>Girlfriends Films Lesbian Tutors #09 - Scene 4 Alex Coal, Lilly Bell</a></p>
+                    <p class='date'>S.No: 59 | 2024-12-10</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1665662646/2302' target='_blank'>LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE</a></p>
-                    <p class='date'>S.No: 17 | 2024-04-01</p>
+                    <video src='../Photos/Alex Coal/thumbs/58.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7357' target='_blank'>Bellesa Following Directions</a></p>
+                    <p class='date'>S.No: 58 | 2024-12-06</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/36.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5509' target='_blank'>MissaX 22 01 21 Alex Coal And Whitney Wright Whats So Special About Her Pt 2</a></p>
-                    <p class='date'>S.No: 36 | 2024-04-26</p>
+                    <video src='../Photos/Alex Coal/thumbs/57.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7278' target='_blank'>NubileFilms Alex Coal - Walking In On My Boss - S39:E18 (21.07.2021)</a></p>
+                    <p class='date'>S.No: 57 | 2024-12-03</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/52.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7118' target='_blank'>MissaX My Virginity is a Burden IV</a></p>
-                    <p class='date'>S.No: 52 | 2024-10-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/45.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6256' target='_blank'>Missax 21 04 26 Alex Coal And Brianne Blu Sex And Sacrifice</a></p>
-                    <p class='date'>S.No: 45 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/1.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/2' target='_blank'>Molly Little</a></p>
-                    <p class='date'>S.No: 1 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/16' target='_blank'>Moms Teach Sex - Moms Scout Leader - S16:E4 - Adira Allure</a></p>
-                    <p class='date'>S.No: 5 | 2023-10-23</p>
+                    <video src='../Photos/Alex Coal/thumbs/56.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7264' target='_blank'>1111Customs 24 09 05 Alex Coal TAKE ME Daddy XXX</a></p>
+                    <p class='date'>S.No: 56 | 2024-12-02</p>
                 </div>
             
                 <div class='grid-item'>
@@ -444,39 +339,45 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/29.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/4619' target='_blank'>NaughtyAmerica Alex Coal - Dirty Wives Club - Sexy Alex Coal fucks other men to please her husband</a></p>
-                    <p class='date'>S.No: 29 | 2024-04-25</p>
+                    <video src='../Photos/Alex Coal/thumbs/55.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7256' target='_blank'>Toys 2</a></p>
+                    <p class='date'>S.No: 55 | 2024-11-18</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/4247' target='_blank'>NaughtyAmerica Alex Coal - I Have a Wife - Sexy botanist Alex Coal has some milky white stuff all over her plants</a></p>
-                    <p class='date'>S.No: 26 | 2024-04-22</p>
+                    <video src='../Photos/Alex Coal/thumbs/53.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7138' target='_blank'>The Maid Needs Some Dick Too</a></p>
+                    <p class='date'>S.No: 53 | 2024-11-07</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/26' target='_blank'>Nubile Films - Everything In Its Right Place - S43:E27 - Alex Coal, Aria Valencia, Quinton James, Theodora Day</a></p>
-                    <p class='date'>S.No: 7 | 2023-11-10</p>
+                    <video src='../Photos/Alex Coal/thumbs/52.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7118' target='_blank'>MissaX My Virginity is a Burden IV</a></p>
+                    <p class='date'>S.No: 52 | 2024-10-02</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/20' target='_blank'>Nubile Films - Pass The Test - S42:E7 - Alex Coal, Robby Echo, Vina Sky</a></p>
-                    <p class='date'>S.No: 6 | 2023-11-03</p>
+                    <video src='../Photos/Alex Coal/thumbs/50.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6620' target='_blank'>RealitySis Alex Coal, Molly Little - I Wish You Could Help Me In Person</a></p>
+                    <p class='date'>S.No: 50 | 2024-09-19</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/252' target='_blank'>NubileFilms Alex Coal , Kylie Quinn - Obey To Play</a></p>
-                    <p class='date'>S.No: 11 | 2024-02-07</p>
+                    <video src='../Photos/Alex Coal/thumbs/51.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6714' target='_blank'>Girlfriends FilmsSecret Lesbian Diaries #12 - Scene 3Alex Coal, Vivian Fox</a></p>
+                    <p class='date'>S.No: 51 | 2024-09-19</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/1460' target='_blank'>NubileFilms Alex Coal - After Class</a></p>
-                    <p class='date'>S.No: 15 | 2024-03-07</p>
+                    <video src='../Photos/Alex Coal/thumbs/49.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6507' target='_blank'>Nubiles Porn - Finally Getting Our Fuck On - S5:E4 - Alex Coal, Sera Ryder</a></p>
+                    <p class='date'>S.No: 49 | 2024-09-18</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/48.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6422' target='_blank'>RealitySis Alex Coal, Selina Imai - Give Me That Cock Daddy</a></p>
+                    <p class='date'>S.No: 48 | 2024-08-23</p>
                 </div>
             
                 <div class='grid-item'>
@@ -486,9 +387,111 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/57.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7278' target='_blank'>NubileFilms Alex Coal - Walking In On My Boss - S39:E18 (21.07.2021)</a></p>
-                    <p class='date'>S.No: 57 | 2024-12-03</p>
+                    <video src='../Photos/Alex Coal/thumbs/46.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6268' target='_blank'>AdultTime - Alex Coal & Sophia Burns - Tutor's Study Break</a></p>
+                    <p class='date'>S.No: 46 | 2024-07-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/44.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6244' target='_blank'>Sweet Sinner Game On - Scene 4 - Let The Games Begin</a></p>
+                    <p class='date'>S.No: 44 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/45.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/6256' target='_blank'>Missax 21 04 26 Alex Coal And Brianne Blu Sex And Sacrifice</a></p>
+                    <p class='date'>S.No: 45 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/40.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5953' target='_blank'>justgoodsex Helps new Neighbor Move in and Gets Rewarded with Pass</a></p>
+                    <p class='date'>S.No: 40 | 2024-06-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/41.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5962' target='_blank'>TeamSkeet Alex Coal, Jasmine Daze, Lauren Phillips , Pristine Edge - The Draft: Game Day Orgy</a></p>
+                    <p class='date'>S.No: 41 | 2024-06-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/42.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5964' target='_blank'>AdultTime Alex Coal Takes All The Jizz In Her Mouth</a></p>
+                    <p class='date'>S.No: 42 | 2024-06-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/43.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5966' target='_blank'>FreeuseFantasy Alex Coal - The Draft: Full Focus Fantasy</a></p>
+                    <p class='date'>S.No: 43 | 2024-06-24</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/39.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5617' target='_blank'>Alex Coal, Cory Chase - Lesbian Hotwives 2 - Scene 2 - Girl Things</a></p>
+                    <p class='date'>S.No: 39 | 2024-06-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/37.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5525' target='_blank'>Lesbian Crime Stories 7 - 4</a></p>
+                    <p class='date'>S.No: 37 | 2024-06-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/38.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5614' target='_blank'>ONLYFANS</a></p>
+                    <p class='date'>S.No: 38 | 2024-06-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/36.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5509' target='_blank'>MissaX 22 01 21 Alex Coal And Whitney Wright Whats So Special About Her Pt 2</a></p>
+                    <p class='date'>S.No: 36 | 2024-04-26</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/27.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/4478' target='_blank'>NubileFilms Alex Coal, Freya Parker - Spin The Bottle</a></p>
+                    <p class='date'>S.No: 27 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/28.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/4611' target='_blank'>[DelphineFilms] Alex Coal, Olive Glass - Unblock</a></p>
+                    <p class='date'>S.No: 28 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/29.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/4619' target='_blank'>NaughtyAmerica Alex Coal - Dirty Wives Club - Sexy Alex Coal fucks other men to please her husband</a></p>
+                    <p class='date'>S.No: 29 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/30.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5040' target='_blank'>Jayden Cole Horny Housekeeping</a></p>
+                    <p class='date'>S.No: 30 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/31.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5080' target='_blank'>DeepLush Alex Coal, Katie Kush - Party Of Three</a></p>
+                    <p class='date'>S.No: 31 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/32.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5125' target='_blank'>Nubiles-Porn Alex Coal - Mom Plays A Prank</a></p>
+                    <p class='date'>S.No: 32 | 2024-04-25</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/33.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/5224' target='_blank'>BlackForWife 19 05 30 Alex Coal My Husbands Best Friend</a></p>
+                    <p class='date'>S.No: 33 | 2024-04-25</p>
                 </div>
             
                 <div class='grid-item'>
@@ -504,21 +507,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/27.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/4478' target='_blank'>NubileFilms Alex Coal, Freya Parker - Spin The Bottle</a></p>
-                    <p class='date'>S.No: 27 | 2024-04-25</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/409' target='_blank'>NubileFilms Alex Coal, Molly Little - Our First Session</a></p>
-                    <p class='date'>S.No: 12 | 2024-02-07</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/14.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/1314' target='_blank'>NubileFilms Kiara Cole, Alex Coal - Cumming For Christmas</a></p>
-                    <p class='date'>S.No: 14 | 2024-02-15</p>
+                    <video src='../Photos/Alex Coal/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/4040' target='_blank'>Nubiles-Porn Alex Coal Cast Elsa Violet</a></p>
+                    <p class='date'>S.No: 24 | 2024-04-22</p>
                 </div>
             
                 <div class='grid-item'>
@@ -528,75 +519,63 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/109' target='_blank'>Nubiles Alex Coal, Codey Steele, Liz Jordan - Flirt Or Fuck</a></p>
-                    <p class='date'>S.No: 10 | 2024-02-07</p>
+                    <video src='../Photos/Alex Coal/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/4247' target='_blank'>NaughtyAmerica Alex Coal - I Have a Wife - Sexy botanist Alex Coal has some milky white stuff all over her plants</a></p>
+                    <p class='date'>S.No: 26 | 2024-04-22</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/49.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6507' target='_blank'>Nubiles Porn - Finally Getting Our Fuck On - S5:E4 - Alex Coal, Sera Ryder</a></p>
-                    <p class='date'>S.No: 49 | 2024-09-18</p>
+                    <video src='../Photos/Alex Coal/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/3725' target='_blank'>sundress sexploration</a></p>
+                    <p class='date'>S.No: 20 | 2024-04-16</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/32.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5125' target='_blank'>Nubiles-Porn Alex Coal - Mom Plays A Prank</a></p>
-                    <p class='date'>S.No: 32 | 2024-04-25</p>
+                    <video src='../Photos/Alex Coal/thumbs/21.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/3748' target='_blank'>Gets Everything And More</a></p>
+                    <p class='date'>S.No: 21 | 2024-04-16</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/4040' target='_blank'>Nubiles-Porn Alex Coal Cast Elsa Violet</a></p>
-                    <p class='date'>S.No: 24 | 2024-04-22</p>
+                    <video src='../Photos/Alex Coal/thumbs/22.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/3827' target='_blank'>Andi Rose A Private Lesson</a></p>
+                    <p class='date'>S.No: 22 | 2024-04-16</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/38.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5614' target='_blank'>ONLYFANS</a></p>
-                    <p class='date'>S.No: 38 | 2024-06-05</p>
+                    <video src='../Photos/Alex Coal/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/3937' target='_blank'>Anna Claire Clouds Molly Little Ghosts Of Girlfriends Past</a></p>
+                    <p class='date'>S.No: 23 | 2024-04-16</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/2.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7' target='_blank'>Obey To Play Kylie Quinn</a></p>
-                    <p class='date'>S.No: 2 | 2023-09-13</p>
+                    <video src='../Photos/Alex Coal/thumbs/19.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/3085' target='_blank'>Alex Coal fucks her boyfriend with her Slutty stepmom Reagan Foxx</a></p>
+                    <p class='date'>S.No: 19 | 2024-04-15</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for PornHat' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1665662646/13' target='_blank'>PornHat</a></p>
-                    <p class='date'>S.No: 4 | 2023-10-16</p>
+                    <video src='../Photos/Alex Coal/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/2477' target='_blank'>Alex Coal Anissa Kate - Alex Shares Her Boyfriend With Anissa Kate</a></p>
+                    <p class='date'>S.No: 18 | 2024-04-05</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/67.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/9821' target='_blank'>RealitySis Alex Coal, Aria Valencia - Help Alex I Want To Fuck My Stepsis! 05/20/25</a></p>
-                    <p class='date'>S.No: 67 | 2025-05-20</p>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1665662646/2302' target='_blank'>LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE</a></p>
+                    <p class='date'>S.No: 17 | 2024-04-01</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/50.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6620' target='_blank'>RealitySis Alex Coal, Molly Little - I Wish You Could Help Me In Person</a></p>
-                    <p class='date'>S.No: 50 | 2024-09-19</p>
+                    <video src='../Photos/Alex Coal/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/1927' target='_blank'>Girlfriends Films Women Seeking Women #189 - Scene 1 Alex Coal, Kenzie Love</a></p>
+                    <p class='date'>S.No: 16 | 2024-03-30</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/60.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7957' target='_blank'>RealitySis Alex Coal, Rissa May - Stepsisters Crush! 12/21/24</a></p>
-                    <p class='date'>S.No: 60 | 2024-12-23</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/48.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6422' target='_blank'>RealitySis Alex Coal, Selina Imai - Give Me That Cock Daddy</a></p>
-                    <p class='date'>S.No: 48 | 2024-08-23</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/61.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/8059' target='_blank'>SheSeducedMe Alex Coal , Leah Gotti , Lilly Bell & Nova Flame - The Straight Girl Trap - x1092 - March 25 2024</a></p>
-                    <p class='date'>S.No: 61 | 2025-02-07</p>
+                    <video src='../Photos/Alex Coal/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/1460' target='_blank'>NubileFilms Alex Coal - After Class</a></p>
+                    <p class='date'>S.No: 15 | 2024-03-07</p>
                 </div>
             
                 <div class='grid-item'>
@@ -606,39 +585,33 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/44.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/6244' target='_blank'>Sweet Sinner Game On - Scene 4 - Let The Games Begin</a></p>
-                    <p class='date'>S.No: 44 | 2024-07-01</p>
+                    <video src='../Photos/Alex Coal/thumbs/14.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/1314' target='_blank'>NubileFilms Kiara Cole, Alex Coal - Cumming For Christmas</a></p>
+                    <p class='date'>S.No: 14 | 2024-02-15</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/68.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/9935' target='_blank'>TeamSkeet Alex Coal - A Professorial Creampie - 1600px - 245X (28-04-2019)</a></p>
-                    <p class='date'>S.No: 68 | 2025-05-22</p>
+                    <video src='../Photos/Alex Coal/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/109' target='_blank'>Nubiles Alex Coal, Codey Steele, Liz Jordan - Flirt Or Fuck</a></p>
+                    <p class='date'>S.No: 10 | 2024-02-07</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/41.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5962' target='_blank'>TeamSkeet Alex Coal, Jasmine Daze, Lauren Phillips , Pristine Edge - The Draft: Game Day Orgy</a></p>
-                    <p class='date'>S.No: 41 | 2024-06-24</p>
+                    <video src='../Photos/Alex Coal/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/252' target='_blank'>NubileFilms Alex Coal , Kylie Quinn - Obey To Play</a></p>
+                    <p class='date'>S.No: 11 | 2024-02-07</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/53.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7138' target='_blank'>The Maid Needs Some Dick Too</a></p>
-                    <p class='date'>S.No: 53 | 2024-11-07</p>
+                    <video src='../Photos/Alex Coal/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/409' target='_blank'>NubileFilms Alex Coal, Molly Little - Our First Session</a></p>
+                    <p class='date'>S.No: 12 | 2024-02-07</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1665662646/9228' target='_blank'>TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb</a></p>
-                    <p class='date'>S.No: 64 | 2025-03-13</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/55.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/7256' target='_blank'>Toys 2</a></p>
-                    <p class='date'>S.No: 55 | 2024-11-18</p>
+                    <video src='../Photos/Alex Coal/thumbs/8.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/36' target='_blank'>CumSwappingSis Our Fantasy Date - S5:E8 Season 5, Episode 8 Alex Coal, Max Fills, Penelope Kay</a></p>
+                    <p class='date'>S.No: 8 | 2024-01-27</p>
                 </div>
             
                 <div class='grid-item'>
@@ -648,24 +621,48 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/28.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/4611' target='_blank'>[DelphineFilms] Alex Coal, Olive Glass - Unblock</a></p>
-                    <p class='date'>S.No: 28 | 2024-04-25</p>
+                    <video src='../Photos/Alex Coal/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/26' target='_blank'>Nubile Films - Everything In Its Right Place - S43:E27 - Alex Coal, Aria Valencia, Quinton James, Theodora Day</a></p>
+                    <p class='date'>S.No: 7 | 2023-11-10</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/40.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/5953' target='_blank'>justgoodsex Helps new Neighbor Move in and Gets Rewarded with Pass</a></p>
-                    <p class='date'>S.No: 40 | 2024-06-24</p>
+                    <video src='../Photos/Alex Coal/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/20' target='_blank'>Nubile Films - Pass The Test - S42:E7 - Alex Coal, Robby Echo, Vina Sky</a></p>
+                    <p class='date'>S.No: 6 | 2023-11-03</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Alex Coal/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1665662646/3725' target='_blank'>sundress sexploration</a></p>
-                    <p class='date'>S.No: 20 | 2024-04-16</p>
+                    <video src='../Photos/Alex Coal/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/16' target='_blank'>Moms Teach Sex - Moms Scout Leader - S16:E4 - Adira Allure</a></p>
+                    <p class='date'>S.No: 5 | 2023-10-23</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for PornHat' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1665662646/13' target='_blank'>PornHat</a></p>
+                    <p class='date'>S.No: 4 | 2023-10-16</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/2.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/7' target='_blank'>Obey To Play Kylie Quinn</a></p>
+                    <p class='date'>S.No: 2 | 2023-09-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/3.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/10' target='_blank'>About Last Night - S5:E7 Liz Jordan</a></p>
+                    <p class='date'>S.No: 3 | 2023-09-13</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Alex Coal/thumbs/1.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1665662646/2' target='_blank'>Molly Little</a></p>
+                    <p class='date'>S.No: 1 | 2023-08-21</p>
                 </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>56</td><td><a href='https://t.me/c/1665662646/7264' target='_blank'>1111Customs 24 09 05 Alex Coal TAKE ME Daddy XXX</a></td><td>2024-12-02</td></tr><tr><td>66</td><td><a href='https://t.me/c/1665662646/9487' target='_blank'>AGirlsKnows Alex Coal, Skylar Snow - The Blind Date - 328x - 3238 x 2160px - May 18, 2023</a></td><td>2025-05-05</td></tr><tr><td>3</td><td><a href='https://t.me/c/1665662646/10' target='_blank'>About Last Night - S5:E7 Liz Jordan</a></td><td>2023-09-13</td></tr><tr><td>46</td><td><a href='https://t.me/c/1665662646/6268' target='_blank'>AdultTime - Alex Coal & Sophia Burns - Tutor's Study Break</a></td><td>2024-07-30</td></tr><tr><td>42</td><td><a href='https://t.me/c/1665662646/5964' target='_blank'>AdultTime Alex Coal Takes All The Jizz In Her Mouth</a></td><td>2024-06-24</td></tr><tr><td>18</td><td><a href='https://t.me/c/1665662646/2477' target='_blank'>Alex Coal Anissa Kate - Alex Shares Her Boyfriend With Anissa Kate</a></td><td>2024-04-05</td></tr><tr><td>19</td><td><a href='https://t.me/c/1665662646/3085' target='_blank'>Alex Coal fucks her boyfriend with her Slutty stepmom Reagan Foxx</a></td><td>2024-04-15</td></tr><tr><td>39</td><td><a href='https://t.me/c/1665662646/5617' target='_blank'>Alex Coal, Cory Chase - Lesbian Hotwives 2 - Scene 2 - Girl Things</a></td><td>2024-06-17</td></tr><tr><td>22</td><td><a href='https://t.me/c/1665662646/3827' target='_blank'>Andi Rose A Private Lesson</a></td><td>2024-04-16</td></tr><tr><td>23</td><td><a href='https://t.me/c/1665662646/3937' target='_blank'>Anna Claire Clouds Molly Little Ghosts Of Girlfriends Past</a></td><td>2024-04-16</td></tr><tr><td>58</td><td><a href='https://t.me/c/1665662646/7357' target='_blank'>Bellesa Following Directions</a></td><td>2024-12-06</td></tr><tr><td>33</td><td><a href='https://t.me/c/1665662646/5224' target='_blank'>BlackForWife 19 05 30 Alex Coal My Husbands Best Friend</a></td><td>2024-04-25</td></tr><tr><td>8</td><td><a href='https://t.me/c/1665662646/36' target='_blank'>CumSwappingSis Our Fantasy Date - S5:E8 Season 5, Episode 8 Alex Coal, Max Fills, Penelope Kay</a></td><td>2024-01-27</td></tr><tr><td>63</td><td><a href='https://t.me/c/1665662646/9222' target='_blank'>Custom Fetish Videos Alex Coal Laney Grey Deprogrammed</a></td><td>2025-02-13</td></tr><tr><td>31</td><td><a href='https://t.me/c/1665662646/5080' target='_blank'>DeepLush Alex Coal, Katie Kush - Party Of Three</a></td><td>2024-04-25</td></tr><tr><td>43</td><td><a href='https://t.me/c/1665662646/5966' target='_blank'>FreeuseFantasy Alex Coal - The Draft: Full Focus Fantasy</a></td><td>2024-06-24</td></tr><tr><td>21</td><td><a href='https://t.me/c/1665662646/3748' target='_blank'>Gets Everything And More</a></td><td>2024-04-16</td></tr><tr><td>59</td><td><a href='https://t.me/c/1665662646/7362' target='_blank'>Girlfriends Films Lesbian Tutors #09 - Scene 4 Alex Coal, Lilly Bell</a></td><td>2024-12-10</td></tr><tr><td>16</td><td><a href='https://t.me/c/1665662646/1927' target='_blank'>Girlfriends Films Women Seeking Women #189 - Scene 1 Alex Coal, Kenzie Love</a></td><td>2024-03-30</td></tr><tr><td>51</td><td><a href='https://t.me/c/1665662646/6714' target='_blank'>Girlfriends FilmsSecret Lesbian Diaries #12 - Scene 3Alex Coal, Vivian Fox</a></td><td>2024-09-19</td></tr><tr><td>65</td><td><a href='https://t.me/c/1665662646/9474' target='_blank'>GirlsWay - Alison Rey & Alex Coal - Common Ground 2025</a></td><td>2025-03-24</td></tr><tr><td>62</td><td><a href='https://t.me/c/1665662646/9190' target='_blank'>GirlsWay: Room Enough For Three – Alex Coal, Olive Glass & Nicole Kitt</a></td><td>2025-02-07</td></tr><tr><td>30</td><td><a href='https://t.me/c/1665662646/5040' target='_blank'>Jayden Cole Horny Housekeeping</a></td><td>2024-04-25</td></tr><tr><td>37</td><td><a href='https://t.me/c/1665662646/5525' target='_blank'>Lesbian Crime Stories 7 - 4</a></td><td>2024-06-05</td></tr><tr><td>17</td><td><a href='https://t.me/c/1665662646/2302' target='_blank'>LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE</a></td><td>2024-04-01</td></tr><tr><td>36</td><td><a href='https://t.me/c/1665662646/5509' target='_blank'>MissaX 22 01 21 Alex Coal And Whitney Wright Whats So Special About Her Pt 2</a></td><td>2024-04-26</td></tr><tr><td>52</td><td><a href='https://t.me/c/1665662646/7118' target='_blank'>MissaX My Virginity is a Burden IV</a></td><td>2024-10-02</td></tr><tr><td>45</td><td><a href='https://t.me/c/1665662646/6256' target='_blank'>Missax 21 04 26 Alex Coal And Brianne Blu Sex And Sacrifice</a></td><td>2024-07-01</td></tr><tr><td>1</td><td><a href='https://t.me/c/1665662646/2' target='_blank'>Molly Little</a></td><td>2023-08-21</td></tr><tr><td>5</td><td><a href='https://t.me/c/1665662646/16' target='_blank'>Moms Teach Sex - Moms Scout Leader - S16:E4 - Adira Allure</a></td><td>2023-10-23</td></tr><tr><td>54</td><td><a href='https://t.me/c/1665662646/7251' target='_blank'>Musterbating 1</a></td><td>2024-11-18</td></tr><tr><td>29</td><td><a href='https://t.me/c/1665662646/4619' target='_blank'>NaughtyAmerica Alex Coal - Dirty Wives Club - Sexy Alex Coal fucks other men to please her husband</a></td><td>2024-04-25</td></tr><tr><td>26</td><td><a href='https://t.me/c/1665662646/4247' target='_blank'>NaughtyAmerica Alex Coal - I Have a Wife - Sexy botanist Alex Coal has some milky white stuff all over her plants</a></td><td>2024-04-22</td></tr><tr><td>7</td><td><a href='https://t.me/c/1665662646/26' target='_blank'>Nubile Films - Everything In Its Right Place - S43:E27 - Alex Coal, Aria Valencia, Quinton James, Theodora Day</a></td><td>2023-11-10</td></tr><tr><td>6</td><td><a href='https://t.me/c/1665662646/20' target='_blank'>Nubile Films - Pass The Test - S42:E7 - Alex Coal, Robby Echo, Vina Sky</a></td><td>2023-11-03</td></tr><tr><td>11</td><td><a href='https://t.me/c/1665662646/252' target='_blank'>NubileFilms Alex Coal , Kylie Quinn - Obey To Play</a></td><td>2024-02-07</td></tr><tr><td>15</td><td><a href='https://t.me/c/1665662646/1460' target='_blank'>NubileFilms Alex Coal - After Class</a></td><td>2024-03-07</td></tr><tr><td>47</td><td><a href='https://t.me/c/1665662646/6301' target='_blank'>NubileFilms Alex Coal - Girl Problems</a></td><td>2024-07-31</td></tr><tr><td>57</td><td><a href='https://t.me/c/1665662646/7278' target='_blank'>NubileFilms Alex Coal - Walking In On My Boss - S39:E18 (21.07.2021)</a></td><td>2024-12-03</td></tr><tr><td>34</td><td><a href='https://t.me/c/1665662646/5235' target='_blank'>NubileFilms Alex Coal, Codey Steele & Evelyn Claire - Girl Talk</a></td><td>2024-04-25</td></tr><tr><td>35</td><td><a href='https://t.me/c/1665662646/5355' target='_blank'>NubileFilms Alex Coal, Evelyn Claire - Yes Daddy</a></td><td>2024-04-25</td></tr><tr><td>27</td><td><a href='https://t.me/c/1665662646/4478' target='_blank'>NubileFilms Alex Coal, Freya Parker - Spin The Bottle</a></td><td>2024-04-25</td></tr><tr><td>12</td><td><a href='https://t.me/c/1665662646/409' target='_blank'>NubileFilms Alex Coal, Molly Little - Our First Session</a></td><td>2024-02-07</td></tr><tr><td>14</td><td><a href='https://t.me/c/1665662646/1314' target='_blank'>NubileFilms Kiara Cole, Alex Coal - Cumming For Christmas</a></td><td>2024-02-15</td></tr><tr><td>25</td><td><a href='https://t.me/c/1665662646/4177' target='_blank'>NubileFilms Valentines Day Fantasies Do Come True Alex Coal, Kyler Quinn,</a></td><td>2024-04-22</td></tr><tr><td>10</td><td><a href='https://t.me/c/1665662646/109' target='_blank'>Nubiles Alex Coal, Codey Steele, Liz Jordan - Flirt Or Fuck</a></td><td>2024-02-07</td></tr><tr><td>49</td><td><a href='https://t.me/c/1665662646/6507' target='_blank'>Nubiles Porn - Finally Getting Our Fuck On - S5:E4 - Alex Coal, Sera Ryder</a></td><td>2024-09-18</td></tr><tr><td>32</td><td><a href='https://t.me/c/1665662646/5125' target='_blank'>Nubiles-Porn Alex Coal - Mom Plays A Prank</a></td><td>2024-04-25</td></tr><tr><td>24</td><td><a href='https://t.me/c/1665662646/4040' target='_blank'>Nubiles-Porn Alex Coal Cast Elsa Violet</a></td><td>2024-04-22</td></tr><tr><td>38</td><td><a href='https://t.me/c/1665662646/5614' target='_blank'>ONLYFANS</a></td><td>2024-06-05</td></tr><tr><td>2</td><td><a href='https://t.me/c/1665662646/7' target='_blank'>Obey To Play Kylie Quinn</a></td><td>2023-09-13</td></tr><tr><td>4</td><td><a href='https://t.me/c/1665662646/13' target='_blank'>PornHat</a></td><td>2023-10-16</td></tr><tr><td>67</td><td><a href='https://t.me/c/1665662646/9821' target='_blank'>RealitySis Alex Coal, Aria Valencia - Help Alex I Want To Fuck My Stepsis! 05/20/25</a></td><td>2025-05-20</td></tr><tr><td>50</td><td><a href='https://t.me/c/1665662646/6620' target='_blank'>RealitySis Alex Coal, Molly Little - I Wish You Could Help Me In Person</a></td><td>2024-09-19</td></tr><tr><td>60</td><td><a href='https://t.me/c/1665662646/7957' target='_blank'>RealitySis Alex Coal, Rissa May - Stepsisters Crush! 12/21/24</a></td><td>2024-12-23</td></tr><tr><td>48</td><td><a href='https://t.me/c/1665662646/6422' target='_blank'>RealitySis Alex Coal, Selina Imai - Give Me That Cock Daddy</a></td><td>2024-08-23</td></tr><tr><td>61</td><td><a href='https://t.me/c/1665662646/8059' target='_blank'>SheSeducedMe Alex Coal , Leah Gotti , Lilly Bell & Nova Flame - The Straight Girl Trap - x1092 - March 25 2024</a></td><td>2025-02-07</td></tr><tr><td>13</td><td><a href='https://t.me/c/1665662646/542' target='_blank'>SheSeducedMe I'll Be Your Valentine Featuring: Alex Coal , Leah Gotti</a></td><td>2024-02-15</td></tr><tr><td>44</td><td><a href='https://t.me/c/1665662646/6244' target='_blank'>Sweet Sinner Game On - Scene 4 - Let The Games Begin</a></td><td>2024-07-01</td></tr><tr><td>68</td><td><a href='https://t.me/c/1665662646/9935' target='_blank'>TeamSkeet Alex Coal - A Professorial Creampie - 1600px - 245X (28-04-2019)</a></td><td>2025-05-22</td></tr><tr><td>41</td><td><a href='https://t.me/c/1665662646/5962' target='_blank'>TeamSkeet Alex Coal, Jasmine Daze, Lauren Phillips , Pristine Edge - The Draft: Game Day Orgy</a></td><td>2024-06-24</td></tr><tr><td>53</td><td><a href='https://t.me/c/1665662646/7138' target='_blank'>The Maid Needs Some Dick Too</a></td><td>2024-11-07</td></tr><tr><td>64</td><td><a href='https://t.me/c/1665662646/9228' target='_blank'>TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb</a></td><td>2025-03-13</td></tr><tr><td>55</td><td><a href='https://t.me/c/1665662646/7256' target='_blank'>Toys 2</a></td><td>2024-11-18</td></tr><tr><td>9</td><td><a href='https://t.me/c/1665662646/105' target='_blank'>ZeroToleranceFilms FAMILY MEMBERS 3 - SCENE 2</a></td><td>2024-01-27</td></tr><tr><td>28</td><td><a href='https://t.me/c/1665662646/4611' target='_blank'>[DelphineFilms] Alex Coal, Olive Glass - Unblock</a></td><td>2024-04-25</td></tr><tr><td>40</td><td><a href='https://t.me/c/1665662646/5953' target='_blank'>justgoodsex Helps new Neighbor Move in and Gets Rewarded with Pass</a></td><td>2024-06-24</td></tr><tr><td>20</td><td><a href='https://t.me/c/1665662646/3725' target='_blank'>sundress sexploration</a></td><td>2024-04-16</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>68</td><td><a href='https://t.me/c/1665662646/9935' target='_blank'>TeamSkeet Alex Coal - A Professorial Creampie - 1600px - 245X (28-04-2019)</a></td><td>2025-05-22</td></tr><tr><td>67</td><td><a href='https://t.me/c/1665662646/9821' target='_blank'>RealitySis Alex Coal, Aria Valencia - Help Alex I Want To Fuck My Stepsis! 05/20/25</a></td><td>2025-05-20</td></tr><tr><td>66</td><td><a href='https://t.me/c/1665662646/9487' target='_blank'>AGirlsKnows Alex Coal, Skylar Snow - The Blind Date - 328x - 3238 x 2160px - May 18, 2023</a></td><td>2025-05-05</td></tr><tr><td>65</td><td><a href='https://t.me/c/1665662646/9474' target='_blank'>GirlsWay - Alison Rey & Alex Coal - Common Ground 2025</a></td><td>2025-03-24</td></tr><tr><td>64</td><td><a href='https://t.me/c/1665662646/9228' target='_blank'>TonightsGirlfriend Natural Porn Star Alex Coal Wears Sexy Lingerie To Ride Fan's Cock On His Couch - 240x - 992 x 661px - Decemb</a></td><td>2025-03-13</td></tr><tr><td>63</td><td><a href='https://t.me/c/1665662646/9222' target='_blank'>Custom Fetish Videos Alex Coal Laney Grey Deprogrammed</a></td><td>2025-02-13</td></tr><tr><td>61</td><td><a href='https://t.me/c/1665662646/8059' target='_blank'>SheSeducedMe Alex Coal , Leah Gotti , Lilly Bell & Nova Flame - The Straight Girl Trap - x1092 - March 25 2024</a></td><td>2025-02-07</td></tr><tr><td>62</td><td><a href='https://t.me/c/1665662646/9190' target='_blank'>GirlsWay: Room Enough For Three – Alex Coal, Olive Glass & Nicole Kitt</a></td><td>2025-02-07</td></tr><tr><td>60</td><td><a href='https://t.me/c/1665662646/7957' target='_blank'>RealitySis Alex Coal, Rissa May - Stepsisters Crush! 12/21/24</a></td><td>2024-12-23</td></tr><tr><td>59</td><td><a href='https://t.me/c/1665662646/7362' target='_blank'>Girlfriends Films Lesbian Tutors #09 - Scene 4 Alex Coal, Lilly Bell</a></td><td>2024-12-10</td></tr><tr><td>58</td><td><a href='https://t.me/c/1665662646/7357' target='_blank'>Bellesa Following Directions</a></td><td>2024-12-06</td></tr><tr><td>57</td><td><a href='https://t.me/c/1665662646/7278' target='_blank'>NubileFilms Alex Coal - Walking In On My Boss - S39:E18 (21.07.2021)</a></td><td>2024-12-03</td></tr><tr><td>56</td><td><a href='https://t.me/c/1665662646/7264' target='_blank'>1111Customs 24 09 05 Alex Coal TAKE ME Daddy XXX</a></td><td>2024-12-02</td></tr><tr><td>54</td><td><a href='https://t.me/c/1665662646/7251' target='_blank'>Musterbating 1</a></td><td>2024-11-18</td></tr><tr><td>55</td><td><a href='https://t.me/c/1665662646/7256' target='_blank'>Toys 2</a></td><td>2024-11-18</td></tr><tr><td>53</td><td><a href='https://t.me/c/1665662646/7138' target='_blank'>The Maid Needs Some Dick Too</a></td><td>2024-11-07</td></tr><tr><td>52</td><td><a href='https://t.me/c/1665662646/7118' target='_blank'>MissaX My Virginity is a Burden IV</a></td><td>2024-10-02</td></tr><tr><td>50</td><td><a href='https://t.me/c/1665662646/6620' target='_blank'>RealitySis Alex Coal, Molly Little - I Wish You Could Help Me In Person</a></td><td>2024-09-19</td></tr><tr><td>51</td><td><a href='https://t.me/c/1665662646/6714' target='_blank'>Girlfriends FilmsSecret Lesbian Diaries #12 - Scene 3Alex Coal, Vivian Fox</a></td><td>2024-09-19</td></tr><tr><td>49</td><td><a href='https://t.me/c/1665662646/6507' target='_blank'>Nubiles Porn - Finally Getting Our Fuck On - S5:E4 - Alex Coal, Sera Ryder</a></td><td>2024-09-18</td></tr><tr><td>48</td><td><a href='https://t.me/c/1665662646/6422' target='_blank'>RealitySis Alex Coal, Selina Imai - Give Me That Cock Daddy</a></td><td>2024-08-23</td></tr><tr><td>47</td><td><a href='https://t.me/c/1665662646/6301' target='_blank'>NubileFilms Alex Coal - Girl Problems</a></td><td>2024-07-31</td></tr><tr><td>46</td><td><a href='https://t.me/c/1665662646/6268' target='_blank'>AdultTime - Alex Coal & Sophia Burns - Tutor's Study Break</a></td><td>2024-07-30</td></tr><tr><td>44</td><td><a href='https://t.me/c/1665662646/6244' target='_blank'>Sweet Sinner Game On - Scene 4 - Let The Games Begin</a></td><td>2024-07-01</td></tr><tr><td>45</td><td><a href='https://t.me/c/1665662646/6256' target='_blank'>Missax 21 04 26 Alex Coal And Brianne Blu Sex And Sacrifice</a></td><td>2024-07-01</td></tr><tr><td>40</td><td><a href='https://t.me/c/1665662646/5953' target='_blank'>justgoodsex Helps new Neighbor Move in and Gets Rewarded with Pass</a></td><td>2024-06-24</td></tr><tr><td>41</td><td><a href='https://t.me/c/1665662646/5962' target='_blank'>TeamSkeet Alex Coal, Jasmine Daze, Lauren Phillips , Pristine Edge - The Draft: Game Day Orgy</a></td><td>2024-06-24</td></tr><tr><td>42</td><td><a href='https://t.me/c/1665662646/5964' target='_blank'>AdultTime Alex Coal Takes All The Jizz In Her Mouth</a></td><td>2024-06-24</td></tr><tr><td>43</td><td><a href='https://t.me/c/1665662646/5966' target='_blank'>FreeuseFantasy Alex Coal - The Draft: Full Focus Fantasy</a></td><td>2024-06-24</td></tr><tr><td>39</td><td><a href='https://t.me/c/1665662646/5617' target='_blank'>Alex Coal, Cory Chase - Lesbian Hotwives 2 - Scene 2 - Girl Things</a></td><td>2024-06-17</td></tr><tr><td>37</td><td><a href='https://t.me/c/1665662646/5525' target='_blank'>Lesbian Crime Stories 7 - 4</a></td><td>2024-06-05</td></tr><tr><td>38</td><td><a href='https://t.me/c/1665662646/5614' target='_blank'>ONLYFANS</a></td><td>2024-06-05</td></tr><tr><td>36</td><td><a href='https://t.me/c/1665662646/5509' target='_blank'>MissaX 22 01 21 Alex Coal And Whitney Wright Whats So Special About Her Pt 2</a></td><td>2024-04-26</td></tr><tr><td>27</td><td><a href='https://t.me/c/1665662646/4478' target='_blank'>NubileFilms Alex Coal, Freya Parker - Spin The Bottle</a></td><td>2024-04-25</td></tr><tr><td>28</td><td><a href='https://t.me/c/1665662646/4611' target='_blank'>[DelphineFilms] Alex Coal, Olive Glass - Unblock</a></td><td>2024-04-25</td></tr><tr><td>29</td><td><a href='https://t.me/c/1665662646/4619' target='_blank'>NaughtyAmerica Alex Coal - Dirty Wives Club - Sexy Alex Coal fucks other men to please her husband</a></td><td>2024-04-25</td></tr><tr><td>30</td><td><a href='https://t.me/c/1665662646/5040' target='_blank'>Jayden Cole Horny Housekeeping</a></td><td>2024-04-25</td></tr><tr><td>31</td><td><a href='https://t.me/c/1665662646/5080' target='_blank'>DeepLush Alex Coal, Katie Kush - Party Of Three</a></td><td>2024-04-25</td></tr><tr><td>32</td><td><a href='https://t.me/c/1665662646/5125' target='_blank'>Nubiles-Porn Alex Coal - Mom Plays A Prank</a></td><td>2024-04-25</td></tr><tr><td>33</td><td><a href='https://t.me/c/1665662646/5224' target='_blank'>BlackForWife 19 05 30 Alex Coal My Husbands Best Friend</a></td><td>2024-04-25</td></tr><tr><td>34</td><td><a href='https://t.me/c/1665662646/5235' target='_blank'>NubileFilms Alex Coal, Codey Steele & Evelyn Claire - Girl Talk</a></td><td>2024-04-25</td></tr><tr><td>35</td><td><a href='https://t.me/c/1665662646/5355' target='_blank'>NubileFilms Alex Coal, Evelyn Claire - Yes Daddy</a></td><td>2024-04-25</td></tr><tr><td>24</td><td><a href='https://t.me/c/1665662646/4040' target='_blank'>Nubiles-Porn Alex Coal Cast Elsa Violet</a></td><td>2024-04-22</td></tr><tr><td>25</td><td><a href='https://t.me/c/1665662646/4177' target='_blank'>NubileFilms Valentines Day Fantasies Do Come True Alex Coal, Kyler Quinn,</a></td><td>2024-04-22</td></tr><tr><td>26</td><td><a href='https://t.me/c/1665662646/4247' target='_blank'>NaughtyAmerica Alex Coal - I Have a Wife - Sexy botanist Alex Coal has some milky white stuff all over her plants</a></td><td>2024-04-22</td></tr><tr><td>20</td><td><a href='https://t.me/c/1665662646/3725' target='_blank'>sundress sexploration</a></td><td>2024-04-16</td></tr><tr><td>21</td><td><a href='https://t.me/c/1665662646/3748' target='_blank'>Gets Everything And More</a></td><td>2024-04-16</td></tr><tr><td>22</td><td><a href='https://t.me/c/1665662646/3827' target='_blank'>Andi Rose A Private Lesson</a></td><td>2024-04-16</td></tr><tr><td>23</td><td><a href='https://t.me/c/1665662646/3937' target='_blank'>Anna Claire Clouds Molly Little Ghosts Of Girlfriends Past</a></td><td>2024-04-16</td></tr><tr><td>19</td><td><a href='https://t.me/c/1665662646/3085' target='_blank'>Alex Coal fucks her boyfriend with her Slutty stepmom Reagan Foxx</a></td><td>2024-04-15</td></tr><tr><td>18</td><td><a href='https://t.me/c/1665662646/2477' target='_blank'>Alex Coal Anissa Kate - Alex Shares Her Boyfriend With Anissa Kate</a></td><td>2024-04-05</td></tr><tr><td>17</td><td><a href='https://t.me/c/1665662646/2302' target='_blank'>LoveHerFeet SNEAKY FOOTJOB UNDER THE TABLE</a></td><td>2024-04-01</td></tr><tr><td>16</td><td><a href='https://t.me/c/1665662646/1927' target='_blank'>Girlfriends Films Women Seeking Women #189 - Scene 1 Alex Coal, Kenzie Love</a></td><td>2024-03-30</td></tr><tr><td>15</td><td><a href='https://t.me/c/1665662646/1460' target='_blank'>NubileFilms Alex Coal - After Class</a></td><td>2024-03-07</td></tr><tr><td>13</td><td><a href='https://t.me/c/1665662646/542' target='_blank'>SheSeducedMe I'll Be Your Valentine Featuring: Alex Coal , Leah Gotti</a></td><td>2024-02-15</td></tr><tr><td>14</td><td><a href='https://t.me/c/1665662646/1314' target='_blank'>NubileFilms Kiara Cole, Alex Coal - Cumming For Christmas</a></td><td>2024-02-15</td></tr><tr><td>10</td><td><a href='https://t.me/c/1665662646/109' target='_blank'>Nubiles Alex Coal, Codey Steele, Liz Jordan - Flirt Or Fuck</a></td><td>2024-02-07</td></tr><tr><td>11</td><td><a href='https://t.me/c/1665662646/252' target='_blank'>NubileFilms Alex Coal , Kylie Quinn - Obey To Play</a></td><td>2024-02-07</td></tr><tr><td>12</td><td><a href='https://t.me/c/1665662646/409' target='_blank'>NubileFilms Alex Coal, Molly Little - Our First Session</a></td><td>2024-02-07</td></tr><tr><td>8</td><td><a href='https://t.me/c/1665662646/36' target='_blank'>CumSwappingSis Our Fantasy Date - S5:E8 Season 5, Episode 8 Alex Coal, Max Fills, Penelope Kay</a></td><td>2024-01-27</td></tr><tr><td>9</td><td><a href='https://t.me/c/1665662646/105' target='_blank'>ZeroToleranceFilms FAMILY MEMBERS 3 - SCENE 2</a></td><td>2024-01-27</td></tr><tr><td>7</td><td><a href='https://t.me/c/1665662646/26' target='_blank'>Nubile Films - Everything In Its Right Place - S43:E27 - Alex Coal, Aria Valencia, Quinton James, Theodora Day</a></td><td>2023-11-10</td></tr><tr><td>6</td><td><a href='https://t.me/c/1665662646/20' target='_blank'>Nubile Films - Pass The Test - S42:E7 - Alex Coal, Robby Echo, Vina Sky</a></td><td>2023-11-03</td></tr><tr><td>5</td><td><a href='https://t.me/c/1665662646/16' target='_blank'>Moms Teach Sex - Moms Scout Leader - S16:E4 - Adira Allure</a></td><td>2023-10-23</td></tr><tr><td>4</td><td><a href='https://t.me/c/1665662646/13' target='_blank'>PornHat</a></td><td>2023-10-16</td></tr><tr><td>2</td><td><a href='https://t.me/c/1665662646/7' target='_blank'>Obey To Play Kylie Quinn</a></td><td>2023-09-13</td></tr><tr><td>3</td><td><a href='https://t.me/c/1665662646/10' target='_blank'>About Last Night - S5:E7 Liz Jordan</a></td><td>2023-09-13</td></tr><tr><td>1</td><td><a href='https://t.me/c/1665662646/2' target='_blank'>Molly Little</a></td><td>2023-08-21</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -702,7 +699,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-10", "rank": 1}, {"date": "2025-04-11", "rank": 1}, {"date": "2025-04-11", "rank": 1}, {"date": "2025-04-14", "rank": 1}, {"date": "2025-04-15", "rank": 1}, {"date": "2025-04-16", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-22", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-29", "rank": 1}, {"date": "2025-04-29", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-05", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-15", "rank": 1}, {"date": "2025-05-20", "rank": 1}, {"date": "2025-05-22", "rank": 1}, {"date": "2025-05-22", "rank": 1}];
+            const historyData = [{"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-09", "rank": 1}, {"date": "2025-04-10", "rank": 1}, {"date": "2025-04-11", "rank": 1}, {"date": "2025-04-11", "rank": 1}, {"date": "2025-04-14", "rank": 1}, {"date": "2025-04-15", "rank": 1}, {"date": "2025-04-16", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-17", "rank": 1}, {"date": "2025-04-22", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-28", "rank": 1}, {"date": "2025-04-29", "rank": 1}, {"date": "2025-04-29", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-02", "rank": 1}, {"date": "2025-05-05", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-14", "rank": 1}, {"date": "2025-05-15", "rank": 1}, {"date": "2025-05-20", "rank": 1}, {"date": "2025-05-22", "rank": 1}, {"date": "2025-05-22", "rank": 1}, {"date": "2025-05-23", "rank": 1}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -712,8 +709,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -722,16 +719,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -748,14 +748,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -778,6 +781,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

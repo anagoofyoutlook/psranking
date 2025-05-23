@@ -6,17 +6,11 @@
     <title>Penny Barber</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -247,9 +244,27 @@
         <h2>Titles</h2>
         <p>Total Titles: 26</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1471' target='_blank'>Adult Time Serie MYYOUNGERLOVER PAPER ROUTE</a></p>
-                    <p class='date'>S.No: 20 | 2024-12-05</p>
+                    <video src='../Photos/Penny Barber/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1848' target='_blank'>OopsFamily Penny-Barber-Stepmom-got-busted-115x-3000px-(16-May-2025)</a></p>
+                    <p class='date'>S.No: 26 | 2025-05-20</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/25.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1768' target='_blank'>RealityKings Hime Marie, Penny Barber - Steamy Towel Girl Threesome - 75x - 03232025</a></p>
+                    <p class='date'>S.No: 25 | 2025-03-27</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1674' target='_blank'>MYLF Penny Barber - Concept Virgin Mommy - 89x - (March 06, 2025)</a></p>
+                    <p class='date'>S.No: 24 | 2025-03-11</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1523' target='_blank'>OopsFamily Penny Barber, Melody Marks - It’s Time For Christmas Orgy - 143x - 3000px - (20 Dec, 2024)</a></p>
+                    <p class='date'>S.No: 23 | 2024-12-23</p>
                 </div>
             
                 <div class='grid-item'>
@@ -259,33 +274,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1427' target='_blank'>AllHerLuv Alex Coal Penny Barber Please Teach Me Ep 1</a></p>
-                    <p class='date'>S.No: 18 | 2024-12-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/691' target='_blank'>AllHerLuv Through My Window pt. 2Jessica Ryan, Penny Barber</a></p>
-                    <p class='date'>S.No: 12 | 2024-06-02</p>
-                </div>
-            
-                <div class='grid-item'>
                     <video src='../Photos/Penny Barber/thumbs/22.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1552632250/1508' target='_blank'>AnatomiKMedia Laney Grey Penny Barber Dinner Scene</a></p>
                     <p class='date'>S.No: 22 | 2024-12-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/9.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/251' target='_blank'>BLACKED Naughty MILF Penny Risks It All For Two Thick BBCs</a></p>
-                    <p class='date'>S.No: 9 | 2024-04-07</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/17.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1418' target='_blank'>Bed and Breakfast</a></p>
-                    <p class='date'>S.No: 17 | 2024-11-14</p>
                 </div>
             
                 <div class='grid-item'>
@@ -295,15 +286,93 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/163' target='_blank'>Holly Day - We Spank In This Household</a></p>
-                    <p class='date'>S.No: 7 | 2024-03-07</p>
+                    <video src='../Photos/Penny Barber/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1471' target='_blank'>Adult Time Serie MYYOUNGERLOVER PAPER ROUTE</a></p>
+                    <p class='date'>S.No: 20 | 2024-12-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1427' target='_blank'>AllHerLuv Alex Coal Penny Barber Please Teach Me Ep 1</a></p>
+                    <p class='date'>S.No: 18 | 2024-12-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/17.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1418' target='_blank'>Bed and Breakfast</a></p>
+                    <p class='date'>S.No: 17 | 2024-11-14</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/1406' target='_blank'>Ruby Moon - Auntie Saved Us</a></p>
+                    <p class='date'>S.No: 16 | 2024-11-07</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/734' target='_blank'>MomSwap Pristine Edge, Penny Barber - Swappin' Amish</a></p>
+                    <p class='date'>S.No: 15 | 2024-07-02</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Penny Barber/thumbs/14.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1552632250/722' target='_blank'>M O M Spells Sex -</a></p>
                     <p class='date'>S.No: 14 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/13.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/709' target='_blank'>Off Limits FamilySinners</a></p>
+                    <p class='date'>S.No: 13 | 2024-06-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/669' target='_blank'>dle fantasies center of attention spencer bradley, penny barber</a></p>
+                    <p class='date'>S.No: 11 | 2024-06-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/691' target='_blank'>AllHerLuv Through My Window pt. 2Jessica Ryan, Penny Barber</a></p>
+                    <p class='date'>S.No: 12 | 2024-06-02</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/325' target='_blank'>ONLYFANS</a></p>
+                    <p class='date'>S.No: 10 | 2024-04-17</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/9.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/251' target='_blank'>BLACKED Naughty MILF Penny Risks It All For Two Thick BBCs</a></p>
+                    <p class='date'>S.No: 9 | 2024-04-07</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/8.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/175' target='_blank'>PervTherapy How To Help a Perv Penny Barber, Jewell Marceau</a></p>
+                    <p class='date'>S.No: 8 | 2024-04-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/163' target='_blank'>Holly Day - We Spank In This Household</a></p>
+                    <p class='date'>S.No: 7 | 2024-03-07</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/38' target='_blank'>Sticky Situations by TeamSkeet Classics</a></p>
+                    <p class='date'>S.No: 6 | 2024-02-27</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Penny Barber/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/29' target='_blank'>Melody Marks & Penny Barber - Family Boxing Day</a></p>
+                    <p class='date'>S.No: 5 | 2024-01-27</p>
                 </div>
             
                 <div class='grid-item'>
@@ -319,15 +388,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1674' target='_blank'>MYLF Penny Barber - Concept Virgin Mommy - 89x - (March 06, 2025)</a></p>
-                    <p class='date'>S.No: 24 | 2025-03-11</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/29' target='_blank'>Melody Marks & Penny Barber - Family Boxing Day</a></p>
-                    <p class='date'>S.No: 5 | 2024-01-27</p>
+                    <video src='../Photos/Penny Barber/thumbs/2.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1552632250/3' target='_blank'>My Friend Hot Mom</a></p>
+                    <p class='date'>S.No: 2 | 2023-08-21</p>
                 </div>
             
                 <div class='grid-item'>
@@ -335,74 +398,8 @@
                     <p class='title'><a href='https://t.me/c/1552632250/4' target='_blank'>Mom Swap</a></p>
                     <p class='date'>S.No: 3 | 2023-08-21</p>
                 </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/734' target='_blank'>MomSwap Pristine Edge, Penny Barber - Swappin' Amish</a></p>
-                    <p class='date'>S.No: 15 | 2024-07-02</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/2.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/3' target='_blank'>My Friend Hot Mom</a></p>
-                    <p class='date'>S.No: 2 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/325' target='_blank'>ONLYFANS</a></p>
-                    <p class='date'>S.No: 10 | 2024-04-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/13.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/709' target='_blank'>Off Limits FamilySinners</a></p>
-                    <p class='date'>S.No: 13 | 2024-06-17</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1523' target='_blank'>OopsFamily Penny Barber, Melody Marks - It’s Time For Christmas Orgy - 143x - 3000px - (20 Dec, 2024)</a></p>
-                    <p class='date'>S.No: 23 | 2024-12-23</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1848' target='_blank'>OopsFamily Penny-Barber-Stepmom-got-busted-115x-3000px-(16-May-2025)</a></p>
-                    <p class='date'>S.No: 26 | 2025-05-20</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/8.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/175' target='_blank'>PervTherapy How To Help a Perv Penny Barber, Jewell Marceau</a></p>
-                    <p class='date'>S.No: 8 | 2024-04-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/25.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1768' target='_blank'>RealityKings Hime Marie, Penny Barber - Steamy Towel Girl Threesome - 75x - 03232025</a></p>
-                    <p class='date'>S.No: 25 | 2025-03-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/1406' target='_blank'>Ruby Moon - Auntie Saved Us</a></p>
-                    <p class='date'>S.No: 16 | 2024-11-07</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/38' target='_blank'>Sticky Situations by TeamSkeet Classics</a></p>
-                    <p class='date'>S.No: 6 | 2024-02-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Penny Barber/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1552632250/669' target='_blank'>dle fantasies center of attention spencer bradley, penny barber</a></p>
-                    <p class='date'>S.No: 11 | 2024-06-02</p>
-                </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>20</td><td><a href='https://t.me/c/1552632250/1471' target='_blank'>Adult Time Serie MYYOUNGERLOVER PAPER ROUTE</a></td><td>2024-12-05</td></tr><tr><td>21</td><td><a href='https://t.me/c/1552632250/1488' target='_blank'>AllHerLuv 2024 Cherry Candle And Penny Barber Is Something Wrong With Me</a></td><td>2024-12-16</td></tr><tr><td>18</td><td><a href='https://t.me/c/1552632250/1427' target='_blank'>AllHerLuv Alex Coal Penny Barber Please Teach Me Ep 1</a></td><td>2024-12-03</td></tr><tr><td>12</td><td><a href='https://t.me/c/1552632250/691' target='_blank'>AllHerLuv Through My Window pt. 2Jessica Ryan, Penny Barber</a></td><td>2024-06-02</td></tr><tr><td>22</td><td><a href='https://t.me/c/1552632250/1508' target='_blank'>AnatomiKMedia Laney Grey Penny Barber Dinner Scene</a></td><td>2024-12-16</td></tr><tr><td>9</td><td><a href='https://t.me/c/1552632250/251' target='_blank'>BLACKED Naughty MILF Penny Risks It All For Two Thick BBCs</a></td><td>2024-04-07</td></tr><tr><td>17</td><td><a href='https://t.me/c/1552632250/1418' target='_blank'>Bed and Breakfast</a></td><td>2024-11-14</td></tr><tr><td>19</td><td><a href='https://t.me/c/1552632250/1433' target='_blank'>FamilySinners Penny Barber - Peeping Tom 73x 3000x2000 10-09-2020</a></td><td>2024-12-05</td></tr><tr><td>7</td><td><a href='https://t.me/c/1552632250/163' target='_blank'>Holly Day - We Spank In This Household</a></td><td>2024-03-07</td></tr><tr><td>14</td><td><a href='https://t.me/c/1552632250/722' target='_blank'>M O M Spells Sex -</a></td><td>2024-07-01</td></tr><tr><td>4</td><td><a href='https://t.me/c/1552632250/23' target='_blank'>MILFY Cock Hungry Realtor Cant Resist Hard Dick</a></td><td>2023-11-10</td></tr><tr><td>1</td><td><a href='https://t.me/c/1552632250/2' target='_blank'>MOMMY 4K Jizz Pancakes for Lewd Mommy's Breakfast Penny Barber Rion Kin</a></td><td>2023-08-21</td></tr><tr><td>24</td><td><a href='https://t.me/c/1552632250/1674' target='_blank'>MYLF Penny Barber - Concept Virgin Mommy - 89x - (March 06, 2025)</a></td><td>2025-03-11</td></tr><tr><td>5</td><td><a href='https://t.me/c/1552632250/29' target='_blank'>Melody Marks & Penny Barber - Family Boxing Day</a></td><td>2024-01-27</td></tr><tr><td>3</td><td><a href='https://t.me/c/1552632250/4' target='_blank'>Mom Swap</a></td><td>2023-08-21</td></tr><tr><td>15</td><td><a href='https://t.me/c/1552632250/734' target='_blank'>MomSwap Pristine Edge, Penny Barber - Swappin' Amish</a></td><td>2024-07-02</td></tr><tr><td>2</td><td><a href='https://t.me/c/1552632250/3' target='_blank'>My Friend Hot Mom</a></td><td>2023-08-21</td></tr><tr><td>10</td><td><a href='https://t.me/c/1552632250/325' target='_blank'>ONLYFANS</a></td><td>2024-04-17</td></tr><tr><td>13</td><td><a href='https://t.me/c/1552632250/709' target='_blank'>Off Limits FamilySinners</a></td><td>2024-06-17</td></tr><tr><td>23</td><td><a href='https://t.me/c/1552632250/1523' target='_blank'>OopsFamily Penny Barber, Melody Marks - It’s Time For Christmas Orgy - 143x - 3000px - (20 Dec, 2024)</a></td><td>2024-12-23</td></tr><tr><td>26</td><td><a href='https://t.me/c/1552632250/1848' target='_blank'>OopsFamily Penny-Barber-Stepmom-got-busted-115x-3000px-(16-May-2025)</a></td><td>2025-05-20</td></tr><tr><td>8</td><td><a href='https://t.me/c/1552632250/175' target='_blank'>PervTherapy How To Help a Perv Penny Barber, Jewell Marceau</a></td><td>2024-04-01</td></tr><tr><td>25</td><td><a href='https://t.me/c/1552632250/1768' target='_blank'>RealityKings Hime Marie, Penny Barber - Steamy Towel Girl Threesome - 75x - 03232025</a></td><td>2025-03-27</td></tr><tr><td>16</td><td><a href='https://t.me/c/1552632250/1406' target='_blank'>Ruby Moon - Auntie Saved Us</a></td><td>2024-11-07</td></tr><tr><td>6</td><td><a href='https://t.me/c/1552632250/38' target='_blank'>Sticky Situations by TeamSkeet Classics</a></td><td>2024-02-27</td></tr><tr><td>11</td><td><a href='https://t.me/c/1552632250/669' target='_blank'>dle fantasies center of attention spencer bradley, penny barber</a></td><td>2024-06-02</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>26</td><td><a href='https://t.me/c/1552632250/1848' target='_blank'>OopsFamily Penny-Barber-Stepmom-got-busted-115x-3000px-(16-May-2025)</a></td><td>2025-05-20</td></tr><tr><td>25</td><td><a href='https://t.me/c/1552632250/1768' target='_blank'>RealityKings Hime Marie, Penny Barber - Steamy Towel Girl Threesome - 75x - 03232025</a></td><td>2025-03-27</td></tr><tr><td>24</td><td><a href='https://t.me/c/1552632250/1674' target='_blank'>MYLF Penny Barber - Concept Virgin Mommy - 89x - (March 06, 2025)</a></td><td>2025-03-11</td></tr><tr><td>23</td><td><a href='https://t.me/c/1552632250/1523' target='_blank'>OopsFamily Penny Barber, Melody Marks - It’s Time For Christmas Orgy - 143x - 3000px - (20 Dec, 2024)</a></td><td>2024-12-23</td></tr><tr><td>21</td><td><a href='https://t.me/c/1552632250/1488' target='_blank'>AllHerLuv 2024 Cherry Candle And Penny Barber Is Something Wrong With Me</a></td><td>2024-12-16</td></tr><tr><td>22</td><td><a href='https://t.me/c/1552632250/1508' target='_blank'>AnatomiKMedia Laney Grey Penny Barber Dinner Scene</a></td><td>2024-12-16</td></tr><tr><td>19</td><td><a href='https://t.me/c/1552632250/1433' target='_blank'>FamilySinners Penny Barber - Peeping Tom 73x 3000x2000 10-09-2020</a></td><td>2024-12-05</td></tr><tr><td>20</td><td><a href='https://t.me/c/1552632250/1471' target='_blank'>Adult Time Serie MYYOUNGERLOVER PAPER ROUTE</a></td><td>2024-12-05</td></tr><tr><td>18</td><td><a href='https://t.me/c/1552632250/1427' target='_blank'>AllHerLuv Alex Coal Penny Barber Please Teach Me Ep 1</a></td><td>2024-12-03</td></tr><tr><td>17</td><td><a href='https://t.me/c/1552632250/1418' target='_blank'>Bed and Breakfast</a></td><td>2024-11-14</td></tr><tr><td>16</td><td><a href='https://t.me/c/1552632250/1406' target='_blank'>Ruby Moon - Auntie Saved Us</a></td><td>2024-11-07</td></tr><tr><td>15</td><td><a href='https://t.me/c/1552632250/734' target='_blank'>MomSwap Pristine Edge, Penny Barber - Swappin' Amish</a></td><td>2024-07-02</td></tr><tr><td>14</td><td><a href='https://t.me/c/1552632250/722' target='_blank'>M O M Spells Sex -</a></td><td>2024-07-01</td></tr><tr><td>13</td><td><a href='https://t.me/c/1552632250/709' target='_blank'>Off Limits FamilySinners</a></td><td>2024-06-17</td></tr><tr><td>11</td><td><a href='https://t.me/c/1552632250/669' target='_blank'>dle fantasies center of attention spencer bradley, penny barber</a></td><td>2024-06-02</td></tr><tr><td>12</td><td><a href='https://t.me/c/1552632250/691' target='_blank'>AllHerLuv Through My Window pt. 2Jessica Ryan, Penny Barber</a></td><td>2024-06-02</td></tr><tr><td>10</td><td><a href='https://t.me/c/1552632250/325' target='_blank'>ONLYFANS</a></td><td>2024-04-17</td></tr><tr><td>9</td><td><a href='https://t.me/c/1552632250/251' target='_blank'>BLACKED Naughty MILF Penny Risks It All For Two Thick BBCs</a></td><td>2024-04-07</td></tr><tr><td>8</td><td><a href='https://t.me/c/1552632250/175' target='_blank'>PervTherapy How To Help a Perv Penny Barber, Jewell Marceau</a></td><td>2024-04-01</td></tr><tr><td>7</td><td><a href='https://t.me/c/1552632250/163' target='_blank'>Holly Day - We Spank In This Household</a></td><td>2024-03-07</td></tr><tr><td>6</td><td><a href='https://t.me/c/1552632250/38' target='_blank'>Sticky Situations by TeamSkeet Classics</a></td><td>2024-02-27</td></tr><tr><td>5</td><td><a href='https://t.me/c/1552632250/29' target='_blank'>Melody Marks & Penny Barber - Family Boxing Day</a></td><td>2024-01-27</td></tr><tr><td>4</td><td><a href='https://t.me/c/1552632250/23' target='_blank'>MILFY Cock Hungry Realtor Cant Resist Hard Dick</a></td><td>2023-11-10</td></tr><tr><td>1</td><td><a href='https://t.me/c/1552632250/2' target='_blank'>MOMMY 4K Jizz Pancakes for Lewd Mommy's Breakfast Penny Barber Rion Kin</a></td><td>2023-08-21</td></tr><tr><td>2</td><td><a href='https://t.me/c/1552632250/3' target='_blank'>My Friend Hot Mom</a></td><td>2023-08-21</td></tr><tr><td>3</td><td><a href='https://t.me/c/1552632250/4' target='_blank'>Mom Swap</a></td><td>2023-08-21</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -439,7 +436,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-10", "rank": 43}, {"date": "2025-04-11", "rank": 43}, {"date": "2025-04-11", "rank": 43}, {"date": "2025-04-14", "rank": 43}, {"date": "2025-04-15", "rank": 44}, {"date": "2025-04-16", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-22", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 45}, {"date": "2025-04-28", "rank": 45}, {"date": "2025-04-29", "rank": 45}, {"date": "2025-04-29", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-05", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-15", "rank": 46}, {"date": "2025-05-20", "rank": 42}, {"date": "2025-05-22", "rank": 42}, {"date": "2025-05-22", "rank": 42}];
+            const historyData = [{"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-09", "rank": 43}, {"date": "2025-04-10", "rank": 43}, {"date": "2025-04-11", "rank": 43}, {"date": "2025-04-11", "rank": 43}, {"date": "2025-04-14", "rank": 43}, {"date": "2025-04-15", "rank": 44}, {"date": "2025-04-16", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-17", "rank": 44}, {"date": "2025-04-22", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 44}, {"date": "2025-04-28", "rank": 45}, {"date": "2025-04-28", "rank": 45}, {"date": "2025-04-29", "rank": 45}, {"date": "2025-04-29", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-02", "rank": 45}, {"date": "2025-05-05", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-14", "rank": 45}, {"date": "2025-05-15", "rank": 46}, {"date": "2025-05-20", "rank": 42}, {"date": "2025-05-22", "rank": 42}, {"date": "2025-05-22", "rank": 42}, {"date": "2025-05-23", "rank": 42}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -449,8 +446,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -459,16 +456,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -485,14 +485,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -515,6 +518,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

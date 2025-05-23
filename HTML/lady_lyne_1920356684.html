@@ -6,17 +6,11 @@
     <title>Lady Lyne</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -246,99 +243,9 @@
         <h2>Titles</h2>
         <p>Total Titles: 37</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/19.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1287' target='_blank'>A hard worker</a></p>
-                    <p class='date'>S.No: 19 | 2024-11-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/551' target='_blank'>Andy Stone , Lady Lyne, Pleasuring Lady Lyne</a></p>
-                    <p class='date'>S.No: 10 | 2024-10-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1397' target='_blank'>Brazzers Josephine Jackson, Lady Lyne - Flirting and Squirting 11 May</a></p>
-                    <p class='date'>S.No: 20 | 2024-12-05</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/315' target='_blank'>Curvy Lady Lyne at MassageSins</a></p>
-                    <p class='date'>S.No: 6 | 2024-07-30</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/479' target='_blank'>Fucked by the photographer</a></p>
-                    <p class='date'>S.No: 7 | 2024-07-31</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/29.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1789' target='_blank'>HollandschePassie - Lady Lyne - Lyne spuit zijn vingers onder! (October 26, 2023)</a></p>
-                    <p class='date'>S.No: 29 | 2025-02-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/30.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1791' target='_blank'>HollandschePassie - Lady Lyne En Wesley DUTCH (1080p) - (04/11/21)</a></p>
-                    <p class='date'>S.No: 30 | 2025-02-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/25.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1677' target='_blank'>JacquieEtMichelTV Lady Lyne 30 Years Old Is Heading Towards Absolute Pleasure (08-01-2025)</a></p>
-                    <p class='date'>S.No: 25 | 2025-01-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1667' target='_blank'>JacquieEtMichelTV Lyne, 30 years old, life coach!</a></p>
-                    <p class='date'>S.No: 24 | 2025-01-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/28.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1776' target='_blank'>JacquieEtMichelTV- Gigi Max, Lady Lyne - Gigi and Lyne, a great team of naughty girls! 2025-01-18</a></p>
-                    <p class='date'>S.No: 28 | 2025-01-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1651' target='_blank'>Lady Lyne & Samantha Rone - Christmas Threesome</a></p>
-                    <p class='date'>S.No: 23 | 2024-12-29</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/222' target='_blank'>Lady Lyne , Venom Evil - Lady Lyne shows how it's done</a></p>
-                    <p class='date'>S.No: 5 | 2024-07-04</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/27.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1749' target='_blank'>Lady Lyne The Shadow Dimitri</a></p>
-                    <p class='date'>S.No: 27 | 2025-01-15</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/771' target='_blank'>Lady Lyne construction</a></p>
-                    <p class='date'>S.No: 15 | 2024-10-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/13.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/657' target='_blank'>Lady Lyne likes black dicks</a></p>
-                    <p class='date'>S.No: 13 | 2024-10-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/640' target='_blank'>Lady Lyne wants BBC</a></p>
-                    <p class='date'>S.No: 12 | 2024-10-03</p>
+                    <video src='../Photos/Lady Lyne/thumbs/37.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/2746' target='_blank'>LadyLyne Lady Lyne - Finally home from a night out 79x 6000x3375 05-21-2025</a></p>
+                    <p class='date'>S.No: 37 | 2025-05-22</p>
                 </div>
             
                 <div class='grid-item'>
@@ -354,15 +261,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1682' target='_blank'>LadyLyne Lady Lyne , Samanthe Rone - Best birthday present ever 62x 6000x3300 01-08-2025</a></p>
-                    <p class='date'>S.No: 26 | 2025-01-08</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/37.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/2746' target='_blank'>LadyLyne Lady Lyne - Finally home from a night out 79x 6000x3375 05-21-2025</a></p>
-                    <p class='date'>S.No: 37 | 2025-05-22</p>
+                    <video src='../Photos/Lady Lyne/thumbs/34.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/2041' target='_blank'>LadyLyne New neighbor</a></p>
+                    <p class='date'>S.No: 34 | 2025-04-09</p>
                 </div>
             
                 <div class='grid-item'>
@@ -372,9 +273,9 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/22.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1466' target='_blank'>LadyLyne Lady Lyne - Good fuck with Lady Lyne 180x 6000x333 12-18-2024</a></p>
-                    <p class='date'>S.No: 22 | 2024-12-19</p>
+                    <video src='../Photos/Lady Lyne/thumbs/32.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1901' target='_blank'>LadyLyne Lady Lyne - Spray all over my face please 52x 6000x3375 02-26-2025</a></p>
+                    <p class='date'>S.No: 32 | 2025-02-26</p>
                 </div>
             
                 <div class='grid-item'>
@@ -384,27 +285,171 @@
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/32.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1901' target='_blank'>LadyLyne Lady Lyne - Spray all over my face please 52x 6000x3375 02-26-2025</a></p>
-                    <p class='date'>S.No: 32 | 2025-02-26</p>
+                    <video src='../Photos/Lady Lyne/thumbs/29.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1789' target='_blank'>HollandschePassie - Lady Lyne - Lyne spuit zijn vingers onder! (October 26, 2023)</a></p>
+                    <p class='date'>S.No: 29 | 2025-02-08</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/3.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/11' target='_blank'>LadyLyne Lady Lyne, Jade Winter - Camera lady shows how it's done</a></p>
-                    <p class='date'>S.No: 3 | 2024-06-05</p>
+                    <video src='../Photos/Lady Lyne/thumbs/30.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1791' target='_blank'>HollandschePassie - Lady Lyne En Wesley DUTCH (1080p) - (04/11/21)</a></p>
+                    <p class='date'>S.No: 30 | 2025-02-08</p>
                 </div>
             
                 <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/34.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/2041' target='_blank'>LadyLyne New neighbor</a></p>
-                    <p class='date'>S.No: 34 | 2025-04-09</p>
+                    <video src='../Photos/Lady Lyne/thumbs/28.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1776' target='_blank'>JacquieEtMichelTV- Gigi Max, Lady Lyne - Gigi and Lyne, a great team of naughty girls! 2025-01-18</a></p>
+                    <p class='date'>S.No: 28 | 2025-01-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/27.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1749' target='_blank'>Lady Lyne The Shadow Dimitri</a></p>
+                    <p class='date'>S.No: 27 | 2025-01-15</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/25.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1677' target='_blank'>JacquieEtMichelTV Lady Lyne 30 Years Old Is Heading Towards Absolute Pleasure (08-01-2025)</a></p>
+                    <p class='date'>S.No: 25 | 2025-01-08</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/26.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1682' target='_blank'>LadyLyne Lady Lyne , Samanthe Rone - Best birthday present ever 62x 6000x3300 01-08-2025</a></p>
+                    <p class='date'>S.No: 26 | 2025-01-08</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/24.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1667' target='_blank'>JacquieEtMichelTV Lyne, 30 years old, life coach!</a></p>
+                    <p class='date'>S.No: 24 | 2025-01-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/23.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1651' target='_blank'>Lady Lyne & Samantha Rone - Christmas Threesome</a></p>
+                    <p class='date'>S.No: 23 | 2024-12-29</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/22.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1466' target='_blank'>LadyLyne Lady Lyne - Good fuck with Lady Lyne 180x 6000x333 12-18-2024</a></p>
+                    <p class='date'>S.No: 22 | 2024-12-19</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/21.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1448' target='_blank'>Stocking Videos Happy Anal Birthday</a></p>
+                    <p class='date'>S.No: 21 | 2024-12-06</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/20.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1397' target='_blank'>Brazzers Josephine Jackson, Lady Lyne - Flirting and Squirting 11 May</a></p>
+                    <p class='date'>S.No: 20 | 2024-12-05</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/19.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1287' target='_blank'>A hard worker</a></p>
+                    <p class='date'>S.No: 19 | 2024-11-27</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/1081' target='_blank'>SheerandLace Warm Pleasure</a></p>
+                    <p class='date'>S.No: 18 | 2024-11-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/786' target='_blank'>Sheer Pleasure</a></p>
+                    <p class='date'>S.No: 16 | 2024-11-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/17.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/925' target='_blank'>Stepmom Goes On Dates</a></p>
+                    <p class='date'>S.No: 17 | 2024-11-12</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/15.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/771' target='_blank'>Lady Lyne construction</a></p>
+                    <p class='date'>S.No: 15 | 2024-10-08</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/10.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/551' target='_blank'>Andy Stone , Lady Lyne, Pleasuring Lady Lyne</a></p>
+                    <p class='date'>S.No: 10 | 2024-10-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/565' target='_blank'>Rough desires - Lady Lyne DP</a></p>
+                    <p class='date'>S.No: 11 | 2024-10-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/12.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/640' target='_blank'>Lady Lyne wants BBC</a></p>
+                    <p class='date'>S.No: 12 | 2024-10-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/13.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/657' target='_blank'>Lady Lyne likes black dicks</a></p>
+                    <p class='date'>S.No: 13 | 2024-10-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/14.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/703' target='_blank'>Sleepover with Lady Lyne</a></p>
+                    <p class='date'>S.No: 14 | 2024-10-03</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/9.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/546' target='_blank'>ONLYFANS</a></p>
+                    <p class='date'>S.No: 9 | 2024-09-27</p>
                 </div>
             
                 <div class='grid-item'>
                     <video src='../Photos/Lady Lyne/thumbs/8.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
                     <p class='title'><a href='https://t.me/c/1920356684/497' target='_blank'>Morning fuck</a></p>
                     <p class='date'>S.No: 8 | 2024-09-19</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/7.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/479' target='_blank'>Fucked by the photographer</a></p>
+                    <p class='date'>S.No: 7 | 2024-07-31</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/6.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/315' target='_blank'>Curvy Lady Lyne at MassageSins</a></p>
+                    <p class='date'>S.No: 6 | 2024-07-30</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/5.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/222' target='_blank'>Lady Lyne , Venom Evil - Lady Lyne shows how it's done</a></p>
+                    <p class='date'>S.No: 5 | 2024-07-04</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/4.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/112' target='_blank'>Oil me up with Lady Lyne</a></p>
+                    <p class='date'>S.No: 4 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <video src='../Photos/Lady Lyne/thumbs/3.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
+                    <p class='title'><a href='https://t.me/c/1920356684/11' target='_blank'>LadyLyne Lady Lyne, Jade Winter - Camera lady shows how it's done</a></p>
+                    <p class='date'>S.No: 3 | 2024-06-05</p>
                 </div>
             
                 <div class='grid-item'>
@@ -418,56 +463,8 @@
                     <p class='title'><a href='https://t.me/c/1920356684/2' target='_blank'>NF Busty Using all of me</a></p>
                     <p class='date'>S.No: 1 | 2023-09-08</p>
                 </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/9.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/546' target='_blank'>ONLYFANS</a></p>
-                    <p class='date'>S.No: 9 | 2024-09-27</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/4.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/112' target='_blank'>Oil me up with Lady Lyne</a></p>
-                    <p class='date'>S.No: 4 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/11.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/565' target='_blank'>Rough desires - Lady Lyne DP</a></p>
-                    <p class='date'>S.No: 11 | 2024-10-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/16.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/786' target='_blank'>Sheer Pleasure</a></p>
-                    <p class='date'>S.No: 16 | 2024-11-12</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/18.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1081' target='_blank'>SheerandLace Warm Pleasure</a></p>
-                    <p class='date'>S.No: 18 | 2024-11-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/14.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/703' target='_blank'>Sleepover with Lady Lyne</a></p>
-                    <p class='date'>S.No: 14 | 2024-10-03</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/17.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/925' target='_blank'>Stepmom Goes On Dates</a></p>
-                    <p class='date'>S.No: 17 | 2024-11-12</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <video src='../Photos/Lady Lyne/thumbs/21.mp4' style='width:600px;height:300px;object-fit:cover;' loop muted playsinline></video>
-                    <p class='title'><a href='https://t.me/c/1920356684/1448' target='_blank'>Stocking Videos Happy Anal Birthday</a></p>
-                    <p class='date'>S.No: 21 | 2024-12-06</p>
-                </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>19</td><td><a href='https://t.me/c/1920356684/1287' target='_blank'>A hard worker</a></td><td>2024-11-27</td></tr><tr><td>10</td><td><a href='https://t.me/c/1920356684/551' target='_blank'>Andy Stone , Lady Lyne, Pleasuring Lady Lyne</a></td><td>2024-10-03</td></tr><tr><td>20</td><td><a href='https://t.me/c/1920356684/1397' target='_blank'>Brazzers Josephine Jackson, Lady Lyne - Flirting and Squirting 11 May</a></td><td>2024-12-05</td></tr><tr><td>6</td><td><a href='https://t.me/c/1920356684/315' target='_blank'>Curvy Lady Lyne at MassageSins</a></td><td>2024-07-30</td></tr><tr><td>7</td><td><a href='https://t.me/c/1920356684/479' target='_blank'>Fucked by the photographer</a></td><td>2024-07-31</td></tr><tr><td>29</td><td><a href='https://t.me/c/1920356684/1789' target='_blank'>HollandschePassie - Lady Lyne - Lyne spuit zijn vingers onder! (October 26, 2023)</a></td><td>2025-02-08</td></tr><tr><td>30</td><td><a href='https://t.me/c/1920356684/1791' target='_blank'>HollandschePassie - Lady Lyne En Wesley DUTCH (1080p) - (04/11/21)</a></td><td>2025-02-08</td></tr><tr><td>25</td><td><a href='https://t.me/c/1920356684/1677' target='_blank'>JacquieEtMichelTV Lady Lyne 30 Years Old Is Heading Towards Absolute Pleasure (08-01-2025)</a></td><td>2025-01-08</td></tr><tr><td>24</td><td><a href='https://t.me/c/1920356684/1667' target='_blank'>JacquieEtMichelTV Lyne, 30 years old, life coach!</a></td><td>2025-01-03</td></tr><tr><td>28</td><td><a href='https://t.me/c/1920356684/1776' target='_blank'>JacquieEtMichelTV- Gigi Max, Lady Lyne - Gigi and Lyne, a great team of naughty girls! 2025-01-18</a></td><td>2025-01-21</td></tr><tr><td>23</td><td><a href='https://t.me/c/1920356684/1651' target='_blank'>Lady Lyne & Samantha Rone - Christmas Threesome</a></td><td>2024-12-29</td></tr><tr><td>5</td><td><a href='https://t.me/c/1920356684/222' target='_blank'>Lady Lyne , Venom Evil - Lady Lyne shows how it's done</a></td><td>2024-07-04</td></tr><tr><td>27</td><td><a href='https://t.me/c/1920356684/1749' target='_blank'>Lady Lyne The Shadow Dimitri</a></td><td>2025-01-15</td></tr><tr><td>15</td><td><a href='https://t.me/c/1920356684/771' target='_blank'>Lady Lyne construction</a></td><td>2024-10-08</td></tr><tr><td>13</td><td><a href='https://t.me/c/1920356684/657' target='_blank'>Lady Lyne likes black dicks</a></td><td>2024-10-03</td></tr><tr><td>12</td><td><a href='https://t.me/c/1920356684/640' target='_blank'>Lady Lyne wants BBC</a></td><td>2024-10-03</td></tr><tr><td>36</td><td><a href='https://t.me/c/1920356684/2531' target='_blank'>LadyLyne Cherry Candle , Lady Lyne - I want more than a massage 211x 6000x4000 05-07-2025</a></td><td>2025-05-12</td></tr><tr><td>35</td><td><a href='https://t.me/c/1920356684/2237' target='_blank'>LadyLyne Lady Lyne , Candie Lucia - Surprise for my friend 289x 6000x4000 04-23-2025</a></td><td>2025-04-24</td></tr><tr><td>26</td><td><a href='https://t.me/c/1920356684/1682' target='_blank'>LadyLyne Lady Lyne , Samanthe Rone - Best birthday present ever 62x 6000x3300 01-08-2025</a></td><td>2025-01-08</td></tr><tr><td>37</td><td><a href='https://t.me/c/1920356684/2746' target='_blank'>LadyLyne Lady Lyne - Finally home from a night out 79x 6000x3375 05-21-2025</a></td><td>2025-05-22</td></tr><tr><td>33</td><td><a href='https://t.me/c/1920356684/1960' target='_blank'>LadyLyne Lady Lyne - Fucked in a hotel room 75x 6000x4000 03-26-2025</a></td><td>2025-03-26</td></tr><tr><td>22</td><td><a href='https://t.me/c/1920356684/1466' target='_blank'>LadyLyne Lady Lyne - Good fuck with Lady Lyne 180x 6000x333 12-18-2024</a></td><td>2024-12-19</td></tr><tr><td>31</td><td><a href='https://t.me/c/1920356684/1826' target='_blank'>LadyLyne Lady Lyne - Lady Lyne gets big dick 70x 6000x3333 02-12-2025</a></td><td>2025-02-12</td></tr><tr><td>32</td><td><a href='https://t.me/c/1920356684/1901' target='_blank'>LadyLyne Lady Lyne - Spray all over my face please 52x 6000x3375 02-26-2025</a></td><td>2025-02-26</td></tr><tr><td>3</td><td><a href='https://t.me/c/1920356684/11' target='_blank'>LadyLyne Lady Lyne, Jade Winter - Camera lady shows how it's done</a></td><td>2024-06-05</td></tr><tr><td>34</td><td><a href='https://t.me/c/1920356684/2041' target='_blank'>LadyLyne New neighbor</a></td><td>2025-04-09</td></tr><tr><td>8</td><td><a href='https://t.me/c/1920356684/497' target='_blank'>Morning fuck</a></td><td>2024-09-19</td></tr><tr><td>2</td><td><a href='https://t.me/c/1920356684/7' target='_blank'>NF Busty - Office Attraction - S15:E8</a></td><td>2023-10-23</td></tr><tr><td>1</td><td><a href='https://t.me/c/1920356684/2' target='_blank'>NF Busty Using all of me</a></td><td>2023-09-08</td></tr><tr><td>9</td><td><a href='https://t.me/c/1920356684/546' target='_blank'>ONLYFANS</a></td><td>2024-09-27</td></tr><tr><td>4</td><td><a href='https://t.me/c/1920356684/112' target='_blank'>Oil me up with Lady Lyne</a></td><td>2024-07-01</td></tr><tr><td>11</td><td><a href='https://t.me/c/1920356684/565' target='_blank'>Rough desires - Lady Lyne DP</a></td><td>2024-10-03</td></tr><tr><td>16</td><td><a href='https://t.me/c/1920356684/786' target='_blank'>Sheer Pleasure</a></td><td>2024-11-12</td></tr><tr><td>18</td><td><a href='https://t.me/c/1920356684/1081' target='_blank'>SheerandLace Warm Pleasure</a></td><td>2024-11-21</td></tr><tr><td>14</td><td><a href='https://t.me/c/1920356684/703' target='_blank'>Sleepover with Lady Lyne</a></td><td>2024-10-03</td></tr><tr><td>17</td><td><a href='https://t.me/c/1920356684/925' target='_blank'>Stepmom Goes On Dates</a></td><td>2024-11-12</td></tr><tr><td>21</td><td><a href='https://t.me/c/1920356684/1448' target='_blank'>Stocking Videos Happy Anal Birthday</a></td><td>2024-12-06</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>37</td><td><a href='https://t.me/c/1920356684/2746' target='_blank'>LadyLyne Lady Lyne - Finally home from a night out 79x 6000x3375 05-21-2025</a></td><td>2025-05-22</td></tr><tr><td>36</td><td><a href='https://t.me/c/1920356684/2531' target='_blank'>LadyLyne Cherry Candle , Lady Lyne - I want more than a massage 211x 6000x4000 05-07-2025</a></td><td>2025-05-12</td></tr><tr><td>35</td><td><a href='https://t.me/c/1920356684/2237' target='_blank'>LadyLyne Lady Lyne , Candie Lucia - Surprise for my friend 289x 6000x4000 04-23-2025</a></td><td>2025-04-24</td></tr><tr><td>34</td><td><a href='https://t.me/c/1920356684/2041' target='_blank'>LadyLyne New neighbor</a></td><td>2025-04-09</td></tr><tr><td>33</td><td><a href='https://t.me/c/1920356684/1960' target='_blank'>LadyLyne Lady Lyne - Fucked in a hotel room 75x 6000x4000 03-26-2025</a></td><td>2025-03-26</td></tr><tr><td>32</td><td><a href='https://t.me/c/1920356684/1901' target='_blank'>LadyLyne Lady Lyne - Spray all over my face please 52x 6000x3375 02-26-2025</a></td><td>2025-02-26</td></tr><tr><td>31</td><td><a href='https://t.me/c/1920356684/1826' target='_blank'>LadyLyne Lady Lyne - Lady Lyne gets big dick 70x 6000x3333 02-12-2025</a></td><td>2025-02-12</td></tr><tr><td>29</td><td><a href='https://t.me/c/1920356684/1789' target='_blank'>HollandschePassie - Lady Lyne - Lyne spuit zijn vingers onder! (October 26, 2023)</a></td><td>2025-02-08</td></tr><tr><td>30</td><td><a href='https://t.me/c/1920356684/1791' target='_blank'>HollandschePassie - Lady Lyne En Wesley DUTCH (1080p) - (04/11/21)</a></td><td>2025-02-08</td></tr><tr><td>28</td><td><a href='https://t.me/c/1920356684/1776' target='_blank'>JacquieEtMichelTV- Gigi Max, Lady Lyne - Gigi and Lyne, a great team of naughty girls! 2025-01-18</a></td><td>2025-01-21</td></tr><tr><td>27</td><td><a href='https://t.me/c/1920356684/1749' target='_blank'>Lady Lyne The Shadow Dimitri</a></td><td>2025-01-15</td></tr><tr><td>25</td><td><a href='https://t.me/c/1920356684/1677' target='_blank'>JacquieEtMichelTV Lady Lyne 30 Years Old Is Heading Towards Absolute Pleasure (08-01-2025)</a></td><td>2025-01-08</td></tr><tr><td>26</td><td><a href='https://t.me/c/1920356684/1682' target='_blank'>LadyLyne Lady Lyne , Samanthe Rone - Best birthday present ever 62x 6000x3300 01-08-2025</a></td><td>2025-01-08</td></tr><tr><td>24</td><td><a href='https://t.me/c/1920356684/1667' target='_blank'>JacquieEtMichelTV Lyne, 30 years old, life coach!</a></td><td>2025-01-03</td></tr><tr><td>23</td><td><a href='https://t.me/c/1920356684/1651' target='_blank'>Lady Lyne & Samantha Rone - Christmas Threesome</a></td><td>2024-12-29</td></tr><tr><td>22</td><td><a href='https://t.me/c/1920356684/1466' target='_blank'>LadyLyne Lady Lyne - Good fuck with Lady Lyne 180x 6000x333 12-18-2024</a></td><td>2024-12-19</td></tr><tr><td>21</td><td><a href='https://t.me/c/1920356684/1448' target='_blank'>Stocking Videos Happy Anal Birthday</a></td><td>2024-12-06</td></tr><tr><td>20</td><td><a href='https://t.me/c/1920356684/1397' target='_blank'>Brazzers Josephine Jackson, Lady Lyne - Flirting and Squirting 11 May</a></td><td>2024-12-05</td></tr><tr><td>19</td><td><a href='https://t.me/c/1920356684/1287' target='_blank'>A hard worker</a></td><td>2024-11-27</td></tr><tr><td>18</td><td><a href='https://t.me/c/1920356684/1081' target='_blank'>SheerandLace Warm Pleasure</a></td><td>2024-11-21</td></tr><tr><td>16</td><td><a href='https://t.me/c/1920356684/786' target='_blank'>Sheer Pleasure</a></td><td>2024-11-12</td></tr><tr><td>17</td><td><a href='https://t.me/c/1920356684/925' target='_blank'>Stepmom Goes On Dates</a></td><td>2024-11-12</td></tr><tr><td>15</td><td><a href='https://t.me/c/1920356684/771' target='_blank'>Lady Lyne construction</a></td><td>2024-10-08</td></tr><tr><td>10</td><td><a href='https://t.me/c/1920356684/551' target='_blank'>Andy Stone , Lady Lyne, Pleasuring Lady Lyne</a></td><td>2024-10-03</td></tr><tr><td>11</td><td><a href='https://t.me/c/1920356684/565' target='_blank'>Rough desires - Lady Lyne DP</a></td><td>2024-10-03</td></tr><tr><td>12</td><td><a href='https://t.me/c/1920356684/640' target='_blank'>Lady Lyne wants BBC</a></td><td>2024-10-03</td></tr><tr><td>13</td><td><a href='https://t.me/c/1920356684/657' target='_blank'>Lady Lyne likes black dicks</a></td><td>2024-10-03</td></tr><tr><td>14</td><td><a href='https://t.me/c/1920356684/703' target='_blank'>Sleepover with Lady Lyne</a></td><td>2024-10-03</td></tr><tr><td>9</td><td><a href='https://t.me/c/1920356684/546' target='_blank'>ONLYFANS</a></td><td>2024-09-27</td></tr><tr><td>8</td><td><a href='https://t.me/c/1920356684/497' target='_blank'>Morning fuck</a></td><td>2024-09-19</td></tr><tr><td>7</td><td><a href='https://t.me/c/1920356684/479' target='_blank'>Fucked by the photographer</a></td><td>2024-07-31</td></tr><tr><td>6</td><td><a href='https://t.me/c/1920356684/315' target='_blank'>Curvy Lady Lyne at MassageSins</a></td><td>2024-07-30</td></tr><tr><td>5</td><td><a href='https://t.me/c/1920356684/222' target='_blank'>Lady Lyne , Venom Evil - Lady Lyne shows how it's done</a></td><td>2024-07-04</td></tr><tr><td>4</td><td><a href='https://t.me/c/1920356684/112' target='_blank'>Oil me up with Lady Lyne</a></td><td>2024-07-01</td></tr><tr><td>3</td><td><a href='https://t.me/c/1920356684/11' target='_blank'>LadyLyne Lady Lyne, Jade Winter - Camera lady shows how it's done</a></td><td>2024-06-05</td></tr><tr><td>2</td><td><a href='https://t.me/c/1920356684/7' target='_blank'>NF Busty - Office Attraction - S15:E8</a></td><td>2023-10-23</td></tr><tr><td>1</td><td><a href='https://t.me/c/1920356684/2' target='_blank'>NF Busty Using all of me</a></td><td>2023-09-08</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -504,7 +501,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 19}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-10", "rank": 17}, {"date": "2025-04-11", "rank": 17}, {"date": "2025-04-11", "rank": 17}, {"date": "2025-04-14", "rank": 17}, {"date": "2025-04-15", "rank": 17}, {"date": "2025-04-16", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-22", "rank": 19}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-29", "rank": 20}, {"date": "2025-04-29", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-05", "rank": 20}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-15", "rank": 21}, {"date": "2025-05-20", "rank": 21}, {"date": "2025-05-22", "rank": 21}, {"date": "2025-05-22", "rank": 21}];
+            const historyData = [{"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 19}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-09", "rank": 16}, {"date": "2025-04-10", "rank": 17}, {"date": "2025-04-11", "rank": 17}, {"date": "2025-04-11", "rank": 17}, {"date": "2025-04-14", "rank": 17}, {"date": "2025-04-15", "rank": 17}, {"date": "2025-04-16", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 18}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-17", "rank": 19}, {"date": "2025-04-22", "rank": 19}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-28", "rank": 20}, {"date": "2025-04-29", "rank": 20}, {"date": "2025-04-29", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-02", "rank": 20}, {"date": "2025-05-05", "rank": 20}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-14", "rank": 21}, {"date": "2025-05-15", "rank": 21}, {"date": "2025-05-20", "rank": 21}, {"date": "2025-05-22", "rank": 21}, {"date": "2025-05-22", "rank": 21}, {"date": "2025-05-23", "rank": 22}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -514,8 +511,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -524,16 +521,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -550,14 +550,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -580,6 +583,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>

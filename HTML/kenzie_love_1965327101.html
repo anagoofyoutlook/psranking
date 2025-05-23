@@ -6,17 +6,11 @@
     <title>Kenzie Love</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #e6f2ff; color: #003366; text-align: center; }
-        h1 { 
-            color: #003366; 
-            width: 80%; 
-            margin: 20px auto; 
-            text-align: center; 
-            font-size: 36px; 
-        }
-        .info { background-color: #cce6ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #1e2a44; color: #ffffff; text-align: center; }
+        h1, h2 { color: #ffcc00; width: 80%; margin: 20px auto; text-align: center; font-size: 36px; }
+        .info { background-color: #2a3a5c; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
         .hashtags { list-style-type: none; padding: 0; }
-        .hashtag-item { background-color: #99ccff; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; }
+        .hashtag-item { background-color: #3b4a6b; margin: 5px 0; padding: 5px; border-radius: 3px; display: inline-block; width: 200px; color: #ffffff; }
         .rank-container { 
             width: 80%; 
             margin: 20px auto; 
@@ -26,10 +20,10 @@
             gap: 20px; 
             flex-wrap: wrap; 
         }
-        .rank-number { font-size: 48px; font-weight: bold; color: #003366; display: inline-block; }
+        .rank-number { font-size: 48px; font-weight: bold; color: #ffcc00; display: inline-block; }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         .rank-number::before { content: "0"; animation: countUp 2s ease-out forwards; display: inline-block; min-width: 60px; }
-        .chart-container { max-width: 400px; width: 100%; }
+        .chart-container { max-width: 400px; width: 100%; background-color: #2a3a5c; padding: 10px; border-radius: 5px; }
         canvas { width: 100% !important; height: auto !important; }
         .titles-grid { 
             display: grid; 
@@ -39,7 +33,7 @@
             max-width: 1800px; 
         }
         .grid-item { 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
             padding: 10px; 
             border-radius: 5px; 
             text-align: center; 
@@ -57,34 +51,36 @@
             margin: 10px 0 5px; 
             font-size: 16px; 
             font-weight: bold; 
+            color: #ffcc00; 
         }
         .grid-item .date { 
             margin: 0; 
             font-size: 14px; 
-            color: #666; 
+            color: #cccccc; 
         }
         .titles-table { 
             width: 80%; 
             margin: 20px auto; 
             border-collapse: collapse; 
-            background-color: #cce6ff; 
+            background-color: #2a3a5c; 
         }
         .titles-table th, .titles-table td { 
             padding: 10px; 
-            border: 1px solid #99ccff; 
+            border: 1px solid #3b4a6b; 
             text-align: left; 
             vertical-align: middle; 
+            color: #ffffff; 
         }
         .titles-table th { 
-            background-color: #99ccff; 
-            color: #003366; 
+            background-color: #ffcc00; 
+            color: #1e2a44; 
             cursor: pointer; 
         }
         .titles-table th:hover { 
-            background-color: #b3d9ff; 
+            background-color: #cc0000; 
         }
-        a { color: #003366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #ffcc00; text-decoration: none; }
+        a:hover { color: #cc0000; text-decoration: underline; }
         .container { 
             position: relative; 
             width: 80%; 
@@ -93,6 +89,7 @@
             max-height: 600px; 
             display: block; 
             overflow: hidden; 
+            background-color: #2a3a5c; 
         }
         .mySlides { 
             display: none; 
@@ -113,7 +110,7 @@
             transform: translateY(-50%); 
             width: auto; 
             padding: 16px; 
-            color: white; 
+            color: #ffcc00; 
             font-weight: bold; 
             font-size: 20px; 
             border-radius: 0 3px 3px 0; 
@@ -127,10 +124,10 @@
             border-radius: 3px 0 0 3px; 
         }
         .prev:hover, .next:hover { 
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: #cc0000; 
         }
         .numbertext { 
-            color: #f2f2f2; 
+            color: #ffcc00; 
             font-size: 12px; 
             padding: 8px 12px; 
             position: absolute; 
@@ -139,9 +136,9 @@
         }
         .caption-container { 
             text-align: center; 
-            background-color: #222; 
+            background-color: #1e2a44; 
             padding: 2px 16px; 
-            color: white; 
+            color: #ffcc00; 
         }
         .row { 
             display: flex; 
@@ -240,57 +237,9 @@
         <h2>Titles</h2>
         <p>Total Titles: 17</p><div class='titles-grid' id='titlesGrid'>
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Alex Coal and Kenzie Love's oral sex by Girlfriends Films' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/24' target='_blank'>Alex Coal and Kenzie Love's oral sex by Girlfriends Films</a></p>
-                    <p class='date'>S.No: 6 | 2023-10-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for BrattyMilf Stepmom Needs A Big Strong Man' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/930' target='_blank'>BrattyMilf Stepmom Needs A Big Strong Man</a></p>
-                    <p class='date'>S.No: 14 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Cory Chase Strip Pool' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/32' target='_blank'>Cory Chase Strip Pool</a></p>
-                    <p class='date'>S.No: 8 | 2023-12-14</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Family Strokes Freedom Fuck Day Featuring Sahara Skye' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/2' target='_blank'>Family Strokes Freedom Fuck Day Featuring Sahara Skye</a></p>
-                    <p class='date'>S.No: 1 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for HardX Kenzie Love Splashed' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/4' target='_blank'>HardX Kenzie Love Splashed</a></p>
-                    <p class='date'>S.No: 3 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Hot Guys Fuck' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/923' target='_blank'>Hot Guys Fuck</a></p>
-                    <p class='date'>S.No: 13 | 2024-06-12</p>
-                </div>
-            
-                <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for InterracialPickups Kenzie Love - Interracial Pickups 09 Mar Kenzie Love - Interracial Pickups 03/09/23 - 258 mb, 203 pics, 3000x' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/1965327101/1695' target='_blank'>InterracialPickups Kenzie Love - Interracial Pickups 09 Mar Kenzie Love - Interracial Pickups 03/09/23 - 258 mb, 203 pics, 3000x</a></p>
                     <p class='date'>S.No: 17 | 2025-02-12</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for JaysPOV My Step Sister Kenzie Love Has Big Natural Tits' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/1026' target='_blank'>JaysPOV My Step Sister Kenzie Love Has Big Natural Tits</a></p>
-                    <p class='date'>S.No: 15 | 2024-07-01</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Love Thy Neighbor Pt. 2: Christmas Party' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/772' target='_blank'>Love Thy Neighbor Pt. 2: Christmas Party</a></p>
-                    <p class='date'>S.No: 11 | 2024-02-28</p>
                 </div>
             
                 <div class='grid-item'>
@@ -300,27 +249,33 @@
                 </div>
             
                 <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for BrattyMilf Stepmom Needs A Big Strong Man' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/930' target='_blank'>BrattyMilf Stepmom Needs A Big Strong Man</a></p>
+                    <p class='date'>S.No: 14 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for JaysPOV My Step Sister Kenzie Love Has Big Natural Tits' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/1026' target='_blank'>JaysPOV My Step Sister Kenzie Love Has Big Natural Tits</a></p>
+                    <p class='date'>S.No: 15 | 2024-07-01</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Hot Guys Fuck' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/923' target='_blank'>Hot Guys Fuck</a></p>
+                    <p class='date'>S.No: 13 | 2024-06-12</p>
+                </div>
+            
+                <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for MYLF Kenzie Love - You Have To Cum' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/1965327101/852' target='_blank'>MYLF Kenzie Love - You Have To Cum</a></p>
                     <p class='date'>S.No: 12 | 2024-06-06</p>
                 </div>
             
                 <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for MilfBody Kenzie’s Love Routine' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/3' target='_blank'>MilfBody Kenzie’s Love Routine</a></p>
-                    <p class='date'>S.No: 2 | 2023-08-21</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for Mom Swap Alexis Malone's blowjob movie' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/20' target='_blank'>Mom Swap Alexis Malone's blowjob movie</a></p>
-                    <p class='date'>S.No: 5 | 2023-10-16</p>
-                </div>
-            
-                <div class='grid-item'>
-                    <img src='https://via.placeholder.com/600x300' alt='Media for NF Busty Horny' style='width:600px;height:300px;object-fit:cover;'>
-                    <p class='title'><a href='https://t.me/c/1965327101/35' target='_blank'>NF Busty Horny</a></p>
-                    <p class='date'>S.No: 9 | 2024-02-06</p>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Love Thy Neighbor Pt. 2: Christmas Party' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/772' target='_blank'>Love Thy Neighbor Pt. 2: Christmas Party</a></p>
+                    <p class='date'>S.No: 11 | 2024-02-28</p>
                 </div>
             
                 <div class='grid-item'>
@@ -330,9 +285,33 @@
                 </div>
             
                 <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for NF Busty Horny' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/35' target='_blank'>NF Busty Horny</a></p>
+                    <p class='date'>S.No: 9 | 2024-02-06</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Cory Chase Strip Pool' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/32' target='_blank'>Cory Chase Strip Pool</a></p>
+                    <p class='date'>S.No: 8 | 2023-12-14</p>
+                </div>
+            
+                <div class='grid-item'>
                     <img src='https://via.placeholder.com/600x300' alt='Media for PornHat' style='width:600px;height:300px;object-fit:cover;'>
                     <p class='title'><a href='https://t.me/c/1965327101/17' target='_blank'>PornHat</a></p>
                     <p class='date'>S.No: 4 | 2023-10-16</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Mom Swap Alexis Malone's blowjob movie' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/20' target='_blank'>Mom Swap Alexis Malone's blowjob movie</a></p>
+                    <p class='date'>S.No: 5 | 2023-10-16</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Alex Coal and Kenzie Love's oral sex by Girlfriends Films' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/24' target='_blank'>Alex Coal and Kenzie Love's oral sex by Girlfriends Films</a></p>
+                    <p class='date'>S.No: 6 | 2023-10-16</p>
                 </div>
             
                 <div class='grid-item'>
@@ -340,8 +319,26 @@
                     <p class='title'><a href='https://t.me/c/1965327101/27' target='_blank'>video Excellent Aria Valencia movie night</a></p>
                     <p class='date'>S.No: 7 | 2023-10-16</p>
                 </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for Family Strokes Freedom Fuck Day Featuring Sahara Skye' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/2' target='_blank'>Family Strokes Freedom Fuck Day Featuring Sahara Skye</a></p>
+                    <p class='date'>S.No: 1 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for MilfBody Kenzie’s Love Routine' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/3' target='_blank'>MilfBody Kenzie’s Love Routine</a></p>
+                    <p class='date'>S.No: 2 | 2023-08-21</p>
+                </div>
+            
+                <div class='grid-item'>
+                    <img src='https://via.placeholder.com/600x300' alt='Media for HardX Kenzie Love Splashed' style='width:600px;height:300px;object-fit:cover;'>
+                    <p class='title'><a href='https://t.me/c/1965327101/4' target='_blank'>HardX Kenzie Love Splashed</a></p>
+                    <p class='date'>S.No: 3 | 2023-08-21</p>
+                </div>
             </div>
-        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>6</td><td><a href='https://t.me/c/1965327101/24' target='_blank'>Alex Coal and Kenzie Love's oral sex by Girlfriends Films</a></td><td>2023-10-16</td></tr><tr><td>14</td><td><a href='https://t.me/c/1965327101/930' target='_blank'>BrattyMilf Stepmom Needs A Big Strong Man</a></td><td>2024-07-01</td></tr><tr><td>8</td><td><a href='https://t.me/c/1965327101/32' target='_blank'>Cory Chase Strip Pool</a></td><td>2023-12-14</td></tr><tr><td>1</td><td><a href='https://t.me/c/1965327101/2' target='_blank'>Family Strokes Freedom Fuck Day Featuring Sahara Skye</a></td><td>2023-08-21</td></tr><tr><td>3</td><td><a href='https://t.me/c/1965327101/4' target='_blank'>HardX Kenzie Love Splashed</a></td><td>2023-08-21</td></tr><tr><td>13</td><td><a href='https://t.me/c/1965327101/923' target='_blank'>Hot Guys Fuck</a></td><td>2024-06-12</td></tr><tr><td>17</td><td><a href='https://t.me/c/1965327101/1695' target='_blank'>InterracialPickups Kenzie Love - Interracial Pickups 09 Mar Kenzie Love - Interracial Pickups 03/09/23 - 258 mb, 203 pics, 3000x</a></td><td>2025-02-12</td></tr><tr><td>15</td><td><a href='https://t.me/c/1965327101/1026' target='_blank'>JaysPOV My Step Sister Kenzie Love Has Big Natural Tits</a></td><td>2024-07-01</td></tr><tr><td>11</td><td><a href='https://t.me/c/1965327101/772' target='_blank'>Love Thy Neighbor Pt. 2: Christmas Party</a></td><td>2024-02-28</td></tr><tr><td>16</td><td><a href='https://t.me/c/1965327101/1534' target='_blank'>MYLF Aubree Valentine, Kenzie Love - Eat-In Kitchen 22 May</a></td><td>2025-01-09</td></tr><tr><td>12</td><td><a href='https://t.me/c/1965327101/852' target='_blank'>MYLF Kenzie Love - You Have To Cum</a></td><td>2024-06-06</td></tr><tr><td>2</td><td><a href='https://t.me/c/1965327101/3' target='_blank'>MilfBody Kenzie’s Love Routine</a></td><td>2023-08-21</td></tr><tr><td>5</td><td><a href='https://t.me/c/1965327101/20' target='_blank'>Mom Swap Alexis Malone's blowjob movie</a></td><td>2023-10-16</td></tr><tr><td>9</td><td><a href='https://t.me/c/1965327101/35' target='_blank'>NF Busty Horny</a></td><td>2024-02-06</td></tr><tr><td>10</td><td><a href='https://t.me/c/1965327101/314' target='_blank'>Naughty America - Busty brunette Kenzie Love needs Dr. Feelgood's hot beef injection</a></td><td>2024-02-15</td></tr><tr><td>4</td><td><a href='https://t.me/c/1965327101/17' target='_blank'>PornHat</a></td><td>2023-10-16</td></tr><tr><td>7</td><td><a href='https://t.me/c/1965327101/27' target='_blank'>video Excellent Aria Valencia movie night</a></td><td>2023-10-16</td></tr></tbody></table>
+        <table class='titles-table' id='titlesTable'><thead><tr><th onclick='sortTitlesTable(0)'>S.No</th><th onclick='sortTitlesTable(1)'>Items</th><th onclick='sortTitlesTable(2)'>Date</th></tr></thead><tbody id='titlesTableBody'><tr><td>17</td><td><a href='https://t.me/c/1965327101/1695' target='_blank'>InterracialPickups Kenzie Love - Interracial Pickups 09 Mar Kenzie Love - Interracial Pickups 03/09/23 - 258 mb, 203 pics, 3000x</a></td><td>2025-02-12</td></tr><tr><td>16</td><td><a href='https://t.me/c/1965327101/1534' target='_blank'>MYLF Aubree Valentine, Kenzie Love - Eat-In Kitchen 22 May</a></td><td>2025-01-09</td></tr><tr><td>14</td><td><a href='https://t.me/c/1965327101/930' target='_blank'>BrattyMilf Stepmom Needs A Big Strong Man</a></td><td>2024-07-01</td></tr><tr><td>15</td><td><a href='https://t.me/c/1965327101/1026' target='_blank'>JaysPOV My Step Sister Kenzie Love Has Big Natural Tits</a></td><td>2024-07-01</td></tr><tr><td>13</td><td><a href='https://t.me/c/1965327101/923' target='_blank'>Hot Guys Fuck</a></td><td>2024-06-12</td></tr><tr><td>12</td><td><a href='https://t.me/c/1965327101/852' target='_blank'>MYLF Kenzie Love - You Have To Cum</a></td><td>2024-06-06</td></tr><tr><td>11</td><td><a href='https://t.me/c/1965327101/772' target='_blank'>Love Thy Neighbor Pt. 2: Christmas Party</a></td><td>2024-02-28</td></tr><tr><td>10</td><td><a href='https://t.me/c/1965327101/314' target='_blank'>Naughty America - Busty brunette Kenzie Love needs Dr. Feelgood's hot beef injection</a></td><td>2024-02-15</td></tr><tr><td>9</td><td><a href='https://t.me/c/1965327101/35' target='_blank'>NF Busty Horny</a></td><td>2024-02-06</td></tr><tr><td>8</td><td><a href='https://t.me/c/1965327101/32' target='_blank'>Cory Chase Strip Pool</a></td><td>2023-12-14</td></tr><tr><td>4</td><td><a href='https://t.me/c/1965327101/17' target='_blank'>PornHat</a></td><td>2023-10-16</td></tr><tr><td>5</td><td><a href='https://t.me/c/1965327101/20' target='_blank'>Mom Swap Alexis Malone's blowjob movie</a></td><td>2023-10-16</td></tr><tr><td>6</td><td><a href='https://t.me/c/1965327101/24' target='_blank'>Alex Coal and Kenzie Love's oral sex by Girlfriends Films</a></td><td>2023-10-16</td></tr><tr><td>7</td><td><a href='https://t.me/c/1965327101/27' target='_blank'>video Excellent Aria Valencia movie night</a></td><td>2023-10-16</td></tr><tr><td>1</td><td><a href='https://t.me/c/1965327101/2' target='_blank'>Family Strokes Freedom Fuck Day Featuring Sahara Skye</a></td><td>2023-08-21</td></tr><tr><td>2</td><td><a href='https://t.me/c/1965327101/3' target='_blank'>MilfBody Kenzie’s Love Routine</a></td><td>2023-08-21</td></tr><tr><td>3</td><td><a href='https://t.me/c/1965327101/4' target='_blank'>HardX Kenzie Love Splashed</a></td><td>2023-08-21</td></tr></tbody></table>
     </div>
     <script>
         let slideIndex = 1;
@@ -378,7 +375,7 @@
         // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-04-09", "rank": 46}, {"date": "2025-04-09", "rank": 44}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-10", "rank": 47}, {"date": "2025-04-11", "rank": 47}, {"date": "2025-04-11", "rank": 47}, {"date": "2025-04-14", "rank": 48}, {"date": "2025-04-15", "rank": 48}, {"date": "2025-04-16", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-22", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-29", "rank": 48}, {"date": "2025-04-29", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-05", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-15", "rank": 50}, {"date": "2025-05-20", "rank": 51}, {"date": "2025-05-22", "rank": 51}, {"date": "2025-05-22", "rank": 51}];
+            const historyData = [{"date": "2025-04-09", "rank": 46}, {"date": "2025-04-09", "rank": 44}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-09", "rank": 47}, {"date": "2025-04-10", "rank": 47}, {"date": "2025-04-11", "rank": 47}, {"date": "2025-04-11", "rank": 47}, {"date": "2025-04-14", "rank": 48}, {"date": "2025-04-15", "rank": 48}, {"date": "2025-04-16", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-17", "rank": 48}, {"date": "2025-04-22", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-28", "rank": 48}, {"date": "2025-04-29", "rank": 48}, {"date": "2025-04-29", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-02", "rank": 49}, {"date": "2025-05-05", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-14", "rank": 50}, {"date": "2025-05-15", "rank": 50}, {"date": "2025-05-20", "rank": 51}, {"date": "2025-05-22", "rank": 51}, {"date": "2025-05-22", "rank": 51}, {"date": "2025-05-23", "rank": 52}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -388,8 +385,8 @@
                     datasets: [{ 
                         label: 'Rank Over Time', 
                         data: ranks, 
-                        borderColor: '#003366', 
-                        backgroundColor: 'rgba(0, 51, 102, 0.2)', 
+                        borderColor: '#ffcc00', 
+                        backgroundColor: 'rgba(255, 204, 0, 0.2)', 
                         fill: true, 
                         tension: 0.4 
                     }] 
@@ -398,16 +395,19 @@
                     scales: { 
                         y: { 
                             beginAtZero: true, 
-                            title: { display: true, text: 'Rank' }, 
-                            ticks: { stepSize: 1 }, 
-                            suggestedMax: 343 
+                            title: { display: true, text: 'Rank', color: '#ffcc00' }, 
+                            ticks: { stepSize: 1, color: '#ffffff' }, 
+                            suggestedMax: 343,
+                            grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
-                            title: { display: true, text: 'Date' } 
+                            title: { display: true, text: 'Date', color: '#ffcc00' },
+                            ticks: { color: '#ffffff' },
+                            grid: { color: '#3b4a6b' }
                         } 
                     }, 
                     plugins: { 
-                        legend: { display: true } 
+                        legend: { display: true, labels: { color: '#ffcc00' } } 
                     } 
                 }
             });
@@ -424,14 +424,17 @@
                     video.pause();
                 });
             });
+
+            // Initialize titles table sorted by date descending
+            sortTitlesTable(2); // Sort by Date column, newest first
         });
 
-        // Titles table sorting
-        let titlesSortDirections = [0, 0, 0]; // 0: unsorted, 1: ascending, -1: descending
+        // Titles table and grid sorting
+        let titlesSortDirections = [0, 0, -1]; // 0: unsorted, 1: ascending, -1: descending (Date starts descending)
         function sortTitlesTable(columnIndex) {
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
-            const direction = titlesSortDirections[columnIndex] === 1 ? -1 : 1;
+            const direction = columnIndex === 2 ? (titlesSortDirections[columnIndex] === -1 ? 1 : -1) : (titlesSortDirections[columnIndex] === 1 ? -1 : 1);
             rows.sort((a, b) => {
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
@@ -454,6 +457,34 @@
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => (i === columnIndex ? d : 0));
+            // Sync grid with table
+            sortTitlesGrid(columnIndex, direction);
+        }
+
+        function sortTitlesGrid(columnIndex, direction) {
+            const grid = document.getElementById('titlesGrid');
+            const items = Array.from(grid.getElementsByClassName('grid-item'));
+            items.sort((a, b) => {
+                let aValue, bValue;
+                if (columnIndex === 0) { // S.No
+                    aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
+                    return direction * (aValue - bValue);
+                } else if (columnIndex === 1) { // Items
+                    aValue = a.querySelector('.title').innerText;
+                    bValue = b.querySelector('.title').innerText;
+                    return direction * aValue.localeCompare(bValue);
+                } else if (columnIndex === 2) { // Date
+                    aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
+                    bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
+                    return direction * (aValue - bValue);
+                }
+                return 0;
+            });
+            while (grid.firstChild) { 
+                grid.removeChild(grid.firstChild); 
+            }
+            items.forEach(item => grid.appendChild(item));
         }
     </script>
 </body>
