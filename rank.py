@@ -18,7 +18,7 @@ history_csv_file = os.path.join(output_folder, 'history.csv')
 csv_file = os.path.join(output_folder, 'output.csv')
 
 # GitHub raw content base URL
-github_raw_base = 'https://raw.githubusercontent.com/anagoofyoutlook/psranking-dev/main'
+github_raw_base = 'https://raw.githubusercontent.com/anagoofyoutlook/psranking/main'
 
 # Ensure directories exist
 for folder in [input_folder, output_folder, html_subfolder, photos_folder]:
