@@ -7,18 +7,17 @@ import re
 import zipfile
 import random
 from html import escape
-import requests  # Added for URL validation
 
 # Define folder paths
 input_folder = 'PS'
 output_folder = 'docs'
 html_subfolder = os.path.join(output_folder, 'HTML')
 photos_folder = 'Photos'
+docs_photos_folder = os.path.join(output_folder, 'Photos')
 history_csv_file = os.path.join(output_folder, 'history.csv')
-csv_file = os.path.join(output_folder, 'output.csv')
 
-# GitHub raw content base URL
-github_raw_base = 'https://raw.githubusercontent.com/anagoofyoutlook/psranking-dev/main'
+# Define CSV output path
+csv_file = os.path.join(output_folder, 'output.csv')
 
 # Ensure directories exist
 for folder in [input_folder, output_folder, html_subfolder, photos_folder]:
@@ -27,6 +26,16 @@ for folder in [input_folder, output_folder, html_subfolder, photos_folder]:
         print(f"Created directory: {folder}")
     else:
         print(f"Directory already exists: {folder}")
+
+# Copy Photos/ to docs/Photos/
+if os.path.exists(photos_folder):
+    if os.path.exists(docs_photos_folder):
+        shutil.rmtree(docs_photos_folder)
+    shutil.copytree(photos_folder, docs_photos_folder)
+    print(f"Copied {photos_folder}/ to {docs_photos_folder}/")
+else:
+    os.makedirs(docs_photos_folder)
+    print(f"Created empty {docs_photos_folder}/ (no photos found in {photos_folder}/)")
 
 # Path to result.zip
 zip_file = os.path.join(input_folder, 'result.zip')
@@ -107,14 +116,16 @@ if os.path.exists(history_csv_file):
                 rank = int(row.get('rank', '0'))
                 if group not in history_data:
                     history_data[group] = {}
-                if date != current_date:
+                if date != current_date:  # Exclude current date entries
+                    # Store entries by date, keep the lowest (highest-ranking) rank
                     if date not in history_data[group] or rank < history_data[group][date]['rank']:
                         history_data[group][date] = {'date': date, 'rank': rank}
             except (ValueError, TypeError) as e:
                 print(f"Skipping invalid rank for group '{group}' on date '{date}': {row}. Error: {e}")
+    # Convert history_data[group] from dict to list
     for group in history_data:
         history_data[group] = list(history_data[group].values())
-        history_data[group].sort(key=lambda x: x['date'])
+        history_data[group].sort(key=lambda x: x['date'])  # Sort by date for chart
     print(f"Loaded {sum(len(v) for v in history_data.values())} history entries from {history_csv_file}")
 else:
     print(f"No existing {history_csv_file} found")
@@ -130,36 +141,15 @@ def sanitize_filename(name):
     name = re.sub(r'\s+', '_', name)
     return name.lower()
 
-# Function to check if URL is accessible
-def is_url_accessible(url):
-    try:
-        response = requests.head(url, timeout=5)
-        return response.status_code == 200
-    except requests.RequestException:
-        return False
-
-# Validate up/down/no-change images
-indicator_images = ['up.png', 'down.png', '0.png']
-for img in indicator_images:
-    img_url = f"{github_raw_base}/Photos/{img}"
-    if is_url_accessible(img_url):
-        print(f"Index indicator image accessible: {img_url}")
-    else:
-        print(f"Index indicator image inaccessible: {img_url}")
-
 # Function to find media file by serial number
 def find_serial_match_media(serial_number, media_files):
     print(f"Searching for serial number '{serial_number}' in media files: {media_files}")
     for media in media_files:
         media_base = os.path.splitext(media)[0]
         if media_base == str(serial_number):
-            media_url = f"{github_raw_base}/Photos/{group_name}/thumbs/{media}"
-            if is_url_accessible(media_url):
-                print(f"Match found for serial number '{serial_number}': '{media}' at {media_url}")
-                return media
-            else:
-                print(f"Media '{media}' at {media_url} is inaccessible")
-    print(f"No accessible match found for serial number '{serial_number}'")
+            print(f"Match found for serial number '{serial_number}': '{media}'")
+            return media
+    print(f"No match found for serial number '{serial_number}'")
     return None
 
 # Process each chat
@@ -223,7 +213,7 @@ for chat in chats:
         # Titles with serial numbers
         titles = []
         media_extensions = ['.mp4', '.webm', '.ogg', '.gif']
-        group_subfolder = os.path.join(photos_folder, group_name)
+        group_subfolder = os.path.join(docs_photos_folder, group_name)
         thumbs_subfolder = os.path.join(group_subfolder, 'thumbs')
         media_files = [f for f in os.listdir(thumbs_subfolder) if f.lower().endswith(tuple(media_extensions))] if os.path.exists(thumbs_subfolder) else []
         fallback_photos = [f for f in os.listdir(group_subfolder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')) and os.path.isfile(os.path.join(group_subfolder, f))] if os.path.exists(group_subfolder) else []
@@ -242,19 +232,16 @@ for chat in chats:
                         if media_files:
                             serial_match = find_serial_match_media(serial_number, media_files)
                             if serial_match:
-                                media_path = f"{github_raw_base}/Photos/{group_name}/thumbs/{serial_match}"
+                                media_path = f"../Photos/{group_name}/thumbs/{serial_match}"
                                 is_gif = serial_match.lower().endswith('.gif')
                                 print(f"Group {group_name}, Title '{title}' (S.No {serial_number}): Matched media '{serial_match}', selected path {media_path}")
                         else:
                             print(f"Group {group_name}, Title '{title}' (S.No {serial_number}): No media files in {thumbs_subfolder}")
                             if fallback_photos:
                                 random_photo = random.choice(fallback_photos)
-                                media_path = f"{github_raw_base}/Photos/{group_name}/{random_photo}"
+                                media_path = f"../Photos/{group_name}/{random_photo}"
                                 is_gif = random_photo.lower().endswith('.gif')
                                 print(f"  Using fallback photo: {media_path}")
-                                if not is_url_accessible(media_path):
-                                    print(f"  Fallback photo inaccessible: {media_path}")
-                                    media_path = 'https://via.placeholder.com/600x300'
                         titles.append({
                             'title': title,
                             'message_id': message_id,
@@ -266,7 +253,7 @@ for chat in chats:
                         serial_number += 1
                     except ValueError:
                         continue
-        titles.sort(key=lambda x: x['date'], reverse=True)
+        titles.sort(key=lambda x: x['date'], reverse=True)  # Sort by date, newest first
         titles_count = len(titles)
 
         # Titles grid
@@ -295,10 +282,8 @@ for chat in chats:
         # Photos for slideshow
         photo_paths = []
         if os.path.exists(group_subfolder):
-            photo_paths = [f"{github_raw_base}/Photos/{group_name}/{f}" for f in os.listdir(group_subfolder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')) and os.path.isfile(os.path.join(group_subfolder, f))]
-            # Verify accessibility of slideshow photos
-            photo_paths = [p for p in photo_paths if is_url_accessible(p)]
-            print(f"Group {group_name}: Found {len(photo_paths)} accessible photos in {group_subfolder}: {photo_paths}")
+            photo_paths = [f"../Photos/{group_name}/{f}" for f in os.listdir(group_subfolder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')) and os.path.isfile(os.path.join(group_subfolder, f))]
+            print(f"Group {group_name}: Found {len(photo_paths)} photos in {group_subfolder}: {photo_paths}")
         if not photo_paths:
             photo_paths = ['https://via.placeholder.com/1920x800']
             print(f"Group {group_name}: Using placeholder for slideshow")
@@ -310,28 +295,16 @@ for chat in chats:
             <div class="row">
         """ + ''.join(f'<div class="column"><img class="demo cursor" src="{p}" style="width:100%" onclick="currentSlide({i})" alt="{group_name} Photo {i}"></div>' for i, p in enumerate(photo_paths, 1)) + '</div></div>'
 
-        # Single photo for group (used in index.html)
-        photo_file_name = None
-        if os.path.exists(group_subfolder):
-            # Try <group_name>.{ext} only
-            for ext in ('.jpg', '.jpeg', '.png', '.gif', '.webp'):
-                candidate = f"{group_name}{ext}"
-                if os.path.exists(os.path.join(group_subfolder, candidate)):
-                    photo_url = f"{github_raw_base}/Photos/{group_name}/{candidate}"
-                    if is_url_accessible(photo_url):
-                        photo_file_name = candidate
-                        print(f"Group {group_name}: Found single photo at {photo_url}")
-                        break
-                    else:
-                        print(f"Group {group_name}: Single photo inaccessible at {photo_url}")
-            if not photo_file_name:
-                print(f"Group {group_name}: No photo named '{group_name}.{{jpg,jpeg,png,gif,webp}}' found in {group_subfolder}, using placeholder")
+        photo_file_name = next((f"{group_name}{ext}" for ext in ('.jpg', '.jpeg', '.png', '.gif', '.webp') if os.path.exists(os.path.join(docs_photos_folder, f"{group_name}{ext}"))), None)
+        if photo_file_name:
+            print(f"Group {group_name}: Found single photo at {docs_photos_folder}/{photo_file_name}")
         else:
-            print(f"Group {group_name}: No group subfolder {group_subfolder}, using placeholder")
+            print(f"Group {group_name}: No single photo found in {docs_photos_folder}/")
 
         if group_name not in history_data:
             history_data[group_name] = []
 
+        # Pre-compute JSON for history data to avoid f-string issue
         history_data_json = json.dumps(history_data.get(group_name, []))
 
         # HTML content for group pages
@@ -616,6 +589,7 @@ for chat in chats:
             evt.currentTarget.className += " active";
         }}
 
+        // Chart.js for rank history
         document.addEventListener('DOMContentLoaded', function() {{
             const ctx = document.getElementById('rankChart').getContext('2d');
             const historyData = {history_data_json};
@@ -655,6 +629,7 @@ for chat in chats:
                 }}
             }});
 
+            // Add hover-to-play for videos in titles grid
             const videos = document.querySelectorAll('.grid-item video');
             videos.forEach(video => {{
                 video.addEventListener('mouseover', () => {{
@@ -667,10 +642,12 @@ for chat in chats:
                 }});
             }});
 
-            sortTitlesTable(0, -1);
+            // Initialize titles table sorted by S.No descending (highest ID at top)
+            sortTitlesTable(0, -1); // Sort by S.No column, highest first
         }});
 
-        let titlesSortDirections = [-1, 0, 0];
+        // Titles table and grid sorting
+        let titlesSortDirections = [-1, 0, 0]; // S.No starts descending
         function sortTitlesTable(columnIndex, forceDirection) {{
             const tbody = document.getElementById('titlesTableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
@@ -678,15 +655,15 @@ for chat in chats:
             rows.sort((a, b) => {{
                 let aValue = a.cells[columnIndex].innerText;
                 let bValue = b.cells[columnIndex].innerText;
-                if (columnIndex === 0) {{ 
+                if (columnIndex === 0) {{ // S.No column
                     aValue = parseInt(aValue);
                     bValue = parseInt(bValue);
                     return direction * (aValue - bValue);
-                }} else if (columnIndex === 2) {{ 
+                }} else if (columnIndex === 2) {{ // Date column
                     aValue = new Date(aValue);
                     bValue = new Date(bValue);
                     return direction * (aValue - bValue);
-                }} else if (columnIndex === 1) {{ 
+                }} else if (columnIndex === 1) {{ // Items column
                     return direction * aValue.localeCompare(bValue);
                 }}
                 return 0;
@@ -697,6 +674,7 @@ for chat in chats:
             rows.forEach(row => tbody.appendChild(row));
             titlesSortDirections[columnIndex] = direction;
             titlesSortDirections = titlesSortDirections.map((d, i) => i === columnIndex ? d : 0);
+            // Sync grid with table
             sortTitlesGrid(columnIndex, direction);
         }}
 
@@ -705,15 +683,15 @@ for chat in chats:
             const items = Array.from(grid.getElementsByClassName('grid-item'));
             items.sort((a, b) => {{
                 let aValue, bValue;
-                if (columnIndex === 0) {{ 
+                if (columnIndex === 0) {{ // S.No
                     aValue = parseInt(a.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
                     bValue = parseInt(b.querySelector('.date').innerText.split('S.No: ')[1].split(' | ')[0]);
                     return direction * (aValue - bValue);
-                }} else if (columnIndex === 1) {{ 
+                }} else if (columnIndex === 1) {{ // Items
                     aValue = a.querySelector('.title').innerText;
                     bValue = b.querySelector('.title').innerText;
                     return direction * aValue.localeCompare(bValue);
-                }} else if (columnIndex === 2) {{ 
+                }} else if (columnIndex === 2) {{ // Date
                     aValue = new Date(a.querySelector('.date').innerText.split(' | ')[1]);
                     bValue = new Date(b.querySelector('.date').innerText.split(' | ')[1]);
                     return direction * (aValue - bValue);
@@ -730,7 +708,7 @@ for chat in chats:
 </html>
 """
 
-        # Find last rank and its date
+        # Find last rank and its date from history_data
         last_rank = 'N/A'
         last_rank_date = 'N/A'
         if group_name in history_data and history_data[group_name]:
@@ -755,11 +733,11 @@ for chat in chats:
             'rank': 0,
             'last rank': last_rank,
             'last rank date': last_rank_date,
-            'up down': 'N/A',
+            'up down': 'N/A',  # Will be calculated after ranking
             'total titles': titles_count,
             'html_file': html_file,
             'html_content': html_content,
-            'photo_file_name': f"{github_raw_base}/Photos/{group_name}/{photo_file_name}" if photo_file_name else 'https://via.placeholder.com/300'
+            'photo_file_name': f"Photos/{photo_file_name}" if photo_file_name else None
         })
 
 # Calculate scores
@@ -772,6 +750,7 @@ for entry in all_data:
     three_count = entry['count of the hashtag "#Three"']
     messages = entry['total messages']
     diff = entry['Datedifference']
+
     hashtag_score = (10 * five_count) + (5 * four_count) + (1 * three_count)
     messages_score = (messages / max_messages) * 10 if max_messages > 0 else 0
     date_score = 0
@@ -783,6 +762,7 @@ for entry in all_data:
 sorted_data = sorted(all_data, key=lambda x: x['score'], reverse=True)
 for i, entry in enumerate(sorted_data, 1):
     entry['rank'] = i
+    # Calculate up down (last_rank - rank)
     if entry['last rank'] != 'N/A':
         entry['up down'] = int(entry['last rank']) - i
     history_data[entry['group name']].append({'date': current_date, 'rank': i})
@@ -818,9 +798,11 @@ else:
 up_groups = [entry for entry in sorted_data if entry['up down'] != 'N/A' and entry['up down'] > 0]
 down_groups = [entry for entry in sorted_data if entry['up down'] != 'N/A' and entry['up down'] < 0]
 unchanged_groups = [entry for entry in sorted_data if entry['up down'] == 0]
+
+# Sort by up_down (primary) and rank (secondary, ascending for higher rank)
 up_groups = sorted(up_groups, key=lambda x: (x['up down'], -x['rank']), reverse=True)[:5]
 down_groups = sorted(down_groups, key=lambda x: (x['up down'], -x['rank']), reverse=True)[:5]
-unchanged_groups = sorted(unchanged_groups, key=lambda x: x['rank'])[:5]
+unchanged_groups = sorted(unchanged_groups, key=lambda x: x['rank'])[:5]  # Sort by rank ascending
 
 top_movers_rows = ''
 if up_groups or down_groups or unchanged_groups:
@@ -829,23 +811,18 @@ if up_groups or down_groups or unchanged_groups:
             top_movers_rows += f'<tr><th style="background-color: #b30000;">{title}</th></tr><tr>'
             for entry in group_list:
                 group_name = escape(entry['group name'])
-                photo_src = entry['photo_file_name']
+                photo_src = entry['photo_file_name'] if entry['photo_file_name'] else 'https://via.placeholder.com/300'
                 html_link = f"HTML/{entry['html_file']}"
                 last_rank = entry['last rank']
                 last_rank_date = entry['last rank date']
                 last_rank_display = f"{last_rank} ({last_rank_date})" if last_rank != 'N/A' else 'N/A'
                 up_down = entry['up down']
-                up_down_img = 'https://via.placeholder.com/20'  # Placeholder if image inaccessible
                 if up_down > 0:
-                    up_url = f"{github_raw_base}/Photos/up.png"
-                    up_down_img = up_url if is_url_accessible(up_url) else up_down_img
+                    up_down_content = f"{up_down} <img src='Photos/up.png' alt='Up' class='up-down-img'>"
                 elif up_down < 0:
-                    down_url = f"{github_raw_base}/Photos/down.png"
-                    up_down_img = down_url if is_url_accessible(down_url) else up_down_img
+                    up_down_content = f"{up_down} <img src='Photos/down.png' alt='Down' class='up-down-img'>"
                 else:
-                    zero_url = f"{github_raw_base}/Photos/0.png"
-                    up_down_img = zero_url if is_url_accessible(zero_url) else up_down_img
-                print(f"Top Movers: Group {group_name}, Up Down image: {up_down_img}")
+                    up_down_content = f"{up_down} <img src='Photos/0.png' alt='No Change' class='up-down-img'>"
                 top_movers_rows += f"""
                     <td>
                         <div class="mover-info">
@@ -853,7 +830,7 @@ if up_groups or down_groups or unchanged_groups:
                             <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="{photo_src}" alt="{group_name}" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="{html_link}" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>{group_name}</h1></a></div></div></div>
                             <p><strong>Rank:</strong> {entry['rank']}</p>
                             <p><strong>Last Rank:</strong> {last_rank_display}</p>
-                            <p><strong>Up Down:</strong> {up_down} <img src="{up_down_img}" alt="Up Down" class="up-down-img"></p>
+                            <p><strong>Up Down:</strong> {up_down_content}</p>
                         </div>
                     </td>
                 """
@@ -861,34 +838,32 @@ if up_groups or down_groups or unchanged_groups:
 else:
     top_movers_rows = '<tr><td>No significant rank changes</td></tr>'
 
-# Generate ranking table rows
+# Generate ranking HTML
+total_groups = len(sorted_data)
 table_rows = ''
 for entry in sorted_data:
     group_name = escape(entry['group name'])
-    photo_src = entry['photo_file_name']
+    photo_src = entry['photo_file_name'] if entry['photo_file_name'] else 'https://via.placeholder.com/300'
     html_link = f"HTML/{entry['html_file']}"
     last_scene = f"{entry['Datedifference']} days" if entry['Datedifference'] != 'N/A' else 'N/A'
     last_rank = entry['last rank']
     last_rank_date = entry['last rank date']
     last_rank_display = f"{last_rank} ({last_rank_date})" if last_rank != 'N/A' else 'N/A'
     up_down = entry['up down']
-    up_down_img = 'https://via.placeholder.com/20'  # Placeholder if image inaccessible
+    # Add image based on up_down value
+    up_down_content = up_down
     if up_down != 'N/A':
         if up_down > 0:
-            up_url = f"{github_raw_base}/Photos/up.png"
-            up_down_img = up_url if is_url_accessible(up_url) else up_down_img
+            up_down_content = f"{up_down} <img src='Photos/up.png' alt='Up' class='up-down-img'>"
         elif up_down < 0:
-            down_url = f"{github_raw_base}/Photos/down.png"
-            up_down_img = down_url if is_url_accessible(down_url) else up_down_img
-        else:
-            zero_url = f"{github_raw_base}/Photos/0.png"
-            up_down_img = zero_url if is_url_accessible(zero_url) else up_down_img
-    print(f"Ranking Table: Group {group_name}, Photo: {photo_src}, Up Down image: {up_down_img}")
+            up_down_content = f"{up_down} <img src='Photos/down.png' alt='Down' class='up-down-img'>"
+        else:  # up_down == 0
+            up_down_content = f"{up_down} <img src='Photos/0.png' alt='No Change' class='up-down-img'>"
     table_rows += f"""
     <tr>
         <td>{entry['rank']}</td>
         <td>{last_rank_display}</td>
-        <td>{up_down} <img src="{up_down_img}" alt="Up Down" class="up-down-img"></td>
+        <td>{up_down_content}</td>
         <td><a href="{html_link}" target="_blank">{group_name}</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="{photo_src}" alt="{group_name}" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="{html_link}" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>{group_name}</h1></a></div></div></div></td>
         <td>{last_scene}</td>
@@ -901,8 +876,6 @@ for entry in sorted_data:
     </tr>
     """
 
-# Generate ranking HTML
-total_groups = len(sorted_data)
 ranking_html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -984,29 +957,32 @@ ranking_html_content = f"""<!DOCTYPE html>
     <script>
         let sortDirections = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         function sortTable(columnIndex) {{
-            if (columnIndex === 4) return;
+            if (columnIndex === 4) return; // Skip Photo column
             const tbody = document.getElementById('tableBody');
             const rows = Array.from(tbody.getElementsByTagName('tr'));
             const isNumeric = [true, true, true, false, false, true, true, true, true, true, true, true];
             const direction = sortDirections[columnIndex] === 1 ? -1 : 1;
+
             rows.sort((a, b) => {{
                 let aValue = a.cells[columnIndex].textContent;
                 let bValue = b.cells[columnIndex].textContent;
-                if (columnIndex === 1) {{ 
+
+                if (columnIndex === 1) {{ // Last Rank
+                    if (aValue === 'N/A' && bValue === 'N/A') return 0;
+                    if (aValue === 'N/A') return direction * 1;
+                    if (bValue === 'N/A') return direction * -1;
+                    // Extract rank from "rank (date)" format
+                    aValue = parseFloat(aValue.split(' ')[0]);
+                    bValue = parseFloat(bValue.split(' ')[0]);
+                    return direction * (aValue - bValue);
+                }} else if (columnIndex === 2) {{ // Up Down
                     if (aValue === 'N/A' && bValue === 'N/A') return 0;
                     if (aValue === 'N/A') return direction * 1;
                     if (bValue === 'N/A') return direction * -1;
                     aValue = parseFloat(aValue.split(' ')[0]);
                     bValue = parseFloat(bValue.split(' ')[0]);
                     return direction * (aValue - bValue);
-                }} else if (columnIndex === 2) {{ 
-                    if (aValue === 'N/A' && bValue === 'N/A') return 0;
-                    if (aValue === 'N/A') return direction * 1;
-                    if (bValue === 'N/A') return direction * -1;
-                    aValue = parseFloat(aValue.split(' ')[0]);
-                    bValue = parseFloat(bValue.split(' ')[0]);
-                    return direction * (aValue - bValue);
-                }} else if (columnIndex === 5) {{ 
+                }} else if (columnIndex === 5) {{ // Last Scene
                     if (aValue === 'N/A' && bValue === 'N/A') return 0;
                     if (aValue === 'N/A') return direction * 1;
                     if (bValue === 'N/A') return direction * -1;
@@ -1014,6 +990,7 @@ ranking_html_content = f"""<!DOCTYPE html>
                     bValue = parseInt(bValue);
                     return direction * (aValue - bValue);
                 }}
+
                 if (isNumeric[columnIndex]) {{ 
                     aValue = parseFloat(aValue) || aValue; 
                     bValue = parseFloat(bValue) || bValue; 
@@ -1021,6 +998,7 @@ ranking_html_content = f"""<!DOCTYPE html>
                 }}
                 return direction * aValue.localeCompare(bValue);
             }});
+
             while (tbody.firstChild) {{ 
                 tbody.removeChild(tbody.firstChild); 
             }}
@@ -1032,6 +1010,8 @@ ranking_html_content = f"""<!DOCTYPE html>
 </body>
 </html>
 """
+
+
 
 # Write ranking HTML file
 ranking_html_file = os.path.join(output_folder, 'index.html')
