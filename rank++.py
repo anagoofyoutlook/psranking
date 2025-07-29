@@ -7,7 +7,7 @@ import re
 import zipfile
 import random
 from html import escape
-import requests
+import requests  # Added for URL validation
 
 # Define folder paths
 input_folder = 'PS'
@@ -296,6 +296,7 @@ for chat in chats:
         photo_paths = []
         if os.path.exists(group_subfolder):
             photo_paths = [f"{github_raw_base}/Photos/{group_name}/{f}" for f in os.listdir(group_subfolder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')) and os.path.isfile(os.path.join(group_subfolder, f))]
+            # Verify accessibility of slideshow photos
             photo_paths = [p for p in photo_paths if is_url_accessible(p)]
             print(f"Group {group_name}: Found {len(photo_paths)} accessible photos in {group_subfolder}: {photo_paths}")
         if not photo_paths:
@@ -311,27 +312,22 @@ for chat in chats:
 
         # Single photo for group (used in index.html)
         photo_file_name = None
-        if os.path.exists(photos_folder):
-            group_name_lower = group_name.lower()
+        if os.path.exists(group_subfolder):
+            # Try <group_name>.{ext} only
             for ext in ('.jpg', '.jpeg', '.png', '.gif', '.webp'):
                 candidate = f"{group_name}{ext}"
-                candidate_lower = f"{group_name_lower}{ext}"
-                # Check exact match
-                if os.path.exists(os.path.join(photos_folder, candidate)):
-                    photo_file_name = candidate
-                    photo_url = f"{github_raw_base}/Photos/{candidate}"
-                    print(f"Group {group_name}: Found exact match photo '{candidate}' at {photo_url}")
-                    break
-                # Check case-insensitive match
-                elif os.path.exists(os.path.join(photos_folder, candidate_lower)):
-                    photo_file_name = candidate_lower
-                    photo_url = f"{github_raw_base}/Photos/{candidate_lower}"
-                    print(f"Group {group_name}: Found case-insensitive match photo '{candidate_lower}' at {photo_url}")
-                    break
+                if os.path.exists(os.path.join(group_subfolder, candidate)):
+                    photo_url = f"{github_raw_base}/Photos/{group_name}/{candidate}"
+                    if is_url_accessible(photo_url):
+                        photo_file_name = candidate
+                        print(f"Group {group_name}: Found single photo at {photo_url}")
+                        break
+                    else:
+                        print(f"Group {group_name}: Single photo inaccessible at {photo_url}")
             if not photo_file_name:
-                print(f"Group {group_name}: No photo named '{group_name}.{{jpg,jpeg,png,gif,webp}}' or case-insensitive match found in {photos_folder}, using placeholder")
+                print(f"Group {group_name}: No photo named '{group_name}.{{jpg,jpeg,png,gif,webp}}' found in {group_subfolder}, using placeholder")
         else:
-            print(f"Group {group_name}: No Photos folder {photos_folder}, using placeholder")
+            print(f"Group {group_name}: No group subfolder {group_subfolder}, using placeholder")
 
         if group_name not in history_data:
             history_data[group_name] = []
@@ -763,7 +759,7 @@ for chat in chats:
             'total titles': titles_count,
             'html_file': html_file,
             'html_content': html_content,
-            'photo_file_name': f"{github_raw_base}/Photos/{photo_file_name}" if photo_file_name else 'https://via.placeholder.com/300'
+            'photo_file_name': f"{github_raw_base}/Photos/{group_name}/{photo_file_name}" if photo_file_name else 'https://via.placeholder.com/300'
         })
 
 # Calculate scores
@@ -839,7 +835,7 @@ if up_groups or down_groups or unchanged_groups:
                 last_rank_date = entry['last rank date']
                 last_rank_display = f"{last_rank} ({last_rank_date})" if last_rank != 'N/A' else 'N/A'
                 up_down = entry['up down']
-                up_down_img = 'https://via.placeholder.com/20'
+                up_down_img = 'https://via.placeholder.com/20'  # Placeholder if image inaccessible
                 if up_down > 0:
                     up_url = f"{github_raw_base}/Photos/up.png"
                     up_down_img = up_url if is_url_accessible(up_url) else up_down_img
@@ -876,7 +872,7 @@ for entry in sorted_data:
     last_rank_date = entry['last rank date']
     last_rank_display = f"{last_rank} ({last_rank_date})" if last_rank != 'N/A' else 'N/A'
     up_down = entry['up down']
-    up_down_img = 'https://via.placeholder.com/20'
+    up_down_img = 'https://via.placeholder.com/20'  # Placeholder if image inaccessible
     if up_down != 'N/A':
         if up_down > 0:
             up_url = f"{github_raw_base}/Photos/up.png"
@@ -934,7 +930,6 @@ ranking_html_content = f"""<!DOCTYPE html>
         .mover-info {{ display: flex; flex-direction: column; align-items: center; gap: 10px; width: 320px; }}
         .mover-info p {{ margin: 5px 0; font-size: 16px; }}
         #topMoversTable td {{ min-width: 340px; }}
-        @keyframes countUp {{ from {{ content: "0"; }} to {{ content: attr(data-rank); }} }}
         @media only screen and (max-width: 1200px) {{ 
             table {{ width: 90%; }} 
             .flip-card {{ width: 200px; height: 200px; }} 
