@@ -214,13 +214,13 @@
         <p>Rank: <span class="rank-number" data-rank="36"></span></p>
     </div>
     <div class="container">
-<div class="mySlides"><div class="numbertext">1 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/advd.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/M.webp" style="width:100%;height:auto;"></div>
+<div class="mySlides"><div class="numbertext">1 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/M.webp" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/advd.jpg" style="width:100%;height:auto;"></div>
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
-        <div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/advd.jpg" style="width:100%" onclick="currentSlide(1)" alt="Crystal Clark Photo 1"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/M.webp" style="width:100%" onclick="currentSlide(2)" alt="Crystal Clark Photo 2"></div></div></div>
-    <div class="info"><p>Scenes: 3774</p><p>Last Scene: 12 days</p></div>
+        <div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/M.webp" style="width:100%" onclick="currentSlide(1)" alt="Crystal Clark Photo 1"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Crystal Clark/advd.jpg" style="width:100%" onclick="currentSlide(2)" alt="Crystal Clark Photo 2"></div></div></div>
+    <div class="info"><p>Scenes: 3774</p><p>Last Scene: 23 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 12</li>
 <li class="hashtag-item">#FOUR: 10</li>
@@ -484,7 +484,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 36}, {"date": "2025-07-24", "rank": 36}];
+            const historyData = [{"date": "2025-07-23", "rank": 36}, {"date": "2025-07-24", "rank": 36}, {"date": "2025-07-29", "rank": 36}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -506,7 +506,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 355,
+                            suggestedMax: 356,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
