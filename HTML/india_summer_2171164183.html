@@ -211,7 +211,7 @@
     <h1>India Summer</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="182"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="184"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/India Summer/11480-set-1x.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 2</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/India Summer/India Summer.jpg" style="width:100%;height:auto;"></div>
@@ -297,7 +297,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 177}, {"date": "2025-07-24", "rank": 177}, {"date": "2025-07-29", "rank": 178}, {"date": "2025-08-09", "rank": 182}];
+            const historyData = [{"date": "2025-07-23", "rank": 177}, {"date": "2025-07-24", "rank": 177}, {"date": "2025-07-29", "rank": 178}, {"date": "2025-08-09", "rank": 182}, {"date": "2025-08-10", "rank": 182}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
