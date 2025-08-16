@@ -8,7 +8,6 @@ import zipfile
 import random
 from html import escape
 import requests
-import math
 
 # Define folder paths
 input_folder = 'PS'
@@ -866,11 +865,9 @@ if up_groups or down_groups or unchanged_groups:
 else:
     top_movers_rows = '<tr><td>No significant rank changes</td></tr>'
 
-# Generate ranking table rows with pagination
-items_per_page = 50
-total_pages = math.ceil(len(sorted_data) / items_per_page)
+# Generate ranking table rows
 table_rows = ''
-for i, entry in enumerate(sorted_data):
+for entry in sorted_data:
     group_name = escape(entry['group name'])
     photo_src = entry['photo_file_name']
     html_link = f"HTML/{entry['html_file']}"
@@ -890,10 +887,9 @@ for i, entry in enumerate(sorted_data):
         else:
             zero_url = f"{github_raw_base}/Photos/0.png"
             up_down_img = zero_url if is_url_accessible(zero_url) else up_down_img
-    page_number = (i // items_per_page) + 1
-    print(f"Ranking Table: Group {group_name}, Photo: {photo_src}, Up Down image: {up_down_img}, Page: {page_number}")
+    print(f"Ranking Table: Group {group_name}, Photo: {photo_src}, Up Down image: {up_down_img}")
     table_rows += f"""
-    <tr data-page="{page_number}">
+    <tr>
         <td>{entry['rank']}</td>
         <td>{last_rank_display}</td>
         <td>{up_down} <img src="{up_down_img}" alt="Up Down" class="up-down-img"></td>
@@ -909,7 +905,7 @@ for i, entry in enumerate(sorted_data):
     </tr>
     """
 
-# Generate ranking HTML with pagination and back-to-top button
+# Generate ranking HTML
 total_groups = len(sorted_data)
 ranking_html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -925,9 +921,6 @@ ranking_html_content = f"""<!DOCTYPE html>
         th {{ background-color: #e6b800; color: #1e2a44; cursor: pointer; }}
         th:hover {{ background-color: #b30000; }}
         tr:hover {{ background-color: #3b4a6b; }}
-        #rankingTable thead tr {{ display: table-row !important; }}
-        #rankingTable tbody tr {{ display: none; }}
-        #rankingTable tbody tr[data-page="1"] {{ display: table-row; }}
         .up-down-img {{ width: 20px; height: 20px; vertical-align: middle; }}
         a {{ text-decoration: none; color: #e6b800; }}
         a:hover {{ color: #b30000; text-decoration: underline; }}
@@ -941,37 +934,6 @@ ranking_html_content = f"""<!DOCTYPE html>
         .mover-info {{ display: flex; flex-direction: column; align-items: center; gap: 10px; width: 320px; }}
         .mover-info p {{ margin: 5px 0; font-size: 16px; }}
         #topMoversTable td {{ min-width: 340px; }}
-        .pagination {{ margin: 20px auto; text-align: center; }}
-        .pagination button {{ 
-            background-color: #2a3a5c; 
-            color: #e6b800; 
-            border: 1px solid #3b4a6b; 
-            padding: 10px 15px; 
-            margin: 0 5px; 
-            cursor: pointer; 
-            border-radius: 5px; 
-            font-size: 16px; 
-        }}
-        .pagination button:hover {{ background-color: #b30000; }}
-        .pagination button.active {{ background-color: #e6b800; color: #1e2a44; }}
-        .pagination button:disabled {{ opacity: 0.5; cursor: not-allowed; }}
-        #backToTop {{
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: #e6b800;
-            color: #1e2a44;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }}
-        #backToTop:hover {{
-            background-color: #b30000;
-        }}
         @keyframes countUp {{ from {{ content: "0"; }} to {{ content: attr(data-rank); }} }}
         @media only screen and (max-width: 1200px) {{ 
             table {{ width: 90%; }} 
@@ -981,8 +943,6 @@ ranking_html_content = f"""<!DOCTYPE html>
             .mover-info {{ width: 220px; }}
             .mover-info p {{ font-size: 14px; }}
             #topMoversTable td {{ min-width: 240px; }}
-            .pagination button {{ padding: 8px 12px; font-size: 14px; }}
-            #backToTop {{ padding: 8px 12px; font-size: 14px; }}
         }}
         @media only screen and (max-width: 768px) {{ 
             table {{ width: 95%; }} 
@@ -993,9 +953,6 @@ ranking_html_content = f"""<!DOCTYPE html>
             .mover-info p {{ font-size: 12px; }}
             #topMoversTable td {{ min-width: 190px; }}
             #topMoversTable {{ display: block; overflow-x: auto; white-space: nowrap; }}
-            #rankingTable {{ display: block; overflow-x: auto; white-space: nowrap; }}
-            .pagination button {{ padding: 6px 10px; font-size: 12px; }}
-            #backToTop {{ padding: 6px 10px; font-size: 12px; }}
         }}
     </style>
 </head>
@@ -1029,51 +986,8 @@ ranking_html_content = f"""<!DOCTYPE html>
             {table_rows}
         </tbody>
     </table>
-    <div class="pagination" id="pagination">
-        <button onclick="changePage(-1)" id="prevPage" disabled>Previous</button>
-        <span id="pageButtons"></span>
-        <button onclick="changePage(1)" id="nextPage">Next</button>
-    </div>
-    <button id="backToTop" title="Back to Top">↑ Top</button>
     <script>
         let sortDirections = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        let currentPage = 1;
-        const itemsPerPage = 50;
-        const totalPages = {total_pages};
-
-        function updatePagination() {{
-            const rows = document.querySelectorAll('#tableBody tr');
-            rows.forEach(row => {{
-                row.style.display = 'none';
-                if (parseInt(row.getAttribute('data-page')) === currentPage) {{
-                    row.style.display = 'table-row';
-                }}
-            }});
-            const prevButton = document.getElementById('prevPage');
-            const nextButton = document.getElementById('nextPage');
-            prevButton.disabled = currentPage === 1;
-            nextButton.disabled = currentPage === totalPages;
-            const pageButtons = document.getElementById('pageButtons');
-            pageButtons.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {{
-                const button = document.createElement('button');
-                button.textContent = i;
-                button.className = i === currentPage ? 'active' : '';
-                button.onclick = () => {{
-                    currentPage = i;
-                    updatePagination();
-                }};
-                pageButtons.appendChild(button);
-            }}
-        }}
-
-        function changePage(delta) {{
-            currentPage += delta;
-            if (currentPage < 1) currentPage = 1;
-            if (currentPage > totalPages) currentPage = totalPages;
-            updatePagination();
-        }}
-
         function sortTable(columnIndex) {{
             if (columnIndex === 4) return;
             const tbody = document.getElementById('tableBody');
@@ -1115,26 +1029,10 @@ ranking_html_content = f"""<!DOCTYPE html>
             while (tbody.firstChild) {{ 
                 tbody.removeChild(tbody.firstChild); 
             }}
-            rows.forEach((row, index) => {{
-                row.setAttribute('data-page', Math.floor(index / itemsPerPage) + 1);
-                tbody.appendChild(row);
-            }});
+            rows.forEach(row => tbody.appendChild(row));
             sortDirections[columnIndex] = direction;
             sortDirections = sortDirections.map((d, i) => i === columnIndex ? d : 0);
-            currentPage = 1;
-            updatePagination();
         }}
-
-        document.addEventListener('DOMContentLoaded', function() {{
-            updatePagination();
-            window.onscroll = function() {{
-                const backToTopButton = document.getElementById('backToTop');
-                backToTopButton.style.display = window.scrollY > 100 ? 'block' : 'none';
-            }};
-            document.getElementById('backToTop').onclick = function() {{
-                window.scrollTo({{ top: 0, behavior: 'smooth' }});
-            }};
-        }});
     </script>
 </body>
 </html>
