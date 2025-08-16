@@ -12,6 +12,9 @@
         th { background-color: #e6b800; color: #1e2a44; cursor: pointer; }
         th:hover { background-color: #b30000; }
         tr:hover { background-color: #3b4a6b; }
+        #rankingTable thead tr { display: table-row !important; }
+        #rankingTable tbody tr { display: none; }
+        #rankingTable tbody tr[data-page="1"] { display: table-row; }
         .up-down-img { width: 20px; height: 20px; vertical-align: middle; }
         a { text-decoration: none; color: #e6b800; }
         a:hover { color: #b30000; text-decoration: underline; }
@@ -25,6 +28,37 @@
         .mover-info { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 320px; }
         .mover-info p { margin: 5px 0; font-size: 16px; }
         #topMoversTable td { min-width: 340px; }
+        .pagination { margin: 20px auto; text-align: center; }
+        .pagination button { 
+            background-color: #2a3a5c; 
+            color: #e6b800; 
+            border: 1px solid #3b4a6b; 
+            padding: 10px 15px; 
+            margin: 0 5px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-size: 16px; 
+        }
+        .pagination button:hover { background-color: #b30000; }
+        .pagination button.active { background-color: #e6b800; color: #1e2a44; }
+        .pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #e6b800;
+            color: #1e2a44;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #backToTop:hover {
+            background-color: #b30000;
+        }
         @keyframes countUp { from { content: "0"; } to { content: attr(data-rank); } }
         @media only screen and (max-width: 1200px) { 
             table { width: 90%; } 
@@ -34,6 +68,8 @@
             .mover-info { width: 220px; }
             .mover-info p { font-size: 14px; }
             #topMoversTable td { min-width: 240px; }
+            .pagination button { padding: 8px 12px; font-size: 14px; }
+            #backToTop { padding: 8px 12px; font-size: 14px; }
         }
         @media only screen and (max-width: 768px) { 
             table { width: 95%; } 
@@ -44,6 +80,9 @@
             .mover-info p { font-size: 12px; }
             #topMoversTable td { min-width: 190px; }
             #topMoversTable { display: block; overflow-x: auto; white-space: nowrap; }
+            #rankingTable { display: block; overflow-x: auto; white-space: nowrap; }
+            .pagination button { padding: 6px 10px; font-size: 12px; }
+            #backToTop { padding: 6px 10px; font-size: 12px; }
         }
     </style>
 </head>
@@ -225,7 +264,7 @@
         </thead>
         <tbody id="tableBody">
             
-    <tr>
+    <tr data-page="1">
         <td>1</td>
         <td>1 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -240,7 +279,7 @@
         <td>546.80</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>2</td>
         <td>2 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -255,7 +294,7 @@
         <td>544.54</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>3</td>
         <td>3 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -270,7 +309,7 @@
         <td>508.28</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>4</td>
         <td>5 (2025-08-14)</td>
         <td>1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -285,7 +324,7 @@
         <td>427.11</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>5</td>
         <td>4 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -300,7 +339,7 @@
         <td>425.44</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>6</td>
         <td>6 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -315,7 +354,7 @@
         <td>387.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>7</td>
         <td>7 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -330,7 +369,7 @@
         <td>383.41</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>8</td>
         <td>8 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -345,7 +384,7 @@
         <td>343.48</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>9</td>
         <td>9 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -360,7 +399,7 @@
         <td>338.53</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>10</td>
         <td>10 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -375,7 +414,7 @@
         <td>333.93</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>11</td>
         <td>11 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -390,7 +429,7 @@
         <td>318.96</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>12</td>
         <td>12 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -405,7 +444,7 @@
         <td>304.60</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>13</td>
         <td>13 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -420,7 +459,7 @@
         <td>303.45</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>14</td>
         <td>14 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -435,7 +474,7 @@
         <td>298.06</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>15</td>
         <td>15 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -450,7 +489,7 @@
         <td>290.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>16</td>
         <td>16 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -465,22 +504,22 @@
         <td>289.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>17</td>
         <td>17 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/lady_lyne_1920356684.html" target="_blank">Lady Lyne</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Lady Lyne.jpg" alt="Lady Lyne" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/lady_lyne_1920356684.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Lady Lyne</h1></a></div></div></div></td>
-        <td>2 days</td>
+        <td>3 days</td>
         <td>40</td>
         <td>18</td>
         <td>18</td>
         <td>4</td>
         <td>36</td>
-        <td>287.38</td>
+        <td>287.37</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>18</td>
         <td>18 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -495,7 +534,7 @@
         <td>280.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>19</td>
         <td>19 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -510,22 +549,22 @@
         <td>279.15</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>20</td>
         <td>20 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/vintage_1937892178.html" target="_blank">Vintage</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Vintage.jpg" alt="Vintage" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/vintage_1937892178.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Vintage</h1></a></div></div></div></td>
-        <td>80 days</td>
+        <td>81 days</td>
         <td>120</td>
         <td>14</td>
         <td>24</td>
         <td>9</td>
         <td>0</td>
-        <td>278.89</td>
+        <td>278.88</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>21</td>
         <td>21 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -540,7 +579,7 @@
         <td>273.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>22</td>
         <td>22 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -555,7 +594,7 @@
         <td>270.56</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>23</td>
         <td>23 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -570,7 +609,7 @@
         <td>269.62</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>24</td>
         <td>24 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -585,7 +624,7 @@
         <td>267.32</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>25</td>
         <td>25 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -600,7 +639,7 @@
         <td>260.98</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>26</td>
         <td>26 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -615,7 +654,7 @@
         <td>249.66</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>27</td>
         <td>27 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -630,7 +669,7 @@
         <td>244.29</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>28</td>
         <td>28 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -645,7 +684,7 @@
         <td>241.84</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>29</td>
         <td>29 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -660,7 +699,7 @@
         <td>240.84</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>30</td>
         <td>30 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -675,7 +714,7 @@
         <td>237.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>31</td>
         <td>31 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -690,7 +729,7 @@
         <td>233.68</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>32</td>
         <td>32 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -705,7 +744,7 @@
         <td>231.74</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>33</td>
         <td>33 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -720,7 +759,7 @@
         <td>204.57</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>34</td>
         <td>39 (2025-08-14)</td>
         <td>5 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -735,7 +774,7 @@
         <td>199.16</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>35</td>
         <td>34 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -750,7 +789,7 @@
         <td>197.93</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>36</td>
         <td>35 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -765,7 +804,7 @@
         <td>197.63</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>37</td>
         <td>36 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -780,7 +819,7 @@
         <td>189.40</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>38</td>
         <td>37 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -795,7 +834,7 @@
         <td>183.45</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>39</td>
         <td>44 (2025-08-14)</td>
         <td>5 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -810,7 +849,7 @@
         <td>180.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>40</td>
         <td>38 (2025-08-14)</td>
         <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -825,7 +864,7 @@
         <td>179.14</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>41</td>
         <td>40 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -840,7 +879,7 @@
         <td>175.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>42</td>
         <td>41 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -855,7 +894,7 @@
         <td>175.91</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>43</td>
         <td>42 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -870,7 +909,7 @@
         <td>172.81</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>44</td>
         <td>43 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -885,7 +924,7 @@
         <td>170.29</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>45</td>
         <td>45 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -900,7 +939,7 @@
         <td>167.40</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>46</td>
         <td>46 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -915,7 +954,7 @@
         <td>166.31</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>47</td>
         <td>47 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -930,7 +969,7 @@
         <td>155.89</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>48</td>
         <td>48 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -945,7 +984,7 @@
         <td>154.22</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>49</td>
         <td>54 (2025-08-14)</td>
         <td>5 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -960,7 +999,7 @@
         <td>153.53</td>
     </tr>
     
-    <tr>
+    <tr data-page="1">
         <td>50</td>
         <td>49 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -975,7 +1014,7 @@
         <td>152.53</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>51</td>
         <td>50 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -990,7 +1029,7 @@
         <td>152.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>52</td>
         <td>51 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -1005,7 +1044,7 @@
         <td>150.75</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>53</td>
         <td>52 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -1020,7 +1059,7 @@
         <td>146.69</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>54</td>
         <td>53 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -1035,7 +1074,7 @@
         <td>146.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>55</td>
         <td>55 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1050,7 +1089,7 @@
         <td>142.71</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>56</td>
         <td>56 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1065,7 +1104,7 @@
         <td>136.74</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>57</td>
         <td>57 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1080,7 +1119,7 @@
         <td>135.40</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>58</td>
         <td>58 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1095,7 +1134,7 @@
         <td>134.55</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>59</td>
         <td>59 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1110,7 +1149,7 @@
         <td>134.25</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>60</td>
         <td>60 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1125,22 +1164,22 @@
         <td>129.56</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>61</td>
         <td>61 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/angel_young_2186952148.html" target="_blank">Angel Young💋</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Angel Young💋.jpg" alt="Angel Young💋" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/angel_young_2186952148.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Angel Young💋</h1></a></div></div></div></td>
-        <td>6 days</td>
+        <td>7 days</td>
         <td>9</td>
         <td>9</td>
         <td>5</td>
         <td>1</td>
         <td>14</td>
-        <td>127.00</td>
+        <td>126.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>62</td>
         <td>62 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1155,7 +1194,7 @@
         <td>126.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>63</td>
         <td>63 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1170,7 +1209,7 @@
         <td>124.12</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>64</td>
         <td>64 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1185,7 +1224,7 @@
         <td>122.24</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>65</td>
         <td>65 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1200,7 +1239,7 @@
         <td>115.47</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>66</td>
         <td>67 (2025-08-14)</td>
         <td>1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -1215,7 +1254,7 @@
         <td>110.13</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>67</td>
         <td>66 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -1230,7 +1269,7 @@
         <td>107.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>68</td>
         <td>68 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1245,7 +1284,7 @@
         <td>102.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>69</td>
         <td>69 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1260,7 +1299,7 @@
         <td>101.81</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>70</td>
         <td>70 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1275,7 +1314,7 @@
         <td>101.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>71</td>
         <td>71 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1290,7 +1329,7 @@
         <td>100.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>72</td>
         <td>72 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1305,7 +1344,7 @@
         <td>97.47</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>73</td>
         <td>73 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1320,7 +1359,7 @@
         <td>95.52</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>74</td>
         <td>74 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1335,7 +1374,7 @@
         <td>91.35</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>75</td>
         <td>75 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1350,7 +1389,7 @@
         <td>90.51</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>76</td>
         <td>76 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1365,7 +1404,7 @@
         <td>87.79</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>77</td>
         <td>77 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1380,7 +1419,7 @@
         <td>85.08</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>78</td>
         <td>78 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1395,7 +1434,7 @@
         <td>81.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>79</td>
         <td>79 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1410,7 +1449,7 @@
         <td>81.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>80</td>
         <td>80 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1425,7 +1464,7 @@
         <td>81.01</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>81</td>
         <td>81 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1440,7 +1479,7 @@
         <td>79.65</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>82</td>
         <td>82 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1455,7 +1494,7 @@
         <td>78.94</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>83</td>
         <td>83 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1470,7 +1509,7 @@
         <td>77.68</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>84</td>
         <td>84 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1485,7 +1524,7 @@
         <td>74.57</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>85</td>
         <td>85 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1500,7 +1539,7 @@
         <td>72.88</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>86</td>
         <td>86 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1515,7 +1554,7 @@
         <td>69.39</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>87</td>
         <td>87 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1530,7 +1569,7 @@
         <td>68.21</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>88</td>
         <td>88 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1545,7 +1584,7 @@
         <td>66.86</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>89</td>
         <td>89 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1560,7 +1599,7 @@
         <td>66.61</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>90</td>
         <td>90 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1575,7 +1614,7 @@
         <td>65.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>91</td>
         <td>91 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1590,7 +1629,7 @@
         <td>65.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>92</td>
         <td>92 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1605,7 +1644,7 @@
         <td>65.06</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>93</td>
         <td>93 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1620,7 +1659,7 @@
         <td>64.86</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>94</td>
         <td>94 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1635,7 +1674,7 @@
         <td>62.25</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>95</td>
         <td>95 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1650,7 +1689,7 @@
         <td>61.44</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>96</td>
         <td>96 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1665,7 +1704,7 @@
         <td>59.98</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>97</td>
         <td>97 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1680,7 +1719,7 @@
         <td>58.71</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>98</td>
         <td>98 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1695,7 +1734,7 @@
         <td>56.28</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>99</td>
         <td>99 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1710,7 +1749,7 @@
         <td>55.46</td>
     </tr>
     
-    <tr>
+    <tr data-page="2">
         <td>100</td>
         <td>100 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1725,7 +1764,7 @@
         <td>55.33</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>101</td>
         <td>101 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1740,7 +1779,7 @@
         <td>54.54</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>102</td>
         <td>102 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1755,7 +1794,7 @@
         <td>54.50</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>103</td>
         <td>103 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1770,7 +1809,7 @@
         <td>54.22</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>104</td>
         <td>104 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1785,7 +1824,7 @@
         <td>51.24</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>105</td>
         <td>105 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1800,7 +1839,7 @@
         <td>50.93</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>106</td>
         <td>106 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1815,7 +1854,7 @@
         <td>50.44</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>107</td>
         <td>107 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1830,7 +1869,7 @@
         <td>50.17</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>108</td>
         <td>108 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1845,7 +1884,7 @@
         <td>49.29</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>109</td>
         <td>109 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1860,7 +1899,7 @@
         <td>45.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>110</td>
         <td>110 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1875,7 +1914,7 @@
         <td>44.68</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>111</td>
         <td>111 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1890,7 +1929,7 @@
         <td>44.51</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>112</td>
         <td>112 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1905,7 +1944,7 @@
         <td>44.00</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>113</td>
         <td>113 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1920,7 +1959,7 @@
         <td>42.86</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>114</td>
         <td>114 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1935,7 +1974,7 @@
         <td>42.69</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>115</td>
         <td>115 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1950,22 +1989,22 @@
         <td>40.06</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>116</td>
         <td>116 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/leya_desantis_2347134104.html" target="_blank">Leya Desantis</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Leya Desantis.jpg" alt="Leya Desantis" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/leya_desantis_2347134104.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Leya Desantis</h1></a></div></div></div></td>
-        <td>65 days</td>
+        <td>66 days</td>
         <td>4</td>
         <td>2</td>
         <td>2</td>
         <td>0</td>
         <td>4</td>
-        <td>39.58</td>
+        <td>39.57</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>117</td>
         <td>117 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1980,7 +2019,7 @@
         <td>39.21</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>118</td>
         <td>118 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -1995,7 +2034,7 @@
         <td>39.13</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>119</td>
         <td>119 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2010,37 +2049,37 @@
         <td>37.33</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>120</td>
         <td>120 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/eden_ivy_2198633488.html" target="_blank">Eden Ivy</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Eden Ivy.jpg" alt="Eden Ivy" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/eden_ivy_2198633488.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Eden Ivy</h1></a></div></div></div></td>
-        <td>229 days</td>
+        <td>230 days</td>
         <td>7</td>
         <td>0</td>
         <td>6</td>
         <td>0</td>
         <td>6</td>
-        <td>37.11</td>
+        <td>37.10</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>121</td>
         <td>121 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/julialexxx_2214618107.html" target="_blank">JULIALEXXX</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/JULIALEXXX.jpg" alt="JULIALEXXX" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/julialexxx_2214618107.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>JULIALEXXX</h1></a></div></div></div></td>
-        <td>228 days</td>
+        <td>229 days</td>
         <td>5</td>
         <td>2</td>
         <td>2</td>
         <td>0</td>
         <td>4</td>
-        <td>36.81</td>
+        <td>36.79</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>122</td>
         <td>122 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2055,7 +2094,7 @@
         <td>36.53</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>123</td>
         <td>123 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2070,7 +2109,7 @@
         <td>36.37</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>124</td>
         <td>124 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2085,7 +2124,7 @@
         <td>36.33</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>125</td>
         <td>125 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2100,7 +2139,7 @@
         <td>35.65</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>126</td>
         <td>126 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2115,22 +2154,22 @@
         <td>35.51</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>127</td>
         <td>127 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/alice_klay_2330512242.html" target="_blank">Alice Klay</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Alice Klay.jpg" alt="Alice Klay" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/alice_klay_2330512242.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Alice Klay</h1></a></div></div></div></td>
-        <td>2 days</td>
+        <td>3 days</td>
         <td>3</td>
         <td>2</td>
         <td>1</td>
         <td>0</td>
         <td>3</td>
-        <td>35.48</td>
+        <td>35.47</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>128</td>
         <td>128 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2145,7 +2184,7 @@
         <td>35.04</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>129</td>
         <td>129 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2160,7 +2199,7 @@
         <td>34.34</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>130</td>
         <td>130 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2175,7 +2214,7 @@
         <td>33.15</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>131</td>
         <td>131 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2190,7 +2229,7 @@
         <td>33.09</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>132</td>
         <td>132 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2205,7 +2244,7 @@
         <td>33.09</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>133</td>
         <td>133 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -2220,7 +2259,7 @@
         <td>32.50</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>134</td>
         <td>149 (2025-08-14)</td>
         <td>15 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -2235,7 +2274,7 @@
         <td>32.01</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>135</td>
         <td>134 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2250,7 +2289,7 @@
         <td>31.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>136</td>
         <td>135 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2265,7 +2304,7 @@
         <td>30.71</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>137</td>
         <td>136 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2280,7 +2319,7 @@
         <td>29.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>138</td>
         <td>137 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2295,7 +2334,7 @@
         <td>29.93</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>139</td>
         <td>138 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2310,7 +2349,7 @@
         <td>29.57</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>140</td>
         <td>139 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2325,7 +2364,7 @@
         <td>29.48</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>141</td>
         <td>140 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2340,7 +2379,7 @@
         <td>29.40</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>142</td>
         <td>141 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2355,7 +2394,7 @@
         <td>29.26</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>143</td>
         <td>142 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2370,7 +2409,7 @@
         <td>28.03</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>144</td>
         <td>143 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2385,22 +2424,22 @@
         <td>28.03</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>145</td>
         <td>144 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/melody_mae_2175897065.html" target="_blank">Melody Mae</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Melody Mae.jpg" alt="Melody Mae" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/melody_mae_2175897065.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Melody Mae</h1></a></div></div></div></td>
-        <td>190 days</td>
+        <td>191 days</td>
         <td>4</td>
         <td>0</td>
         <td>4</td>
         <td>0</td>
         <td>5</td>
-        <td>27.92</td>
+        <td>27.91</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>146</td>
         <td>145 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2415,7 +2454,7 @@
         <td>27.48</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>147</td>
         <td>146 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2430,22 +2469,22 @@
         <td>27.45</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>148</td>
         <td>147 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/nesty_2401622150.html" target="_blank">Nesty</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Nesty.jpg" alt="Nesty" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/nesty_2401622150.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Nesty</h1></a></div></div></div></td>
-        <td>229 days</td>
+        <td>230 days</td>
         <td>3</td>
         <td>2</td>
         <td>0</td>
         <td>0</td>
         <td>2</td>
-        <td>27.04</td>
+        <td>27.03</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>149</td>
         <td>262 (2025-08-14)</td>
         <td>113 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -2460,7 +2499,7 @@
         <td>26.80</td>
     </tr>
     
-    <tr>
+    <tr data-page="3">
         <td>150</td>
         <td>148 (2025-08-14)</td>
         <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2475,7 +2514,7 @@
         <td>26.77</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>151</td>
         <td>150 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2490,7 +2529,7 @@
         <td>26.58</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>152</td>
         <td>151 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2505,7 +2544,7 @@
         <td>26.03</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>153</td>
         <td>152 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2520,22 +2559,22 @@
         <td>25.79</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>154</td>
         <td>153 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/bella_rolland_2155078901.html" target="_blank">Bella Rolland</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Bella Rolland.jpg" alt="Bella Rolland" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/bella_rolland_2155078901.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Bella Rolland</h1></a></div></div></div></td>
-        <td>312 days</td>
+        <td>313 days</td>
         <td>3</td>
         <td>1</td>
         <td>2</td>
         <td>0</td>
         <td>3</td>
-        <td>25.74</td>
+        <td>25.72</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>155</td>
         <td>154 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2550,7 +2589,7 @@
         <td>25.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>156</td>
         <td>155 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2565,7 +2604,7 @@
         <td>25.27</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>157</td>
         <td>156 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2580,7 +2619,7 @@
         <td>25.06</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>158</td>
         <td>157 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2595,7 +2634,7 @@
         <td>25.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>159</td>
         <td>158 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2610,7 +2649,7 @@
         <td>24.94</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>160</td>
         <td>159 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2625,7 +2664,7 @@
         <td>24.41</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>161</td>
         <td>160 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2640,7 +2679,7 @@
         <td>23.85</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>162</td>
         <td>161 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2655,7 +2694,7 @@
         <td>23.56</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>163</td>
         <td>162 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2670,7 +2709,7 @@
         <td>23.51</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>164</td>
         <td>163 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2685,7 +2724,7 @@
         <td>23.44</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>165</td>
         <td>164 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2700,7 +2739,7 @@
         <td>22.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>166</td>
         <td>165 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2715,7 +2754,7 @@
         <td>22.21</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>167</td>
         <td>166 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2730,22 +2769,22 @@
         <td>22.20</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>168</td>
         <td>167 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/kendra_sunderland_2182359505.html" target="_blank">KENDRA SUNDERLAND</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/KENDRA SUNDERLAND.jpg" alt="KENDRA SUNDERLAND" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/kendra_sunderland_2182359505.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>KENDRA SUNDERLAND</h1></a></div></div></div></td>
-        <td>248 days</td>
+        <td>249 days</td>
         <td>3</td>
         <td>0</td>
         <td>3</td>
         <td>0</td>
         <td>3</td>
-        <td>21.77</td>
+        <td>21.76</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>169</td>
         <td>168 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2760,7 +2799,7 @@
         <td>21.72</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>170</td>
         <td>169 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2775,7 +2814,7 @@
         <td>21.37</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>171</td>
         <td>170 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2790,7 +2829,7 @@
         <td>21.21</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>172</td>
         <td>171 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2805,7 +2844,7 @@
         <td>20.98</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>173</td>
         <td>172 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2820,7 +2859,7 @@
         <td>20.57</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>174</td>
         <td>173 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2835,7 +2874,7 @@
         <td>20.17</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>175</td>
         <td>174 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2850,7 +2889,7 @@
         <td>20.08</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>176</td>
         <td>175 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2865,22 +2904,22 @@
         <td>20.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>177</td>
         <td>176 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/sky_wonderland_2583782491.html" target="_blank">Sky Wonderland</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Sky Wonderland.jpg" alt="Sky Wonderland" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/sky_wonderland_2583782491.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Sky Wonderland</h1></a></div></div></div></td>
-        <td>6 days</td>
+        <td>7 days</td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
         <td>0</td>
         <td>1</td>
-        <td>19.99</td>
+        <td>19.98</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>178</td>
         <td>177 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2895,7 +2934,7 @@
         <td>19.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>179</td>
         <td>178 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2910,7 +2949,7 @@
         <td>19.68</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>180</td>
         <td>179 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2925,7 +2964,7 @@
         <td>19.66</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>181</td>
         <td>180 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2940,7 +2979,7 @@
         <td>19.49</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>182</td>
         <td>181 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2955,7 +2994,7 @@
         <td>19.26</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>183</td>
         <td>182 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2970,7 +3009,7 @@
         <td>19.24</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>184</td>
         <td>183 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -2985,22 +3024,22 @@
         <td>18.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>185</td>
         <td>184 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/india_summer_2171164183.html" target="_blank">India Summer</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/India Summer.jpg" alt="India Summer" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/india_summer_2171164183.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>India Summer</h1></a></div></div></div></td>
-        <td>87 days</td>
+        <td>88 days</td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
         <td>0</td>
         <td>1</td>
-        <td>18.81</td>
+        <td>18.80</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>186</td>
         <td>185 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3015,7 +3054,7 @@
         <td>18.74</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>187</td>
         <td>186 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3030,7 +3069,7 @@
         <td>18.50</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>188</td>
         <td>187 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3045,7 +3084,7 @@
         <td>18.49</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>189</td>
         <td>188 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3060,7 +3099,7 @@
         <td>18.31</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>190</td>
         <td>189 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3075,7 +3114,7 @@
         <td>18.15</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>191</td>
         <td>190 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3090,7 +3129,7 @@
         <td>18.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>192</td>
         <td>191 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3105,7 +3144,7 @@
         <td>17.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>193</td>
         <td>192 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3120,7 +3159,7 @@
         <td>17.90</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>194</td>
         <td>193 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3135,7 +3174,7 @@
         <td>17.87</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>195</td>
         <td>194 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3150,7 +3189,7 @@
         <td>17.69</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>196</td>
         <td>195 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3165,7 +3204,7 @@
         <td>17.34</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>197</td>
         <td>196 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3180,7 +3219,7 @@
         <td>17.26</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>198</td>
         <td>197 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3195,7 +3234,7 @@
         <td>17.23</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>199</td>
         <td>198 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3210,7 +3249,7 @@
         <td>16.98</td>
     </tr>
     
-    <tr>
+    <tr data-page="4">
         <td>200</td>
         <td>199 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3225,7 +3264,7 @@
         <td>16.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>201</td>
         <td>200 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3240,7 +3279,7 @@
         <td>16.60</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>202</td>
         <td>201 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3255,7 +3294,7 @@
         <td>16.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>203</td>
         <td>202 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3270,7 +3309,7 @@
         <td>16.52</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>204</td>
         <td>203 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3285,7 +3324,7 @@
         <td>16.42</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>205</td>
         <td>204 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3300,7 +3339,7 @@
         <td>16.33</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>206</td>
         <td>205 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3315,7 +3354,7 @@
         <td>16.16</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>207</td>
         <td>206 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3330,7 +3369,7 @@
         <td>16.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>208</td>
         <td>207 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3345,7 +3384,7 @@
         <td>15.89</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>209</td>
         <td>208 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3360,7 +3399,7 @@
         <td>15.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>210</td>
         <td>209 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3375,7 +3414,7 @@
         <td>15.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>211</td>
         <td>210 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3390,7 +3429,7 @@
         <td>15.62</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>212</td>
         <td>211 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3405,7 +3444,7 @@
         <td>15.43</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>213</td>
         <td>212 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3420,7 +3459,7 @@
         <td>15.34</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>214</td>
         <td>213 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3435,7 +3474,7 @@
         <td>15.26</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>215</td>
         <td>214 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3450,7 +3489,7 @@
         <td>15.11</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>216</td>
         <td>215 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3465,7 +3504,7 @@
         <td>15.10</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>217</td>
         <td>216 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3480,7 +3519,7 @@
         <td>15.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>218</td>
         <td>217 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3495,7 +3534,7 @@
         <td>15.04</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>219</td>
         <td>218 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3510,25 +3549,10 @@
         <td>14.96</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>220</td>
-        <td>220 (2025-08-14)</td>
-        <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
-        <td><a href="HTML/krystal_sparks_2215759415.html" target="_blank">Krystal Sparks</a></td>
-        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Krystal Sparks.jpg" alt="Krystal Sparks" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/krystal_sparks_2215759415.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Krystal Sparks</h1></a></div></div></div></td>
-        <td>366 days</td>
-        <td>2</td>
-        <td>0</td>
-        <td>2</td>
-        <td>0</td>
-        <td>2</td>
-        <td>14.96</td>
-    </tr>
-    
-    <tr>
-        <td>221</td>
         <td>219 (2025-08-14)</td>
-        <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/dolly_diore_2248283250.html" target="_blank">Dolly Diore</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Dolly Diore.jpg" alt="Dolly Diore" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/dolly_diore_2248283250.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Dolly Diore</h1></a></div></div></div></td>
         <td>367 days</td>
@@ -3540,7 +3564,22 @@
         <td>14.96</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
+        <td>221</td>
+        <td>220 (2025-08-14)</td>
+        <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td><a href="HTML/krystal_sparks_2215759415.html" target="_blank">Krystal Sparks</a></td>
+        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Krystal Sparks.jpg" alt="Krystal Sparks" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/krystal_sparks_2215759415.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Krystal Sparks</h1></a></div></div></div></td>
+        <td>367 days</td>
+        <td>2</td>
+        <td>0</td>
+        <td>2</td>
+        <td>0</td>
+        <td>2</td>
+        <td>14.95</td>
+    </tr>
+    
+    <tr data-page="5">
         <td>222</td>
         <td>221 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3555,7 +3594,7 @@
         <td>14.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>223</td>
         <td>222 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3570,25 +3609,10 @@
         <td>14.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>224</td>
-        <td>224 (2025-08-14)</td>
-        <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
-        <td><a href="HTML/ambra_dolce_2181515307.html" target="_blank">Ambra Dolce</a></td>
-        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Ambra Dolce.jpg" alt="Ambra Dolce" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/ambra_dolce_2181515307.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Ambra Dolce</h1></a></div></div></div></td>
-        <td>366 days</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-        <td>1</td>
-        <td>14.91</td>
-    </tr>
-    
-    <tr>
-        <td>225</td>
         <td>223 (2025-08-14)</td>
-        <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/alecia_fox_2184639127.html" target="_blank">Alecia Fox</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Alecia Fox.jpg" alt="Alecia Fox" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/alecia_fox_2184639127.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Alecia Fox</h1></a></div></div></div></td>
         <td>374 days</td>
@@ -3600,10 +3624,10 @@
         <td>14.90</td>
     </tr>
     
-    <tr>
-        <td>226</td>
+    <tr data-page="5">
+        <td>225</td>
         <td>225 (2025-08-14)</td>
-        <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/evelyn_claire_2173246577.html" target="_blank">Evelyn Claire</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Evelyn Claire.jpg" alt="Evelyn Claire" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/evelyn_claire_2173246577.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Evelyn Claire</h1></a></div></div></div></td>
         <td>374 days</td>
@@ -3615,7 +3639,22 @@
         <td>14.89</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
+        <td>226</td>
+        <td>224 (2025-08-14)</td>
+        <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td><a href="HTML/ambra_dolce_2181515307.html" target="_blank">Ambra Dolce</a></td>
+        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Ambra Dolce.jpg" alt="Ambra Dolce" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/ambra_dolce_2181515307.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Ambra Dolce</h1></a></div></div></div></td>
+        <td>367 days</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>14.89</td>
+    </tr>
+    
+    <tr data-page="5">
         <td>227</td>
         <td>226 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3630,7 +3669,7 @@
         <td>14.89</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>228</td>
         <td>227 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3645,7 +3684,7 @@
         <td>14.86</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>229</td>
         <td>228 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3660,7 +3699,7 @@
         <td>14.83</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>230</td>
         <td>229 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3675,7 +3714,7 @@
         <td>14.70</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>231</td>
         <td>230 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3690,7 +3729,7 @@
         <td>14.33</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>232</td>
         <td>231 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3705,22 +3744,22 @@
         <td>14.22</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>233</td>
         <td>232 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/lisa_belys_2177008047.html" target="_blank">Lisa Belys</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Lisa Belys.jpg" alt="Lisa Belys" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/lisa_belys_2177008047.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Lisa Belys</h1></a></div></div></div></td>
-        <td>420 days</td>
+        <td>421 days</td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
         <td>0</td>
         <td>1</td>
-        <td>14.17</td>
+        <td>14.16</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>234</td>
         <td>233 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3735,7 +3774,7 @@
         <td>14.03</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>235</td>
         <td>234 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3750,7 +3789,7 @@
         <td>14.00</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>236</td>
         <td>235 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3765,22 +3804,22 @@
         <td>13.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>237</td>
         <td>236 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/sara_rich_2245362181.html" target="_blank">Sara Rich</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Sara Rich.jpg" alt="Sara Rich" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/sara_rich_2245362181.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Sara Rich</h1></a></div></div></div></td>
-        <td>430 days</td>
+        <td>431 days</td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
         <td>0</td>
         <td>1</td>
-        <td>13.96</td>
+        <td>13.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>238</td>
         <td>237 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3795,22 +3834,22 @@
         <td>13.86</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>239</td>
         <td>238 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/lily_bella_2569402632.html" target="_blank">Lily Bella</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Lily Bella.jpg" alt="Lily Bella" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/lily_bella_2569402632.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Lily Bella</h1></a></div></div></div></td>
-        <td>93 days</td>
+        <td>94 days</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>13.77</td>
+        <td>13.75</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>240</td>
         <td>239 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3825,7 +3864,7 @@
         <td>13.72</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>241</td>
         <td>240 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3840,7 +3879,7 @@
         <td>13.72</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>242</td>
         <td>241 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3855,7 +3894,7 @@
         <td>13.71</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>243</td>
         <td>242 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3870,7 +3909,7 @@
         <td>13.42</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>244</td>
         <td>243 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3885,7 +3924,7 @@
         <td>13.29</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>245</td>
         <td>244 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3900,7 +3939,7 @@
         <td>13.20</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>246</td>
         <td>245 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3915,7 +3954,7 @@
         <td>13.13</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>247</td>
         <td>246 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3930,7 +3969,7 @@
         <td>13.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>248</td>
         <td>247 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3945,7 +3984,7 @@
         <td>13.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>249</td>
         <td>248 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3960,7 +3999,7 @@
         <td>12.75</td>
     </tr>
     
-    <tr>
+    <tr data-page="5">
         <td>250</td>
         <td>249 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3975,7 +4014,7 @@
         <td>12.64</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>251</td>
         <td>250 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -3990,7 +4029,7 @@
         <td>12.54</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>252</td>
         <td>251 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4005,7 +4044,7 @@
         <td>12.53</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>253</td>
         <td>252 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4020,7 +4059,7 @@
         <td>12.43</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>254</td>
         <td>253 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4035,7 +4074,7 @@
         <td>12.34</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>255</td>
         <td>254 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4050,7 +4089,7 @@
         <td>12.31</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>256</td>
         <td>255 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4065,7 +4104,7 @@
         <td>12.25</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>257</td>
         <td>256 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4080,7 +4119,7 @@
         <td>11.85</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>258</td>
         <td>257 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4095,7 +4134,7 @@
         <td>11.80</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>259</td>
         <td>258 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4110,7 +4149,7 @@
         <td>11.77</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>260</td>
         <td>259 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4125,7 +4164,7 @@
         <td>11.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>261</td>
         <td>260 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4140,7 +4179,7 @@
         <td>11.50</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>262</td>
         <td>261 (2025-08-14)</td>
         <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4155,25 +4194,10 @@
         <td>11.43</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>263</td>
-        <td>264 (2025-08-14)</td>
-        <td>1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
-        <td><a href="HTML/sara_heat_2273145767.html" target="_blank">Sara Heat</a></td>
-        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Sara Heat.jpg" alt="Sara Heat" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/sara_heat_2273145767.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Sara Heat</h1></a></div></div></div></td>
-        <td>270 days</td>
-        <td>1</td>
-        <td>0</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-        <td>11.38</td>
-    </tr>
-    
-    <tr>
-        <td>264</td>
         <td>263 (2025-08-14)</td>
-        <td>-1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
+        <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/zuzu_sweet_2278598943.html" target="_blank">Zuzu Sweet</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Zuzu Sweet.jpg" alt="Zuzu Sweet" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/zuzu_sweet_2278598943.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Zuzu Sweet</h1></a></div></div></div></td>
         <td>271 days</td>
@@ -4185,7 +4209,22 @@
         <td>11.38</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
+        <td>264</td>
+        <td>264 (2025-08-14)</td>
+        <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
+        <td><a href="HTML/sara_heat_2273145767.html" target="_blank">Sara Heat</a></td>
+        <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Sara Heat.jpg" alt="Sara Heat" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/sara_heat_2273145767.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Sara Heat</h1></a></div></div></div></td>
+        <td>271 days</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>11.37</td>
+    </tr>
+    
+    <tr data-page="6">
         <td>265</td>
         <td>265 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4200,7 +4239,7 @@
         <td>11.15</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>266</td>
         <td>266 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4215,7 +4254,7 @@
         <td>11.12</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>267</td>
         <td>267 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4230,7 +4269,7 @@
         <td>11.07</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>268</td>
         <td>268 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4245,7 +4284,7 @@
         <td>11.02</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>269</td>
         <td>269 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4260,7 +4299,7 @@
         <td>10.97</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>270</td>
         <td>270 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4275,7 +4314,7 @@
         <td>10.88</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>271</td>
         <td>271 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4290,7 +4329,7 @@
         <td>10.84</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>272</td>
         <td>272 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4305,7 +4344,7 @@
         <td>10.78</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>273</td>
         <td>273 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4320,7 +4359,7 @@
         <td>10.63</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>274</td>
         <td>274 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4335,22 +4374,22 @@
         <td>10.63</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>275</td>
         <td>275 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/sophia_burns_2484148817.html" target="_blank">Sophia Burns</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Sophia Burns.jpg" alt="Sophia Burns" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/sophia_burns_2484148817.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Sophia Burns</h1></a></div></div></div></td>
-        <td>312 days</td>
+        <td>313 days</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>10.61</td>
+        <td>10.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>276</td>
         <td>276 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4365,7 +4404,7 @@
         <td>10.49</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>277</td>
         <td>277 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4380,7 +4419,7 @@
         <td>10.48</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>278</td>
         <td>278 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4395,7 +4434,7 @@
         <td>10.47</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>279</td>
         <td>279 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4410,7 +4449,7 @@
         <td>10.32</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>280</td>
         <td>280 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4425,22 +4464,22 @@
         <td>10.02</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>281</td>
         <td>282 (2025-08-14)</td>
         <td>1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/lucky_bee_2190627012.html" target="_blank">Lucky Bee</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Lucky Bee.jpg" alt="Lucky Bee" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/lucky_bee_2190627012.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Lucky Bee</h1></a></div></div></div></td>
-        <td>366 days</td>
+        <td>367 days</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>10.01</td>
+        <td>9.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>282</td>
         <td>283 (2025-08-14)</td>
         <td>1 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/up.png" alt="Up Down" class="up-down-img"></td>
@@ -4455,7 +4494,7 @@
         <td>9.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>283</td>
         <td>281 (2025-08-14)</td>
         <td>-2 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/down.png" alt="Up Down" class="up-down-img"></td>
@@ -4470,7 +4509,7 @@
         <td>9.99</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>284</td>
         <td>284 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4485,7 +4524,7 @@
         <td>9.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>285</td>
         <td>285 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4500,7 +4539,7 @@
         <td>9.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>286</td>
         <td>286 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4515,7 +4554,7 @@
         <td>9.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>287</td>
         <td>287 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4530,7 +4569,7 @@
         <td>9.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>288</td>
         <td>288 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4545,7 +4584,7 @@
         <td>9.88</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>289</td>
         <td>289 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4560,7 +4599,7 @@
         <td>9.85</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>290</td>
         <td>290 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4575,7 +4614,7 @@
         <td>9.83</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>291</td>
         <td>291 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4590,7 +4629,7 @@
         <td>9.83</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>292</td>
         <td>292 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4605,7 +4644,7 @@
         <td>9.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>293</td>
         <td>293 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4620,7 +4659,7 @@
         <td>9.81</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>294</td>
         <td>294 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4635,7 +4674,7 @@
         <td>9.80</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>295</td>
         <td>295 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4650,7 +4689,7 @@
         <td>9.79</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>296</td>
         <td>296 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4665,7 +4704,7 @@
         <td>9.36</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>297</td>
         <td>297 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4680,22 +4719,22 @@
         <td>9.32</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>298</td>
         <td>298 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/serina_gomez_2152694399.html" target="_blank">Serina Gomez</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Serina Gomez.jpg" alt="Serina Gomez" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/serina_gomez_2152694399.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Serina Gomez</h1></a></div></div></div></td>
-        <td>418 days</td>
+        <td>419 days</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>9.24</td>
+        <td>9.22</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>299</td>
         <td>299 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4710,7 +4749,7 @@
         <td>9.18</td>
     </tr>
     
-    <tr>
+    <tr data-page="6">
         <td>300</td>
         <td>300 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4725,7 +4764,7 @@
         <td>9.06</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>301</td>
         <td>301 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4740,7 +4779,7 @@
         <td>9.05</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>302</td>
         <td>302 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4755,7 +4794,7 @@
         <td>9.02</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>303</td>
         <td>303 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4770,22 +4809,22 @@
         <td>8.85</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>304</td>
         <td>304 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
         <td><a href="HTML/penny_flame_2019886492.html" target="_blank">Penny Flame</a></td>
         <td><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Penny Flame.jpg" alt="Penny Flame" style="width:300px;height:300px;object-fit:cover;"></div><div class="flip-card-back"><a href="HTML/penny_flame_2019886492.html" target="_blank" style="color: #e6b800; text-decoration: none;"><h1>Penny Flame</h1></a></div></div></div></td>
-        <td>462 days</td>
+        <td>463 days</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>8.51</td>
+        <td>8.50</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>305</td>
         <td>305 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4800,7 +4839,7 @@
         <td>8.45</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>306</td>
         <td>306 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4815,7 +4854,7 @@
         <td>8.26</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>307</td>
         <td>307 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4830,7 +4869,7 @@
         <td>7.90</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>308</td>
         <td>308 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4845,7 +4884,7 @@
         <td>7.83</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>309</td>
         <td>309 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4860,7 +4899,7 @@
         <td>7.59</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>310</td>
         <td>310 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4875,7 +4914,7 @@
         <td>7.47</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>311</td>
         <td>311 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4890,7 +4929,7 @@
         <td>7.36</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>312</td>
         <td>312 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4905,7 +4944,7 @@
         <td>7.02</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>313</td>
         <td>313 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4920,7 +4959,7 @@
         <td>7.00</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>314</td>
         <td>314 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4935,7 +4974,7 @@
         <td>6.87</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>315</td>
         <td>315 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4950,7 +4989,7 @@
         <td>6.83</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>316</td>
         <td>316 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4965,7 +5004,7 @@
         <td>6.74</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>317</td>
         <td>317 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4980,7 +5019,7 @@
         <td>6.64</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>318</td>
         <td>318 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -4995,7 +5034,7 @@
         <td>6.55</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>319</td>
         <td>319 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5010,7 +5049,7 @@
         <td>6.51</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>320</td>
         <td>320 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5025,7 +5064,7 @@
         <td>6.19</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>321</td>
         <td>321 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5040,7 +5079,7 @@
         <td>6.08</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>322</td>
         <td>322 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5055,7 +5094,7 @@
         <td>6.01</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>323</td>
         <td>323 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5070,7 +5109,7 @@
         <td>5.96</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>324</td>
         <td>324 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5085,7 +5124,7 @@
         <td>5.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>325</td>
         <td>325 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5100,7 +5139,7 @@
         <td>5.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>326</td>
         <td>326 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5115,7 +5154,7 @@
         <td>5.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>327</td>
         <td>327 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5130,7 +5169,7 @@
         <td>5.92</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>328</td>
         <td>328 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5145,7 +5184,7 @@
         <td>5.90</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>329</td>
         <td>329 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5160,7 +5199,7 @@
         <td>5.85</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>330</td>
         <td>330 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5175,7 +5214,7 @@
         <td>5.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>331</td>
         <td>331 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5190,7 +5229,7 @@
         <td>5.79</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>332</td>
         <td>332 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5205,7 +5244,7 @@
         <td>5.55</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>333</td>
         <td>333 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5220,7 +5259,7 @@
         <td>5.28</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>334</td>
         <td>334 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5235,7 +5274,7 @@
         <td>4.95</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>335</td>
         <td>335 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5250,7 +5289,7 @@
         <td>4.82</td>
     </tr>
     
-    <tr>
+    <tr data-page="7">
         <td>336</td>
         <td>336 (2025-08-14)</td>
         <td>0 <img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/0.png" alt="Up Down" class="up-down-img"></td>
@@ -5267,8 +5306,51 @@
     
         </tbody>
     </table>
+    <div class="pagination" id="pagination">
+        <button onclick="changePage(-1)" id="prevPage" disabled>Previous</button>
+        <span id="pageButtons"></span>
+        <button onclick="changePage(1)" id="nextPage">Next</button>
+    </div>
+    <button id="backToTop" title="Back to Top">↑ Top</button>
     <script>
         let sortDirections = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let currentPage = 1;
+        const itemsPerPage = 50;
+        const totalPages = 7;
+
+        function updatePagination() {
+            const rows = document.querySelectorAll('#tableBody tr');
+            rows.forEach(row => {
+                row.style.display = 'none';
+                if (parseInt(row.getAttribute('data-page')) === currentPage) {
+                    row.style.display = 'table-row';
+                }
+            });
+            const prevButton = document.getElementById('prevPage');
+            const nextButton = document.getElementById('nextPage');
+            prevButton.disabled = currentPage === 1;
+            nextButton.disabled = currentPage === totalPages;
+            const pageButtons = document.getElementById('pageButtons');
+            pageButtons.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.className = i === currentPage ? 'active' : '';
+                button.onclick = () => {
+                    currentPage = i;
+                    updatePagination();
+                };
+                pageButtons.appendChild(button);
+            }
+        }
+
+        function changePage(delta) {
+            currentPage += delta;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            updatePagination();
+        }
+
         function sortTable(columnIndex) {
             if (columnIndex === 4) return;
             const tbody = document.getElementById('tableBody');
@@ -5310,10 +5392,26 @@
             while (tbody.firstChild) { 
                 tbody.removeChild(tbody.firstChild); 
             }
-            rows.forEach(row => tbody.appendChild(row));
+            rows.forEach((row, index) => {
+                row.setAttribute('data-page', Math.floor(index / itemsPerPage) + 1);
+                tbody.appendChild(row);
+            });
             sortDirections[columnIndex] = direction;
             sortDirections = sortDirections.map((d, i) => i === columnIndex ? d : 0);
+            currentPage = 1;
+            updatePagination();
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePagination();
+            window.onscroll = function() {
+                const backToTopButton = document.getElementById('backToTop');
+                backToTopButton.style.display = window.scrollY > 100 ? 'block' : 'none';
+            };
+            document.getElementById('backToTop').onclick = function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+        });
     </script>
 </body>
 </html>
