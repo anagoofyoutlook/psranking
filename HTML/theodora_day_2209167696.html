@@ -211,7 +211,7 @@
     <h1>Theodora Day</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="112"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="113"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Theodora Day/Theodora Day.jpg" style="width:100%;height:auto;"></div>
@@ -324,7 +324,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 110}, {"date": "2025-07-24", "rank": 110}, {"date": "2025-07-29", "rank": 110}, {"date": "2025-08-09", "rank": 112}, {"date": "2025-08-10", "rank": 112}, {"date": "2025-08-11", "rank": 112}, {"date": "2025-08-13", "rank": 112}, {"date": "2025-08-14", "rank": 112}];
+            const historyData = [{"date": "2025-07-23", "rank": 110}, {"date": "2025-07-24", "rank": 110}, {"date": "2025-07-29", "rank": 110}, {"date": "2025-08-09", "rank": 112}, {"date": "2025-08-10", "rank": 112}, {"date": "2025-08-11", "rank": 112}, {"date": "2025-08-13", "rank": 112}, {"date": "2025-08-14", "rank": 112}, {"date": "2025-08-16", "rank": 112}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {

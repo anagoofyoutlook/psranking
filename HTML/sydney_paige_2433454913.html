@@ -309,7 +309,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 242}, {"date": "2025-07-24", "rank": 242}, {"date": "2025-07-29", "rank": 245}, {"date": "2025-08-09", "rank": 247}, {"date": "2025-08-10", "rank": 247}, {"date": "2025-08-11", "rank": 172}, {"date": "2025-08-13", "rank": 172}, {"date": "2025-08-14", "rank": 154}];
+            const historyData = [{"date": "2025-07-23", "rank": 242}, {"date": "2025-07-24", "rank": 242}, {"date": "2025-07-29", "rank": 245}, {"date": "2025-08-09", "rank": 247}, {"date": "2025-08-10", "rank": 247}, {"date": "2025-08-11", "rank": 172}, {"date": "2025-08-13", "rank": 172}, {"date": "2025-08-14", "rank": 154}, {"date": "2025-08-16", "rank": 155}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
