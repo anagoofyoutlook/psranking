@@ -211,7 +211,7 @@
     <h1>Zazie Skymm</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="157"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="158"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 4</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Zazie Skymm/zazie.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">2 / 4</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Zazie Skymm/692469hero.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">3 / 4</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Zazie Skymm/zazie_skymm.jpg" style="width:100%;height:auto;"></div><div class="mySlides"><div class="numbertext">4 / 4</div><img src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Zazie Skymm/1267749.jpg" style="width:100%;height:auto;"></div>
@@ -304,7 +304,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-08-14", "rank": 215}, {"date": "2025-08-16", "rank": 216}, {"date": "2025-08-17", "rank": 216}];
+            const historyData = [{"date": "2025-08-14", "rank": 215}, {"date": "2025-08-16", "rank": 216}, {"date": "2025-08-17", "rank": 216}, {"date": "2025-08-19", "rank": 157}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -326,7 +326,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 360,
+                            suggestedMax: 361,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 

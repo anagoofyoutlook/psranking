@@ -211,7 +211,7 @@
     <h1>Keira Love</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="300"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="301"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%;height:auto;"></div>
@@ -295,7 +295,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 290}, {"date": "2025-07-24", "rank": 290}, {"date": "2025-07-29", "rank": 293}, {"date": "2025-08-09", "rank": 295}, {"date": "2025-08-10", "rank": 296}, {"date": "2025-08-11", "rank": 296}, {"date": "2025-08-13", "rank": 296}, {"date": "2025-08-14", "rank": 297}, {"date": "2025-08-16", "rank": 297}, {"date": "2025-08-17", "rank": 297}];
+            const historyData = [{"date": "2025-07-23", "rank": 290}, {"date": "2025-07-24", "rank": 290}, {"date": "2025-07-29", "rank": 293}, {"date": "2025-08-09", "rank": 295}, {"date": "2025-08-10", "rank": 296}, {"date": "2025-08-11", "rank": 296}, {"date": "2025-08-13", "rank": 296}, {"date": "2025-08-14", "rank": 297}, {"date": "2025-08-16", "rank": 297}, {"date": "2025-08-17", "rank": 297}, {"date": "2025-08-19", "rank": 300}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -317,7 +317,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 360,
+                            suggestedMax: 361,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
