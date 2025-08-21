@@ -220,7 +220,7 @@
             <div class="caption-container"><p id="caption"></p></div>
             <div class="row">
         <div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Gal Ritchie/vixen-gal-ritchie_1920x800.webp" style="width:100%" onclick="currentSlide(1)" alt="Gal Ritchie Photo 1"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Gal Ritchie/slayed-gal-ritchie_1920x800.webp" style="width:100%" onclick="currentSlide(2)" alt="Gal Ritchie Photo 2"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Gal Ritchie/blackedraw-gal-ritchie_1920x800.webp" style="width:100%" onclick="currentSlide(3)" alt="Gal Ritchie Photo 3"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Gal Ritchie/deeper-gal-ritchie_1920x800.webp" style="width:100%" onclick="currentSlide(4)" alt="Gal Ritchie Photo 4"></div><div class="column"><img class="demo cursor" src="https://raw.githubusercontent.com/anagoofyoutlook/psranking/main/Photos/Gal Ritchie/blacked-gal-ritchie_1920x800.webp" style="width:100%" onclick="currentSlide(5)" alt="Gal Ritchie Photo 5"></div></div></div>
-    <div class="info"><p>Scenes: 1860</p><p>Last Scene: 9 days</p></div>
+    <div class="info"><p>Scenes: 1860</p><p>Last Scene: 10 days</p></div>
     <div class="info">
         <h2>Rating Hashtag Counts (#FIVE, #FOUR, #Three)</h2><ul class="hashtags"><li class="hashtag-item">#FIVE: 13</li>
 <li class="hashtag-item">#FOUR: 6</li>
@@ -433,7 +433,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 53}, {"date": "2025-07-24", "rank": 53}, {"date": "2025-07-29", "rank": 50}, {"date": "2025-08-09", "rank": 51}, {"date": "2025-08-10", "rank": 45}, {"date": "2025-08-11", "rank": 42}, {"date": "2025-08-13", "rank": 42}, {"date": "2025-08-14", "rank": 42}, {"date": "2025-08-16", "rank": 43}, {"date": "2025-08-17", "rank": 43}, {"date": "2025-08-19", "rank": 44}];
+            const historyData = [{"date": "2025-07-23", "rank": 53}, {"date": "2025-07-24", "rank": 53}, {"date": "2025-07-29", "rank": 50}, {"date": "2025-08-09", "rank": 51}, {"date": "2025-08-10", "rank": 45}, {"date": "2025-08-11", "rank": 42}, {"date": "2025-08-13", "rank": 42}, {"date": "2025-08-14", "rank": 42}, {"date": "2025-08-16", "rank": 43}, {"date": "2025-08-17", "rank": 43}, {"date": "2025-08-19", "rank": 44}, {"date": "2025-08-20", "rank": 44}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -455,7 +455,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 361,
+                            suggestedMax: 362,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 

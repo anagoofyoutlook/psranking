@@ -295,7 +295,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 210}, {"date": "2025-07-24", "rank": 211}, {"date": "2025-07-29", "rank": 212}, {"date": "2025-08-09", "rank": 215}, {"date": "2025-08-10", "rank": 215}, {"date": "2025-08-11", "rank": 217}, {"date": "2025-08-13", "rank": 217}, {"date": "2025-08-14", "rank": 218}, {"date": "2025-08-16", "rank": 219}, {"date": "2025-08-17", "rank": 219}, {"date": "2025-08-19", "rank": 222}];
+            const historyData = [{"date": "2025-07-23", "rank": 210}, {"date": "2025-07-24", "rank": 211}, {"date": "2025-07-29", "rank": 212}, {"date": "2025-08-09", "rank": 215}, {"date": "2025-08-10", "rank": 215}, {"date": "2025-08-11", "rank": 217}, {"date": "2025-08-13", "rank": 217}, {"date": "2025-08-14", "rank": 218}, {"date": "2025-08-16", "rank": 219}, {"date": "2025-08-17", "rank": 219}, {"date": "2025-08-19", "rank": 222}, {"date": "2025-08-20", "rank": 223}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -317,7 +317,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 361,
+                            suggestedMax: 362,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 

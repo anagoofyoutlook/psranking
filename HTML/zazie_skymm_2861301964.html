@@ -304,7 +304,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-08-14", "rank": 215}, {"date": "2025-08-16", "rank": 216}, {"date": "2025-08-17", "rank": 216}, {"date": "2025-08-19", "rank": 157}];
+            const historyData = [{"date": "2025-08-14", "rank": 215}, {"date": "2025-08-16", "rank": 216}, {"date": "2025-08-17", "rank": 216}, {"date": "2025-08-19", "rank": 157}, {"date": "2025-08-20", "rank": 158}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -326,7 +326,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 361,
+                            suggestedMax: 362,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 

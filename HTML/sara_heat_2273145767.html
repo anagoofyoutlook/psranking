@@ -211,7 +211,7 @@
     <h1>Sara Heat</h1>
     <div class="rank-container">
         <div class="chart-container"><h2>Rank History</h2><canvas id="rankChart"></canvas></div>
-        <p>Rank: <span class="rank-number" data-rank="268"></span></p>
+        <p>Rank: <span class="rank-number" data-rank="267"></span></p>
     </div>
     <div class="container">
 <div class="mySlides"><div class="numbertext">1 / 1</div><img src="https://via.placeholder.com/1920x800" style="width:100%;height:auto;"></div>
@@ -296,7 +296,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('rankChart').getContext('2d');
-            const historyData = [{"date": "2025-07-23", "rank": 256}, {"date": "2025-07-24", "rank": 257}, {"date": "2025-07-29", "rank": 258}, {"date": "2025-08-09", "rank": 262}, {"date": "2025-08-10", "rank": 262}, {"date": "2025-08-11", "rank": 261}, {"date": "2025-08-13", "rank": 262}, {"date": "2025-08-14", "rank": 264}, {"date": "2025-08-16", "rank": 263}, {"date": "2025-08-17", "rank": 263}, {"date": "2025-08-19", "rank": 266}];
+            const historyData = [{"date": "2025-07-23", "rank": 256}, {"date": "2025-07-24", "rank": 257}, {"date": "2025-07-29", "rank": 258}, {"date": "2025-08-09", "rank": 262}, {"date": "2025-08-10", "rank": 262}, {"date": "2025-08-11", "rank": 261}, {"date": "2025-08-13", "rank": 262}, {"date": "2025-08-14", "rank": 264}, {"date": "2025-08-16", "rank": 263}, {"date": "2025-08-17", "rank": 263}, {"date": "2025-08-19", "rank": 266}, {"date": "2025-08-20", "rank": 267}];
             const dates = historyData.map(entry => entry.date);
             const ranks = historyData.map(entry => entry.rank);
             new Chart(ctx, {
@@ -318,7 +318,7 @@
                             beginAtZero: true, 
                             title: { display: true, text: 'Rank', color: '#e6b800' }, 
                             ticks: { stepSize: 1, color: '#ffffff' }, 
-                            suggestedMax: 361,
+                            suggestedMax: 362,
                             grid: { color: '#3b4a6b' }
                         }, 
                         x: { 
